@@ -1,5 +1,5 @@
 ---
-title: "의료데이터 분석 소개"
+title: "의료데이터 분석가 성장기"
 author: "김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)"
 institute: "차라투(주)"
 date: "2019-11-07"
