@@ -1,0 +1,56 @@
+---
+title: "IT 활용 건강관리"
+author: "[김진섭](https://github.com/jinseob2kim)"
+date: "2020-01-02"
+output:
+  xaringan::moon_reader:
+    css: ["css/footer-header.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "js/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "4:3" 
+subtitle: "정해산업보건연구소 교육"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
+library(knitr);library(DT);library(shiny)
+```
+
+
+layout: true
+
+
+---
+
+# Executive Summary 
+
+.large[
+
+* 모바일/웨어러블을 이용, 여러 건강지표들을 측정, 기록할 수 있다.
+
+
+* 모바일에서 내 의료기록을 확인하고 보험청구를 할 수 있다.
+
+
+]
+
+
+
+
+---
+
+class: center, middle
+
+# END
+
+
