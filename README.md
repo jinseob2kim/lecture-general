@@ -7,3 +7,9 @@ Lecture: general topic
 
 
 * [정해산업보건연구소](http://jioh.co.kr/) 발표: [IT 활용 건강관리](https://jinseob2kim.github.io/lecture-general/healthIT)
+
+
+* [영남대병원 의사과학자 역량 배가 프로젝트](https://yumc.ac.kr:8443/yumc/index.do) 발표: [맞춤형 의학통계지원 소개](https://jinseob2kim.github.io/lecture-general/yu)
+
+
+* [코드스테이츠 현장의 이야기 선배 Talk 세션](https://www.codestates.com/) 발표: [의학연구지원 소개](https://jinseob2kim.github.io/lecture-general/codestates)
