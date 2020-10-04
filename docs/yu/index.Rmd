@@ -1,5 +1,5 @@
 ---
-title: "맞춤형 의학통계지원 소개"
+title: "의학통계지원 소개"
 author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
 institute: "차라투(주)"
 date: "2020-10-22"
@@ -85,7 +85,7 @@ class: center, middle
 - 삼성서울병원 이식외과 육종(sarcoma) 데이터 분석: [5개 연구 계약](http://pf.kakao.com/_XsuxgC/51701089) 
 
 
-- 해운대백병원 정신질환 네트워크분석: [논문 4편](http://pf.kakao.com/_XsuxgC/52664370) 게재
+- 해운대백병원 정신질환 네트워크분석: [논문 5편](http://pf.kakao.com/_XsuxgC/52664370) 게재
 
 
 - 성균관의대 환경역학연구실 [미세먼지 대시보드](http://pf.kakao.com/_XsuxgC/43627405)
@@ -276,6 +276,27 @@ https://github.com/shinykorea/corona-triage
 ---
 
 ![](https://onlinelibrary.wiley.com/cms/asset/3369aef2-5fb4-49a2-8209-9a088e648cbb/pcn12989-fig-0002-m.jpg)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/mdd2020_scpark1.png)](https://linkinghub.elsevier.com/retrieve/pii/S0165032719323766)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/reapad2020_scpark1.png)](https://onlinelibrary.wiley.com/doi/full/10.1111/pcn.12989)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/reapap2020_scpark1.png)](https://www.tandfonline.com/doi/abs/10.1080/08039488.2020.1777462?journalCode=ipsc20)
+
+
+---
+[![](https://www.zarathu.com/img/portfolio/shizolang2020_scpark1.png)](https://www.eymj.org/search.php?where=aview&id=10.3349/ymj.2020.61.8.726&code=0069YMJ&vmode=FULL)
+
+
+---
+[![](https://www.zarathu.com/img/portfolio/ptsd_scpark1.png)](https://www.tandfonline.com/doi/abs/10.1080/08039488.2019.1692234?journalCode=ipsc20)
+
 
 ---
 # 미세먼지 대시보드
@@ -479,19 +500,20 @@ DMC 연구소로 입사 10개월만에 무선사업부로 이동.
 ---
 
 # 삼성전자에서 만난 의사.
-
+.large[
 - 중앙의대卒, 진단검사의학 전문의, 現 근무
 
 - 연세의대 03학번, 인턴中 무선사업부 입사, 사내벤처 1호.
 
 - 美 소아과 의사, 現 근무
-
+]
 
 ---
 
 # 사내벤처 C-lab
-
+.large[
 사내 우수 아이디어 선발, 1년 과제 진행後 스핀오프 결정. 
+]
 
 .center[
 ![](http://img.hankyung.com/photo/201808/AA.17477376.1.jpg)
@@ -610,7 +632,7 @@ class: center, middle
 
 - 비임상분야 도전의 두려움 << 수학이 아닌 분야 도전의 두려움. 
 
-- 의대 안갔으면 학원강사로 계속 살았을 듯. 
+- 수학과 갔으면 99% 학원강사.
 
 ---
 
