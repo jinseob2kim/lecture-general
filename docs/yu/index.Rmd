@@ -90,9 +90,10 @@ class: center, middle
 
 - 성균관의대 환경역학연구실 [미세먼지 대시보드](http://pf.kakao.com/_XsuxgC/43627405)
 
-- 삼성서울병원 정신과 통계자문계약
 
-- 서울대병원 순환기내과 통계자문계약
+- [삼성서울병원 정신과 통계자문계약](http://pf.kakao.com/_XsuxgC/55192190)
+
+- [서울대병원 순환기내과 통계자문계약](http://pf.kakao.com/_XsuxgC/55577702)
 
 
 ---
@@ -113,6 +114,11 @@ class: center, middle
 ---
 
 ![Subgroup 분석](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cobis3_joonletter.png)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/prog_chkh1.png)](https://www.ahajournals.org/doi/10.1161/CIRCINTERVENTIONS.119.008543)
+
 
 
 ---
@@ -148,7 +154,12 @@ class: center, middle
 
 ![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cdm_shiny.png)
 
---- 
+---
+
+[![](https://www.zarathu.com/img/portfolio/cdmkdh1.png)](https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983)
+
+
+---
 # 공단표본데이터 위암 연구 
 
 - 강동성심병원 내과와 공동연구 
@@ -231,6 +242,7 @@ https://github.com/shinykorea/corona-triage
 ---
 # 육종(sarcoma) 데이터 분석 
 
+.large[
 - [삼성서울병원 이식외과](http://pf.kakao.com/_XsuxgC/51701089)
 
 
@@ -245,7 +257,7 @@ https://github.com/shinykorea/corona-triage
 - Table 1
 
 - 로지스틱 회귀분석, 생존분석, 생존곡선 
-
+]
 
 ---
 
@@ -290,6 +302,27 @@ https://github.com/shinykorea/corona-triage
 
 
 ---
+# 통계자문 계약
+
+.large[
+삼성서울병원 정신과 백지현 교수
+
+* 통계 자문, [삼성서울병원 CDW](http://samsunghospital.com/home/info/newsView.do?seq=7136) 리튬데이터 분석
+
+
+
+서울대병원 순환기내과 김효수 교수 
+
+* 연구설계/통계 자문, [Lancet 게재](http://www.snuh.org/board/B003/view.do?viewType=true&bbs_no=5252) 
+]
+
+
+
+
+
+
+
+---
 # 연구지원결과: 논문
 
 .large[
@@ -329,7 +362,7 @@ https://www.zarathu.com/#portfolio
 ]
 --
 .large[
-[블로그](https://blog.zarathu.com/), DC 프로그래밍 갤러리 고정닉
+[블로그](https://blog.zarathu.com/), 카카오톡 오픈채팅방- 프로그래밍 갤러리 R 유저 모임
 ]
 
 ---
@@ -339,7 +372,7 @@ https://www.zarathu.com/#portfolio
 .large[
 https://github.com/shinykorea/Meetup
 
-- 월 1회 공부내용 공유. 
+- 월 1회 공부내용 공유. 20회 진행 
 
 - 의료/유전학/축산/반도체/게임/IPTV/회계 등 다양한 분야 사람들이 모임. 
 ]
@@ -530,14 +563,6 @@ include_graphics("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMwWnFkS
 
 - 現, 의대생 2명이 통계보조로 참여.
 
----
-
-# 향후 계획: 천하(天下)로..
-
-
-
-
-
 
 ---
 
@@ -562,6 +587,14 @@ include_graphics("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMwWnFkS
 - 삼성병원 의학통계 강의: [기술통계](https://blog.zarathu.com/posts/2020-07-08-table1inmed/) , [회귀분석](https://blog.zarathu.com/posts/2020-07-22-regressionbasic/)
 
 - 서울대병원 R 강의: [데이터매니지먼트](https://blog.zarathu.com/posts/2020-02-16-rdatamanagement-basic/), [tidyverse](https://blog.zarathu.com/posts/2020-04-06-rdatamanagementtidyverse/) 
+
+
+
+
+
+
+
+
 ---
 
 class: center, middle
@@ -663,9 +696,65 @@ class: center, middle
 
 마음가짐
 
-- 일과 인생에 스스로 책임을 진다. 
+- 책임지는 삶
 
-- 민심은 천심이다 
+- 민심은 천심
+
+
+---
+
+class: center, middle
+
+# 서비스 소개
+
+---
+# 자체 데이터 
+
+.large[
+* 맞춤형 분석웹 
+
+* http://app.zarathu.com 무료 분석웹
+
+]
+
+
+---
+# 공공 데이터 
+
+.large[
+국민건강영양조사 
+- 맞춤형 분석웹 
+
+심평원 빅데이터
+- 분석 & 리포트 (연구신청 8개월 이상 걸림)
+
+공단 빅데이터
+- 어려움(원격분석 불가능)
+]
+
+---
+# CDM 
+
+.large[
+CDM 기본모듈로 논문퀄리티는 무리. 
+- 맞춤형 R패키지, 그림 
+
+]
+
+
+---
+# 자문, 교육
+
+.large[
+자문
+- 1년간 수시로 질문 답변제공
+
+교육
+- 의학통계, R 
+]
+
+
+
 
 ---
 
