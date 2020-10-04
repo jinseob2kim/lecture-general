@@ -1,0 +1,759 @@
+---
+title: "의료데이터분석가 성장기"
+author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
+institute: "차라투(주)"
+date: "2020-11-04"
+output:
+  xaringan::moon_reader:
+    css: ["css/footer-header.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "js/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "4:3" 
+subtitle: "코드스테이츠"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
+library(knitr);library(DT);library(shiny)
+```
+
+
+layout: true
+
+<div class="my-footer"><span><a href="https://www.zarathu.com">Zarathu Co.,Ltd</a>   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="https://github.com/jinseob2kim">김진섭</a></span></div> 
+
+
+---
+
+# 소개
+
+.large[
+- 다양한 의료데이터를 다뤄본 경험으로, 의학연구 활성화에 기여하겠습니다. 
+
+
+- 의과대학, 유전체연구 박사과정, 삼성전자 무선사업부를 거치며 임상, 유전체, 모바일헬스 등 다양한 데이터를 다루었습니다.
+
+
+- 현재 연구지원법인 [차라투](https://www.zarathu.com) 를 운영 중입니다. 
+
+
+- [Shiny 밋업](https://github.com/shinykorea/Meetup) 의 진행과 후원을 맡아, 의료/축산/게임/반도체/신용평가/IPTV 등 다양한 분야의 사람들과 함께 Shiny 를 알아가는 중입니다.
+]
+
+---
+
+class: center, middle
+
+
+# 연구지원경험
+
+
+
+
+---
+# 주요 계약 
+
+
+- 대한심혈관중재학회 [COBIS III 레지스트리](https://clinicaltrials.gov/ct2/show/NCT03068494) 분석: [추가계약](http://pf.kakao.com/_XsuxgC/48388190)
+
+
+- 서울성모병원 [COREA-AMI II 레지스트리](https://clinicaltrials.gov/ct2/show/NCT02806102) 분석: [10개 연구 계약](http://pf.kakao.com/_XsuxgC/48043955)
+
+
+- 삼성서울병원 [공통데이터모델(CDM)](http://www.feedernet.org/html/?pmode=cdmdrn) 분석: [심평원 코로나데이터](https://hira-covid19.net/) 분석 중 
+
+
+- 강동성심병원 CDM 분석지원: 공단표본데이터 분석 중 
+
+
+- 경기도감염병관리지원단 코로나 대시보드 with Shinykorea: [최종보고](https://shinykorea.github.io/corona-activityrecord) 
+
+
+- 삼성서울병원 이식외과 육종(sarcoma) 데이터 분석: [5개 연구 계약](http://pf.kakao.com/_XsuxgC/51701089) 
+
+
+- 해운대백병원 정신질환 네트워크분석: [논문 5편](http://pf.kakao.com/_XsuxgC/52664370) 게재
+
+
+- 성균관의대 환경역학연구실 [미세먼지 대시보드](http://pf.kakao.com/_XsuxgC/43627405)
+
+
+- [삼성서울병원 정신과 통계자문계약](http://pf.kakao.com/_XsuxgC/55192190)
+
+- [서울대병원 순환기내과 통계자문계약](http://pf.kakao.com/_XsuxgC/55577702)
+
+
+---
+
+# COBIS III
+
+- 작년 10개 연구 계약, 올해 5개 추가 진행 중 
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cobis3_2020.png)
+
+- Prpensity score 매칭, IPTW 가중치 
+
+- Table 1, 생존분석, 생존곡선 
+
+- 서브그룹분석, forestplot
+
+
+---
+
+![Subgroup 분석](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cobis3_joonletter.png)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/prog_chkh1.png)](https://www.ahajournals.org/doi/10.1161/CIRCINTERVENTIONS.119.008543)
+
+
+
+---
+# COREA-AMI II
+
+- 1년간 10개 연구 계약 
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/corea-ami.png)
+
+- Prpensity score 매칭, IPTW 가중치 
+
+- Table 1, 생존분석, 생존곡선 
+
+- 서브그룹분석, forestplot
+
+---
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/corea-ami_md.png)
+
+---
+# 공통데이터모델(CDM)
+
+- 병원들의 **데이터형태를 통일**하면, 분석코드 하나로 여러 병원의 분석이 가능.
+
+
+- **분석코드가 R** 패키지형태로 만들어지고, **결과는 shiny** 로 보여짐.
+
+
+- 심평원 코로나데이터가 CDM 형태로도 제공되어 삼성서울병원 연구진과 분석 중.
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cdm_source.png)
+---
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cdm_shiny.png)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/cdmkdh1.png)](https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983)
+
+
+---
+# 공단표본데이터 위암 연구 
+
+- 강동성심병원 내과와 공동연구 
+
+
+- 데이터 100기가 이상, RAM 이 커야함. 지원받은 인공지능 고성능 서버 이용.
+
+
+분석모듈 
+
+- Prpensity score 매칭, IPTW 가중치 
+
+- Table 1, 생존분석, 생존곡선 
+
+- 서브그룹분석, forestplot
+
+
+---
+# 코로나 대시보드
+
+- 경기도감염병관리지원단 의뢰, with Shinykorea 
+
+
+고려사항 
+
+- 보안: 로그인, Dropbox/구글시트 접근권한
+
+- 이용자 의견 반영한 색상, 그래프, 테이블
+
+- 경기도 색상과 폰트 적용
+
+- 리포트 다운기능: pdf/word 각각
+
+
+---
+# 개발 1: [병상관리 대시보드](https://github.com/shinykorea/corona-sickbed)
+
+![](https://shinykorea.github.io/corona-activityrecord/d1.png)
+
+---
+# 병상관리 대시보드 요약
+
+.large[
+https://github.com/shinykorea/corona-sickbed
+
+- 목표: 경기도 병원 및 생활치료센터의 가용병상 현황을 보여주는 대시보드를 개발, 중증환자 입원에 대한 긴급대책단의 의사결정을 돕는다.
+
+- 정부제공 서버에 배포 중
+
+- 주요 기능: **로그인, Dropbox 연계 엑셀파일 업데이트, 병상현황 그래프/지도, 리포트 다운로드(pdf/word)**
+
+]
+
+
+
+---
+# 개발 2: [확진자 건강관리](https://github.com/shinykorea/corona-triage)
+
+![](https://user-images.githubusercontent.com/6457691/76766387-4157e700-67db-11ea-9d54-2b380006fa90.png)
+
+---
+
+![](https://user-images.githubusercontent.com/6457691/76766436-559be400-67db-11ea-8175-d23e5b3c5c9a.png)
+
+
+---
+# 확진자 건강관리 요약 
+
+.large[
+https://github.com/shinykorea/corona-triage
+
+- 목표: Covid-19 확진자를 중증도에 따라 분류, 의료자원을 고려한 치료 전략에 도움을 준다.
+
+- 현재 정부지원 서버에 배포 중
+
+- 주요 기능: **로그인, 구글 시트 연계 엑셀파일 업데이트, 구글 설문지 동기화, 전체 환자/센터별/개인별 상세 정보, 그래프**
+]
+
+
+---
+# 육종(sarcoma) 데이터 분석 
+
+.large[
+- [삼성서울병원 이식외과](http://pf.kakao.com/_XsuxgC/51701089)
+
+
+- 데이터정리, Shiny 분석웹 제공 
+
+
+- 현재 2개 연구 진행 중
+
+
+분석모듈
+
+- Table 1
+
+- 로지스틱 회귀분석, 생존분석, 생존곡선 
+]
+
+---
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/sarcoma.png)
+
+---
+# 정신질환 네트워크 분석 
+
+- 작년부터 with 해운대백병원 정신과 
+
+
+- [qgraph](http://sachaepskamp.com/qgraph/examples) 패키지 이용, 네트워크분석웹 개발 
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cogito.png)
+
+---
+
+![](https://onlinelibrary.wiley.com/cms/asset/3369aef2-5fb4-49a2-8209-9a088e648cbb/pcn12989-fig-0002-m.jpg)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/mdd2020_scpark1.png)](https://linkinghub.elsevier.com/retrieve/pii/S0165032719323766)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/reapad2020_scpark1.png)](https://onlinelibrary.wiley.com/doi/full/10.1111/pcn.12989)
+
+---
+
+[![](https://www.zarathu.com/img/portfolio/reapap2020_scpark1.png)](https://www.tandfonline.com/doi/abs/10.1080/08039488.2020.1777462?journalCode=ipsc20)
+
+
+---
+[![](https://www.zarathu.com/img/portfolio/shizolang2020_scpark1.png)](https://www.eymj.org/search.php?where=aview&id=10.3349/ymj.2020.61.8.726&code=0069YMJ&vmode=FULL)
+
+
+---
+[![](https://www.zarathu.com/img/portfolio/ptsd_scpark1.png)](https://www.tandfonline.com/doi/abs/10.1080/08039488.2019.1692234?journalCode=ipsc20)
+
+
+---
+# 미세먼지 대시보드
+
+- 성균관의대 환경역학연구실 의뢰 
+
+
+- 신축아파트에 미세먼지 모듈 제공 가능성 연구
+
+
+- [RSelenium 으로 긁어온 데이터](https://blog.zarathu.com/posts/2019-11-30-rseleniumtip/) 를 업로드하는 형태 
+
+
+![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/kweather.png)
+
+---
+# 코로나 예측모형
+
+.large[
+서울시 감염병관리지원단 자문 
+
+* 통계적 모델링, 예측을 shiny로 구현
+]
+
+
+---
+# 통계자문 계약
+
+.large[
+삼성서울병원 정신과 백지현 교수
+
+* 통계 자문, [삼성서울병원 CDW](http://samsunghospital.com/home/info/newsView.do?seq=7136) 리튬데이터 분석
+
+
+
+서울대병원 순환기내과 김효수 교수 
+
+* 연구설계/통계 자문, [Lancet 게재](http://www.snuh.org/board/B003/view.do?viewType=true&bbs_no=5252) 
+]
+
+
+
+
+
+
+
+---
+# 연구지원결과: 논문
+
+.large[
+https://www.zarathu.com/#portfolio
+]
+
+---
+
+# [통계분석 웹](http://app.zarathu.com/) 
+
+![](https://blog.zarathu.com/posts/2018-11-24-basic-biostatistics/app.gif)
+
+- 무료
+
+---
+
+
+# 프로그램 개발, 블로그 운영
+
+.large[
+[R](https://www.r-project.org/) packages
+
+- [jstable](https://github.com/jinseob2kim/jstable): 논문용 테이블 만들기
+
+
+- [jskm](https://github.com/jinseob2kim/jskm): 생존분석 그림 만들기
+
+
+- [jsmodule](https://github.com/jinseob2kim/jsmodule): 웹에서 하는 통계분석
+]
+
+--
+.large[
+데이터 분석용 가상머신([docker](https://www.docker.com/) image)
+
+- [rshiny](https://github.com/jinseob2kim/docker-rshiny): [Rstudio](https://www.rstudio.com/)와 [shiny server](https://www.rstudio.com/products/shiny/shiny-server/) 가 설치된 이미지.
+]
+--
+.large[
+[블로그](https://blog.zarathu.com/), 카카오톡 오픈채팅방- 프로그래밍 갤러리 R 유저 모임
+]
+
+---
+
+# 공부모임: Shiny 밋업
+
+.large[
+https://github.com/shinykorea/Meetup
+
+- 월 1회 공부내용 공유. 20회 진행 
+
+- 의료/유전학/축산/반도체/게임/IPTV/회계 등 다양한 분야 사람들이 모임. 
+]
+
+
+
+
+---
+
+class: center, middle
+
+
+# 경험 
+
+---
+
+# Executive Summary 
+
+.large[
+
+* 수학만 하다가 얼떨결에 의대 진학. 
+
+
+* 예방의학 전공하며 통계, 프로그래밍 공부.
+
+
+* 삼성전자 근무하며 디지털헬스와 창업을 알게 됨.  
+
+
+* 통계 이론으로 박사논문 쓰려다 실패, 창업지원사업 선정.
+
+
+* 통계지원 법인 설립.
+
+  - [R](https://www.r-project.org/) 과 [shiny](https://shiny.rstudio.com/) 이용, [**맞춤형** 분석웹](https://www.zarathu.com/) 제공
+  
+  - 범용 통계분석 웹: http://app.zarathu.com/
+  
+  - [R 패키지 개발](https://github.com/jinseob2kim/jsmodule)
+]
+
+---
+
+# 수학올림피아드 
+
+수학과만 생각했는데 의대 입학 
+
+- 1학기 수시: 올림피아드 전형 
+
+--
+
+의대 적응 못함
+
+- 6년內 면허취득 마지노선
+
+- 인턴 탈락
+
+--
+
+학원강사 
+
+- 본과 2학년말부터 대치 위OO.
+
+- 30살까지 수원 프OOOO, 대치 위OO. 
+
+
+---
+
+# 예방의학
+
+전공의 
+
+- [서울대 보건대학원](http://health.snu.ac.kr/node/104) 예방의학교실 
+
+- **임상의학 아님**. 관악캠퍼스 소속으로 타 과와의 연계가 장점. 
+
+
+석사 및 박사 수료
+
+- 서울대 보건대학원 [유전체역학 연구실](http://snugepi.snu.ac.kr/) 
+
+- 유전체 데이터 분석 방법론 연구.
+
+
+[R](https://www.r-project.org/), [python](https://www.python.org/), 리눅스 이용 시작. 지인 상대로 통계 자문 시작. 
+
+---
+
+# [삼성전자](http://health.chosun.com/news/dailynews_view.jsp?mn_idx=165897) 
+
+박사과정과 응급실 당직 병행 중, 지도교수님 통해 우연히 제의받음.
+
+- 면접 후 2년 3개월 계약직으로 입사. 
+
+DMC 연구소로 입사 10개월만에 무선사업부로 이동. 
+
+- 연구소에서는 디지털헬스 선행 기술 개발팀, 사업부에서는 **삼성헬스** 앱 개발팀.
+
+
+<center>
+<a href="https://newsimg.sedaily.com/2018/08/05/1S38RAKVMO_1.jpg/"><img src="https://newsimg.sedaily.com/2018/08/05/1S38RAKVMO_1.jpg" width=50%></a>
+</center>
+
+---
+
+# 삼성전자에서 만난 의사.
+.large[
+- 중앙의대卒, 진단검사의학 전문의, 現 근무
+
+- 연세의대 03학번, 인턴中 무선사업부 입사, 사내벤처 1호.
+
+- 美 소아과 의사, 現 근무
+]
+
+---
+
+# 사내벤처 C-lab
+.large[
+사내 우수 아이디어 선발, 1년 과제 진행後 스핀오프 결정. 
+]
+
+.center[
+![](http://img.hankyung.com/photo/201808/AA.17477376.1.jpg)
+]
+
+거북목관리 안경테, 1day 통계지원 서비스로 지원했으나 광탈.
+
+---
+
+# [**WELT**](https://www.weltcorp.com/)
+
+```{r, out.width= "60%", fig.cap ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMwWnFkSB64-AzQn0dC2s6LHYmut4eRPeQBXmuz6xE3lIAnMy2"}
+include_graphics("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMwWnFkSB64-AzQn0dC2s6LHYmut4eRPeQBXmuz6xE3lIAnMy2")
+```
+
+
+---
+
+# 퇴사 
+
+.large[
+2년차 중반 퇴사 결심. 
+
+- 한국수력원자력 탈락. 
+
+- 한국투자파트너스, 스틱인베스트먼트 VC 탈락. 
+
+
+의료 쪽 일을 병행하며 의대 입시컨설팅에 도전하기로 함. 
+]
+
+--
+
+.large[
+의대 입시 컨설팅은 시작도 못함, 박사과정을 마치기로 결정. 
+]
+
+---
+
+# 박사과정 
+
+.large[
+물리학에 빠짐. 일반상대성이론과 양자역학에 감명받음. 
+
+- 이론연구자가 되기로 결심하고 통계이론 논문을 작성. 
+
+- 해외 논문 게재 실패. 박사 학위도 어려움.
+
+- 결국 자체 [블로그](https://blog.zarathu.com/posts/2018-11-08-mdlm/)에 게재.
+]
+
+---
+
+# 법인설립 
+
+연구는 안되는데 창업 공모전은 선정되기 시작.
+
+- ['18년 창업선도대학 (예비)창업팀](https://www.k-startup.go.kr/homepage/businessManage/businessManageFunction.do?sid=111&itemSeq=1060): 블록체인 기반 유전체-건강 빅데이터 구축 및 정밀 의학 솔루션. 
+
+- [심평원, 보험공단 주최 보건의료빅데이터를 활용한 창업아이디어 공모전](http://www.hira.or.kr/bbsDummy.do?brdBltNo=9598&brdScnBltNo=4&pageIndex=1&pgmid=HIRAA020041000100): 맞춤형 의학연구 애플리케이션
+
+--
+
+창업하기로 결심, 블록체인은 엄두가 나지 않음.
+
+- 배운게 도둑질, 원래 하던 통계지원을 하기로 결정하고 1인 법인 설립.
+
+- 처음엔 선배, 동기들과 그들의 지인들이 주 고객. 
+
+- 現, 의대생 2명이 통계보조로 참여.
+
+
+---
+
+# 발표
+
+- 인터뷰, 헬스코리아뉴스: [의사, 진료실 밖에도 할 일 많다](http://health.chosun.com/news/dailynews_view.jsp?mn_idx=165897)
+
+- [R User Conference in Korea(RUCK) 2018](http://ruck2018.r-kor.org/): [맞춤형 의학통계웹 개발 환경 구축](https://jinseob2kim.github.io/swarm-setting/RUCK2018_JSKIM)
+
+- [R User Conference Korea(RUCK) 2019](http://ruck2019.r-kor.org/): [ShinyApps to CRAN](https://jinseob2kim.github.io/LectureRpackage/RUCK2019/)  
+
+- CRSCube 발표: [R 활용 연구지원 소개](https://blog.zarathu.com/posts/2019-05-13-rmedicalresearch/)
+
+- 제주대학교 경영학과 초청강의: [괴델의 불완전성 정리](https://blog.zarathu.com/posts/2019-05-20-godelincompleteness/)
+
+- 을지의대 세미나: [공공 빅데이터 분석 경험](https://blog.zarathu.com/posts/2019-09-19-nhiswithr/) 
+
+- Shiny 기초학습 워크숍: [서울IT직업전문학교 국비교육](https://blog.zarathu.com/posts/2019-10-26-shinyworkshop2019/)
+
+- 메타분석 웹 개발 후기: [Shinykorea 밋업](https://blog.zarathu.com/posts/2020-08-22-meta-analysis-shiny/)
+
+- 삼성병원 의학통계 강의: [기술통계](https://blog.zarathu.com/posts/2020-07-08-table1inmed/) , [회귀분석](https://blog.zarathu.com/posts/2020-07-22-regressionbasic/)
+
+- 서울대병원 R 강의: [데이터매니지먼트](https://blog.zarathu.com/posts/2020-02-16-rdatamanagement-basic/), [tidyverse](https://blog.zarathu.com/posts/2020-04-06-rdatamanagementtidyverse/) 
+
+
+
+
+
+
+
+
+---
+
+class: center, middle
+
+# Q & A 
+
+
+---
+
+# 임상이 아닌데..
+
+수학인으로서의 정체성. 
+
+- 비임상분야 도전의 두려움 << 수학이 아닌 분야 도전의 두려움. 
+
+- 수학과 갔으면 99% 학원강사.
+
+---
+
+# 수학도 아닌데...?
+
+정신승리: 수학의 개념 확장
+
+- 추상화해서 유사성을 찾는 모든 행위를 수학이라고 생각
+
+- 통계, 프로그래밍, 비즈니스 등 어떤 것에서든 수학을 찾을 수 있다. 
+
+--
+
+최고의 수학자는 **유사성 사이의 유사성**을 본다.
+
+- 유사성 사이의 유사성을 발견해나가고, 일에 적용해나가는 것이 목표.
+
+
+---
+
+# 의대에 잘 왔다고 느낄 때.
+
+.large[
+의학은 그 자체로 삶에 중요한 지식.
+]
+--
+
+.large[
+의사들과 대화에 도움.
+]
+
+--
+
+.large[
+의학은 큰 판이다. 
+
+- 어떤 능력이든 본인이 가진 잠재능력을 살릴 수 있는 큰 판. 
+]
+--
+
+.large[
+새로운 도전을 할 수 있는 바탕.
+]
+
+
+
+---
+
+# 통계와 프로그래밍 공부
+
+적성에 잘 맞음. 
+
+- 공간지각력이 떨어져 기하에 약점, 계산하고 식을 다루는 대수에 강점.
+
+- 프로그래밍 언어는 추상대수학이 실제로 구현된 것.
+
+--
+
+관악캠퍼스의 장점을 활용. 
+
+- 수학과 학부, 통계학과 대학원의 수업을 수강신청함. 
+
+--
+
+이젠 공부할 정보가 넘침. 
+
+- 검색하면 다 나옴, 일단 시작하는 자세. 
+
+
+---
+
+# 창업 도전
+
+창업, 스타트**업**, 유니콘...  거창한 표현 No.
+
+- 백종원 골목식당 푸드트럭 사장님께 감정이입.
+
+- 업의 본질: 가내수공업
+
+- 일본 초밥 명인 OK. 
+
+--
+
+마음가짐
+
+- 책임지는 삶
+
+- 민심은 천심
+
+
+---
+
+class: center, middle
+
+# 출사표
+
+
+
+
+
+---
+
+# Executive Summary 
+
+.large[
+- 다양한 의료데이터를 다뤄본 경험으로, 의학연구 활성화에 기여하겠습니다. 
+
+
+- 의과대학, 유전체연구 박사과정, 삼성전자 무선사업부를 거치며 임상, 유전체, 모바일헬스 등 다양한 데이터를 다루었습니다.
+
+
+- 현재 연구지원법인 [차라투](https://www.zarathu.com) 를 운영 중입니다. 
+
+
+- [Shiny 밋업](https://github.com/shinykorea/Meetup) 의 진행과 후원을 맡아, 의료/축산/게임/반도체/신용평가/IPTV 등 다양한 분야의 사람들과 함께 Shiny 를 알아가는 중입니다.
+]
+
+---
+
+class: center, middle
+
+# END
+
+
