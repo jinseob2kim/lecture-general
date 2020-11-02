@@ -367,7 +367,7 @@ https://www.zarathu.com/#portfolio
 # 40,000 다운로드
 
 <center>
-<img src="cran.png" width=100%></a>
+<img src="cran.png" width=80%></a>
 </center>
 
 
