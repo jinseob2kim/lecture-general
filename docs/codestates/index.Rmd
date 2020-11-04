@@ -57,11 +57,21 @@ layout: true
 
 class: center, middle
 
-
-# 연구지원경험
-
+# 하는일: 의학통계지원
 
 
+---
+# 맞춤형 통계웹
+
+![](ss.png)
+---
+# [공개 통계웹](http://app.zarathu.com) 
+
+![](https://blog.zarathu.com/posts/2018-11-24-basic-biostatistics/app.gif)
+
+.large[
+**수익 0원, 일 방문자 5명..**
+]
 
 ---
 # 주요 계약 
@@ -104,35 +114,13 @@ class: center, middle
 
 ![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cobis3_2020.png)
 
-- Prpensity score 매칭, IPTW 가중치 
-
-- Table 1, 생존분석, 생존곡선 
-
-- 서브그룹분석, forestplot
 
 
 ---
+# 웹 스크린샷
 
 ![Subgroup 분석](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cobis3_joonletter.png)
 
-
-
----
-# 서울성모병원
-
-- 1년간 10개 연구 계약 
-
-![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/corea-ami.png)
-
-- Prpensity score 매칭, IPTW 가중치 
-
-- Table 1, 생존분석, 생존곡선 
-
-- 서브그룹분석, forestplot
-
----
-
-![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/corea-ami_md.png)
 
 ---
 # 공통데이터모델(CDM)
@@ -155,27 +143,11 @@ class: center, middle
 [![](https://www.zarathu.com/img/portfolio/cdmkdh1.png)](https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983)
 
 
----
-# 공단표본데이터 위암 연구 
-
-- 강동성심병원 내과와 공동연구 
-
-
-- 데이터 100기가 이상, RAM 이 커야함. 지원받은 인공지능 고성능 서버 이용.
-
-
-분석모듈 
-
-- Prpensity score 매칭, IPTW 가중치 
-
-- Table 1, 생존분석, 생존곡선 
-
-- 서브그룹분석, forestplot
-
 
 ---
 # 코로나 대시보드
 
+.large[
 - 경기도감염병관리지원단 의뢰, with Shinykorea 
 
 
@@ -188,6 +160,8 @@ class: center, middle
 - 경기도 색상과 폰트 적용
 
 - 리포트 다운기능: pdf/word 각각
+
+]
 
 
 ---
@@ -234,30 +208,6 @@ https://github.com/shinykorea/corona-triage
 - 주요 기능: **로그인, 구글 시트 연계 엑셀파일 업데이트, 구글 설문지 동기화, 전체 환자/센터별/개인별 상세 정보, 그래프**
 ]
 
-
----
-# 육종(sarcoma) 데이터 분석 
-
-.large[
-- [삼성서울병원 이식외과](http://pf.kakao.com/_XsuxgC/51701089)
-
-
-- 데이터정리, Shiny 분석웹 제공 
-
-
-- 현재 2개 연구 진행 중
-
-
-분석모듈
-
-- Table 1
-
-- 로지스틱 회귀분석, 생존분석, 생존곡선 
-]
-
----
-
-![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/sarcoma.png)
 
 ---
 # 정신질환 네트워크 분석 
@@ -318,26 +268,12 @@ https://github.com/shinykorea/corona-triage
 
 
 
+---
+class: center, middle
 
+# 기타 활동
 
 ---
-# 연구지원결과: 논문
-
-.large[
-https://www.zarathu.com/#portfolio
-]
-
----
-
-# [통계분석 웹](http://app.zarathu.com/) 
-
-![](https://blog.zarathu.com/posts/2018-11-24-basic-biostatistics/app.gif)
-
-- 무료
-
----
-
-
 # 프로그램 개발, 블로그 운영
 
 .large[
@@ -381,7 +317,61 @@ https://github.com/shinykorea/Meetup
 - 월 1회 공부내용 공유. 20회 진행 
 
 - 의료/유전학/축산/반도체/게임/IPTV/회계 등 다양한 분야 사람들이 모임. 
+
+- 경기도 코로나 대시보드 공동작업
 ]
+
+---
+
+# 프로그래밍갤러리 R 유저모임
+
+.large[
+디시인사이드 프로그래밍 갤러리 고정닉 활동: **[조선니체](https://gallog.dcinside.com/jinseob2kim)**
+
+카카오톡 오픈채팅방 운영: 정모 1회
+]
+
+<center>
+<img src="kakao_open.jpg" width=25%></a>
+</center>
+
+
+---
+# 현재 지원받는 정부지원사업
+
+클라우드기반 데이터분석환경 지원사업 
+
+- KT 클라우드 바우처 720만원 (연말까지)
+
+인공지능 고성능 컴퓨팅지원
+
+- 램 170기가, GPU 서버 (연말까지)
+
+비대면바우처
+
+- 선정되었으나 아직..(연말까지인데)
+
+회계지원 바우처
+
+- 선정되었으나 포기 (머니핀 이용 직접 회계)
+
+--
+
+초기창업패키지 3번 시도, 전부 서류탈락
+
+
+---
+# Team 
+
+.large[
+공식적으론 1인기업
+
+- 의대생 2명이 통계보조로 원격근무.
+
+]
+
+![](slack.png)
+
 
 
 
@@ -413,11 +403,6 @@ class: center, middle
 
 * 통계지원 법인 설립.
 
-  - [R](https://www.r-project.org/) 과 [shiny](https://shiny.rstudio.com/) 이용, [**맞춤형** 분석웹](https://www.zarathu.com/) 제공
-  
-  - 범용 통계분석 웹: http://app.zarathu.com/
-  
-  - [R 패키지 개발](https://github.com/jinseob2kim/jsmodule)
 ]
 
 ---
@@ -611,13 +596,23 @@ class: center, middle
 
 ---
 
-# 임상이 아닌데..
+# 의사가 아닌데..
 
+.large[
 수학인으로서의 정체성. 
 
-- 비임상분야 도전의 두려움 << 수학이 아닌 분야 도전의 두려움. 
+- 임상의학을 떠나는 두려움 << 수학을 떠나는 두려움. 
 
 - 수학과 갔으면 99% 학원강사.
+
+--
+이젠 수학인 불가능..
+
+- 노화, 영세자영업자 
+
+- 군자를 목표로..
+
+]
 
 ---
 
@@ -668,46 +663,74 @@ class: center, middle
 
 # 통계와 프로그래밍 공부
 
+.large[
 적성에 잘 맞음. 
 
 - 공간지각력이 떨어져 기하에 약점, 계산하고 식을 다루는 대수에 강점.
 
 - 프로그래밍 언어는 추상대수학이 실제로 구현된 것.
+]
 
 --
 
+.large[
 관악캠퍼스의 장점을 활용. 
 
 - 수학과 학부, 통계학과 대학원의 수업을 수강신청함. 
 
---
 
 이젠 공부할 정보가 넘침. 
 
 - 검색하면 다 나옴, 일단 시작하는 자세. 
-
+]
 
 ---
 
 # 창업 도전
 
-창업, 스타트**업**, 유니콘...  거창한 표현 No.
+.large[
+스타트**업**(X), 스타트**만**
 
-- 백종원 골목식당 푸드트럭 사장님께 감정이입.
+- 백종원 골목식당 사장님께 감정이입.
 
 - 업의 본질: 가내수공업
 
 - 일본 초밥 명인 OK. 
+]
 
 --
 
+.large[
 마음가짐
 
 - 책임지는 삶
 
 - 민심은 천심
+]
+
+---
+# 계획 
+
+.large[
+- 의학연구자를 이롭게.
 
 
+- 의학지식을 만든다.
+
+
+- 생명을 살리고 건강증진에 기여. 
+
+
+- 홍익인간 
+
+
+- 우주를 이롭게(?)
+]
+
+--
+.large[
+현재 1/2 단계, 다음단계로 가는법 모름. 천하삼분지계 알려줄 제갈량을 찾습니다.
+]
 
 
 
