@@ -15,3 +15,5 @@ Lecture: general topic
 * [코드스테이츠 현장의 이야기 선배 Talk 세션](https://www.codestates.com/) 발표: [의학연구지원 소개](https://jinseob2kim.github.io/lecture-general/codestates)
 
 * [Tidyverse Korea 밋업 발표](https://www.facebook.com/groups/tidyverse) 발표: [의학연구지원 소개](https://jinseob2kim.github.io/lecture-general/tidyversekorea)
+
+* [성균관약대 세미나](https://pharm.skku.edu/intro/professor.php): [약물데이터분석 소개](https://jinseob2kim.github.io/lecture-general/skku-pharm)
