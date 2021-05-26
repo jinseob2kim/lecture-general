@@ -17,3 +17,5 @@ Lecture: general topic
 * [Tidyverse Korea 밋업 발표](https://www.facebook.com/groups/tidyverse) 발표: [의학연구지원 소개](https://jinseob2kim.github.io/lecture-general/tidyversekorea)
 
 * [성균관약대 세미나](https://pharm.skku.edu/intro/professor.php): [약물데이터분석 소개](https://jinseob2kim.github.io/lecture-general/skku-pharm)
+
+* [고려의대 예방의학교실 특강](https://pharm.skku.edu/intro/professor.php): [Shiny 활용 의학연구 소개](https://jinseob2kim.github.io/lecture-general/korea-preventive)
