@@ -19,3 +19,5 @@ Lecture: general topic
 * [성균관약대 세미나](https://pharm.skku.edu/intro/professor.php): [약물데이터분석 소개](https://jinseob2kim.github.io/lecture-general/skku-pharm)
 
 * [고려의대 예방의학교실 특강](https://pharm.skku.edu/intro/professor.php): [Shiny 활용 의학연구 소개](https://jinseob2kim.github.io/lecture-general/korea-preventive)
+
+* [Shinykorea 7월 밋업](https://github.com/shinykorea/Meetup): [창업지원사업 도전기](https://jinseob2kim.github.io/lecture-general/kstartup)

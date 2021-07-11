@@ -1,5 +1,5 @@
 ---
-title: "창업지원사업 지원경험"
+title: "창업지원사업 도전기"
 author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
 institute: "차라투(주)"
 date: "2021-07-15"
@@ -59,7 +59,7 @@ layout: true
 창업 후 주요사업 광탈, 작은 사업 선정
 - 20년 초기창업패키지, 추경(비대면), 추경2차, 21년 초기창업패키지 **4연속 서류탈락**
 
-- [비대면바우처(400만원)](https://me2.do/x50u16TK), [클라우드 지원사업(720만원)](https://www.jobaba.net/fntn/dtl.do?seq=10794&recom=Y), [고성능 인공지능서버 지원사업(20,21년)](https://aihub.or.kr/node/223) 선정
+- [비대면바우처(400만원)](https://me2.do/x50u16TK), [클라우드 지원사업(720만원)](https://www.jobaba.net/fntn/dtl.do?seq=10794&recom=Y) 선정
 - [벤처기업인증](https://pf.kakao.com/_XsuxgC/73501491): 혁신성장유형
 
 --
@@ -83,6 +83,10 @@ class: center, middle
 ]
 
 ![](초창패.png)
+
+---
+
+![](초창패탈락.png)
 
 ---
 ## [비대면스타트업육성사업](https://pf.kakao.com/_XsuxgC/79525247): 최대 1.5억
@@ -118,472 +122,193 @@ class: center, middle
 초창패 선정된 [나영준](https://antller.com/) 님의 도움으로 발표자료 참고 & 크몽 PPT 외주 
 
 
-[발표 PDF](), [대본]()
+[발표 PDF](https://github.com/jinseob2kim/lecture-general/blob/master/docs/kstartup/pdf/zarathu_presentation.pdf), [대본](https://github.com/jinseob2kim/lecture-general/blob/master/docs/kstartup/pdf/script.txt)
+]
+
+--
+.large[
+서류평가는 [이동권](https://bondam.co.kr/) 님의 조언으로 첫페이지에 핵심내용 몰빵전략.
 ]
 
 ---
+# 선정 
 
-class: center, middle
+>안녕하세요 비대면 스타트업 담당자입니다.
 
-# [R](https://www.r-project.org/)의 확장
+>사업계획서 작성에서부터, 서류평가, 발표평가를 거쳐 여기까지 오신 여러분들에게 감사의 말씀 드립니다.
 
----
-# [R](https://www.r-project.org/)의 확장
+>본 사업의 발표평가 결과, 귀하는 아래와 같이 선정 예정자임을 알려드립니다.
 
-[R](https://www.r-project.org/)은 이제 단순한 통계프로그램이 아님.
-
-* [R Markdown](https://rmarkdown.rstudio.com/): 논문과 발표자료를 [R](https://www.r-project.org/) 에서 직접 만듦. [과거 정리 내용](https://blog.zarathu.com/posts/2019-01-03-rmarkdown/)
+> 중복지원 여부 등 추가 자격검토를 시행할 예정이며, 자격검토 결과에 따라 선정 예정자에서 제외될 수 있음을 안내드립니다.
 
 --
 
-* [blogdown](https://github.com/rstudio/blogdown): 홈페이지도 만들 수 있음. 당사 홈페이지도 이것과 [distill](https://rstudio.github.io/distill/) 로 제작.
+> 안녕하세요 대표님
 
---
+> 선정 되셨음을 알려드립니다.
 
-* [Shiny](https://shiny.rstudio.com/), [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/): 서버 구축하고 웹기반 앱을 만들 수 있음.
-
---
-
-법인 설립 후 모든 작업에 [R](https://www.r-project.org/)을 이용함. 
-
----
-# 논문 
-
-[R](https://www.r-project.org/)에서 글, 그림, 테이블, 참고문헌까지 직접 작성. 
- 
-* [rticles](https://github.com/rstudio/rticles): 대부분 학술지의 템플릿을 포함.
-
-```{r, fig.align='center', out.width= "50%"}
-include_graphics("https://bookdown.org/yihui/rmarkdown/images/rticles-templates.png")
-```
-
-[준비하던 박사논문](https://blog.zarathu.com/posts/2018-11-08-mdlm/)  
-
----
-# 발표 슬라이드
-
-논문쓸 때 이용했던 R 코드 활용, 빠르게 발표 슬라이드 제작 가능.
-
-* [기본 템플릿](https://rmarkdown.rstudio.com/lesson-11.html), [xaringan](https://github.com/yihui/xaringan) 패키지: 이 슬라이드도 [xaringan](https://github.com/yihui/xaringan)으로 제작.
-
-```{r, out.width= "80%"}
-include_graphics("https://user-images.githubusercontent.com/163582/53144527-35f7a500-3562-11e9-862e-892d3fd7036d.gif")
-```
+> 현재 정부지원금 금액은 140,000,000원입니다.
 
 
 ---
-# 홈페이지
+# 공개소프트웨어 창업기업사업 
 
-[blogdown](https://github.com/rstudio/blogdown), [distill](https://rstudio.github.io/distill/): [깃허브](https://pages.github.com/) 통해 무료 웹호스팅 가능.
+.large[
+거의 비슷한 시기에 진행, 발표자료 95% 재활용
+]
 
-```{r, out.width= "80%"}
-include_graphics("https://www.storybench.org/wp-content/uploads/2019/05/blogdown-new-site-e1557149319624-730x457.png")
-```
-
-[홈페이지](https://github.com/zarathucorp/zarathu), [블로그](https://github.com/zarathucorp/blog)
+<center><img src="공개sw지원내용.png" width=60%></center>
 
 
 ---
-# 웹 앱
+# 선정
 
-[Shiny](https://shiny.rstudio.com/): [R](https://www.r-project.org/) 코드만으로 웹앱 제작
+현재 입주중
 
-```{r}
-include_graphics("https://shiny.rstudio.com/images/debugging/kmeans-showcase.gif")
-```
-
----
-# 웹 대시보드 
-
-[shinydashboard](https://rstudio.github.io/shinydashboard/), [flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/) 등
-
-<center>
-<a href="https://rmarkdown.rstudio.com/flexdashboard"><img src="https://tadge-analytics.com.au/content/images/2020/01/feature-demonstration.gif" width=70%></a>
-</center>
-
+<center><img src="공개sw.png" width=60%></center>
 
 
 ---
-# 웹 서버
+# 벤처기업인증 
 
-[Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/): [Shiny](https://shiny.rstudio.com/)를 서버에서 구동.
+.large[
+21년 벤처인증이 민간주도로 바뀜, 혁신성장유형으로 신청 
+]
 
-```{r}
-include_graphics("https://shiny.rstudio.com/images/shiny-server-pro.png")
-```
+<center><img src="벤처.png" width=50%></center>
 
-[Zarathu app](http://app.zarathu.com)
+20년에도 신청(기술보증유형) 했었으나, 안될테니 알아서 취소하라는 연락만..
 
 
+---
+# 혁신성장유형-서비스업
 
+.large[
+서류내면 담당자 연결되고 방문심사. 
+- 4월엔 사무실 따로없어 커피빈에서 1시간 미팅
+]
+
+<center><img src="벤처계획서.png" width=50%></center>
+
+---
+# 선정 
+
+<center><img src="벤처확인서.png" width=70%></center>
 
 
 ---
 
 class: center, middle
 
-# Shiny 소개
-
-
----
-
-### [Shiny](https://shiny.rstudio.com/) is an R package that makes it easy to **build web applications with R**
-
-
-
-```{r, align = "center"}
-include_graphics("https://github.com/jinseob2kim/shiny-workshop-odsc2019/raw/master/docs/rs.png")
-```
+# 18년
 
 ---
+# [창업선도대학](https://www.k-startup.go.kr/univ/main/prm/HistoryList.do) 
 
-# 웹 개발 지식 없어도 됨
+.large[
+코인 열풍시절, 대학원교수님, 동료와 함께 생애 첫 지원. 6천만원 선정
+- 선정 후 블록체인 엄두가 안나 빠짐, 그후 차라투 설립
+]
 
-```{r, align = "center"}
-include_graphics("https://github.com/jinseob2kim/shiny-workshop-odsc2019/raw/master/docs/css.png")
-```
-
-
----
-
-# Shiny app
-
-```{r, align = "center"}
-include_graphics("https://github.com/jinseob2kim/shiny-workshop-odsc2019/raw/master/docs/ui.png")
-```
+<center><img src="창업선도.png" width=70%></center>
 
 ---
+# [심평원공모전](https://opendata.hira.or.kr/op/insertFoundationForm.do)
 
-# UI & SERVER
-
-```{r, align = "center"}
-include_graphics("https://github.com/jinseob2kim/shiny-workshop-odsc2019/raw/master/docs/ui2.png")
-```
-
-
-
-
-
----
-
-# UI & SERVER
-
-<center>
-<a href="https://codingclubuc3m.rbind.io/post/2018-06-19/"><img src="https://codingclubuc3m.rbind.io/post/2018-06-19_files/shinyApp.png" width=70%></a>
-</center>
-
-
----
-
-# Make basic App
-
-* `app.R` 파일 만들고(**이름 바뀌면 안됨**)
-
-* `ui` 와 `server` 코드 작성 후 `shinyApp` 으로 마무리. **Run App** 눌러 실행.
-
-  - `ui.R`, `server.R` 따로 작성할 수도 있음. 개인 취향
-
-
-
-```{r, align = "center"}
-include_graphics("https://github.com/jinseob2kim/shiny-workshop-odsc2019/raw/master/docs/basic.png")
-```
-
-
-
----
-
-# Stop App
-
-**ESC** or 빨간 **Stop** 버튼
-
-```{r, align = "center"}
-include_graphics("https://github.com/jinseob2kim/shiny-workshop-odsc2019/raw/master/docs/stop.png")
-```
+.large[
+선정, but 상금은 못받음.
+- 비즈니스모델별 데이터추출을 도와주지만, 논문작업용 지원은 어렵다는 답변, 지금까지 지원받은 것 거의 없음
+]
 
 
 ---
 
 class: center, middle
 
-# 하는일: 의학통계지원
+# 20년
 
 
 ---
-# 맞춤형 통계웹
+# 초창패 3연탈
 
-![](ss.png)
+추경 2차까지 3번이나 공고났지만, 전부 서류탈락 
+- 주제: 맞춤형 의학통계 웹
+
+
+<center><img src="초창패2020.png" width=70%></center>
+
+
 ---
-# [공개 통계웹](http://app.zarathu.com) 
+# 초창패 추경1차
 
-![](https://blog.zarathu.com/posts/2018-11-24-basic-biostatistics/app.gif)
+<center><img src="초창패2020-2.png" width=70%></center>
+
+
+---
+# 초창패 추경2차
+
+<center><img src="초창패2020-3.png" width=70%></center>
+
+
+---
+# 클라우드지원사업 
 
 .large[
-**수익 0원, 일 방문자 5명..**
+720만원 국내 클라우드 바우처, 원래 떨어졌으나 추가합격
 ]
 
----
-# 주요 계약 
+>수신처 제위,
 
+>안녕하십니까? NIPA(정보통신산업진흥원) K-ICT 클라우드 혁신센터입니다.
 
-- 대한심혈관중재학회 [COBIS III 레지스트리](https://clinicaltrials.gov/ct2/show/NCT03068494) 분석: [추가계약](http://pf.kakao.com/_XsuxgC/48388190)
+>귀 사의 무궁한 발전과 번영을 기원합니다.
 
+>"2020년 클라우드 기반 SW개발환경 지원사업" 신청기업 대상으로 전문 선정위원 평가 후,
 
-- 서울성모병원 [COREA-AMI II 레지스트리](https://clinicaltrials.gov/ct2/show/NCT02806102) 분석: [10개 연구 계약](http://pf.kakao.com/_XsuxgC/48043955)
-
-
-- 삼성서울병원 [공통데이터모델(CDM)](http://www.feedernet.org/html/?pmode=cdmdrn) 분석: [심평원 코로나데이터](https://hira-covid19.net/) 분석 중 
-
-
-- 강동성심병원 CDM 분석지원
-
-
-- 경기도감염병관리지원단 코로나 대시보드 with Shinykorea: [최종보고](https://shinykorea.github.io/corona-activityrecord) 
-
-
-- 삼성서울병원 이식외과 육종(sarcoma) 데이터 분석: [5개 연구 계약](http://pf.kakao.com/_XsuxgC/51701089) 
-
-
-- 해운대백병원 정신질환 네트워크분석: [논문 5편](http://pf.kakao.com/_XsuxgC/52664370) 게재
-
-
-- 성균관의대 환경역학연구실 [미세먼지 대시보드](http://pf.kakao.com/_XsuxgC/43627405)
-
-
-
-
-
-
----
-# 공통데이터모델(CDM)
-
-- 병원들의 **데이터형태를 통일**하면, 분석코드 하나로 여러 병원의 분석이 가능.
-
-
-- **분석코드가 R** 패키지형태로 만들어지고, **결과는 shiny** 로 보여짐.
-
-
-- 심평원 코로나데이터가 CDM 형태로도 제공되어 삼성서울병원 연구진과 분석 중.
-
-![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cdm_source.png)
----
-
-![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cdm_shiny.png)
-
----
-[![](https://www.zarathu.com/img/portfolio/cdmkn_kdh1.png)](https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983)
-
-
----
-
-[![](https://www.zarathu.com/img/portfolio/cdmkdh1.png)](https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983)
-
-
----
-
-[![](https://www.zarathu.com/img/portfolio/raascovid2021_kmyang1.png)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0248058)
-
----
-
-[![](https://www.zarathu.com/img/portfolio/nsaidscovid2021_kmyang1.png)](https://www.nature.com/articles/s41598-021-84539-5)
-
----
-# 코로나 대시보드
-
-.large[
-- 경기도감염병관리지원단 의뢰, with Shinykorea 
-
-
-고려사항 
-
-- 보안: 로그인, Dropbox/구글시트 접근권한
-
-- 이용자 의견 반영한 색상, 그래프, 테이블
-
-- 경기도 색상과 폰트 적용
-
-- 리포트 다운기능: pdf/word 각각
-
-]
-
-
----
-# 개발 1: [병상관리 대시보드](https://github.com/shinykorea/corona-sickbed)
-
-![](https://shinykorea.github.io/corona-activityrecord/d1.png)
-
----
-# 병상관리 대시보드 요약
-
-.large[
-https://github.com/shinykorea/corona-sickbed
-
-- 목표: 경기도 병원 및 생활치료센터의 가용병상 현황을 보여주는 대시보드를 개발, 중증환자 입원에 대한 긴급대책단의 의사결정을 돕는다.
-
-- 정부제공 서버에 배포 중
-
-- 주요 기능: **로그인, Dropbox 연계 엑셀파일 업데이트, 병상현황 그래프/지도, 리포트 다운로드(pdf/word)**
-
-]
-
-
-
----
-# 개발 2: [확진자 건강관리](https://github.com/shinykorea/corona-triage)
-
-![](https://user-images.githubusercontent.com/6457691/76766387-4157e700-67db-11ea-9d54-2b380006fa90.png)
-
----
-
-![](https://user-images.githubusercontent.com/6457691/76766436-559be400-67db-11ea-8175-d23e5b3c5c9a.png)
-
-
----
-# 확진자 건강관리 요약 
-
-.large[
-https://github.com/shinykorea/corona-triage
-
-- 목표: Covid-19 확진자를 중증도에 따라 분류, 의료자원을 고려한 치료 전략에 도움을 준다.
-
-- 현재 정부지원 서버에 배포 중
-
-- 주요 기능: **로그인, 구글 시트 연계 엑셀파일 업데이트, 구글 설문지 동기화, 전체 환자/센터별/개인별 상세 정보, 그래프**
-]
-
-
----
-# 정신질환 네트워크 분석 
-
-- 작년부터 with 해운대백병원 정신과 
-
-
-- [qgraph](http://sachaepskamp.com/qgraph/examples) 패키지 이용, 네트워크분석웹 개발 
-
-![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/cogito.png)
-
----
-
-![](https://onlinelibrary.wiley.com/cms/asset/3369aef2-5fb4-49a2-8209-9a088e648cbb/pcn12989-fig-0002-m.jpg)
-
-
-
----
-# 미세먼지 대시보드
-
-- 성균관의대 환경역학연구실 의뢰 
-
-
-- 신축아파트에 미세먼지 모듈 제공 가능성 연구
-
-
-- [RSelenium 으로 긁어온 데이터](https://blog.zarathu.com/posts/2019-11-30-rseleniumtip/) 를 업로드하는 형태 
-
-
-![](https://github.com/jinseob2kim/PresentationShinyMed/raw/master/docs/shinymed2020/kweather.png)
-
----
-# eCRF 개발 
-
-.large[
- * 삼성서울병원 순환기내과와 프로토타입 개발 중
-]
-
-
-![](https://user-images.githubusercontent.com/6457691/118844416-e7ced900-b905-11eb-84a2-91ae1f17fa7f.png)
-
----
-
-![](https://user-images.githubusercontent.com/6457691/119016201-a5c09880-b9d4-11eb-9b9a-efc1efe737b9.png)
-
-
----
-class: center, middle
-
-# 기타 활동
-
----
-# 프로그램 개발, 블로그 운영
-
-.large[
-[R](https://www.r-project.org/) packages
-
-- [jstable](https://github.com/jinseob2kim/jstable): 논문용 테이블 만들기
-
-
-- [jskm](https://github.com/jinseob2kim/jskm): 생존분석 그림 만들기
-
-
-- [jsmodule](https://github.com/jinseob2kim/jsmodule): 웹에서 하는 통계분석
-]
+>결과에 따라 아쉽게도 "2020년 클라우드 기반 SW개발환경 지원사업"에 미 선정됨을 알려 드립니다. 
 
 --
-.large[
-데이터 분석용 가상머신([docker](https://www.docker.com/) image)
-
-- [rshiny](https://github.com/jinseob2kim/docker-rshiny): [Rstudio](https://www.rstudio.com/)와 [shiny server](https://www.rstudio.com/products/shiny/shiny-server/) 가 설치된 이미지.
-]
---
-.large[
-[블로그](https://blog.zarathu.com/), 카카오톡 오픈채팅방- 프로그래밍 갤러리 R 유저 모임
-]
+[21년 동일사업있으나 재신청 불가](https://www.cloud.or.kr/notice/notice/?uid=3409&mod=document)
 
 ---
-# 70,000 다운로드
-
-<center>
-<img src="cran.png" width=80%></a>
-</center>
-
-
----
-
-# 공부모임: Shiny 밋업
+# [비대면바우처](https://me2.do/Fa3xU1Zc)
 
 .large[
-https://github.com/shinykorea/Meetup
+비대면서비스 육성위해 400만원 바우처 지원(40만원 본인부담)
+- 공급기업 중 하나를 골라 서비스이용 
 
-- 월 1회 공부내용 공유. 26회 진행 
 
-- 의료/유전학/축산/반도체/게임/IPTV/회계 등 다양한 분야 사람들이 모임. 
-
-- 경기도 코로나 대시보드 공동작업
+클라우드업체에 400만원 지불했으나, 품질 너무 떨어져 안쓰는중...
 ]
-
----
-
-# 프로그래밍갤러리 R 유저모임
-
-.large[
-디시인사이드 프로그래밍 갤러리 고정닉 활동: **[조선니체](https://gallog.dcinside.com/jinseob2kim)**
-
-카카오톡 오픈채팅방 운영: 정모 1회
-]
-
-<center>
-<img src="kakao_open.jpg" width=25%></a>
-</center>
-
-
-
 
 ---
 
 # Executive summary
 
 .large[
-* [R](https://www.r-project.org/)로 통계분석 뿐 아니라 [논문](https://github.com/rstudio/rticles), [발표 슬라이드](https://github.com/yihui/xaringan), [홈페이지](https://github.com/rstudio/blogdown), [블로그](https://rstudio.github.io/distill/), [웹 어플리케이션](https://shiny.rstudio.com/)을 만들 수 있다. 
-
-* 의학연구자들에게 [맞춤형 통계 웹](http://app.zarathu.com)을 제공.
-
-
-* 범용으로 쓰일만한 것들을 [웹](http://app.zarathu.com)과 [R 패키지](https://github.com/jinseob2kim/jsmodule)로 배포.
-
-* [`r anicon::faa('github', animate='float', rtext='shinykorea')`](https://github.com/shinykorea/Meetup) 밋업 후원: [R](https://www.r-project.org/) 웹만들기 지식 공유
-
-
-* 카카오 오픈채팅: 프로그래밍 갤러리 R사용자 모임
+4전 5기만에 창업지원사업([비대면스타트업육성사업](https://pf.kakao.com/_XsuxgC/79525247)) 선정(1.4억)
+- 비대면 의료 분야:  블록체인 기반 의료데이터 입력, 관리, 분석 플랫폼
 ]
+
+
+18년초 창업전, 지도교수, 대학원동료와 함께 [창업선도대학](https://www.k-startup.go.kr/univ/main/prm/HistoryList.do) 선정(6천만)
+- 서울대학교: 블록체인 기반 유전체 빅데이터 플랫폼
+
+심평원 공모전 선정: 맞춤형 의학연구웹
+
+
+창업 후 주요사업 광탈, 작은 사업 선정
+- 20년 초기창업패키지, 추경(비대면), 추경2차, 21년 초기창업패키지 **4연속 서류탈락**
+
+- [비대면바우처(400만원)](https://me2.do/x50u16TK), [클라우드 지원사업(720만원)](https://www.jobaba.net/fntn/dtl.do?seq=10794&recom=Y) 선정
+- [벤처기업인증](https://pf.kakao.com/_XsuxgC/73501491): 혁신성장유형
+
+
+21년 [공개소프트웨어 기반 창업기업](https://www.oss.kr/notice/show/16c54b9d-cb52-4606-b03e-ec9aad584936?page=1) 선정, 선릉역 오피스 6개월 지원.
+
+
+
+
 
 
 ---
