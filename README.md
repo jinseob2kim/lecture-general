@@ -21,3 +21,5 @@ Lecture: general topic
 * [고려의대 예방의학교실 특강](https://pharm.skku.edu/intro/professor.php): [Shiny 활용 의학연구 소개](https://jinseob2kim.github.io/lecture-general/korea-preventive)
 
 * [Shinykorea 7월 밋업](https://github.com/shinykorea/Meetup): [창업지원사업 도전기](https://jinseob2kim.github.io/lecture-general/kstartup)
+
+* [헬리코박터 마이크로바이옴 연구회 발표](https://pharm.skku.edu/intro/professor.php): [Be a data scientist - major actor in the future research](https://jinseob2kim.github.io/lecture-general/microbiome)
