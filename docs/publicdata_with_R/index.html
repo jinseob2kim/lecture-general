@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R 활용 공공빅데이터 분석지원</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="김진섭; <span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;jinseob2kim</span>" />
+    <meta name="date" content="2021-09-12" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome/js/fontawesome-all.min.js"></script>
+    <link rel="stylesheet" href="css/footer-header.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R 활용 공공빅데이터 분석지원
+## 대한상부위장관 · 헬리코박터학회
+### 김진섭; <a href="https://github.com/jinseob2kim"><span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;jinseob2kim</span></a>
+### 차라투(주)
+### 2021-09-12
+
+---
+
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;&lt;span&gt;&lt;a href="https://www.zarathu.com"&gt;Zarathu Co.,Ltd&lt;/a&gt;   
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&lt;a href="https://github.com/jinseob2kim"&gt;김진섭&lt;/a&gt;&lt;/span&gt;&lt;/div&gt; 
+
+
+---
+# Executive summary
+
+[R](https://www.r-project.org/) 로 보험공단/심평원 빅데이터 분석가능.
+- 공단표본코호트 V1 은 내부 분석환경 구축
+
+- 공단표본코호트 V2, 심평원 데이터는 원격 분석환경 이용
+
+- 대용량데이터 위한 R 패키지: [data.table](https://github.com/Rdatatable/data.table), [fst](https://www.fstpackage.org/), [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf)
+
+
+--
+자체개발 R 패키지 CRAN 배포, 원격분석환경에서도 이용가능.
+- Kaplan-meier 그림 [jskm](https://github.com/jinseob2kim/jskm), 논문용 테이블 [jstable](https://github.com/jinseob2kim/jstable), GUI 분석 [jsmodule](https://github.com/jinseob2kim/jsmodule)
+
+
+--
+[Shiny](https://shiny.rstudio.com/) 로 웹기반 실시간 분석서비스.
+
+- 내부 분석환경: 웹에서 실시간 분석수행 
+
+- 원격 분석환경: 모든 분석결과 반출 후 웹기반 시각화
+
+- Excel/PPT 다운로드
+
+
+
+
+---
+
+# Executive summary
+
+[R](https://www.r-project.org/) 로 보험공단/심평원 빅데이터 분석가능.
+- 공단표본코호트 V1 은 내부 분석환경 구축
+
+- 공단표본코호트 V2, 심평원 데이터는 원격 분석환경 이용
+
+- 대용량데이터 위한 R 패키지: [data.table](https://github.com/Rdatatable/data.table), [fst](https://www.fstpackage.org/), [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf)
+
+
+자체개발 R 패키지 CRAN 배포, 원격분석환경에서도 이용가능.
+- Kaplan-meier 그림 [jskm](https://github.com/jinseob2kim/jskm), 논문용 테이블 [jstable](https://github.com/jinseob2kim/jstable), GUI 분석 [jsmodule](https://github.com/jinseob2kim/jsmodule)
+
+
+[Shiny](https://shiny.rstudio.com/) 로 웹기반 실시간 분석서비스.
+
+- 내부 분석환경: 웹에서 실시간 분석수행 
+
+- 원격 분석환경: 모든 분석결과 반출 후 웹기반 시각화
+
+- Excel/PPT 다운로드
+
+
+---
+
+class: center, middle
+
+# END
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

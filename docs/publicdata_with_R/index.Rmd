@@ -1,0 +1,96 @@
+---
+title: "R 활용 공공빅데이터 분석지원"
+author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
+institute: "차라투(주)"
+date: "2021-09-12"
+output:
+  xaringan::moon_reader:
+    css: ["css/footer-header.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "js/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "4:3" 
+subtitle: "대한상부위장관 · 헬리코박터학회"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
+library(knitr);library(DT);library(shiny)
+```
+
+
+layout: true
+
+<div class="my-footer"><span><a href="https://www.zarathu.com">Zarathu Co.,Ltd</a>   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="https://github.com/jinseob2kim">김진섭</a></span></div> 
+
+
+---
+# Executive summary
+
+[R](https://www.r-project.org/) 로 보험공단/심평원 빅데이터 분석가능.
+- 공단표본코호트 V1 은 내부 분석환경 구축
+
+- 공단표본코호트 V2, 심평원 데이터는 원격 분석환경 이용
+
+- 대용량데이터 위한 R 패키지: [data.table](https://github.com/Rdatatable/data.table), [fst](https://www.fstpackage.org/), [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf)
+
+
+--
+자체개발 R 패키지 CRAN 배포, 원격분석환경에서도 이용가능.
+- Kaplan-meier 그림 [jskm](https://github.com/jinseob2kim/jskm), 논문용 테이블 [jstable](https://github.com/jinseob2kim/jstable), GUI 분석 [jsmodule](https://github.com/jinseob2kim/jsmodule)
+
+
+--
+[Shiny](https://shiny.rstudio.com/) 로 웹기반 실시간 분석서비스.
+
+- 내부 분석환경: 웹에서 실시간 분석수행 
+
+- 원격 분석환경: 모든 분석결과 반출 후 웹기반 시각화
+
+- Excel/PPT 다운로드
+
+
+
+
+---
+
+# Executive summary
+
+[R](https://www.r-project.org/) 로 보험공단/심평원 빅데이터 분석가능.
+- 공단표본코호트 V1 은 내부 분석환경 구축
+
+- 공단표본코호트 V2, 심평원 데이터는 원격 분석환경 이용
+
+- 대용량데이터 위한 R 패키지: [data.table](https://github.com/Rdatatable/data.table), [fst](https://www.fstpackage.org/), [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf)
+
+
+자체개발 R 패키지 CRAN 배포, 원격분석환경에서도 이용가능.
+- Kaplan-meier 그림 [jskm](https://github.com/jinseob2kim/jskm), 논문용 테이블 [jstable](https://github.com/jinseob2kim/jstable), GUI 분석 [jsmodule](https://github.com/jinseob2kim/jsmodule)
+
+
+[Shiny](https://shiny.rstudio.com/) 로 웹기반 실시간 분석서비스.
+
+- 내부 분석환경: 웹에서 실시간 분석수행 
+
+- 원격 분석환경: 모든 분석결과 반출 후 웹기반 시각화
+
+- Excel/PPT 다운로드
+
+
+---
+
+class: center, middle
+
+# END

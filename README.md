@@ -22,4 +22,6 @@ Lecture: general topic
 
 * [Shinykorea 7월 밋업](https://github.com/shinykorea/Meetup): [창업지원사업 도전기](https://jinseob2kim.github.io/lecture-general/kstartup)
 
-* [헬리코박터 마이크로바이옴 연구회 발표](https://pharm.skku.edu/intro/professor.php): [Be a data scientist - major actor in the future research](https://jinseob2kim.github.io/lecture-general/microbiome)
+* [헬리코박터 마이크로바이옴 연구회 발표](http://www.ihnm.or.kr/conference/202102_html/p_about_program.php): [Be a data scientist - major actor in the future research](https://jinseob2kim.github.io/lecture-general/microbiome)
+
+* [대한상부위장관 · 헬리코박터학회 주관  2021 위원회 워크숍](https://www.hpylori.or.kr/): [R 활용 공공빅데이터 분석지원](https://jinseob2kim.github.io/lecture-general/publicdata_with_R)
