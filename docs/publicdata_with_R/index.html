@@ -66,9 +66,175 @@ CDM 다기관 메타분석 서비스
 - Table 1 합치기, Forest/Funnel plot 등
 
 
+---
+
+class: center, middle
+
+# With R
 
 ---
-# R with KNHIS/HIRA
+# KNHIS
+
+.large[
+표본코호트 
+- V1(02-13): 파일 보유, 자체 RStudio server에 구축
+
+- V2(02-15): 구매 후 원격접속(접속할때마다 SMS 인증)
+
+
+맞춤형 데이터
+- 명동/원주 분석실 가야함.
+
+- 데이터 신청과정에서 분석언어 선택: SAS vs R/python 
+]
+
+--
+.large[
+**CRAN 패키지만 설치가능**, github 패키지 불가
+- R version 문제로 CRAN 패키지도 설치안되기도..
+]
+
+
+---
+# HIRA
+
+.large[
+맞춤형 데이터 
+- **원격분석 가능**
+
+- **고정 IP 필수**, 2개 IP만 등록가능
+
+- 마찬가지로 **CRAN 패키지만 설치가능**
+]
+
+
+---
+# 필수 패키지
+
+.large[
+[haven](https://haven.tidyverse.org/): SAS to csv
+- SAS에서 csv export는 너무 오래걸림
+
+
+[data.table](https://github.com/Rdatatable/data.table)
+- 대용량, 빠른 데이터 처리하려면 필수. 
+
+- 문법 간결하나 직관성 떨어짐. 
+
+
+[fst](https://www.fstpackage.org/)
+- 가장 빠른 파일읽기, [data.table](https://github.com/Rdatatable/data.table) 지원
+
+
+[parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf)
+- 서버 multicore 활용
+
+
+]
+
+
+---
+# 자체개발 패키지: [jskm](https://github.com/jinseob2kim/jskm)
+
+.large[
+Kaplan-meier: IPTW, landmark analysis 지원
+]
+
+![](https://jinseob2kim.github.io/jskm/reference/figures/README-unnamed-chunk-5-3.png)
+
+
+---
+# [jstable](https://github.com/jinseob2kim/jstable)
+
+.large[
+논문용 테이블 만들기
+- GLM, GEE, Mixed model, Cox, marginal cox, svyglm, svycox
+]
+
+
+```r
+library(jstable)
+glm_binomial &lt;- glm(vs~cyl + disp, data = mtcars, family = binomial)
+glmshow.display(glm_binomial, decimal = 2)
+```
+
+```
+## $first.line
+## [1] "Logistic regression predicting vs\n"
+## 
+## $table
+##      crude OR.(95%CI)   crude P value adj. OR.(95%CI)    adj. P value
+## cyl  "0.2 (0.08,0.56)"  "0.002"       "0.15 (0.02,1.02)" "0.053"     
+## disp "0.98 (0.97,0.99)" "0.002"       "1 (0.98,1.03)"    "0.715"     
+## 
+## $last.lines
+## [1] "No. of observations = 32\nAIC value = 23.8304\n\n"
+## 
+## attr(,"class")
+## [1] "display" "list"
+```
+
+
+---
+# [jsmodule](https://github.com/jinseob2kim/jsmodule)
+
+.large[
+GUI 분석: PS matching, 반복측정, survey 지원
+- [app.zarathu.com](app.zarathu.com) 이용, 웹에서 바로 가능
+]
+
+![](https://github.com/jinseob2kim/jsmodule/raw/master/vignettes/figures/ps.png)
+
+---
+# Download
+
+&lt;center&gt;
+&lt;img src="cran.png" width=80%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+.large[
+- 공단/심평원 R 버전이 낮으면 설치안될수도..
+]
+
+
+---
+
+class: center, middle
+
+# Web with shiny
+
+
+---
+# 자체서버: 실시간 분석웹
+
+
+&lt;center&gt;
+&lt;a href="http://147.47.68.165:1111/doctorssi/PPI_NHIS/"&gt;&lt;img src="ppi.png"&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+# 원격서버: 결과반출 후 시각화
+
+
+.large[
+분석 옵션마다 결과 반출 후 모아서 웹으로 만듦
+- [예](http://147.47.68.165:1111/doctorssi/osteoporosis_v5/)
+
+테이블은 엑셀, 그림은 PPT 로 다운받고 수정 가능.
+
+]
+
+
+
+---
+# [Meta분석 웹서비스](http://app.zarathu.com/meta-analysis/)
+
+논문쓰려면 다기관 CDM 결과를 합쳐야됨
+- 합친 table 1, forestplot, funnelplot 등 
+
+
+![](http://app.zarathu.com/img/meta-analysis.png)
 
 
 
