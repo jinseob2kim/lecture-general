@@ -218,7 +218,7 @@ class: center, middle
 - 합친 table 1, forestplot, funnelplot 등 
 
 
-![](http://app.zarathu.com/img/meta-analysis.png)
+![](meta-analysis.png)
 
 
 
