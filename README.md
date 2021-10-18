@@ -25,3 +25,6 @@ Lecture: general topic
 * [헬리코박터 마이크로바이옴 연구회 발표](http://www.ihnm.or.kr/conference/202102_html/p_about_program.php): [Be a data scientist - major actor in the future research](https://jinseob2kim.github.io/lecture-general/microbiome)
 
 * [대한상부위장관 · 헬리코박터학회 주관  2021 위원회 워크숍](https://www.hpylori.or.kr/): [R 활용 공공빅데이터 분석지원](https://jinseob2kim.github.io/lecture-general/publicdata_with_R)
+
+
+* [SBA 아카데미 디지털 인사이트스쿨 온라인 웨비나](https://academy.sba.kr/mobile/course_view.jsp?id=32295): [의료데이터분석가 독립 후기](https://jinseob2kim.github.io/lecture-general/ablearn)
