@@ -2,7 +2,7 @@
 title: "창업경험 공유"
 author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
 institute: "차라투(주)"
-date: "2022-1-29"
+date: "2022-1-28"
 output:
   xaringan::moon_reader:
     css: ["css/footer-header.css", "default"]
