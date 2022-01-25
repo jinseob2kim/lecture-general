@@ -28,3 +28,5 @@ Lecture: general topic
 
 
 * [SBA 아카데미 디지털 인사이트스쿨 온라인 웨비나](https://academy.sba.kr/mobile/course_view.jsp?id=32295): [의료데이터분석가 독립 후기](https://jinseob2kim.github.io/lecture-general/ablearn)
+
+* [성균관의대 학부생 세미나 2022: 의사의 길](http://www.skkumed.ac.kr/): [창업경험 공유](https://jinseob2kim.github.io/lecture-general/ablearn)
