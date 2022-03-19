@@ -24,7 +24,7 @@ subtitle: "제18차 대한이식학회 춘계학술대회 심포지엄"
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
-library(knitr);library(DT);library(shiny)
+library(knitr);library(DT);library(shiny);library(survival);library(survsim)
 data.t <- data.frame(sex = sample(c("Male", "Female"), 30, replace = T), tChol = round(rnorm(30, mean = 150, sd = 30)))
 data.fisher <- data.frame(HTN_medi = round(rbinom(50, 1, 0.2)), DM_medi = round(rbinom(50, 1, 0.2)))
 ```
@@ -184,7 +184,150 @@ chisq.test(table(data.fisher))
 ---
 # 회귀분석
 
+.large[
+**단변량, 다변량 같이** 보여주면 좋음
+]
 
+<center>
+<img src="https://www.researchgate.net/profile/Anne-Dyrhol-Riise/publication/259766024/figure/tbl4/AS:392649367408643@1470626312604/Univariate-and-multivariate-analysis-of-factors-associated-with-a-positive-TST-5-mm.png" width=80%></a>
+</center>
+
+---
+# Stepwise selection
+
+.large[
+- 다변량 포함 기준은 **임상적 중요성 or 단변량 유의성**
+
+- Stepwise selection은 임상적 중요성도 무시, 통계학적 논리도 부족
+]
+
+
+---
+# Subgroup analysis
+
+.large[
+**다변량분석보다 더 좋은 증거**
+]
+- 예) 성별 보정 < 성별에 따른 subgroup 분석
+
+.large[
+**Interaction 포함한 forest plot** 추천
+]
+
+
+<center>
+<img src="https://www.researchgate.net/publication/332229730/figure/fig2/AS:744331304521728@1554473820106/Subgroup-analyses-of-the-primary-outcome-The-forest-plot-shows-that-the-difference-in.ppm
+" width=60%></a>
+</center>
+
+
+
+---
+# 생존분석: 비례위험가정
+
+.large[
+트렌드 일정하다는 가정: **생존곡선 겹치면 안됨**
+]
+- 비례위험가정 test까진 필요없음: 그림으로 확인
+
+<center>
+<img src="https://i.stack.imgur.com/TzLk8.png" width=80%></a>
+</center>
+
+
+---
+# Landmark-analysis
+
+.large[
+시간 나눠 따로 분석]
+<center>
+<img src="https://blog.zarathu.com/posts/2020-10-29-survivalpractice/survivalpractice_files/figure-html5/unnamed-chunk-6-1.png" width=80%></a>
+</center>
+
+---
+# Time-dependent cox
+
+```{r}
+vet2 <- survSplit(Surv(time, status) ~ ., data = veteran, cut=c(90, 180), episode = "tgroup", id = "id")
+rmarkdown::paged_table(vet2)
+
+```
+---
+# Time-dependet cox
+
+```{r}
+vfit2 <- coxph(Surv(tstart, time, status) ~ trt + prior + karno:strata(tgroup), data=vet2)
+summary(vfit2)
+
+```
+
+
+---
+# Time-dependent covariate
+
+.large[
+생존분석 **모든 변수는 Index date 이전에 측정**해야
+]
+- 예) F/U lab, medication
+.large[
+Time-dependent covariate 다루려면 이를 고려한 cox 필요
+]
+
+```{r}
+N=100 #number of patients
+set.seed(123)
+df.tf<-simple.surv.sim(#baseline time fixed
+ n=N, foltime=500,
+ dist.ev=c('llogistic'),
+ anc.ev=c(0.68), beta0.ev=c(5.8),
+ anc.cens=1.2,
+ beta0.cens=7.4,
+ z=list(c("unif", 0.8, 1.2)),
+ beta=list(c(-0.4),c(0)),
+ x=list(c("bern", 0.5),
+ c("normal", 70, 13)))
+for (v in 4:7){
+  df.tf[[v]] <- round(df.tf[[v]])
+}
+names(df.tf)[c(1,4,6,7)]<-c("id", "time", "grp","age")
+df.tf <- df.tf[, -3]
+ nft<-sample(1:10,
+ N,replace=T)#number of follow up time points
+crp<-round(abs(rnorm(sum(nft)+N,
+ mean=100,sd=40)),1)
+time<-NA
+id<-NA
+i=0
+for(n in nft){
+i=i+1
+time.n<-sample(1:500,n)
+time.n<-c(0,sort(time.n))
+time<-c(time,time.n)
+id.n<-rep(i,n+1)
+id<-c(id,id.n)
+}
+df.td <- cbind(data.frame(id,time)[-1,],crp)
+
+
+df <- tmerge(df.tf, df.tf, id = id, status1 = event(time, status))
+df2 <- tmerge(df, df.td, id = id, crp = tdc(time, crp))
+rmarkdown::paged_table(df2)
+```
+
+
+---
+# 국민건강영양조사
+
+**2-stage cluster sampling**
+- **psu(1차집락)**: 서울전체 랜덤 200명(X), 서울 특정 지역 골라서 200명(O)
+- **kstrata(2차집락)**: 지역과 집의 형태 (아파트/일반주택) 
+- **wt(가중치)**: 인원이 적은데 사회적으로 혹은 학문적으로 배려해야 할 경우 대상자를 조금 많이 모집한 후 가중치를 줄여서 반영, 영양/설문/임상 검사에 따라 가중치종류 다름름 
+
+**SAS** surveyreg surveylogistic, **R** svyglm svycox
+
+<center>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxpFlG%2FbtqAyxBZnBG%2FnSjUohAQ00nKktNcEqwEq0%2Fimg.png" width=50%></a>
+</center>
 
 
 
