@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reviewer들을 위한 의학통계</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="김진섭" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/footer-header.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reviewer들을 위한 의학통계
+## 제18차 대한이식학회 춘계학술대회 심포지엄
+### 김진섭
+### 차라투(주)
+### 2022-4-8
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;&lt;span&gt;&lt;a href="https://www.zarathu.com"&gt;Zarathu Co.,Ltd&lt;/a&gt;   
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&lt;a href="https://github.com/jinseob2kim"&gt;김진섭&lt;/a&gt;&lt;/span&gt;&lt;/div&gt; 
+
+
+
+---
+
+# Executive summary
+
+**Table 1**
+- 연속변수 2그룹: 정규분포 **t-test**, 아니면 **Wilcox-test**
+- 연속변수 3그룹이상: 정규분포 **ANOVA**, 아니면 **Kruskal–Wallis ANOVA**
+- 범주형 변수: 샘플수 충분하면 **Chisq-test**, 아니면 **Fisher-test**
+
+
+**회귀분석**
+- **Univariate, multivariate** 같이 보여주기, **Subgroup** 분석 추천
+- **Stepwise selection 비추천**: 예측모형 목적 아님, 임상맥락 고려X
+
+
+**생존분석**
+- Kaplan-meier 그림선 겹치면 안됨: **Time stratification** 필요 
+- 보정할 변수가 Index time 이후면 안됨: **Time-dependent covariate** 필요
+- Propensity score 매칭 후 pair 고려한 **stratified cox 는 필수아님**
+
+
+**국민건강영양조사**
+- **표본추출정보를 고려**한 통계분석: Survey table1/GLM/Cox
+
+
+---
+
+class: center, middle
+
+
+# 소개 
+
+
+---
+# 맞춤형 통계웹
+
+![](https://jinseob2kim.github.io/lecture-general/korea-preventive/ss.png)
+---
+# [공개 통계웹](http://app.zarathu.com) 
+
+![](https://blog.zarathu.com/posts/2018-11-24-basic-biostatistics/app.gif)
+
+
+---
+# 주요 계약 
+
+
+- 대한심혈관중재학회 [COBIS III 레지스트리](https://clinicaltrials.gov/ct2/show/NCT03068494) 분석: [추가계약](http://pf.kakao.com/_XsuxgC/48388190)
+
+
+- 서울성모병원 [COREA-AMI II 레지스트리](https://clinicaltrials.gov/ct2/show/NCT02806102) 분석: [10개 연구 계약](http://pf.kakao.com/_XsuxgC/48043955)
+
+
+- 삼성서울병원 [공통데이터모델(CDM)](http://www.feedernet.org/html/?pmode=cdmdrn) 분석: [심평원 코로나데이터](https://hira-covid19.net/) 분석 중 
+
+
+- 강동성심병원 CDM 분석지원: 공단표본데이터 분석 중 
+
+
+- 경기도감염병관리지원단 코로나 대시보드 with Shinykorea: [최종보고](https://shinykorea.github.io/corona-activityrecord) 
+
+
+- 삼성서울병원 이식외과 육종(sarcoma) 데이터 분석: [5개 연구 계약](http://pf.kakao.com/_XsuxgC/51701089) 
+
+
+- 해운대백병원 정신질환 네트워크분석: [논문 5편](http://pf.kakao.com/_XsuxgC/52664370) 게재
+
+
+- 성균관의대 환경역학연구실 [미세먼지 대시보드](http://pf.kakao.com/_XsuxgC/43627405)
+
+
+- [삼성서울병원 정신과, 응급의학과, 임상역학센터 통계자문계약](http://pf.kakao.com/_XsuxgC/55192190)
+
+- [서울대병원 순환기내과 통계자문계약](http://pf.kakao.com/_XsuxgC/55577702)
+
+
+
+---
+# 주요 논문 성과 
+
+.large[
+SCI 논문 200건 지원
+]
+&lt;center&gt;
+&lt;img src="https://jinseob2kim.github.io/lecture-general/cdmkdh/paper.jpg" width=80%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+
+
+---
+class: center, middle
+
+# 의학통계 Tip
+
+---
+# 연구의 흐름?
+
+.large[
+- **Table 1**으로 데이터를 보여주고
+
+- **단변량(univariate)** 분석으로 가설검정
+
+- **다변량(multivariate)** or 소그룹(subgroup) 분석: 다른 변수들의 효과를 보정.
+]
+
+---
+# Table 1: 연속변수
+.large[
+- 연속변수 2그룹: 정규분포 **t-test**, 아니면 **Wilcox-test**
+
+- 연속변수 3그룹이상: 정규분포 **ANOVA**, 아니면 **Kruskal–Wallis ANOVA**
+]
+
+--
+.large[
+**등분산 가정 필요없음!!**
+]
+- 등분산 가정이란 두 그룹의 분산이 같다고 가정하는 것인데, 계산이 좀 더 쉽다는 이점이 있으나 아무 근거 없이 분산이 같다고 가정하는 것은 위험한 가정이다.
+
+
+---
+# 등분산가정 
+
+.small[
+
+```r
+t.test(tChol ~ sex, data = data.t, var.equal = T)
+```
+
+```
+## 
+## 	Two Sample t-test
+## 
+## data:  tChol by sex
+## t = 0.16516, df = 28, p-value = 0.87
+## alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
+## 95 percent confidence interval:
+##  -18.01998  21.18070
+## sample estimates:
+## mean in group Female   mean in group Male 
+##             153.4375             151.8571
+```
+
+```r
+t.test(tChol ~ sex, data = data.t, var.equal = F)
+```
+
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  tChol by sex
+## t = 0.15991, df = 20.754, p-value = 0.8745
+## alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
+## 95 percent confidence interval:
+##  -18.98711  22.14782
+## sample estimates:
+## mean in group Female   mean in group Male 
+##             153.4375             151.8571
+```
+]
+
+
+---
+# Table 1: 범주형변수
+.large[
+- 범주별 N수만 고려: 기본 **Chisq**, 부족하면 **Fisher-test**
+]
+
+
+```r
+table(data.fisher)
+```
+
+```
+##         DM_medi
+## HTN_medi  0  1
+##        0 34 10
+##        1  6  0
+```
+
+```r
+chisq.test(table(data.fisher))
+```
+
+```
+## Warning in chisq.test(table(data.fisher)): Chi-squared approximation may be
+## incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  table(data.fisher)
+## X-squared = 0.58002, df = 1, p-value = 0.4463
+```
+
+
+---
+# 회귀분석
+
+
+
+
+
+
+
+---
+
+# Executive summary
+
+**Table 1**
+- 연속변수 2그룹: 정규분포 **t-test**, 아니면 **Wilcox-test**
+- 연속변수 3그룹이상: 정규분포 **ANOVA**, 아니면 **Kruskal–Wallis ANOVA**
+- 범주형 변수: 샘플수 충분하면 **Chisq-test**, 아니면 **Fisher-test**
+
+
+**회귀분석**
+- **Univariate, multivariate** 같이 보여주기, **Subgroup** 분석 추천
+- **Stepwise selection 비추천**: 예측모형 목적 아님, 임상맥락 고려X
+
+
+**생존분석**
+- Kaplan-meier 그림선 겹치면 안됨: **Time stratification** 필요 
+- 보정할 변수가 Index time 이후면 안됨: **Time-dependent covariate** 필요
+- Propensity score 매칭 후 pair 고려한 **stratified cox 는 필수아님**
+
+
+**국민건강영양조사**
+- **표본추출정보를 고려**한 통계분석: Survey table1/GLM/Cox
+
+
+---
+class: center, middle
+
+# END
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

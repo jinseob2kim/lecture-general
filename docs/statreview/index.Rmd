@@ -1,6 +1,6 @@
 ---
 title: "Reviewer들을 위한 의학통계"
-author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
+author: 김진섭
 institute: "차라투(주)"
 date: "2022-4-8"
 output:
@@ -25,8 +25,9 @@ subtitle: "제18차 대한이식학회 춘계학술대회 심포지엄"
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
 library(knitr);library(DT);library(shiny)
+data.t <- data.frame(sex = sample(c("Male", "Female"), 30, replace = T), tChol = round(rnorm(30, mean = 150, sd = 30)))
+data.fisher <- data.frame(HTN_medi = round(rbinom(50, 1, 0.2)), DM_medi = round(rbinom(50, 1, 0.2)))
 ```
-
 
 layout: true
 
@@ -36,30 +37,31 @@ layout: true
 <a href="https://github.com/jinseob2kim">김진섭</a></span></div> 
 
 
+
 ---
+
 # Executive summary
 
-.large[
-**자체데이터**:  웹기반 실시간 분석서비스.
+**Table 1**
+- 연속변수 2그룹: 정규분포 **t-test**, 아니면 **Wilcox-test**
+- 연속변수 3그룹이상: 정규분포 **ANOVA**, 아니면 **Kruskal–Wallis ANOVA**
+- 범주형 변수: 샘플수 충분하면 **Chisq-test**, 아니면 **Fisher-test**
 
-- 웹에서 실시간 분석수행 후 Excel/PPT 다운로드
-]
 
---
+**회귀분석**
+- **Univariate, multivariate** 같이 보여주기, **Subgroup** 분석 추천
+- **Stepwise selection 비추천**: 예측모형 목적 아님, 임상맥락 고려X
 
-.large[
-**CDM 다기관 메타분석** 서비스
-- Table 1 합치기, Forest/Funnel plot 등
-]
---
 
-.large[
-[R](https://www.r-project.org/) 로 **보험공단/심평원 빅데이터 분석**가능.
-- 공단표본코호트 V1 은 내부 분석환경 구축
+**생존분석**
+- Kaplan-meier 그림선 겹치면 안됨: **Time stratification** 필요 
+- 보정할 변수가 Index time 이후면 안됨: **Time-dependent covariate** 필요
+- Propensity score 매칭 후 pair 고려한 **stratified cox 는 필수아님**
 
-- 공단표본코호트 V2, 심평원 데이터는 원격 분석환경 이용
 
-]
+**국민건강영양조사**
+- **표본추출정보를 고려**한 통계분석: Survey table1/GLM/Cox
+
 
 ---
 
@@ -120,109 +122,7 @@ class: center, middle
 SCI 논문 200건 지원
 ]
 <center>
-<img src="paper.jpg" width=80%></a>
-</center>
-
-
-
----
-# 정부지원사업 선정
-
-<center>
-<img src="gv.jpg" width=100%></a>
-</center>
-
-
----
-# 채용
-
-.large[
-비대면스타트업육성사업: 의대생 5인 
-- 100% 원격근무, 방학때만 출근 병행
-
-
-[청년디지털일자리지원사업](https://www.work.go.kr/youthjob/intro/dgtjbIntro.do): 통계전공 5인 
-- 기존 채용인원만큼 TO 얻음
-
-]
-
-
-
----
-class: center, middle
-
-# 핵심기술 R 
-
----
-# 프로그램 개발, 블로그 운영
-
-.large[
-[R](https://www.r-project.org/) packages
-
-- [jstable](https://github.com/jinseob2kim/jstable): 논문용 테이블 만들기
-
-
-- [jskm](https://github.com/jinseob2kim/jskm): 생존분석 그림 만들기
-
-
-- [jsmodule](https://github.com/jinseob2kim/jsmodule): 웹에서 하는 통계분석
-]
-
---
-.large[
-데이터 분석용 가상머신([docker](https://www.docker.com/) image)
-
-- [rshiny](https://github.com/jinseob2kim/docker-rshiny): [Rstudio](https://www.rstudio.com/)와 [shiny server](https://www.rstudio.com/products/shiny/shiny-server/) 가 설치된 이미지.
-]
---
-.large[
-[블로그](https://blog.zarathu.com/), 카카오톡 오픈채팅방- 프로그래밍 갤러리 R 유저 모임
-]
-
----
-# 80,000 다운로드
-
-<center>
-<img src="cran.png" width=80%></a>
-</center>
-
-
-
----
-
-# 공부모임: Shiny 밋업
-
-.large[
-https://github.com/shinykorea/Meetup
-
-- 월 1회 공부내용 공유. 30회 진행 
-
-- 의료/유전학/축산/반도체/게임/IPTV/회계 등 다양한 분야 사람들이 모임. 
-
-- **경기도 코로나 대시보드 공동작업**
-
-- 21년 공개SW기반 **커뮤니티** 지원사업, **韓中日 공개SW** 국제협력 강화 TASK 선정
-
-
-]
-
-
----
-# 경기도 코로나 [병상관리 대시보드](https://github.com/shinykorea/corona-sickbed)
-
-![](https://shinykorea.github.io/corona-activityrecord/d1.png)
-
-
-
----
-# 바이오헬스 규제과학과
-
-.large[
-겸임교수로 R데이터분석 3학점 강의예정(월 19-21시)
-]
-
-<center>
-<img src="biohrs.jpg" width=80%></a>
+<img src="https://jinseob2kim.github.io/lecture-general/cdmkdh/paper.jpg" width=80%></a>
 </center>
 
 
@@ -230,76 +130,89 @@ https://github.com/shinykorea/Meetup
 ---
 class: center, middle
 
-
-# CDM 다기관 메타분석 서비스 
-
+# 의학통계 Tip
 
 ---
-# [Meta분석 웹서비스](http://app.zarathu.com/meta-analysis/)
-
-논문쓰려면 다기관 CDM 결과를 합쳐야됨
-- 합친 table 1, forestplot, funnelplot 등 
-
-
-![](https://raw.githubusercontent.com/jinseob2kim/lecture-general/master/docs/publicdata_with_R/meta-analysis.png)
-
-
----
-# [출판논문](https://www.zarathu.com/portfolio)
-
-
-
-![](cdm.jpg)
-
----
-# [출판논문2: 심평원 Covid-19](https://www.zarathu.com/portfolio)
-![](ddd.jpg)
-
----
-
-class: center, middle
-
-# 공공빅데이터분석
-
----
-# KNHIS
+# 연구의 흐름?
 
 .large[
-표본코호트 
-- V1(02-13): 파일 보유, 자체 RStudio server에 구축
+- **Table 1**으로 데이터를 보여주고
 
-- V2(02-15): 구매 후 원격접속(접속할때마다 SMS 인증)
+- **단변량(univariate)** 분석으로 가설검정
 
+- **다변량(multivariate)** or 소그룹(subgroup) 분석: 다른 변수들의 효과를 보정.
+]
 
-맞춤형 데이터
-- 명동/원주 분석실 가야함.
+---
+# Table 1: 연속변수
+.large[
+- 연속변수 2그룹: 정규분포 **t-test**, 아니면 **Wilcox-test**
 
-- 데이터 신청과정에서 분석언어 선택: SAS vs R/python 
+- 연속변수 3그룹이상: 정규분포 **ANOVA**, 아니면 **Kruskal–Wallis ANOVA**
 ]
 
 --
 .large[
-**CRAN 패키지만 설치가능**, github 패키지 불가
-- R version 문제로 CRAN 패키지도 설치안되기도..
+**등분산 가정 필요없음!!**
+]
+- 등분산 가정이란 두 그룹의 분산이 같다고 가정하는 것인데, 계산이 좀 더 쉽다는 이점이 있으나 아무 근거 없이 분산이 같다고 가정하는 것은 위험한 가정이다.
+
+
+---
+# 등분산가정 
+
+.small[
+```{r, echo=T}
+t.test(tChol ~ sex, data = data.t, var.equal = T)
+t.test(tChol ~ sex, data = data.t, var.equal = F)
+```
 ]
 
 
 ---
-# HIRA
-
+# Table 1: 범주형변수
 .large[
-맞춤형 데이터 
-- **원격분석 가능**
-
-- **고정 IP 필수**, 2개 IP만 등록가능
-
-- 마찬가지로 **CRAN 패키지만 설치가능**
+- 범주별 N수만 고려: 기본 **Chisq**, 부족하면 **Fisher-test**
 ]
 
+```{r, echo=T}
+table(data.fisher)
+chisq.test(table(data.fisher))
+```
+
+
+---
+# 회귀분석
 
 
 
 
+
+
+
+---
+
+# Executive summary
+
+**Table 1**
+- 연속변수 2그룹: 정규분포 **t-test**, 아니면 **Wilcox-test**
+- 연속변수 3그룹이상: 정규분포 **ANOVA**, 아니면 **Kruskal–Wallis ANOVA**
+- 범주형 변수: 샘플수 충분하면 **Chisq-test**, 아니면 **Fisher-test**
+
+
+**회귀분석**
+- **Univariate, multivariate** 같이 보여주기, **Subgroup** 분석 추천
+- **Stepwise selection 비추천**: 예측모형 목적 아님, 임상맥락 고려X
+
+
+**생존분석**
+- Kaplan-meier 그림선 겹치면 안됨: **Time stratification** 필요 
+- 보정할 변수가 Index time 이후면 안됨: **Time-dependent covariate** 필요
+- Propensity score 매칭 후 pair 고려한 **stratified cox 는 필수아님**
+
+
+**국민건강영양조사**
+- **표본추출정보를 고려**한 통계분석: Survey table1/GLM/Cox
 
 
 ---
