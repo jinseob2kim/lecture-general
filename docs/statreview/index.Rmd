@@ -314,6 +314,23 @@ df2 <- tmerge(df, df.td, id = id, crp = tdc(time, crp))
 rmarkdown::paged_table(df2)
 ```
 
+---
+# PS matching: Stratified cox
+
+.large[
+Propensity score 매칭 후 **stratified cox 필수 아님**
+]
+
+- Stratified: 매칭쌍끼리는 **baseline hazard**가 같고, **다른 쌍끼린 다르다**는 가정.
+
+- No stratified: baseline hazard **전부 동일**하다는 가정
+
+.large[
+1:1 매칭이면 $\dfrac{N}{2}$ 개나 strata가 생김. 의미 없음
+
+1:다 매칭으로 strata갯수가 적으면 고려할 수도?
+]
+
 
 ---
 # 국민건강영양조사
