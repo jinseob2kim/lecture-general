@@ -32,3 +32,5 @@ Lecture: general topic
 * [성균관의대 학부생 세미나 2022: 의사의 길](http://www.skkumed.ac.kr/): [창업경험 공유](https://jinseob2kim.github.io/lecture-general/doctorskku2022)
 
 * [강동성심병원 CDM 연구활성화 심포지엄](https://www.kdh.or.kr/): [대학병원 연구자를 위한 통계 지원 ](https://jinseob2kim.github.io/lecture-general/cdmkdh)
+
+* [제18차 대한이식학회 춘계학술대회 심포지엄](http://conference.mykst.org/): [Reviewer들을 위한 의학통계](https://jinseob2kim.github.io/lecture-general/statreview)
