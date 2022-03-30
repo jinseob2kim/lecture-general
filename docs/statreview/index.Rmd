@@ -23,7 +23,7 @@ subtitle: "제18차 대한이식학회 춘계학술대회 심포지엄"
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center", message = F, warning = F)
 library(knitr);library(DT);library(shiny);library(survival);library(survsim)
 data.t <- data.frame(sex = sample(c("Male", "Female"), 30, replace = T), tChol = round(rnorm(30, mean = 150, sd = 30)))
 data.fisher <- data.frame(HTN_medi = round(rbinom(50, 1, 0.2)), DM_medi = round(rbinom(50, 1, 0.2)))
@@ -144,41 +144,468 @@ class: center, middle
 ]
 
 ---
-# Table 1: 연속변수
-.large[
-- 연속변수 2그룹: 정규분포 **t-test**, 아니면 **Wilcox-test**
+class: center, middle
 
-- 연속변수 3그룹이상: 정규분포 **ANOVA**, 아니면 **Kruskal–Wallis ANOVA**
+# 연속 변수의 그룹 비교
+
+
+---
+# 2그룹: t-test
+
+.large[
+2 그룹 **평균** 비교
+
+- 각 그룹의 평균과 표준편차 필요.
+
+https://www.evanmiller.org/ab-testing/t-test.html 에서 바로 가능.
+]
+
+---
+
+```{r, echo = F}
+data.t <- data.frame(sex = sample(c("Male", "Female"), 30, replace = T), tChol = round(rnorm(30, mean = 150, sd = 30)))
+rownames(data.t) <- paste("person", 1:30)
+datatable(data.t, rownames = T, caption = "data.t: sex and total cholesterol")
+```
+
+---
+
+```{r, echo = T}
+nev.ttest <- t.test(tChol ~ sex, data = data.t, var.equal = F)
+nev.ttest
+```
+
+.large[
+여자의 평균 콜레스테롤 값은 `r round(nev.ttest$estimate[1], 1)`, 남자는 `r round(nev.ttest$estimate[2], 1)` 이고 $p$-value는 `r round(nev.ttest$p.value, 3)`  
+
+]
+
+- `var.equal = F`는 등분산 가정 없이 분석하겠다는 뜻. 등분산 가정이란 두 그룹의 분산이 같다고 가정하는 것인데, 계산이 좀 더 쉽다는 이점이 있으나 아무 근거 없이 분산이 같다고 가정하는 것은 위험한 가정이다.
+
+
+---
+
+```{r, echo = T}
+ev.ttest <- t.test(tChol ~ sex, data = data.t, var.equal = T)
+ev.ttest
+```
+
+
+앞서는 **Welch t-test** 였는데 이름이 바뀐 것을 확인할 수 있고 $p$-value도 `r round(ev.ttest$p.value, 3)`로 다름. 
+- 특별한 경우가 아니고서야 위험한 등분산가정을 할 필요가 없음.   
+
+- **R** 에서 디폴트도 `F` 임.
+
+- 2그룹에서 ANOVA 하면 (등분산 가정한) t-test와 동일.
+
+  : 등분산 가정없는 ANOVA 도 있음.
+
+
+---
+
+```{r, fig.width=12}
+library(ggpubr)
+ggarrange(
+  ggboxplot(data.t, "sex", "tChol", fill = "sex"),
+  ggbarplot(data.t, "sex", "tChol", fill = "sex", add = "mean_sd")
+)
+```
+
+---
+
+```{r}
+ggboxplot(data.t, "sex", "tChol", fill = "sex", add = "dotplot") + 
+  stat_compare_means(method = "t.test", method.args = list(var.equal = F))
+```
+
+---
+```{r}
+ggviolin(data.t, "sex", "tChol", fill = "sex", add = "boxplot") + 
+   stat_compare_means(method = "t.test", method.args = list(var.equal = T), label.y = 250)
+```
+
+
+---
+# 2그룹: wilcox-test
+
+.large[
+
+정규분포 못믿을때: 2 그룹 **중위값** 비교
+
+- 값 자체가 아닌 순위정보만 이용 - **비모수검정**
+
+- **Median [IQR(25%-75% quantile)]** 로 표시
 ]
 
 --
 .large[
-**등분산 가정 필요없음!!**
-]
-- 등분산 가정이란 두 그룹의 분산이 같다고 가정하는 것인데, 계산이 좀 더 쉽다는 이점이 있으나 아무 근거 없이 분산이 같다고 가정하는 것은 위험한 가정이다.
+- 정규분포 따르는지 아닌지 테스트하는 정규성검정은 불필요. 
 
+- 임상적으로 판단하는것이 좋다. 키나 몸무게는 정규분포, CRP나 자녀수는 정규분포 안함.
+]
+
+- [정규분포 참고자료](https://jinseob2kim.github.io/Normal_distribution.html)
 
 ---
-# 등분산가정 
 
-.small[
-```{r, echo=T}
-t.test(tChol ~ sex, data = data.t, var.equal = T)
-t.test(tChol ~ sex, data = data.t, var.equal = F)
+```{r, echo = T, warning = F}
+res.wilcox <- wilcox.test(tChol ~ sex, data = data.t)
+res.wilcox
 ```
-]
-
 
 ---
-# Table 1: 범주형변수
+```{r}
+ggboxplot(data.t, "sex", "tChol", fill = "sex") + 
+  stat_compare_means(method = "wilcox.test")
+```
+
+---
+# 3그룹 이상: 1 way ANOVA
+
 .large[
-- 범주별 N수만 고려: 기본 **Chisq**, 부족하면 **Fisher-test**
+3 그룹 이상의 평균 비교
+
+- 2그룹씩 짝을 지어서 **t-test**를 반복할 수도 있으나, Table 1은 보통 하나의 $P$-value만 제시함.
+
+- 전체적으로 **튀는 것이 하나라도 있는가?**를 테스트하는 **ANOVA**. 
+
+- 어떤 그룹이 차이나는지는 관심없음.
+
 ]
 
-```{r, echo=T}
-table(data.fisher)
-chisq.test(table(data.fisher))
+--
+- 사후(post-hoc) 분석을 이용, 어떤 것이 튀는지를 알아볼 수도 있다.
+
+- 보통 우리가 쓰는 **ANOVA**는 비교할 모든 그룹에서 분산이 같다는 등분산 가정 하에 분석을 수행하며, 실제로 2 그룹일 때 **ANOVA**를 수행하면 등분산 가정 하에 수행한 **t-test**와 동일한 결과를 얻는다. 물론 등분산 가정없는 generalized ANOVA 도 있고 본사는 이것을 디폴트로 사용한다. 
+
+
+
+---
+
+```{r, echo=F}
+data.aov <- data.frame(group = sample(c("A", "B", "C"), 30, replace = T), tChol = round(rnorm(30, mean = 150, sd = 30)))
+rownames(data.aov) <- paste("person", 1:30)
+datatable(data.aov, rownames = T, caption = "data.t: group and total cholesterol")
 ```
+
+---
+```{r, echo = T}
+res.aov1 <- oneway.test(tChol ~ group, data = data.aov, var.equal = F)
+res.aov1
+res.aov2 <- oneway.test(tChol ~ group, data = data.aov, var.equal = T)
+res.aov2
+```
+
+.large[
+> 등분산 가정없는 $p$-value인 `r round(res.aov1$p.value, 3)`를 이용하며, 의미는 "**3 그룹에서 총콜레스테롤 값이 비슷하다**(다른 것이 있다고 할 수 없다)" 이다.
+]
+---
+```{r}
+ggboxplot(data.aov, "group", "tChol", fill = "group", order = c("A", "B", "C")) + 
+  stat_compare_means(method = "anova")
+```
+
+---
+```{r}
+ggboxplot(data.aov, "group", "tChol", fill = "group", order = c("A", "B", "C")) + 
+  stat_compare_means(method = "anova", label.y = 250) + 
+  stat_compare_means(method = "t.test", comparisons = list(c("A", "B"), c("B", "C"), c("C", "A")))
+```
+
+
+---
+# 3그룹이상: Kruskal–Wallis ANOVA
+
+.large[
+
+정규분포 못믿을때: 3 그룹 **중위값** 비교
+
+- 값 자체가 아닌 순위정보만 이용 - **비모수검정**
+
+- **Median [IQR(25%-75% quantile)]** 로 표시
+]
+
+---
+```{r, echo = T}
+res.kruskal <- kruskal.test(tChol ~ group, data = data.aov)
+res.kruskal
+```
+
+.large[
+> $p$-value는 `r round(res.kruskal$p.value, 3)`. 
+]
+---
+```{r}
+ggboxplot(data.aov, "group", "tChol", fill = "group", order = c("A", "B", "C")) + 
+  stat_compare_means(method = "kruskal.test")
+```
+
+
+---
+class: center, middle
+
+# 범주형 변수의 그룹 비교
+
+### 그룹 수나 정규분포를 고려할 필요가 없어 연속 변수일 때보다 훨씬 간단하며 딱 하나, **샘플 수**가 충분한지만 확인하면 된다.
+
+
+---
+# 샘플 수 충분: Chi-square test
+
+.large[
+**Chi-square test**는 두 범주형 변수가 관계가 있는지 없는지를 파악하는 테스트.
+
+]
+
+- 세 범주형 변수일 때도 이용할 수 있으나 본 강의에서는 생략한다.
+
+
+
+
+---
+
+```{r, echo=F}
+set.seed(222)
+data.chi <- data.frame(HTN_medi = round(rbinom(50, 1, 0.4)), DM_medi = round(rbinom(50, 1, 0.4)))
+rownames(data.chi) <- paste("person", 1:50)
+datatable(data.chi, rownames = T, caption = "data.chi: HTN & DM medication")
+```
+
+
+---
+```{r, echo = T}
+tb.chi <- table(data.chi)
+tb.chi
+```
+
+언뜻 봐서는 관계가 있는지 아닌지 잘 모르겠다. **Chi-square test**를 해보자.
+
+--
+
+```{r, echo = T}
+res.chi <- chisq.test(tb.chi)
+res.chi
+```
+
+ > $p$-value는 `r round(res.chi$p.value, 3)`, **혈압약 복용과 당뇨약 복용은 유의한 관계가 없다**고 말할 수 있다. 
+
+---
+# 샘플 수 부족: Fisher's exact test
+
+.large[
+분석할 테이블에서 **샘플 수가 너무 작은 항이 있으면** **chi-square test** 가 부정확해진다. 이 때는 **fisher's exact test**를 쓴다. 
+
+- 현 상황보다 더 극한 상황이 나올 확률을 [직접 계산](https://techntalk.tistory.com/entry/%ED%94%BC%EC%85%94%EC%9D%98-%EC%A0%95%ED%99%95%EB%8F%84-%EA%B2%80%EC%A0%95Fishers-Exact-Probability-Test)함.  
+]
+
+
+---
+
+```{r, echo = F}
+set.seed(222)
+data.fisher <- data.frame(HTN_medi = round(rbinom(50, 1, 0.2)), DM_medi = round(rbinom(50, 1, 0.2)))
+rownames(data.fisher) <- paste("person", 1:50)
+datatable(data.fisher, rownames = T, caption = "data.fisher: HTN & DM medication")
+```
+
+---
+
+아까와 마찬가지로 테이블로 두 약물 복용상태를 비교하면 아래와 같다.
+
+```{r, echo = T}
+tb.fisher <- table(data.fisher)
+tb.fisher
+```
+
+--
+혈압약과 당뇨약을 모두 복용한 사람이 `r tb.fisher[2, 2]`명으로 좀 작아보이지만 무시하고 **chi-square test**를 수행하면 결과는 나오나 `Warning` 메시지가 뜬다.  
+
+
+```{r, echo = T, warning = T}
+chisq.test(tb.fisher)
+```
+
+**두 약을 모두 복용한 사람이 2명뿐**, 분석할 테이블에서 샘플 수가 너무 작은 항이 있으면 **chi-square test**의 계산이 부정확해진다.
+
+
+---
+
+**fisher's exact test** 를 해 보자.
+
+```{r, echo = T}
+res.fisher <- fisher.test(tb.fisher)
+res.fisher
+```
+
+.large[
+> $p$-value는 `r round(res.fisher$p.value, 3)`, 마찬가지로 혈압약 복용과 당뇨약 복용은 유의한 관계가 없다고 할 수 있다. 
+]
+
+--
+의문: **무조건 fisher's test만 하면 간단한데** **chi-square test**는 왜 하나?
+
+- 샘플 수가 작을 때는 **fisher's test**만 하는 것이 실제로 더 간단하고 방법론적으로도 아무 문제가 없다. 그러나 샘플 수나 그룹 수가 늘어날수록 **fisher's test**는 계산량이 급격하게 증가한다. **chi-square test**를 먼저 수행하는 것을 권유한다.   
+
+
+---
+class: center, middle
+
+# 연속변수의 짝지은 그룹비교
+
+### Paired t-test
+
+
+---
+# 2그룹 : Paired t-test
+
+각 사람의 혈압을 한 번은 사람이 직접, 한 번은 자동혈압계로 측정했다고 하자. 이 때 직접 잰 혈압과 자동혈압계의 측정값을 비교한다면 **t-test**로 충분할까? 
+
+- t-test는 혈압 재는 방법마다 **평균을 먼저 구한 후** 그것이 같은지를 테스트하므로  **짝지은 정보를 활용하지 못한다.** 
+
+- 각 사람마다 두 혈압값의 **차이를 먼저 구한 후** 평균이 0인지를 테스트하면, **짝지은 정보를 활용**하면서 계산도 더 간단한 방법이 된다.
+
+
+--
+.large[
+- **차이값을 먼저 구한 후** 그 평균이 0인지를 테스트하는 방법이 **paired t-test**
+]
+
+
+---
+```{r, echo = F}
+data.pt <- data.frame(SBP_hand = round(rnorm(30, mean = 125, sd = 5)), SBP_machine = round(rnorm(30, mean = 125, sd = 5)))
+rownames(data.pt) <- paste("person", 1:30)
+datatable(data.pt, rownames = T, caption = "data.pt: systolic blood pressure measured by hand & machine")
+```
+
+
+---
+그냥 t-test 로 비교해보자.
+
+```{r, echo = T}
+pt.ttest <- t.test(data.pt$SBP_hand, data.pt$SBP_machine)
+pt.ttest
+```
+
+각 방법의 **평균을 먼저 구한 후 차이를 비교** 했고, $p$-value는 `r round(pt.ttest$p.value, 3)`이다. 이제 **paired t-test**를 수행하자. 
+
+
+---
+```{r, echo = T}
+pt.ttest.pair <- t.test(data.pt$SBP_hand, data.pt$SBP_machine, paired = TRUE)
+pt.ttest.pair
+```
+
+이번에는 **사람마다 차이값을 먼저 구한 후 그것이 0인지 테스트** 했고, $p$-value는 `r round(pt.ttest.pair$p.value, 3)`이다.  
+
+
+---
+```{r}
+ggpaired(data.pt, cond1 = "SBP_hand", cond2 = "SBP_machine", fill = "condition", palette = "jco") + 
+  stat_compare_means(method = "t.test", paired = T)
+```
+
+
+---
+**Paired t-test**의 비모수버전은 **wilcoxon-signed rank test** 이며 아래와 같이 실행한다. 
+
+```{r, echo = T}
+pt.wilcox.pair <- wilcox.test(data.pt$SBP_hand, data.pt$SBP_machine, paired = T)
+pt.wilcox.pair
+```
+
+- 본 강의에서는 다루지 않겠지만 짝지은 3개 이상의 그룹은 [**repeated measure ANOVA**](https://statistics.laerd.com/statistical-guides/repeated-measures-anova-statistical-guide.php) 를 이용한다. 
+
+
+---
+```{r}
+ggpaired(data.pt, cond1 = "SBP_hand", cond2 = "SBP_machine", fill = "condition", palette = "jco") + 
+  stat_compare_means(method = "wilcox.test", paired = T)
+```
+
+---
+class: center, middle
+
+# 범주형 변수의 짝지은 그룹비교
+
+### Mcnemar test, Symmetry test for a paired contingency table
+
+---
+# 2그룹: Mcnemar test
+
+.large[
+약 복용 전후로 복통증상 발생에 차이가 있는지 알아본다고 하자.
+]
+
+
+---
+
+```{r, echo = F}
+data.mc <- data.frame(Pain_before = round(rbinom(30, 1, 0.5)), Pain_after = round(rbinom(30, 1, 0.5)))
+rownames(data.mc) <- paste("person", 1:30)
+datatable(data.mc, rownames = T, caption = "data.mc: Abdominal pain - before & after")
+```
+
+---
+
+이 데이터를 2 by 2 테이블로 정리하면 아래와 같다. 
+
+```{r, echo = T}
+table.mc <- table(data.mc)
+table.mc
+```
+
+--
+먼저 앞서 배운 **Chi-sqaure test** 를 이용한 결과를 보자.
+
+```{r, echo = T}
+mc.chi <- chisq.test(table.mc)
+mc.chi
+```
+
+이것은 약 복용 전 복통 증상과 복용 후의 복통 증상이 얼마나 관계가 있는지 알아보는 테스트로 **짝지은 정보를 활용하지 않는다**. 
+
+
+---
+짝지은 정보를 활용하는 **mcnemar test**를 수행하자.
+
+```{r, echo = T}
+mc.mcnemar <- mcnemar.test(table.mc)
+mc.mcnemar
+```
+
+.large[
+> **Mcnemar test**는 약 복용후 증상발생이 달라진 사람 즉, **discordant pair**만 분석에 이용한다. 따라서 **condordant pair** 가 어떻든지 통계결과는 동일하게 나온다.
+]
+
+---
+# 3그룹: symmetry test
+
+.large[
+Symmetry test for a paired contingency table*
+
+- Mcnemar test의 일반화, 3그룹 이상에서도 가능. 
+]
+
+http://rcompanion.org/handbook/H_05.html
+
+
+```{r, echo = F}
+library(rcompanion)
+## Example data
+data(AndersonRainGarden) 
+AndersonRainGarden       
+```
+
+---
+
+`nominalSymmetryTest` 함수를 쓴다.
+
+```{r, echo = T}
+## Symmetry test
+nominalSymmetryTest(AndersonRainGarden)
+```
+
 
 
 ---
