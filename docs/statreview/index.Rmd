@@ -17,7 +17,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      ratio: "4:3" 
+      ratio: "16:9" 
 subtitle: "제18차 대한이식학회 춘계학술대회 심포지엄"
 ---
 
@@ -74,11 +74,16 @@ class: center, middle
 ---
 # 맞춤형 통계웹
 
-![](https://jinseob2kim.github.io/lecture-general/korea-preventive/ss.png)
+<center>
+<img src="https://jinseob2kim.github.io/lecture-general/korea-preventive/ss.png" width=70%></a>
+</center>
+
 ---
 # [공개 통계웹](http://app.zarathu.com) 
 
-![](https://blog.zarathu.com/posts/2018-11-24-basic-biostatistics/app.gif)
+<center>
+<img src="openstat.jpg" width=70%></a>
+</center>
 
 
 ---
@@ -122,7 +127,7 @@ class: center, middle
 SCI 논문 200건 지원
 ]
 <center>
-<img src="https://jinseob2kim.github.io/lecture-general/cdmkdh/paper.jpg" width=80%></a>
+<img src="https://jinseob2kim.github.io/lecture-general/cdmkdh/paper.jpg" width=50%></a>
 </center>
 
 
@@ -616,7 +621,7 @@ nominalSymmetryTest(AndersonRainGarden)
 ]
 
 <center>
-<img src="https://www.researchgate.net/profile/Anne-Dyrhol-Riise/publication/259766024/figure/tbl4/AS:392649367408643@1470626312604/Univariate-and-multivariate-analysis-of-factors-associated-with-a-positive-TST-5-mm.png" width=80%></a>
+<img src="https://www.researchgate.net/profile/Anne-Dyrhol-Riise/publication/259766024/figure/tbl4/AS:392649367408643@1470626312604/Univariate-and-multivariate-analysis-of-factors-associated-with-a-positive-TST-5-mm.png" width=65%></a>
 </center>
 
 ---
@@ -644,7 +649,7 @@ nominalSymmetryTest(AndersonRainGarden)
 
 <center>
 <img src="https://www.researchgate.net/publication/332229730/figure/fig2/AS:744331304521728@1554473820106/Subgroup-analyses-of-the-primary-outcome-The-forest-plot-shows-that-the-difference-in.ppm
-" width=60%></a>
+" width=40%></a>
 </center>
 
 
@@ -658,7 +663,7 @@ nominalSymmetryTest(AndersonRainGarden)
 - 비례위험가정 test까진 필요없음: 그림으로 확인
 
 <center>
-<img src="https://i.stack.imgur.com/TzLk8.png" width=80%></a>
+<img src="https://i.stack.imgur.com/TzLk8.png" width=55%></a>
 </center>
 
 
@@ -668,7 +673,7 @@ nominalSymmetryTest(AndersonRainGarden)
 .large[
 시간 나눠 따로 분석]
 <center>
-<img src="https://blog.zarathu.com/posts/2020-10-29-survivalpractice/survivalpractice_files/figure-html5/unnamed-chunk-6-1.png" width=80%></a>
+<img src="https://blog.zarathu.com/posts/2020-10-29-survivalpractice/survivalpractice_files/figure-html5/unnamed-chunk-6-1.png" width=50%></a>
 </center>
 
 ---
@@ -770,7 +775,7 @@ Propensity score 매칭 후 **stratified cox 필수 아님**
 **SAS** surveyreg surveylogistic, **R** svyglm svycox
 
 <center>
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxpFlG%2FbtqAyxBZnBG%2FnSjUohAQ00nKktNcEqwEq0%2Fimg.png" width=50%></a>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxpFlG%2FbtqAyxBZnBG%2FnSjUohAQ00nKktNcEqwEq0%2Fimg.png" width=40%></a>
 </center>
 
 

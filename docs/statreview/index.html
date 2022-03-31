@@ -79,11 +79,16 @@ class: center, middle
 ---
 # 맞춤형 통계웹
 
-![](https://jinseob2kim.github.io/lecture-general/korea-preventive/ss.png)
+&lt;center&gt;
+&lt;img src="https://jinseob2kim.github.io/lecture-general/korea-preventive/ss.png" width=70%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
 ---
 # [공개 통계웹](http://app.zarathu.com) 
 
-![](https://blog.zarathu.com/posts/2018-11-24-basic-biostatistics/app.gif)
+&lt;center&gt;
+&lt;img src="openstat.jpg" width=70%&gt;&lt;/a&gt;
+&lt;/center&gt;
 
 
 ---
@@ -127,7 +132,7 @@ class: center, middle
 SCI 논문 200건 지원
 ]
 &lt;center&gt;
-&lt;img src="https://jinseob2kim.github.io/lecture-general/cdmkdh/paper.jpg" width=80%&gt;&lt;/a&gt;
+&lt;img src="https://jinseob2kim.github.io/lecture-general/cdmkdh/paper.jpg" width=50%&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 
@@ -167,8 +172,8 @@ https://www.evanmiller.org/ab-testing/t-test.html 에서 바로 가능.
 
 ---
 
-<div id="htmlwidget-cacf2c333836188ef8b6" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cacf2c333836188ef8b6">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: sex and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["Female","Male","Female","Female","Female","Female","Male","Female","Female","Female","Male","Male","Female","Female","Female","Female","Female","Male","Female","Male","Male","Male","Female","Female","Male","Male","Male","Male","Male","Male"],[137,122,170,160,167,179,148,97,168,170,148,142,116,153,162,169,157,77,155,179,203,132,168,169,129,195,150,138,148,132]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sex<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cc7ec895c19de0c173eb" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cc7ec895c19de0c173eb">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: sex and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["Male","Female","Female","Male","Female","Male","Male","Female","Female","Male","Male","Male","Male","Male","Female","Female","Female","Female","Male","Female","Male","Male","Male","Female","Male","Female","Male","Female","Female","Female"],[144,136,147,194,180,207,209,172,175,161,212,141,134,110,189,149,164,143,179,168,85,142,136,131,170,131,93,113,162,150]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sex<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -183,17 +188,17 @@ nev.ttest
 ## 	Welch Two Sample t-test
 ## 
 ## data:  tChol by sex
-## t = 1.0105, df = 22.787, p-value = 0.3229
+## t = -0.039321, df = 21.06, p-value = 0.969
 ## alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
 ## 95 percent confidence interval:
-##  -10.62265  30.89050
+##  -25.14378  24.21045
 ## sample estimates:
 ## mean in group Female   mean in group Male 
-##             156.0625             145.9286
+##             154.0000             154.4667
 ```
 
 .large[
-여자의 평균 콜레스테롤 값은 156.1, 남자는 145.9 이고 `\(p\)`-value는 0.323  
+여자의 평균 콜레스테롤 값은 154, 남자는 154.5 이고 `\(p\)`-value는 0.969  
 
 ]
 
@@ -213,17 +218,17 @@ ev.ttest
 ## 	Two Sample t-test
 ## 
 ## data:  tChol by sex
-## t = 1.0351, df = 28, p-value = 0.3095
+## t = -0.039321, df = 28, p-value = 0.9689
 ## alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
 ## 95 percent confidence interval:
-##  -9.920007 30.187864
+##  -24.77772  23.84439
 ## sample estimates:
 ## mean in group Female   mean in group Male 
-##             156.0625             145.9286
+##             154.0000             154.4667
 ```
 
 
-앞서는 **Welch t-test** 였는데 이름이 바뀐 것을 확인할 수 있고 `\(p\)`-value도 0.309로 다름. 
+앞서는 **Welch t-test** 였는데 이름이 바뀐 것을 확인할 수 있고 `\(p\)`-value도 0.969로 다름. 
 - 특별한 경우가 아니고서야 위험한 등분산가정을 할 필요가 없음.   
 
 - **R** 에서 디폴트도 `F` 임.
@@ -279,7 +284,7 @@ res.wilcox
 ## 	Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  tChol by sex
-## W = 150.5, p-value = 0.1138
+## W = 113.5, p-value = 0.9835
 ## alternative hypothesis: true location shift is not equal to 0
 ```
 
@@ -309,8 +314,8 @@ res.wilcox
 
 ---
 
-<div id="htmlwidget-c0c220bf50ed9f320dd0" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c0c220bf50ed9f320dd0">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: group and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["C","C","C","B","C","B","B","B","C","A","B","B","A","B","C","A","C","C","A","A","A","A","C","B","C","B","A","B","C","B"],[148,126,128,144,140,117,147,182,146,115,125,171,140,111,132,146,177,145,160,53,127,159,113,163,174,145,187,122,162,162]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c99940647d67e931312d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c99940647d67e931312d">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: group and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["C","C","C","B","C","B","B","B","C","A","B","B","A","B","C","A","C","C","A","A","A","A","C","B","C","B","A","B","C","B"],[148,126,128,144,140,117,147,182,146,115,125,171,140,111,132,146,177,145,160,53,127,159,113,163,174,145,187,122,162,162]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -407,8 +412,8 @@ class: center, middle
 
 ---
 
-<div id="htmlwidget-450019af8cb142d4080e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-450019af8cb142d4080e">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.chi: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,1,1,0,0,1,1,1,1,1,0,1,1,1,0,1],[0,0,1,1,0,0,0,0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,1,0,0,1,1,1,1,0,1,1,0,0,1,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-df227a0455af7988d855" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-df227a0455af7988d855">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.chi: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,1,1,0,0,1,1,1,1,1,0,1,1,1,0,1],[0,0,1,1,0,0,0,0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,1,0,0,1,1,1,1,0,1,1,0,0,1,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -457,8 +462,8 @@ res.chi
 
 ---
 
-<div id="htmlwidget-fff365f41bb24fe0cc6a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fff365f41bb24fe0cc6a">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.fisher: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1],[0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e197233812ec9fcecd2a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e197233812ec9fcecd2a">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.fisher: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1],[0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -560,8 +565,8 @@ class: center, middle
 
 
 ---
-<div id="htmlwidget-b02cabc5fc2f23ddd47a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b02cabc5fc2f23ddd47a">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.pt: systolic blood pressure measured by hand &amp; machine<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[128,128,120,119,124,130,127,131,127,120,119,131,129,129,125,129,126,132,123,111,125,125,119,112,129,126,125,128,125,128],[128,119,119,126,118,124,128,129,117,130,123,128,128,133,127,126,127,119,122,125,124,127,128,126,127,123,129,123,142,123]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>SBP_hand<\/th>\n      <th>SBP_machine<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b9ff6a92120ca06e7db7" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b9ff6a92120ca06e7db7">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.pt: systolic blood pressure measured by hand &amp; machine<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[128,128,120,119,124,130,127,131,127,120,119,131,129,129,125,129,126,132,123,111,125,125,119,112,129,126,125,128,125,128],[128,119,119,126,118,124,128,129,117,130,123,128,128,133,127,126,127,119,122,125,124,127,128,126,127,123,129,123,142,123]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>SBP_hand<\/th>\n      <th>SBP_machine<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -659,8 +664,8 @@ class: center, middle
 
 ---
 
-<div id="htmlwidget-f54a75099f4e2b120f24" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f54a75099f4e2b120f24">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.mc: Abdominal pain - before &amp; after<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[0,1,0,0,0,1,0,0,0,0,1,1,0,1,0,1,1,0,0,0,1,1,1,0,1,1,0,1,0,1],[0,1,1,0,1,0,0,0,0,1,0,0,0,1,1,0,1,0,1,1,1,0,0,1,0,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Pain_before<\/th>\n      <th>Pain_after<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cf2938c795d1b78ee20e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cf2938c795d1b78ee20e">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.mc: Abdominal pain - before &amp; after<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[0,1,0,0,0,1,0,0,0,0,1,1,0,1,0,1,1,0,0,0,1,1,1,0,1,1,0,1,0,1],[0,1,1,0,1,0,0,0,0,1,0,0,0,1,1,0,1,0,1,1,1,0,0,1,0,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Pain_before<\/th>\n      <th>Pain_after<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -780,7 +785,7 @@ nominalSymmetryTest(AndersonRainGarden)
 ]
 
 &lt;center&gt;
-&lt;img src="https://www.researchgate.net/profile/Anne-Dyrhol-Riise/publication/259766024/figure/tbl4/AS:392649367408643@1470626312604/Univariate-and-multivariate-analysis-of-factors-associated-with-a-positive-TST-5-mm.png" width=80%&gt;&lt;/a&gt;
+&lt;img src="https://www.researchgate.net/profile/Anne-Dyrhol-Riise/publication/259766024/figure/tbl4/AS:392649367408643@1470626312604/Univariate-and-multivariate-analysis-of-factors-associated-with-a-positive-TST-5-mm.png" width=65%&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 ---
@@ -808,7 +813,7 @@ nominalSymmetryTest(AndersonRainGarden)
 
 &lt;center&gt;
 &lt;img src="https://www.researchgate.net/publication/332229730/figure/fig2/AS:744331304521728@1554473820106/Subgroup-analyses-of-the-primary-outcome-The-forest-plot-shows-that-the-difference-in.ppm
-" width=60%&gt;&lt;/a&gt;
+" width=40%&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 
@@ -822,7 +827,7 @@ nominalSymmetryTest(AndersonRainGarden)
 - 비례위험가정 test까진 필요없음: 그림으로 확인
 
 &lt;center&gt;
-&lt;img src="https://i.stack.imgur.com/TzLk8.png" width=80%&gt;&lt;/a&gt;
+&lt;img src="https://i.stack.imgur.com/TzLk8.png" width=55%&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 
@@ -832,7 +837,7 @@ nominalSymmetryTest(AndersonRainGarden)
 .large[
 시간 나눠 따로 분석]
 &lt;center&gt;
-&lt;img src="https://blog.zarathu.com/posts/2020-10-29-survivalpractice/survivalpractice_files/figure-html5/unnamed-chunk-6-1.png" width=80%&gt;&lt;/a&gt;
+&lt;img src="https://blog.zarathu.com/posts/2020-10-29-survivalpractice/survivalpractice_files/figure-html5/unnamed-chunk-6-1.png" width=50%&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 ---
@@ -923,7 +928,7 @@ Propensity score 매칭 후 **stratified cox 필수 아님**
 **SAS** surveyreg surveylogistic, **R** svyglm svycox
 
 &lt;center&gt;
-&lt;img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxpFlG%2FbtqAyxBZnBG%2FnSjUohAQ00nKktNcEqwEq0%2Fimg.png" width=50%&gt;&lt;/a&gt;
+&lt;img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxpFlG%2FbtqAyxBZnBG%2FnSjUohAQ00nKktNcEqwEq0%2Fimg.png" width=40%&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 
@@ -968,7 +973,7 @@ class: center, middle
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false,
-"ratio": "4:3"
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
