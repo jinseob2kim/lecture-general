@@ -34,3 +34,5 @@ Lecture: general topic
 * [강동성심병원 CDM 연구활성화 심포지엄](https://www.kdh.or.kr/): [대학병원 연구자를 위한 통계 지원 ](https://jinseob2kim.github.io/lecture-general/cdmkdh)
 
 * [제18차 대한이식학회 춘계학술대회 심포지엄](http://conference.mykst.org/): [Reviewer들을 위한 의학통계](https://jinseob2kim.github.io/lecture-general/statreview)
+
+* [서울의대 예과수업: 의학을 위한 수학응용](http://nm.snu.ac.kr/bbs/board.php?bo_table=in_premed&page=1): [의료데이터분석가 성장기](https://jinseob2kim.github.io/lecture-general/snu-premed)
