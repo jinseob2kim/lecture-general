@@ -621,7 +621,7 @@ nominalSymmetryTest(AndersonRainGarden)
 ]
 
 <center>
-<img src="https://www.researchgate.net/profile/Anne-Dyrhol-Riise/publication/259766024/figure/tbl4/AS:392649367408643@1470626312604/Univariate-and-multivariate-analysis-of-factors-associated-with-a-positive-TST-5-mm.png" width=65%></a>
+<img src="https://www.researchgate.net/publication/316728873/figure/tbl4/AS:667604591071246@1536180746489/Univariate-analysis-and-multivariate-analysis-of-factors-associated-with-SVCS-3.png" width=55%></a>
 </center>
 
 ---
