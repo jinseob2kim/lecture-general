@@ -620,9 +620,8 @@ nominalSymmetryTest(AndersonRainGarden)
 **단변량, 다변량 같이** 보여주면 좋음
 ]
 
-<center>
-<img src="https://www.researchgate.net/publication/316728873/figure/tbl4/AS:667604591071246@1536180746489/Univariate-analysis-and-multivariate-analysis-of-factors-associated-with-SVCS-3.png" width=55%></a>
-</center>
+![](https://www.researchgate.net/publication/316728873/figure/tbl4/AS:667604591071246@1536180746489/Univariate-analysis-and-multivariate-analysis-of-factors-associated-with-SVCS-3.png)
+
 
 ---
 # Stepwise selection
