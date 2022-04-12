@@ -90,7 +90,7 @@ class: center, middle
 ]
 
 <center>
-<a href="http://songpaict.com/"><img src="http://songpaict.com/wp-content/uploads/2021/11/%EB%AA%A8%EC%A7%91-%ED%8F%AC%EC%8A%A4%ED%84%B0-%EC%B5%9C%EC%A2%85-scaled.jpg" width=30%></a>
+<a href="http://songpaict.com/"><img src="sp.jpg" width=30%></a>
 </center>
 
 
