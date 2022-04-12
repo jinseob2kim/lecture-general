@@ -36,3 +36,5 @@ Lecture: general topic
 * [제18차 대한이식학회 춘계학술대회 심포지엄](http://conference.mykst.org/): [Reviewer들을 위한 의학통계](https://jinseob2kim.github.io/lecture-general/statreview)
 
 * [서울의대 예과수업: 의학을 위한 수학응용](http://nm.snu.ac.kr/bbs/board.php?bo_table=in_premed&page=1): [의료데이터분석가 성장기](https://jinseob2kim.github.io/lecture-general/snu-premed)
+
+* [Shinykorea 밋업](http://nm.snu.ac.kr/bbs/board.php?bo_table=in_premed&page=1): [22년 지원사업 도전기](https://jinseob2kim.github.io/lecture-general/status2022)
