@@ -214,7 +214,7 @@ BIG3(시스템반도체, 바이오·헬스, 미래차) 대상, 3년간 매년 1~
 </center>
 
 ---
-#[SW고성장클럽](https://swgo.kr/)
+#[SW고성장클럽](https://swgo.kr/) 탈락
 
 예비고성장클럽(1억) 지원
 - 작년과 비슷하게 썼고 서류탈락
@@ -224,18 +224,245 @@ BIG3(시스템반도체, 바이오·헬스, 미래차) 대상, 3년간 매년 1~
 </center>
 
 ---
-#[창업도약패키지]
+
+[Web발신]
+[SW고성장클럽]
+
+2022년 SW고성장클럽 사업에 관심을 갖고 지원해주셔서 감사드립니다. 안타깝게도 귀사는 지원기업 선정평가에서 불합격하셨습니다.
+한정된 예산으로 인해 신청한 모든 기업을 선발하지 못하는 점 양해 부탁드립니다.
+
+귀 사의 무궁한 발전을 진심으로 기원합니다.
+감사합니다.
+
+<center>
+<img src="https://i.smalljoys.me/2018/04/img_5ae3177cdfc81.png?w=740&ssl=1&strip=all" width=70%></a>
+</center>
+
+
+---
+#[창업도약패키지](https://www.k-startup.go.kr/web/contents/bizpbanc-deadline.do?schM=view&pbancSn=149303&page=1&schStr=regist&pbancEndYn=Y) 지원
 
 창업 3~7년 대상, 최대 3억원(평균 1.2억)
 - 더이상 안되겠다. 계획서 전면 업데이트!
-- 주관기관 보건산업진흥원 선택
+- 주관기관 보건산업진흥원 선택: 비대면스타트업육성사업 동일
+- 서류평가중
+
+<center>
+<a href="https://www.k-startup.go.kr/web/contents/bizpbanc-deadline.do?schM=view&pbancSn=149303&page=1&schStr=regist&pbancEndYn=Y"><img src="http://www.ecomedia.co.kr/news/data/20220314/p1065594239279455_438_thum.png" width=30%></a>
+</center>
+
+---
+# [나영준](https://antller.com/) Style, [이동권](https://bondam.co.kr/) Feedback
+
+<center>
+<img src="doyak.jpg" width=100%></a>
+</center>
+
+
+---
+# [클라우드서비스 이용지원](https://www.cloudsup.or.kr/)
+
+일반지원으로 신청, 심사중
+- 희망공급서비스 지정해야함. 안랩, 네이버클라우드, 채널톡 지정
+
+<center>
+<a href="https://www.cloudsup.or.kr/cloudsup/consumerGuide"><img src="cloudsup.jpg" width=70%></a>
+</center>
+
+
+---
+# [Datastar](https://www.datastars.or.kr/stars/)
+
+데이터 관련 사업지원 5000만원, 심사중
+
+<center>
+<a href="https://www.datastars.or.kr/stars/"><img src="https://www.datastars.or.kr/stars/content/uploads/2022/03/220303_%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%8A%A4%ED%83%80%EC%A6%88-%ED%8F%AC%EC%8A%A4%ED%84%B0-%EC%B5%9C%EC%A2%85%EB%B3%B8_v2.jpg" width=35%></a>
+</center>
+
+
+
+---
+class: center, middle
+
+# 특허지원사업
+
+---
+# 국제 지재권분쟁 대응전략 지원사업(특허)
+
+분쟁위험 사전대비전략 지원, 심사중
+- 선정되면 특허법인 비용 지원
+
+<center>
+<a href="https://www.ip-navi.or.kr/starklogin/announce.navi"><img src="ip.jpg" width=45%></a>
+</center>
+
+
+---
+class: center, middle
+
+# 멘토링
+
+---
+# [SW마에스트로](https://swmaestro.org/)
+
+기술멘토 55명 신규선발, 임기 2년 
+- 총 멘토 120명, 연수생 320명
+
+<center>
+<a href="https://swmaestro.org/"><img src="soma.jpg" width=70%></a>
+</center>
+
+
+---
+# 22년 첫 선정 
+
+<center>
+<a href="https://swmaestro.org/"><img src="https://media-exp1.licdn.com/dms/image/C5622AQEqwngnE12jNg/feedshare-shrink_800/0/1648793415060?e=2147483647&v=beta&t=loiQC_Z6aLWlJ7AdcGNF1O5wNdRMhf9Vyh22kGCkrtg" width=70%></a>
+</center>
+
+
+---
+# [한이음 멘토링](https://www.hanium.or.kr/portal/index.do)
+
+대학생, 휴학생 대상 
+- 오픈소스 통계패키지로 제안함. 
+
+
+<center>
+<a href="https://www.hanium.or.kr/"><img src="han.jpg" width=70%></a>
+</center>
+
+---
+# [오픈소스 컨트리뷰톤](https://www.oss.kr/notice/show/344f792e-e09f-46c2-b88f-a9273ea54b34)
+
+오픈소스 통계패키지로 제안, 심사중 
+
+<center>
+<a href="https://www.oss.kr/notice/show/344f792e-e09f-46c2-b88f-a9273ea54b34"><img src="https://www.oss.kr/storage/app/public/media/public/media_library/a7/56/20220404183946bd5335b4d59394258b084a9ff53a585d9e934195.jpg" width=40%></a>
+</center>
+
+---
+
+<center>
+<a href="https://www.oss.kr/notice/show/344f792e-e09f-46c2-b88f-a9273ea54b34"><img src="oss.jpg" width=70%></a>
+</center>
+
+
+---
+class: center, middle
+
+# 고용지원/인턴쉽/기타
+
+---
+# [청년디지털일자리, 미래청년인재육성사업](https://www.work.go.kr/youthjob/main/index.do)
+
+21년말 시작, 22년 5월 종료
+- TO 5명(現고용 5+X 명이면 X명 가능)
+- TO는 두 사업 합쳐서 계산
+- 6개월동안 인당 월 190만원 지원
+
+<center>
+<a href="https://www.work.go.kr/youthjob/main/index.do"><img src="https://www.jeju-sp.com/files/editor/7d09411a-b636-4fb6-9f4a-9073d2c8b7c5.png" width=50%></a>
+</center>
+
+
+
+---
+# [22년 일경험프로그램](https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/view.do?pblancId=PBLN_000000000073974)
+
+3개월동안 인턴 월 190만원 지원
+- TO 1개 얻음, 아직 미채용
+
+<center>
+<a href="https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/view.do?pblancId=PBLN_000000000073974"><img src="https://snic.or.kr/application/views/common/SE28/upload/202202241453391028022197.jpg" width=50%></a>
+</center>
+
+
+---
+# [송파구 중소기업 청년취업인턴제](http://songpa.bizvalley.or.kr/html/tenant/support_business.asp?skey=&sword=&category=&size=10&page=1&no=109&priority=0)
+
+송파구 소재기업과 송파구 청년 대상
+- TO 1명 얻음, 아직 미채용
+
+<center>
+<a href="http://songpa.bizvalley.or.kr/html/tenant/support_business.asp?skey=&sword=&category=&size=10&page=1&no=109&priority=0"><img src="http://www.seoulilbo.com/news/photo/202103/460475_260055_1740.jpg" width=30%></a>
+</center>
+
+
+---
+# [숭실대 스타트업 인턴십](https://startup.ssu.ac.kr/bbs/board.php?bo_table=startup_info&wr_id=153)
+
+학부생 인턴 6주
+- 200만원 숭실대 + 기업 20만원
+- TO 2명 얻음, 6주실습 완료 
+
+<center>
+<a href="https://startup.ssu.ac.kr/bbs/board.php?bo_table=startup_info&wr_id=153"><img src="https://충무창업큐브.org/site/main/file/image/591" width=50%></a>
+</center>
+
+
+---
+
+<center>
+<a href="https://blog.zarathu.com/"><img src="ssint.jpg" width=80%></a>
+</center>
+
+
+
+---
+# [ICT 학점연계 프로젝트 인턴십](https://www.ictintern.or.kr/main.do)
+
+학부생 1학기 학점 인정 
+- 월 120만원 지원 
+- TO 1명 얻음, 최종 포기
+
+<center>
+<a href="https://www.ictintern.or.kr/main.do"><img src="https://www.syu.ac.kr/cse/wp-content/uploads/sites/82/2022/01/%EA%B5%AD%EB%82%B4-ICT%EC%9D%B8%ED%84%B4%EC%8B%AD_%EC%9B%B9%ED%8F%AC%EC%8A%A4%ED%84%B0%ED%95%99%EC%83%9D%EC%9A%A9.png" width=50%></a>
+</center>
+
+
+---
+# [인공지능 고성능컴퓨팅지원](https://www.nipa.kr/main/selectBbsNttView.do?key=122&bbsNo=2&nttNo=2067&bbsTy=biz&searchCtgry=&searchCnd=SJ&searchKrwd=&pageIndex=1)
+
+3년째 이용, GPU 서버
+- 지정된 아이피에서만 접속 가능 
+- 사용기록 저조시 박탈
 
 
 
 
 
+---
+# Executive summary
 
+.small[
+**사무실**
+- 송파ICT청년창업지원센터 입주, 기업부설연구소 설립
+- 공개SW 창업기업 6개월 연장(선릉 저스트코타워)
 
+**R&D 과제**
+- 창업성장기술개발사업(디딤돌 첫걸음) 서류탈락
+- 정보통신·방송 기술개발사업 앤틀러과 같이 지원, 6:1 경쟁률 결과 기다리는중 
+
+**창업지원사업**
+- 혁신분야 창업패키지(BIG3), SW고성장기업 서류탈락
+- 창업도약패키지 심사중, 클라우드서비스 이용지원, Datastars 심사중 
+
+**특허지원사업**
+- 국제 지재권분쟁 대응전략 지원사업(특허) 심사중
+
+**멘토링**
+- SW마에스트로 기술멘토 선정, 한이음멘토링 선정
+- 오픈소스 컨트리뷰톤 심사중
+
+**고용지원, 인턴십, 기타**
+- `21 청년디지털일자리, 미래청년인재육성사업 TO 5명 
+- '22년 일경험프로그램 TO 1명, 송파구 중소기업 청년취업인턴제 TO 1명
+- 숭실대 스타트업 인턴십 2명(6주)
+- ICT 학점연계 프로젝트 인턴십 TO 1명
+- 인공지능고성능컴퓨팅지원 3년 연속 선정
+
+]
 
 
 ---
