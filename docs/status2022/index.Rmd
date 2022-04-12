@@ -1,0 +1,83 @@
+---
+title: "22년 지원사업 현황"
+author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://openstat.ai)
+institute: "차라투(주)"
+date: "2022-4-20"
+output:
+  xaringan::moon_reader:
+    css: ["css/footer-header.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "js/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9" 
+subtitle: "Shinykorea Meetup"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center", message = F, warning = F)
+library(knitr);library(DT)
+```
+
+layout: true
+
+<div class="my-footer"><span><a href="https://www.zarathu.com">Zarathu Co.,Ltd</a>   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="https://github.com/jinseob2kim">김진섭</a></span></div> 
+
+
+
+---
+
+# Executive summary
+
+**사무실**
+- 송파ICT청년창업지원센터 입주, 기업부설연구소 설립
+- 공개SW 창업기업 6개월 연장(선릉 저스트코타워)
+
+**R&D 과제**
+- 창업성장기술개발사업(디딤돌 첫걸음) 서류탈락
+- 정보통신·방송 기술개발사업 앤틀러과 같이 지원, 6:1 경쟁률 결과 기다리는중 
+
+**창업지원사업**
+- 혁신분야 창업패키지(BIG3), SW고성장기업 서류탈락
+- 창업도약패키지 심사중, 클라우드서비스 이용지원, Datastars 심사중 
+
+**특허지원사업**
+- 국제 지재권분쟁 대응전략 지원사업(특허) 심사중
+
+**멘토링**
+- SW마에스트로 기술멘토 선정, 한이음멘토링 선정
+- 오픈소스 컨트리뷰톤 심사중
+
+
+
+---
+
+class: center, middle
+
+
+# 소개 
+
+
+---
+# 맞춤형 통계웹
+
+<center>
+<img src="https://jinseob2kim.github.io/lecture-general/korea-preventive/ss.png" width=70%></a>
+</center>
+
+
+---
+class: center, middle
+
+# END
