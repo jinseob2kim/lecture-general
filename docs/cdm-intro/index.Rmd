@@ -343,8 +343,38 @@ class: center, middle
 
 # CDM with R
 
+---
+# R first
 
+.large[
+CDM 분석 모든과정은 R패키지로 구현됨.
+]
 
+<center>
+<img src="https://www.ohdsi.org/wp-content/uploads/2020/06/methodsLibrary.png" width=70%></a>
+</center>
+
+---
+# Feedernet 이용
+
+.large[
+가장 쉬운 방법
+- R코드 안봐도됨.
+
+- 다기관메타 쉽게 가능(분석할 병원 추가로 끝)
+
+단점
+- ATLAS 에서 지원하는 분석만 됨. 직접 수정한 R패키지 불가 
+
+- 접근권한 얻은 병원만 분석 가능. 소속, 신분에 따라 다름
+
+]
+
+--
+.large[
+분석은 심플하되, 다기관 물량으로 승부하는 컨셉 
+
+]
 
 
 ---
@@ -354,11 +384,10 @@ class: center, middle
 
 
 
-
 ---
 # 심평원 Covid-19 데이터
 
-- 한시적 오픈, CDM버전도 제공
+- 한시적 오픈 with CDM버전,  패키지 만들어 심평원 보내면 실행결과만 보내줌.
 
 <center>
 <img src="cdmcovid29.png" width=70%></a>
@@ -373,8 +402,91 @@ class: center, middle
 - https://www.nature.com/articles/s41598-021-84539-5
 
 
+---
+# 강동성심병원
+
+- 첫 CDM 연구, ATLAS로 패키지만들고 강동성심 DB 접속해 R 실행
+
+- Kaplan-meier 그림을 논문용으로 업그레이드
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3775cdc7-958e-40ae-a38a-38e5de5b0945%2F%EA%B3%B5%ED%86%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8(CDM)_%EC%9C%84%EC%82%B0%EC%96%B5%EC%A0%9C%EC%A0%9C_%EB%B9%84%EA%B5%90.png&blockId=8d76f7ae-5f6c-4940-a99b-207a117d3118" width=60%></a>
+</center>
+
+https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 
 
+---
+# 공단표본코호트 V1
+
+- CDM 변환된 공단표본코호트와, [원본 표본코호트 결과](http://147.47.68.165:1111/doctorssi/PPI_NHIS/) 비교
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F07af45a4-8707-4805-8c1c-5002b877ecc4%2FPPI%EC%99%80_%EC%9C%84%EC%95%94_%EA%B3%B5%EB%8B%A8_CDM-1.png&blockId=71d45738-41f4-4999-8717-31bff8ead0a8" width=70%></a>
+</center>
+
+---
+# 공단표본코호트 V1(2)
+
+- CDM 변환된 공단표본코호트 이용
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F83c09d06-567c-4cc8-8bcb-7e8cccf84f9f%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-01-01_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_10.34.47.png&blockId=9dd69e78-a29e-42c2-8e63-b3d363213cee" width=70%></a>
+</center>
+
+---
+# [Feedernet](https://feedernet.com) 다기관메타
+
+- [ACEI vs ARB](http://147.47.68.165:1111/cdm/meta-drugcancer/)
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3e741bcb-1c49-43e6-bc08-7c66fa29fcb4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-11-03_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_10.03.00.png&blockId=a0bcd605-0480-4b6b-bf17-1ae6355e170c" width=70%></a>
+</center>
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe70abc3f-74a3-415a-a0ae-9c4a80dc1a5f%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-11-03_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_10.03.37.png&blockId=b4d10ffb-23b8-430a-beaa-7d49fa888c99" width=70%></a>
+</center>
+
+---
+# [Feedernet](https://feedernet.com) 다기관메타(2)
+
+- [ACEI_ARB vs OtherHTNdrug](http://147.47.68.165:1111/cdm/meta-drugcancer/)
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F62b86363-1b5f-4d08-8c4a-b7221f792380%2FUntitled.png&blockId=812aaf43-fb9e-46a1-926a-ad9591c21391" width=70%></a>
+</center>
+
+
+---
+# [Feedernet](https://feedernet.com) 다기관메타(3)
+
+- [ACEI vs ARB](http://147.47.68.165:1111/doctorssi/meta_osteoporosis/)
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F171307aa-4ee8-4c3d-be20-822fdc707aeb%2FUntitled.png&blockId=5e3241a8-c2c5-48f1-82f3-45f2b53d8bec" width=70%></a>
+</center>
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F99a5b652-80d9-4d6d-99d3-ccc305b10f3b%2F1652236249609.jpg&blockId=64b1a2a8-00f1-4fcb-a146-e12c5e828cd2" width=70%></a>
+</center>
+
+
+---
+# [Feedernet](https://feedernet.com) 다기관메타(4) 
+
+
+>Dear Dr Kim,
+
+>Re: "Impact of pitavastatin on new-onset diabetes mellitus compared to atorvastatin and rosuvastatin: A distributed network analysis of 10 real-world databases"
+
+>We are delighted to let you know that the above submission, which you co-authored, has been accepted for publication in Cardiovascular Diabetology.
+
+>Please contact the corresponding author if you would like further details on this decision, including any reviewer feedback.
+
+>Thank you for choosing Cardiovascular Diabetology and we look forward to publishing your article.
+
+>Kind regards, 
+
+>Editorial Assistant
+>Cardiovascular Diabetology
 
 ---
 
