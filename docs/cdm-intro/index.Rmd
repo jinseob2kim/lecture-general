@@ -41,7 +41,13 @@ layout: true
 # Executive summary
 
 .large[
-*  
+- 연구지원법인 차라투 운영하면서 CDM 공동연구 진행 
+
+- CDM은 병원들의 데이터를 똑같은 형태로 만든다.
+
+- 하나의 분석코드로 다기관메타분석 가능
+
+- 분석 전과정에 R을 이용하나, [Feedernet](https://feedernet.com/) 에서 R없이 기본분석 가능. 
 ]
 
 
@@ -637,6 +643,21 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 
 >Editorial Assistant
 >Cardiovascular Diabetology
+
+---
+
+# Executive summary
+
+.large[
+- 연구지원법인 차라투 운영하면서 CDM 공동연구 진행 
+
+- CDM은 병원들의 데이터를 똑같은 형태로 만든다.
+
+- 하나의 분석코드로 다기관메타분석 가능
+
+- 분석 전과정에 R을 이용하나, [Feedernet](https://feedernet.com/) 에서 R없이 기본분석 가능. 
+]
+
 
 ---
 
