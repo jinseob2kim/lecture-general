@@ -356,12 +356,126 @@ class: center, middle
 # R first
 
 .large[
-CDM 분석 모든과정은 R패키지로 구현됨.
+CDM 분석 모든과정은 [R패키지](https://github.com/OHDSI)로 구현됨.
 ]
 
 &lt;center&gt;
 &lt;img src="https://www.ohdsi.org/wp-content/uploads/2020/06/methodsLibrary.png" width=70%&gt;&lt;/a&gt;
 &lt;/center&gt;
+
+
+---
+# 분석코드, 결과도 R패키지
+
+.large[
+연구설계, 분석방법이 포함된 자체 R패키지가 코드공유 표준. 
+
+- R패키지를 여러 기관에서 실행
+]
+
+https://github.com/zarathucorp/RanitidineCancerRisk
+
+--
+.large[
+분석결과는 R Shiny로 
+
+- 실행결과를 R기반 웹애플리케이션으로 표현
+
+- 분석코드에 웹코드도 포함되어있음.
+]
+
+
+
+
+
+
+
+---
+# [ATLAS](https://atlas-demo.ohdsi.org/)
+
+.large[
+웹기반 연구설계: R 몰라도 가능
+]
+
+&lt;center&gt;
+&lt;img src="atlasdemo.png" width=100%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+# 데이터 소스
+
+.large[
+데이터 선택: 기본정보 제공
+]
+
+&lt;center&gt;
+&lt;img src="datasource.png" width=100%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+---
+# 컨셉세트
+
+.large[
+연구에 이용할 개념 정의
+- 예: 고혈압, ACEI, PCI..
+
+- 사망은 기본으로 있음
+]
+
+&lt;center&gt;
+&lt;img src="concept.png" width=100%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+---
+# 코호트 정의
+
+
+.large[
+컨셉세트 이용해 코호트 정의
+
+- 최소 Target/Control/Outcome 코호트 3개 필요
+
+- Negative control 도 필요(자체만들기 or 기본제공)
+
+]
+
+&lt;center&gt;
+&lt;img src="https://ohdsi.github.io/TheBookOfOhdsi/images/Cohorts/CohortPractice.png" width=70%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+# 분석
+
+.large[
+추정: Logistic/Cox
+
+예측: xgboost, Lasso, 딥러닝
+
+]
+
+&lt;center&gt;
+&lt;img src="estimation.png" width=70%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+---
+# R패키지 다운
+
+.large[
+ 컨셉, 코호트, 분석이 모두 포함된 R 패키지 다운로드
+]
+
+&lt;center&gt;
+&lt;img src="rpkg.png" width=70%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+.large[
+이후 (1)각 병원의 RStudio server 접속, (2)패키지 설치, (3)실행 하여 분석결과 zip 파일 얻음.  
+
+]
+
+
 
 ---
 # Feedernet 이용
@@ -384,6 +498,39 @@ CDM 분석 모든과정은 R패키지로 구현됨.
 분석은 심플하되, 다기관 물량으로 승부하는 컨셉 
 
 ]
+
+
+---
+# 단계
+
+.large[
+**(1) Feedernet 에서 Atlas, 분석실행 둘다**
+- Atlas에서 지원하는 분석, Feedernet 허가된 데이터만 분석가능
+ 
+
+**(2) Feedernet/각병원 Atlas로 설계, 분석은 R서버 접속.**
+- Atlas에서 지원하는 분석, 자체 CDM설치병원의 데이터 분석가능
+
+**(3) 설계도 R로, 분석도 R서버 접속**
+- 자유롭게 분석설계 가능, 자체 CDM 설치병원의 데이터 분석가능 
+]
+
+
+
+---
+# Textbook
+
+.large[
+공식 교과서: 친절한 예제, [영어버전은 무료공개](https://ohdsi.github.io/TheBookOfOhdsi/)
+
+[공식 유튜브](https://www.youtube.com/watch?v=dr9FhEkf04o&amp;list=PLSKQ1ikU3kiHk7OTa234TEPgg2il21Jol)
+]
+
+&lt;center&gt;
+&lt;img src="https://forums.ohdsi.org/uploads/default/optimized/2X/8/82c9365f5f9c363a3734b79bb6877bb3697d2929_2_1035x681.png" width=70%&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+
 
 
 ---
