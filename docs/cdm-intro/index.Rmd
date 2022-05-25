@@ -573,7 +573,7 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 
 
 ---
-# 공단표본코호트 V1
+# [공단표본코호트 V1](https://gut.bmj.com/content/70/11/2066.full)
 
 - CDM 변환된 공단표본코호트와, [원본 표본코호트 결과](http://147.47.68.165:1111/doctorssi/PPI_NHIS/) 비교
 
@@ -582,7 +582,7 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 </center>
 
 ---
-# 공단표본코호트 V1(2)
+# [공단표본코호트 V1(2)](https://onlinelibrary.wiley.com/doi/full/10.1002/cam4.4514)
 
 - CDM 변환된 공단표본코호트 이용
 
@@ -590,8 +590,22 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F83c09d06-567c-4cc8-8bcb-7e8cccf84f9f%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-01-01_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_10.34.47.png&blockId=9dd69e78-a29e-42c2-8e63-b3d363213cee" width=70%></a>
 </center>
 
+
 ---
-# [Feedernet](https://feedernet.com) 다기관메타
+# [공단표본코호트 V1(3)](https://www.mdpi.com/2075-4426/12/4/584?fbclid=IwAR2ULqlw5yYutcCJG2uU91Z7ivizTq4x1pXAlqqUklhHftD8zpcsE3HqwLg)
+
+- CDM 변환된 공단표본코호트 이용
+
+<center>
+<img src="nhis3.png" width=70%></a>
+</center>
+
+<center>
+<img src="https://www.mdpi.com/jpm/jpm-12-00584/article_deploy/html/images/jpm-12-00584-g002.png" width=70%></a>
+</center>
+
+---
+# [Feedernet 다기관메타](https://www.nature.com/articles/s41598-021-97989-8)
 
 - [ACEI vs ARB](http://147.47.68.165:1111/cdm/meta-drugcancer/)
 
@@ -603,7 +617,7 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 </center>
 
 ---
-# [Feedernet](https://feedernet.com) 다기관메타(2)
+# [Feedernet 다기관메타(2)](https://www.mdpi.com/2075-4418/12/2/263)
 
 - [ACEI_ARB vs OtherHTNdrug](http://147.47.68.165:1111/cdm/meta-drugcancer/)
 
@@ -613,7 +627,7 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 
 
 ---
-# [Feedernet](https://feedernet.com) 다기관메타(3)
+# [Feedernet 다기관메타(3)](https://onlinelibrary.wiley.com/doi/10.1111/jgh.15879?fbclid=IwAR2g6SzD4ejIZpg1Qfg8frpLbor-Zw29i-g5v73_HDS7eaeZ4r5CtD19HkQ)
 
 - [ACEI vs ARB](http://147.47.68.165:1111/doctorssi/meta_osteoporosis/)
 
@@ -626,23 +640,17 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 
 
 ---
-# [Feedernet](https://feedernet.com) 다기관메타(4) 
+# [Feedernet 다기관메타(4)](https://cardiab.biomedcentral.com/articles/10.1186/s12933-022-01524-6) 
 
 
->Dear Dr Kim,
+- [pitavastatin vs other Statin](http://147.47.68.165:1111/meta-analysis/)
 
->Re: "Impact of pitavastatin on new-onset diabetes mellitus compared to atorvastatin and rosuvastatin: A distributed network analysis of 10 real-world databases"
-
->We are delighted to let you know that the above submission, which you co-authored, has been accepted for publication in Cardiovascular Diabetology.
-
->Please contact the corresponding author if you would like further details on this decision, including any reviewer feedback.
-
->Thank you for choosing Cardiovascular Diabetology and we look forward to publishing your article.
-
->Kind regards, 
-
->Editorial Assistant
->Cardiovascular Diabetology
+<center>
+<img src="ssss.png" width=70%></a>
+</center>
+<center>
+<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12933-022-01524-6/MediaObjects/12933_2022_1524_Fig3_HTML.png" width=70%></a>
+</center>
 
 ---
 
