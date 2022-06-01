@@ -1,0 +1,438 @@
+---
+title: "공통데이터모델(CDM) 실습"
+author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
+institute: "차라투(주)"
+date: "2022-06-02"
+output:
+  xaringan::moon_reader:
+    css: ["css/footer-header.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "js/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "4:3" 
+subtitle: "고려의대 예방의학교실"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
+library(knitr);library(DT);library(shiny)
+```
+
+
+layout: true
+
+<div class="my-footer"><span><a href="https://www.zarathu.com">Zarathu Co.,Ltd</a>   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="https://github.com/jinseob2kim">김진섭</a></span></div> 
+
+
+---
+# Executive summary
+
+.large[
+- Concept set: 약물, 시술, 질병 등 개념 정의
+
+- Cohort definition: Concept set 이용 Target/Comparator/Outcome 코호트 설정
+
+- Analysis: 관찰시간, PS매칭여부, 통계모델 설정
+
+- Meta analysis: Feedernet 다기관분석 합침
+]
+
+
+
+
+---
+class: center, middle
+
+
+# 코호트 디자인
+
+
+---
+# The new-user cohort design
+
+![](https://ohdsi.github.io/TheBookOfOhdsi/images/PopulationLevelEstimation/cohortMethod.png)
+
+---
+# Main design choices
+
+| Choice            | Description                                              |
+|:----------------- |:-------------------------------------------------------- |
+| Target cohort     | A cohort representing the target treatment               |
+| Comparator cohort | A cohort representing the comparator treatment           |
+| Outcome cohort    | A cohort representing the outcome of interest            |
+| Time-at-risk      | At what time (often relative to the target and comparator cohort start and end dates) do we consider the risk of the outcome?  |
+| Model             | The model used to estimate the effect while adjusting for differences between the target and comparator  |
+
+
+---
+# 실습: 고혈압 약제 비교
+
+Table: Main design choices for our comparative cohort study.
+
+| Choice            | Value                                                    |
+|:----------------- |:-------------------------------------------------------- |
+| Target cohort     | New users of ACE inhibitors as first-line monotherapy for hypertension. |
+| Comparator cohort | New users of thiazides or thiazide-like diuretics as first-line monotherapy for hypertension. |
+| Outcome cohort    | Angioedema or acute myocardial infarction. |
+| Time-at-risk      | Starting the day after treatment initiation, stopping when exposure stops. |
+| Model             | Cox proportional hazards model using variable-ratio matching. |
+
+
+---
+# Concept: ACEI
+
+| Concept Id | Concept Name | Excluded | Descendants | Mapped |
+| ---------- |:------------ | -------- | ----------- | ------ |
+| 1308216 | Lisinopril | NO | YES | NO |
+| 1310756 | moexipril | NO | YES | NO |
+| 1331235 | quinapril | NO | YES | NO |
+| 1334456 | Ramipril | NO | YES | NO |
+| 1335471 | benazepril | NO | YES | NO |
+| 1340128 | Captopril | NO | YES | NO |
+| 1341927 | Enalapril | NO | YES | NO |
+| 1342439 | trandolapril | NO | YES | NO |
+| 1363749 | Fosinopril | NO | YES | NO |
+| 1373225 | Perindopril | NO | YES | NO |
+
+
+---
+# Concept: Thiazide or thiazide-like diuretic
+
+| Concept Id | Concept Name | Excluded | Descendants | Mapped |
+| ---------- |:------------ | -------- | ----------- | ------ |
+| 907013 | Metolazone | NO | YES | NO |
+| 974166 | Hydrochlorothiazide | NO | YES | NO |
+| 978555 | Indapamide | NO | YES | NO |
+| 1395058 | Chlorthalidone | NO | YES | NO |
+
+
+---
+# Concept: outcome 
+
+- Angioedema
+
+| Concept Id | Concept Name | Excluded | Descendants | Mapped |
+| ---------- |:------------ | -------- | ----------- | ------ |
+| 432791 | Angioedema | NO | YES | NO |
+
+
+- AMI with Inpatient or ER visit
+
+| Concept Id | Concept Name | Excluded | Descendants | Mapped |
+| ---------- |:------------ | -------- | ----------- | ------ |
+| 314666 | Old myocardial infarction | YES | YES | NO |
+| 4329847 | Myocardial infarction | NO | YES | NO |
+
+
+| Concept Id | Concept Name | Excluded | Descendants | Mapped |
+| ---------- |:------------ | -------- | ----------- | ------ |
+| 262 | Emergency Room and Inpatient Visit | NO | YES | NO |
+| 9201 | Inpatient Visit | NO | YES | NO |
+| 9203 | Emergency Room Visit | NO | YES | NO |
+
+
+---
+# Cohort: New ACEI mono
+
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/Cohorts/CohortPractice.png" width=100%></a>
+</center>
+
+
+---
+
+<center>
+<img src="acei.png" width=100%></a>
+</center>
+
+https://atlas-demo.ohdsi.org/#/cohortdefinition/1775515
+
+---
+# New, continuous 365
+
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/Cohorts/EarliestEventExplained.png" width=70%></a>
+</center>
+
+
+
+---
+# Concept for other criteria
+
+Table: Hypertensive disorder
+
+| Concept Id | Concept Name | Excluded | Descendants | Mapped |
+| ---------- |:------------ | -------- | ----------- | ------ |
+| 316866 | Hypertensive disorder | NO | YES | NO |
+
+Table:  Hypertension drugs
+
+| Concept Id | Concept Name | Excluded | Descendants | Mapped |
+| ---------- |:------------ | -------- | ----------- | ------ |
+| 904542 | Triamterene | NO | YES | NO |
+| 907013 | Metolazone | NO | YES | NO |
+| 932745 | Bumetanide | NO | YES | NO |
+| 942350 | torsemide | NO | YES | NO |
+| 956874 | Furosemide | NO | YES | NO |
+| 970250 | Spironolactone | NO | YES | NO |
+| 974166 | Hydrochlorothiazide | NO | YES | NO |
+| 978555 | Indapamide | NO | YES | NO |
+| 991382 | Amiloride | NO | YES | NO |
+| 1305447 | Methyldopa | NO | YES | NO |
+| 1307046 | Metoprolol | NO | YES | NO |
+| 1307863 | Verapamil | NO | YES | NO |
+| 1308216 | Lisinopril | NO | YES | NO |
+| 1308842 | valsartan | NO | YES | NO |
+| 1309068 | Minoxidil | NO | YES | NO |
+| 1309799 | eplerenone | NO | YES | NO |
+| 1310756 | moexipril | NO | YES | NO |
+| 1313200 | Nadolol | NO | YES | NO |
+| 1314002 | Atenolol | NO | YES | NO |
+| 1314577 | nebivolol | NO | YES | NO |
+| 1317640 | telmisartan | NO | YES | NO |
+| 1317967 | aliskiren | NO | YES | NO |
+| 1318137 | Nicardipine | NO | YES | NO |
+| 1318853 | Nifedipine | NO | YES | NO |
+| 1319880 | Nisoldipine | NO | YES | NO |
+| 1319998 | Acebutolol | NO | YES | NO |
+| 1322081 | Betaxolol | NO | YES | NO |
+| 1326012 | Isradipine | NO | YES | NO |
+| 1327978 | Penbutolol | NO | YES | NO |
+| 1328165 | Diltiazem | NO | YES | NO |
+| 1331235 | quinapril | NO | YES | NO |
+| 1332418 | Amlodipine | NO | YES | NO |
+| 1334456 | Ramipril | NO | YES | NO |
+| 1335471 | benazepril | NO | YES | NO |
+| 1338005 | Bisoprolol | NO | YES | NO |
+| 1340128 | Captopril | NO | YES | NO |
+| 1341238 | Terazosin | NO | YES | NO |
+| 1341927 | Enalapril | NO | YES | NO |
+| 1342439 | trandolapril | NO | YES | NO |
+| 1344965 | Guanfacine | NO | YES | NO |
+| 1345858 | Pindolol | NO | YES | NO |
+| 1346686 | eprosartan | NO | YES | NO |
+| 1346823 | carvedilol | NO | YES | NO |
+| 1347384 | irbesartan | NO | YES | NO |
+| 1350489 | Prazosin | NO | YES | NO |
+| 1351557 | candesartan | NO | YES | NO |
+| 1353766 | Propranolol | NO | YES | NO |
+| 1353776 | Felodipine | NO | YES | NO |
+| 1363053 | Doxazosin | NO | YES | NO |
+| 1363749 | Fosinopril | NO | YES | NO |
+| 1367500 | Losartan | NO | YES | NO |
+| 1373225 | Perindopril | NO | YES | NO |
+| 1373928 | Hydralazine | NO | YES | NO |
+| 1386957 | Labetalol | NO | YES | NO |
+| 1395058 | Chlorthalidone | NO | YES | NO |
+| 1398937 | Clonidine | NO | YES | NO |
+| 40226742 | olmesartan | NO | YES | NO |
+| 40235485 | azilsartan | NO | YES | NO |
+
+
+---
+# Cohort Exit Criteria
+
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/Cohorts/EarliestEventExplained.png" width=70%></a>
+</center>
+
+복용기간 안중요하다면 크게 신경쓸 필요 없음. 
+
+
+---
+# Comparator: New Thiazide
+
+<center>
+<img src="aaa.png" width=100%></a>
+</center>
+
+https://atlas-demo.ohdsi.org/#/cohortdefinition/1770676
+
+
+---
+# Outcome: Angioedema
+
+<center>
+<img src="angioedema.png" width=100%></a>
+</center>
+
+https://atlas-demo.ohdsi.org/#/cohortdefinition/1770673
+
+
+---
+# Outcome: AMI
+
+<center>
+<img src="ami.png" width=100%></a>
+</center>
+
+https://atlas-demo.ohdsi.org/#/cohortdefinition/1770674
+
+---
+# Outcome: Negative control
+
+.large[
+- 의미없으리라 예상되는 outcome
+
+- 관심없어도 최소 1개는 넣어야 실행됨
+
+- Cohort 필요없고 Concept만 필요.
+
+https://atlas-demo.ohdsi.org/#/conceptset/1866136/expression
+]
+
+
+---
+class: center, middle
+
+
+# 분석 디자인
+
+
+---
+# Study population
+
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/PopulationLevelEstimation/studyPopulation.png" width=70%></a>
+</center>
+
+
+---
+# Covariate
+
+.large[
+Propensity score 계산때 광범위한 공변량 이용
+
+- 따라서 제외할 공변량 반드시 정의해야함. 특히 Target/Comparator 코호트 내용은 반드시 제외.
+
+
+광범위 공변량 싫다면 쓸 공변량만 넣을 수도
+]
+
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/PopulationLevelEstimation/covariateSettings.png" width=70%></a>
+</center>
+
+
+---
+# Concept to exclude
+
+.large[
+ 코호트 디자인때 설정하면 모든 분석에 적용
+]
+
+<center>
+<img src="exclude.png" width=100%></a>
+</center>
+
+
+---
+# Time at risk
+
+.large[
+보통 Cohort start 1일 후부터 살펴봄 
+]
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/PopulationLevelEstimation/timeAtRisk.png" width=100%></a>
+</center>
+
+---
+# PS adj
+.large[
+No matching, matching, stratification(N 손실없음) 중 선택 
+]
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/PopulationLevelEstimation/psSettings.png" width=70%></a>
+</center>
+
+
+---
+# Outcome model
+
+.large[
+Cox, logistic 
+]
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/PopulationLevelEstimation/outcomeModelSettings.png" width=70%></a>
+</center>
+
+
+---
+class: center, middle
+
+# Evaluation Settings
+
+---
+# Negative Control
+
+.large[
+Negative control concept 를 어떻게 코호트로 만들것인가?
+]
+<center>
+<img src="https://ohdsi.github.io/TheBookOfOhdsi/images/PopulationLevelEstimation/ncSettings.png" width=70%></a>
+</center>
+
+Postivie Control은 시뮬레이션용. 일단 무시.
+
+
+
+---
+# Feedernet 
+
+.large[
+- My project -> 프로젝트 생성 -> Analysis탭 -> New analysis
+
+- Import from ATLAS 누르고 분석저장한 ATALS로 들어가기 
+
+- 저장한 분석 클릭 
+
+- Execute 누르고 분석할 병원 복수 선택 
+
+]
+
+
+---
+# Meta analysis
+
+.large[
+- https://openstat.ai/ 의 meta-analysis 선택: HR, 95%CI 직접 입력 
+
+- 차라투 의뢰..
+]
+
+<center>
+<img src="meta.png" width=70%></a>
+</center>
+
+
+
+---
+# Executive summary
+
+.large[
+- Concept set: 약물, 시술, 질병 등 개념 정의
+
+- Cohort definition: Concept set 이용 Target/Comparator/Outcome 코호트 설정
+
+- Analysis: 관찰시간, PS매칭여부, 통계모델 설정
+
+- Meta analysis: Feedernet 다기관분석 합침
+]
+
+---
+
+class: center, middle
+
+# END
