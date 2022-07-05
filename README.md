@@ -45,4 +45,5 @@ Lecture: general topic
 
 * [고려의대 예방의학교실 CDM실습](https://medicine.korea.ac.kr/web/www/-38p?p_p_id=ProfessorInfo_WAR_professorInfoportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=3&p_p_col_count=4&_ProfessorInfo_WAR_professorInfoportlet_curPage=1&_ProfessorInfo_WAR_professorInfoportlet_sDeptId=26&_ProfessorInfo_WAR_professorInfoportlet_action=view_message&_ProfessorInfo_WAR_professorInfoportlet_infoId=120854): [공통데이터모델(CDM) 실습](https://jinseob2kim.github.io/lecture-general/cdm-practice)
 
+* [KAIST ICISTS(SUM; Start Ur Misson) 강연](http://www.icists.org/): [의학연구로 사람을 살리다](https://jinseob2kim.github.io/lecture-general/kaist-icists-sum)
 
