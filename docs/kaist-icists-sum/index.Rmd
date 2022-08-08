@@ -18,13 +18,19 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "4:3" 
-subtitle: "KAIST-ICISTS: SUM"
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
-library(knitr);library(DT);library(shiny)
+library(knitr);library(DT);library(shiny);library(survival);library(survey)
+for (v in c("sex", "status")){
+  colon[[v]] <- factor(colon[[v]])
+}
+data(nhanes)
+nhanes$HI_CHOL <- factor(nhanes$HI_CHOL)
+nhanes$race <- factor(nhanes$race)
+nhanes$RIAGENDR <- factor(nhanes$RIAGENDR)
 ```
 
 
@@ -281,6 +287,21 @@ SCI 논문 200건 지원
 </center>
 
 
+---
+# Lancet
+
+.large[
+Statin 병용요법 비열등성검정
+
+> 연세의료원 심장내과 홍명기교수 팀을 도와 high-intensity statin 단일요법과 ezetimibe + moderate-intensity statin 병용요법을 비교, (1)비열등성검정 샘플수 계산 및 통계검토와 (2)리비전 통계분석을 지원하였습니다. 본 연구는 The Lancet(IF 202.731) 에 게재되었습니다
+]
+
+<center>
+<img src="http://k.kakaocdn.net/dn/boaUap/btrHDQhI2j1/zVeZ4Mv3DkybiLejdtJ5D1/img_xl.jpg" width=80%></a>
+</center>
+
+
+
 
 ---
 # 정부지원사업 선정
@@ -404,6 +425,394 @@ https://github.com/shinykorea/Meetup
 <img src="kakao_open.jpg" width=25%></a>
 </center>
 
+
+---
+# [data.table](https://blog.zarathu.com/posts/2022-02-11-datatable/)
+
+.large[
+가장 빠른 스피드, 빅데이터용 필수패키지
+
+- 심평원/공단분석 필수.
+
+- 파일 가장 빨리 읽고 쓰는 [fst](https://www.fstpackage.org/)와 찰떡궁합
+
+- 멀티코어 지원
+
+]
+
+<center>
+<a href="https://github.com/fastverse/fastverse"><img src="https://pbs.twimg.com/media/E8mHra4VgA0vnY_.jpg" width=100%></a>
+</center>
+
+
+---
+# [R plot](https://blog.zarathu.com/posts/2022-03-25-graph/)
+
+.large[
+[ggplot2](https://ggplot2.tidyverse.org/) > Base: 사실상 표준 
+
+- [ggpubr](https://partrita.github.io/posts/ggpubr/) : 연구용 그림 + p-value 최적화
+
+- [highcharter](https://jkunst.com/highcharter/): 반응형 그림, 상업용은 유료
+
+- [jskm](https://github.com/jinseob2kim/jskm): 자체 개발 kaplan-meier 패키지 
+]
+
+<center>
+<a href="https://github.com/jinseob2kim/jskm"><img src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-5-3.png" width=50%></a>
+</center>
+
+---
+# PPT export: [officer](https://davidgohel.github.io/officer/)
+
+.large[
+그림 직접수정위해 반드시 PPT with 벡터그래픽 필요
+]
+
+```{r, eval=F, echo=T}
+library(rvg);library(officer)
+editable_graph <- dml(ggobj = gg_plot)
+doc <- read_pptx()
+doc <- add_slide(doc)
+doc <- ph_with(x = doc, editable_graph,
+   location = ph_location_type(type = "body") )
+print(doc, target = "reports/rvg.pptx")
+```
+
+<center>
+<a href="https://ardata-fr.github.io/officeverse/reports/rvg.pptx"><img src="https://ardata-fr.github.io/officeverse/static/r-img/img-unnamed-chunk-77.png" width=40%></a>
+</center>
+
+
+
+---
+# 공단/심평원분석 전략 
+
+.large[
+공단/심평원은 SAS 파일, 그러나 R로 대부분 가능 
+
+- [haven](https://haven.tidyverse.org) 패키지로 sas7bdat 읽기, but 느림
+
+- csv 또는 fst로 변환하여 R로 빨리 읽기
+
+- SAS는 R서버 RAM보다 큰 데이터 다룰 때만: 크게크게 쳐냄
+
+- 반출 테이블: xlsx 하나에 탭들로 저장, [openxlsx](https://github.com/ycphs/openxlsx) 패키지 이용
+
+- 반출 그림: pptx 하나에 여러 슬라이드로 저장. [officer](https://davidgohel.github.io/officer/)
+
+]
+
+
+---
+# [openxlsx](https://github.com/ycphs/openxlsx)
+
+```r
+# create workbook
+wb <- createWorkbook()
+addWorksheet(wb = wb, sheetName = "htwt")
+writeData(wb = wb, sheet = "htwt", x = htwt)
+addWorksheet(wb = wb, sheetName = "smk")
+writeData(wb = wb, sheet = "smk", x = smk, rowNames=T)
+saveWorkbook(wb, "tables.xlsx", overwrite = T) 
+```
+.large[
+[반출 파일 실습](https://github.com/jinseob2kim/R-skku-biohrs/blob/main/lecture/dataexport.pptx?raw=true)
+]
+
+
+---
+# CDM(OMOP) with R
+
+.large[
+CDM 분석 모든과정은 [R패키지](https://github.com/OHDSI)로 구현됨.
+]
+
+<center>
+<img src="https://www.ohdsi.org/wp-content/uploads/2020/06/methodsLibrary.png" width=70%></a>
+</center>
+
+
+---
+# 분석코드, 결과도 R패키지
+
+.large[
+연구설계, 분석방법이 포함된 자체 R패키지가 코드공유 표준. 
+
+- R패키지를 여러 기관에서 실행
+]
+
+https://github.com/zarathucorp/RanitidineCancerRisk
+
+--
+.large[
+분석결과는 R Shiny로 
+
+- 실행결과를 R기반 웹애플리케이션으로 표현
+
+- 분석코드에 웹코드도 포함되어있음.
+]
+
+
+
+---
+
+# 통계 
+
+.large[
+
+데이터 형태에 따라 
+- 일반, 반복측정, 표본추출, Propensity/IPTW
+
+생존분석: Time-dependent analysis, landmark analysis
+
+메타분석: [meta](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/), [자체 개발앱](https://openstat.ai/app/meta-analysis/)
+
+시계열분석: [fpp3 교과서](https://otexts.com/fpp3/)- ARIMA, [prophet](https://facebook.github.io/prophet/)
+
+ML general: [caret](https://topepo.github.io/caret/index.html)
+
+Non-linear(GAM) model: [mgcv](https://www.maths.ed.ac.uk/~swood34/mgcv/)
+
+
+]
+
+---
+# 분석(X), 결과테이블(O)
+
+```{r, echo=T}
+tb <- jstable::CreateTableOneJS(c("sex", "age", "status", "time"), strata = "rx", data = colon, nonnormal = "time")
+kable(tb$table[, 1:6])
+```
+
+---
+# 표본추출(국건영)
+
+```{r, echo=T}
+nhanesSvy <- svydesign(ids = ~ SDMVPSU, strata = ~ SDMVSTRA, weights = ~ WTMEC2YR, nest = T, data = nhanes)
+tb <- jstable::svyCreateTableOneJS(c("HI_CHOL", "agecat"), strata = "RIAGENDR", data = nhanesSvy)
+kable(tb$table[, 1:5])
+```
+
+---
+# 회귀분석류 table 만들기 
+
+```{r, echo=T}
+glm_gaussian <- glm(mpg~cyl + disp, data = mtcars)
+jstable::glmshow.display(glm_gaussian, decimal = 2)$table %>% kable
+glm_binomial <- glm(vs~cyl + disp, data = mtcars, family = binomial)
+jstable::glmshow.display(glm_binomial, decimal = 2)$table %>% kable
+```
+
+[더 살펴보기](https://github.com/jinseob2kim/jstable)
+
+
+---
+# Propensity score
+
+.large[
+
+그룹간의 baseline 맞춰주는 방법
+
+- **Matching**: 적당한 사람들을 뽑음, N loss
+
+- **IPTW(Inverse probability treatment weighting)**: 사람마다 가중치를 다르게 줌, N loss 無
+
+- [MatchIt](https://cran.r-project.org/web/packages/MatchIt/vignettes/MatchIt.html): 2그룹 PS matching, IPTW 
+
+- [twang](https://cran.r-project.org/web/packages/twang/index.html) : 3그룹 이상 IPTW
+]
+
+
+
+
+---
+# [생존분석 심화](https://blog.zarathu.com/posts/2020-10-29-survivalpractice/)
+
+
+**Time-dependent  coefficients**
+- 비례위험가정 깨질 때, Landmark analysis
+
+**Time-dependent covariate**
+- 관찰 시작 후 covariate 상태가 바뀔때 (ex: 약물복용) 
+
+예: 피부질환 진단 후(Indexdate) 약물치료 여부에 따른 Outcome
+- **Indexdate ~ 약물치료일, 약물치료일 ~ F/U 마지막날** 한 사람의 데이터를 2개로 나눔.
+
+Competing risk analysis: 최신 `survival` 패키지 기본옵션. 
+
+- 심혈관질환 발생할 사람이었는데 죽어서 못본다?
+
+- 심혈관질환: outcome, 사망: competing risk
+
+
+
+---
+# Landmark analysis
+
+```{r, include=F}
+colon$status <- as.integer(as.character(colon$status))
+```
+
+```{r, echo=T, out.width="50%"}
+fit <- survfit(Surv(time,status)~rx, data=colon)
+jskm::jskm(fit, mark = F,  surv.scale = "percent", pval =T, table = T, cut.landmark = 500, showpercent = T)
+```
+
+
+
+---
+# Meta analysis
+
+.large[
+[meta](https://github.com/guido-s/meta/) 패키지가 표준
+- Forest/Drapery plot, Sub-group analysis
+
+- Random/Fixed effect
+
+- Publication bias: Funnel plot/Trim & fill 
+]
+
+[자체 개발앱](https://openstat.ai/app/meta-analysis/)
+
+
+
+---
+# 시계열
+
+.large[
+[fpp3](https://otexts.com/fpp3/) 교과서 추천
+
+- [tsibble](https://tsibble.tidyverts.org/): 시계열 데이터전처리 
+
+- [fable](https://fable.tidyverts.org/): ARIMA 계수 자동추정, 간단한 시계열 인공신경망
+
+- [prophet](https://facebook.github.io/prophet/): Meta 가 개발한 Additive model 기반 패키지 
+]
+
+<center>
+<a href="https://www.youtube.com/watch?v=6v3_AsbhqrE"><img src="https://i.ytimg.com/vi/6v3_AsbhqrE/maxresdefault.jpg" width=40%></a>
+</center>
+
+
+
+---
+# ETC
+
+.large[
+Non-linear(GAM) model
+- [mgcv](https://www.maths.ed.ac.uk/~swood34/mgcv/) 패키지가 표준
+
+ML general
+- [caret](https://topepo.github.io/caret/index.html)
+]
+
+
+---
+# [Github](https://github.com/)
+
+.large[
+코딩하는 사람은 무조건 써야함. R보다 더 중요
+
+- 코드 관리, 모든 중간기록 보관
+
+- 오픈소스 SW(예: R패키지) 는 대부분 Github 프로젝트
+
+- 포트폴리오 관리: 사실상의 이력서
+
+- 간단한 홈페이지 운영 가능: 본 슬라이드도 Github 호스팅
+]
+
+
+
+---
+
+class: center, middle
+
+# 서비스
+
+
+---
+# [R](https://www.r-project.org/)의 확장
+
+.large[
+[R](https://www.r-project.org/)은 이제 단순한 통계프로그램이 아님.
+
+* [R Markdown](https://rmarkdown.rstudio.com/): 논문과 발표자료를 [R](https://www.r-project.org/) 에서 직접 만듦. [과거 정리 내용](https://blog.zarathu.com/posts/2019-01-03-rmarkdown/)
+]
+--
+
+.large[
+* [blogdown](https://github.com/rstudio/blogdown): 홈페이지도 만들 수 있음. 당사 홈페이지도 이것과 [distill](https://rstudio.github.io/distill/) 로 제작.
+]
+--
+
+.large[
+* [Shiny](https://shiny.rstudio.com/), [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/): 서버 구축하고 웹기반 앱을 만들 수 있음. 간단한 Shiny 앱들은 Shinyapps.io 에서 무료호스팅.
+
+]
+--
+
+법인 설립 후 모든 작업에 [R](https://www.r-project.org/)을 이용함. 
+
+---
+# 논문 
+
+.large[
+[R](https://www.r-project.org/)에서 글, 그림, 테이블, 참고문헌까지 직접 작성. 
+ 
+* [rticles](https://github.com/rstudio/rticles): 대부분 학술지의 템플릿을 포함.
+
+```{r, fig.align='center', out.width= "50%"}
+include_graphics("https://bookdown.org/yihui/rmarkdown/images/rticles-templates.png")
+```
+
+]
+
+[준비하던 박사논문](https://blog.zarathu.com/posts/2018-11-08-mdlm/)  
+
+
+---
+# 발표 슬라이드
+
+.large[
+논문쓸 때 이용했던 R 코드 활용, 빠르게 발표 슬라이드 제작 가능.
+
+* [기본 템플릿](https://rmarkdown.rstudio.com/lesson-11.html), [xaringan](https://github.com/yihui/xaringan) 패키지: 이 슬라이드도 [xaringan](https://github.com/yihui/xaringan)으로 제작.
+
+```{r, out.width= "70%"}
+include_graphics("https://user-images.githubusercontent.com/163582/53144527-35f7a500-3562-11e9-862e-892d3fd7036d.gif")
+```
+
+포스터: [posterdown](https://brentthorne.github.io/posterdown_html_showcase/), [pagedown](https://pagedown.rbind.io/poster-relaxed)
+]
+
+
+
+
+
+---
+# 홈페이지
+
+.large[
+[blogdown](https://github.com/rstudio/blogdown), [distill](https://rstudio.github.io/distill/): [깃허브](https://pages.github.com/) 통해 무료 웹호스팅 가능.
+
+```{r, out.width= "80%"}
+include_graphics("https://www.storybench.org/wp-content/uploads/2019/05/blogdown-new-site-e1557149319624-730x457.png")
+```
+
+[홈페이지](https://github.com/zarathucorp/zarathu), [블로그](https://github.com/zarathucorp/blog)
+]
+
+---
+# 웹 앱
+
+.large[
+[Shiny](https://shiny.rstudio.com/): [R](https://www.r-project.org/) 코드만으로 웹앱 제작
+]
+```{r}
+include_graphics("https://shiny.rstudio.com/images/debugging/kmeans-showcase.gif")
+```
 
 ---
 
@@ -575,13 +984,12 @@ SW마에스트로, 인턴쉽 유망주 육성
 ]
 
 ---
-# 스타트업 업계에서 xxIST란?
+# Health 업계에서 SNU-GSPH란?
 
 .large[
 劉(유) 씨
 - 삼국지 유비: 한황실 재건 명분, 유황숙 대접, 천하통일까지? 
 
-- KAIST: 유방 직계후손?
 
 ]
 
