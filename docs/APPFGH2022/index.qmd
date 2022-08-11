@@ -3,7 +3,8 @@ title: "Zarathu"
 author: "Jinseob Kim"
 format:
   revealjs: 
-    theme: serif
+    theme: sky
+    logo: zarathu_eng_white_transparent.png
 editor: visual
 ---
 
@@ -25,3 +26,18 @@ When you click the **Render** button a presentation will be generated that inclu
 ```{r}
 1 + 1
 ```
+
+
+## Multiple 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Left column
+:::
+
+::: {.column width="60%"}
+Right column
+:::
+
+::::
