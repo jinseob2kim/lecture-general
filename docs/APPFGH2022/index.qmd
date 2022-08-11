@@ -1,11 +1,13 @@
 ---
-title: "Zarathu"
+title: "Medical Research Supporters"
 author: "Jinseob Kim"
 format:
   revealjs: 
-    theme: sky
-    logo: zarathu_eng_white_transparent.png
+    theme: default
+    logo: zarathu_eng.png
+    footer: "Zarathu Co.,Ltd"
 editor: visual
+subtitle: "Zarathu Co.,Ltd"
 ---
 
 ## Quarto
