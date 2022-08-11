@@ -5,29 +5,46 @@ format:
   revealjs: 
     theme: default
     logo: zarathu_eng.png
-    footer: "Zarathu Co.,Ltd"
+    footer: "www.zarathu.com"
 editor: visual
 subtitle: "Zarathu Co.,Ltd"
 ---
 
-## Quarto
+## Zarathu are
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+We provide statistical services for medical research
 
-## Bullets
+-   Web based statistical SW
+-   National Health Data analysis
 
-When you click the **Render** button a document will be generated that includes:
 
--   Content authored with markdown
--   Output from executable code
+## Medical data is very important
 
-## Code
+Medical data is made from the tears of patients and doctors
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+-   Develop knowledge & technology that can save the world    
+-   The less we use medical data, the more patients are dead
 
-```{r}
-1 + 1
-```
+
+## Medical research surge
+
+With Covid19 
+
+-  Medical research has doubled.
+
+-  Clinical trials for new drugs are also on the rise
+
+-  Digital Therapeutics(DTx), decentralized clinical trial(DCT) 
+
+
+## No service for medical research
+
+No statistical service for medical research
+
+연구자들이 빠르고 편하게 이용할 수 있는 서비스가 없었습니다. 
+
+-  전문 통계SW는 직접 코딩을 해야 하는 부담이 있고
+-  외부 업체들은 전문성이 떨어집니다.
 
 
 ## Multiple 

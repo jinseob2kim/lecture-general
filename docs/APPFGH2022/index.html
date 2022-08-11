@@ -324,26 +324,35 @@
   <p class="author">Jinseob Kim</p>
 </section>
 
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <a href="https://quarto.org/docs/presentations/" class="uri">https://quarto.org/docs/presentations/</a>.</p>
-</section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
+<section id="zarathu-are" class="slide level2">
+<h2>Zarathu are</h2>
+<p>We provide statistical services for medical research</p>
 <ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
+<li>Web based statistical SW</li>
+<li>National Health Data analysis</li>
 </ul>
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
+<section id="medical-data-is-very-important" class="slide level2">
+<h2>Medical data is very important</h2>
+<p>Medical data is made from the tears of patients and doctors</p>
+<ul>
+<li>Develop knowledge &amp; technology that can save the world<br>
+</li>
+<li>The less we use medical data, the more patients are dead</li>
+</ul>
+</section>
+<section id="medical-research-surge" class="slide level2">
+<h2>Medical research surge</h2>
+<p>With Covid19</p>
+<ul>
+<li><p>Medical research has doubled.</p></li>
+<li><p>Clinical trials for new drugs are also on the rise</p></li>
+<li><p>Digital Therapeutics(DTx), decentralized clinical trial(DCT)</p></li>
+</ul>
+</section>
+<section id="no-service-for-medical-research" class="slide level2">
+<h2>No service for medical research</h2>
 <p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 </section>
 <section id="multiple" class="slide level2">
 <h2>Multiple</h2>
@@ -356,7 +365,7 @@
 </div>
 
 <img src="zarathu_eng.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>Zarathu Co.,Ltd</p>
+<p>www.zarathu.com</p>
 </div>
 </section>
     </div>
@@ -570,48 +579,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
