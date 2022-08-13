@@ -1,34 +1,44 @@
+1
 Hello, Thank you for being here.  I'm Jinseob Kim, CEO of Zarathu Company. I’m going to talk about my business and what we can do together. 
 
-
+2
 Let’s start by introducing my service. Zarathu provide analytic services for medical research. Firstly, We develop web-based statistical software that doctors can easily analyze without install. Korea has high-quality public health big data at the national level, so doctors do many studies with this data. For example, National Health Insurance Service(NHIS) and Health Insurance Review & Assessment Service(HIRA) support big data research using their data.
 We also provide statistical consulting and education for doctors, researchers and students.
 
-
+3
 그런데 이 일이 꼭 필요한 일일까요? 의료데이터에서부터 얘기해보겠습니다. 의료데이터는 매우 중요합니다. 이것은 환자들과 의사들의 사투의 기록이고, 그 안엔 많은 눈물이 담겨 있습니다. 이 데이터를 잘 활용해 인류를 살릴 지식과 기술을 만드는 것이 환자들의 희생을 헛되게 하지 않는 길입니다. 
 
-
+4
 이제 많은 사람들이 의료데이터를 이용한 연구의 중요성을 느끼고 있습니다. 코로나 이후 의학연구 건수가 2배 이상 늘어나는 등 의료데이터분석 수요가 급격히 증가했으며, 연구에 그치는 것이 아니라 신약개발 위한 임상시험도 빠르게 늘어나는 중입니다. IT 기술이 발달하면서 먹는약 뿐 아니라 모바일앱도 Digital Therapeutics(DTx) 로 인정받게 되었고, 환자가 직접 병원을 방문할 필요 없이 비대면으로 임상시험을 진행할 수도 있습니다(decentralized clinical trial(DCT) 
 
-
+5
 이처럼 의료데이터분석 수요가 급격히 증가했지만, 연구자들이 빠르고 편하게 이용할 수 있는 서비스가 없었습니다. 기존 통계SW는 PC에 설치후 직접 코딩 해야하는 부담이 있고 의료특화 분석모듈도 부족합니다. 그렇다고 의학전문성이 없는 외부업체에게 맡길 수는 없습니다. 의사들은 쓰기쉽고 빠르고 의학분야에 특화된 서비스를 원합니다.  
 
+6
 이에 차라투는 연구자들이 쉽게 쓸 수 있도록 실시간 분석웹을 개발했는데, 먼저 의학연구에서 흔히 쓰는 분석들을 모아 무료웹 openstat.ai 을 글로벌오픈했습니다. 연구자들은 PC에 SW 설치할 필요없이 PC, mobile, tablet 어떤 환경에서도 여기에 접속만 하면, 데이터를 직접 업로드하여 분석을 수행할 수 있고 결과리포트도 바로 다운받을 수 있습니다. 특정 연구 맞춤형 분석웹은 유료로 서비스합니다.
 
 
-모든 분석모듈은 오픈소스SW로 공개하였으며, 관련 정부 R&D 과제를 수행중입니다.
+7
+모든 분석모듈은 오픈소스SW로 공개하였으며 
+
+8
+관련 정부 R&D 과제를 수행중입니다.
 
 
-김진섭 대표는 Public Health를 전공한 의사로, 보건대학원, 삼성전자 헬스서비스그룹을 거치며 임상, 유전체, 모바일 등 다양한 건강데이터를 다룬 경험을 바탕으로 4년 전 차라투를 창업하였고 현재 팀원은 7명입니다.
+9
+김진섭 대표는 Public Health를 전공한 의사로, 수학올림피아드, 보건대학원, 삼성전자 헬스서비스그룹을 거치며 임상, 유전체, 모바일 등 다양한 건강데이터를 다룬 경험을 바탕으로 4년 전 차라투를 창업하였고 현재 팀원은 7명입니다.
 
+10
+Lancet 등 200건 이상의 SCI 연구가 출판되었습니다.
 
- Lancet 등 200건 이상의 SCI 연구가 출판되었습니다.
-
-
+11
 현재는 병원 교수님들을 주 고객으로 논문용 분석을 지원하지만, 향후 신약 임상시험용 데이터분석도 지원할 계획이며 최근 국내 제약회사와 첫 계약을 체결하였습니다.
 
-
+12
 “의학연구로 사람을 살리는 홍익인간“, ”유망주 육성“을 회사의 핵심 가치로 생각하며, 소중한 의료데이터로 전 인류를 살리는 일에 기여하면서 ”연구지원전문가“라는 새로운 직업을 만들고 이 직업을 의사/변호사 못지않는 선망받는 전문직으로 만들겠습니다.
+
+13
+여기계신 각나라의 국제보건전문가들분들께 제안드립니다. Zarathu 가 여러분 나라가 의료데이터를 더 잘 활용할 수 있도록 도움을 드릴 수 있습니다. 글로벌 공동연구를 위한 데이터 표준화, Openstat 서비스 이용을 도와드릴 수 있고 분석서비스도 지원하겠습니다. 단순 서비스에 그치는 것이 아니라 각인재육성에도 힘써, 청년들이 의료분야 데이터과학자로 성장할 수 있도록 돕겠습니다. Zarathu 연계 교육, 인턴십을 꾸준히 진행하고 원하는 경우 한국에 취업할 수 있도록 채용연계까지 지원하겠습니다..   
 
 
 Thank you for your time. If anyone has questions I’ll be happy to answer them.
