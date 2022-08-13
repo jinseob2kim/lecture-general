@@ -69,23 +69,79 @@ With Covid19
 
 
 
-## 1. Web based SW
+## 1. Web application
+
+- No install, any devices
+- Realtime & GUI
+
+:::: {.columns}
+::: {.column width="50%"}
+**[openstat.ai](https://openstat.ai/): free**
+
+![](example-meta.png){}
+
+
+
+:::
+::: {.column width="50%"}
+**Custmoized: paid**
+
+![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7){}
+
+:::
+
+::::
 
 
 
 
-## 2. Open-source
+
+## 2. Open-source package
+
+-  Analysis module: cover 90% of medical research 
+-  Open-source: you can see all our source code
+
+<center>
+<a href="https://github.com/zarathucorp/"><img src="github.png" width=60%></a>
+</center>
 
 
 
-## IITP R&D
+## Open-source R&D
 
-Cloud based open-source statistical software development
+**Cloud based open-source statistical software development**
 
+-  Ministry of Science and ICT($800,000)
 -  **Fast, Easy-to-use, and for all people**
-![](http://k.kakaocdn.net/dn/bsgueW/btrzkqLQ3H2/qQBLFHw769HWkRJyeRWRG1/img_l.jpg){}
+
+<center>
+<a href="https://github.com/statgarten/"><img src="statgarten.png" width=60%></a>
+</center>
 
 ## Team
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe8629c40-8e65-409a-99ff-5c4a650edd1b%2FUntitled.png&blockId=c0dda860-ad50-450c-8f32-caf37c6db53f)
+:::
+
+::: {.column width="60%"}
+**Jinseob Kim**, Founder
+
+-  Mathematical Olympiad
+-  Medical Doctor
+-  Master of Public Health
+-  SW engineer, Samsung electronics
+
+
+:::
+
+With 7 members 
+
+-  4 medicine/statistics, 2 developer, 1 persian
+::::
 
 
 
@@ -102,11 +158,23 @@ Cloud based open-source statistical software development
 :::: {.columns}
 
 ::: {.column width="50%"}
-Now: Medical research
+**Now: medical research**
+
+-  No.1 data analysis
+-  Global service
+-  Open-source contribution
+
+
 :::
 
 ::: {.column width="50%"}
-Future: Clinical trial
+**Future: new drug**
+
+-  Clinical trial data analysis
+-  With global pharma, CRO, big tech
+-  DTx/DCT specific service
+
+
 :::
 
 ::::
@@ -116,11 +184,25 @@ Future: Clinical trial
 :::: {.columns}
 
 ::: {.column width="50%"}
-Save the world
+**Save the world**
+
+-  Supporting doctors
+-  Make new knowledge
+-  Save life
+-  Save the world
+-  Save the universe(?)
+
 :::
 
 ::: {.column width="50%"}
-Produce rising stars
+**Produce rising stars**
+
+-  New job: research supporter
+-  Medicine + data analysis + IT
+-  Full remote, global recruit
+
+![](
+https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af54-08c87b335298/dcniwyk-227f5054-927e-4d46-90d2-5e251f63de8c.png/v1/fill/w_934,h_856,strp/_produce_101__logo___png_by_tsukinofleur_dcniwyk-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MyIsInBhdGgiOiJcL2ZcL2QwODJhNTM3LTlhNDUtNDUxMi1hZjU0LTA4Yzg3YjMzNTI5OFwvZGNuaXd5ay0yMjdmNTA1NC05MjdlLTRkNDYtOTBkMi01ZTI1MWY2M2RlOGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RiQt71nDAAqXO4lU3Bb976adEZqm2oQfEQdQ5oCnf8s){width=70%}
 :::
 
 ::::
@@ -132,15 +214,25 @@ Produce rising stars
 :::: {.columns}
 
 ::: {.column width="50%"}
-Medical data, research
+**Medical data, research**
+
+-  Data standardization
+-  **openstat.ai** global service
+-  Analytic service
+
+
 :::
 
 ::: {.column width="50%"}
-Produce data scientist
+**Produce data scientist**
+
+-  Education
+-  Internship
+-  Recruitment
 :::
 
 ::::
 
-
+# Thank you for your time
 
 
