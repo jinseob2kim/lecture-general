@@ -6,21 +6,43 @@ format:
     theme: default
     logo: zarathu_eng.png
     footer: "www.zarathu.com"
+    self-contained: false
+    chalkboard: 
+      buttons: false
+    preview-links: auto
 editor: visual
 subtitle: "Zarathu Co.,Ltd"
 ---
 
 ## Zarathu are
 
-We provide statistical services for medical research
+We provide analytic services for medical research
 
 -   Web based statistical SW
 -   National Health Data analysis
 
+:::: {.columns}
+
+::: {.column width="60%"}
+![](https://shinykorea.github.io/corona-activityrecord/d1.png){}
+
+:::
+
+::: {.column width="40%"}
+
+![](http://cdn.bosa.co.kr/news/photo/202009/2135109_169966_5652.jpg){}
+![](https://cdn.docdocdoc.co.kr/news/photo/201807/1057873_1117467_2355.jpg){}
+
+:::
+
+::::
+
+
+
 
 ## Medical data is very important
 
-Medical data is made from the tears of patients and doctors
+There are tears of patients and doctors in **Medical data**
 
 -   Develop knowledge & technology that can save the world    
 -   The less we use medical data, the more patients are dead
@@ -39,24 +61,86 @@ With Covid19
 
 ## No service for medical research
 
-No statistical service for medical research
-
-연구자들이 빠르고 편하게 이용할 수 있는 서비스가 없었습니다. 
-
--  전문 통계SW는 직접 코딩을 해야 하는 부담이 있고
--  외부 업체들은 전문성이 떨어집니다.
+-  Doctors don't have time to analyze their data
+-  Statistical software is not specialized in medical research
 
 
-## Multiple 
+**Doctors need fast, easy-to-use and medical-specific service**
+
+
+
+## 1. Web based SW
+
+
+
+
+## 2. Open-source
+
+
+
+## IITP R&D
+
+Cloud based open-source statistical software development
+
+-  **Fast, Easy-to-use, and for all people**
+![](http://k.kakaocdn.net/dn/bsgueW/btrzkqLQ3H2/qQBLFHw769HWkRJyeRWRG1/img_l.jpg){}
+
+## Team
+
+
+
+## Achievements
+
+-  Support >300 SCI papers.
+-  Venture business certificate
+-  100,000 Download: open-source package
+
+<center><img src="paper.png" width = 70%></center>
+
+## Plan 
 
 :::: {.columns}
 
-::: {.column width="40%"}
-Left column
+::: {.column width="50%"}
+Now: Medical research
 :::
 
-::: {.column width="60%"}
-Right column
+::: {.column width="50%"}
+Future: Clinical trial
 :::
 
 ::::
+
+
+## Vision
+:::: {.columns}
+
+::: {.column width="50%"}
+Save the world
+:::
+
+::: {.column width="50%"}
+Produce rising stars
+:::
+
+::::
+
+
+## Collaborate
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Medical data, research
+:::
+
+::: {.column width="50%"}
+Produce data scientist
+:::
+
+::::
+
+
+
+
