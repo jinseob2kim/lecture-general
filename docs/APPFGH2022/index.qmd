@@ -14,10 +14,6 @@ editor: visual
 subtitle: "Zarathu Co.,Ltd"
 ---
 
-::: {.notes}
-Speaker notes go here.
-:::
-
 ## Zarathu are
 
 We provide analytic services for medical research
@@ -42,7 +38,10 @@ We provide analytic services for medical research
 ::::
 
 ::: {.notes}
-Speaker notes go here.
+Hello, Thank you for being here.  I'm Jinseob Kim, CEO of Zarathu Company. I’m going to talk about my business and what we can do together. 
+
+
+
 :::
 
 
