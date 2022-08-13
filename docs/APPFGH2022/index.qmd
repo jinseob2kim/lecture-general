@@ -19,7 +19,7 @@ subtitle: "Zarathu Co.,Ltd"
 We provide analytic services for medical research
 
 -   Web based statistical SW
--   National Health Data analysis
+-   National Health Data analysis, consulting
 
 :::: {.columns}
 
@@ -40,7 +40,9 @@ We provide analytic services for medical research
 ::: {.notes}
 Hello, Thank you for being here.  I'm Jinseob Kim, CEO of Zarathu Company. I’m going to talk about my business and what we can do together. 
 
+Let’s start by introducing my service. Zarathu provide analytic services for medical research. Firstly, We develop web-based statistical software that doctors can easily analyze without install. Korea has high-quality public health big data at the national level, so doctors do many studies with this data. For example, National Health Insurance Service(NHIS) and Health Insurance Review & Assessment Service(HIRA) support big data research using their data.
 
+We also provide statistical consulting and education for doctors, researchers and students.
 
 :::
 
@@ -51,6 +53,13 @@ There are tears of patients and doctors in **Medical data**
 
 -   Develop knowledge & technology that can save the world    
 -   The less we use medical data, the more patients are dead
+
+
+::: {.notes}
+I think you can ask one question. "Do we need this business?" To answer the question, let's start with medical data.
+
+:::
+
 
 
 ## Medical research surge
