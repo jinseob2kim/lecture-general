@@ -14,6 +14,10 @@ editor: visual
 subtitle: "Zarathu Co.,Ltd"
 ---
 
+::: {.notes}
+Speaker notes go here.
+:::
+
 ## Zarathu are
 
 We provide analytic services for medical research
@@ -37,7 +41,9 @@ We provide analytic services for medical research
 
 ::::
 
-
+::: {.notes}
+Speaker notes go here.
+:::
 
 
 ## Medical data is very important
