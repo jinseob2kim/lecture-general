@@ -47,16 +47,20 @@ We also provide statistical consulting and education for doctors, researchers an
 :::
 
 
-## Medical data is very important
+## Medical data is important
 
 There are tears of patients and doctors in **Medical data**
 
--   Develop knowledge & technology that can save the world    
--   The less we use medical data, the more patients are dead
+-   Data $\rightarrow$ knowledge & technology 
+-   Better data analysis saves lives
 
 
 ::: {.notes}
-I think you can ask one question. "Do we need this business?" To answer the question, let's start with medical data.
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. Using medical data, We can find knowledge and develop technology for human life. Better data analysis saves lives, but we don't use the data, more patients suffer.
+
+
 
 :::
 
@@ -72,6 +76,13 @@ With Covid19
 
 -  Digital Therapeutics(DTx), decentralized clinical trial(DCT) 
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+
+:::
+
 
 ## No service for medical research
 
@@ -81,6 +92,12 @@ With Covid19
 
 **Doctors need fast, easy-to-use and medical-specific service**
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+
+:::
 
 
 ## 1. Web application
@@ -106,7 +123,12 @@ With Covid19
 
 ::::
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
 
+There are tears of patients and doctors in **Medical data**. 
+
+:::
 
 
 
@@ -119,6 +141,11 @@ With Covid19
 <a href="https://github.com/zarathucorp/"><img src="github.png" width=60%></a>
 </center>
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
 
 
 ## Open-source R&D
@@ -131,6 +158,13 @@ With Covid19
 <center>
 <a href="https://github.com/statgarten/"><img src="statgarten.png" width=60%></a>
 </center>
+
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
+
 
 ## Team
 
@@ -158,6 +192,12 @@ With 7 members
 ::::
 
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
+
 
 ## Achievements
 
@@ -166,6 +206,12 @@ With 7 members
 -  100,000 Download: open-source package
 
 <center><img src="paper.png" width = 70%></center>
+
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
 
 ## Plan 
 
@@ -193,6 +239,11 @@ With 7 members
 
 ::::
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
 
 ## Vision
 :::: {.columns}
@@ -221,6 +272,11 @@ https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af5
 
 ::::
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
 
 ## Collaborate
 
@@ -247,6 +303,16 @@ https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af5
 
 ::::
 
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
+
 # Thank you for your time
 
+::: {.notes}
+If anyone has questions I’ll be happy to answer them.
+
+:::
 
