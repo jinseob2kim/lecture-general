@@ -166,6 +166,20 @@ There are tears of patients and doctors in **Medical data**.
 :::
 
 
+## Achievements
+
+-  Support >300 SCI papers.
+-  Venture business certificate
+-  100,000 Download: open-source package
+
+<center><img src="paper.png" width = 70%></center>
+
+::: {.notes}
+I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
+
+There are tears of patients and doctors in **Medical data**. 
+:::
+
 ## Team
 
 :::: {.columns}
@@ -199,19 +213,6 @@ There are tears of patients and doctors in **Medical data**.
 :::
 
 
-## Achievements
-
--  Support >300 SCI papers.
--  Venture business certificate
--  100,000 Download: open-source package
-
-<center><img src="paper.png" width = 70%></center>
-
-::: {.notes}
-I think you can ask one question. "Do we need this work?" To answer the question, let's start with medical data.
-
-There are tears of patients and doctors in **Medical data**. 
-:::
 
 ## Plan 
 
