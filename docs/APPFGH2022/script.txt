@@ -6,7 +6,7 @@ Let’s start by introducing my service. Zarathu provides analytic services for 
 We also provide statistical consulting and education for doctors, researchers and students.
 
 3
-But, do you think it is really necessary? Let’s talk about medical data first. Medical data is very important. This is a record of desperate struggle of patients and doctors and there are a lot of tears in it. We should make knowledge and technology that can save mankind with this data. We should not let sacrifice of patients in vein.
+But, do you think it is really necessary? Let’s talk about medical data first. Medical data is very important. This is a record of desperate struggle of patients and doctors and there are a lot of tears in it. We should make knowledge and technology that can save mankind with this data. Better data analysis saves lives.
 
 4
 Now, many people feel medical data and research important. After Covid-19, the demands for analyzing medical data has been rapidly increased as the number of medical articles increased double. Not just researching, but clinical trials to develop new drugs are rapidly increasing. As IT technology develops, not only edible drugs but also mobile apps are recognized as digital therapeutics (DTx), and untact clinical trials can be made without the need for patients to visit hospitals (decentralized clinical trial(DCT). 
