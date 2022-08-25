@@ -13,6 +13,8 @@ format:
     preview-links: true
     show-notes: false
     slide-number: false
+    width: 1600
+    height: 900
 editor: visual
 subtitle: "Zarathu Co.,Ltd"
 ---
@@ -146,7 +148,7 @@ We have modulized more than 90% of analytical methods of medical researches. And
 -  **Fast, Easy-to-use, and for all people**
 
 <center>
-<a href="https://github.com/statgarten/"><img src="statgarten.png" width=60%></a>
+<a href="https://github.com/statgarten/"><img src="statgarten.png" width=50%></a>
 </center>
 
 ::: {.notes}
@@ -161,7 +163,7 @@ The topic of R and D is to develop Cloud based open-source statistical software 
 -  Venture business certificate
 -  100,000 Download: open-source package
 
-<center><img src="paper.png" width = 70%></center>
+<center><img src="paper.png" width = 60%></center>
 
 ::: {.notes}
 Now, I will introduce other achievement. Since establishing the company, we have supported data analysis  more than three hundred SCI papers including the Lancet, the world’s most prestigious journal, and our open source statistical package  recorded more than one hundred thousand downloads. 
@@ -256,7 +258,7 @@ We currently support analytics for medical research., but we plan to support ana
 -  Full remote, global recruit
 
 ![](
-https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af54-08c87b335298/dcniwyk-227f5054-927e-4d46-90d2-5e251f63de8c.png/v1/fill/w_934,h_856,strp/_produce_101__logo___png_by_tsukinofleur_dcniwyk-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MyIsInBhdGgiOiJcL2ZcL2QwODJhNTM3LTlhNDUtNDUxMi1hZjU0LTA4Yzg3YjMzNTI5OFwvZGNuaXd5ay0yMjdmNTA1NC05MjdlLTRkNDYtOTBkMi01ZTI1MWY2M2RlOGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RiQt71nDAAqXO4lU3Bb976adEZqm2oQfEQdQ5oCnf8s){width=70%}
+https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af54-08c87b335298/dcniwyk-227f5054-927e-4d46-90d2-5e251f63de8c.png/v1/fill/w_934,h_856,strp/_produce_101__logo___png_by_tsukinofleur_dcniwyk-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MyIsInBhdGgiOiJcL2ZcL2QwODJhNTM3LTlhNDUtNDUxMi1hZjU0LTA4Yzg3YjMzNTI5OFwvZGNuaXd5ay0yMjdmNTA1NC05MjdlLTRkNDYtOTBkMi01ZTI1MWY2M2RlOGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RiQt71nDAAqXO4lU3Bb976adEZqm2oQfEQdQ5oCnf8s){width=50%}
 :::
 
 ::::
