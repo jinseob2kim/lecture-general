@@ -2,7 +2,6 @@
 title: "Reviewer들을 위한 의학통계"
 author: 김진섭
 institute: "차라투(주)"
-date: "2022-4-8"
 output:
   xaringan::moon_reader:
     css: ["css/footer-header.css", "default"]
@@ -18,7 +17,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9" 
-subtitle: "제18차 대한이식학회 춘계학술대회 심포지엄"
+subtitle: "22년 대한응급의학회 추계학술대회"
 ---
 
 ```{r setup, include=FALSE}

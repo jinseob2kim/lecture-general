@@ -23,11 +23,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Reviewer들을 위한 의학통계
-## 제18차 대한이식학회 춘계학술대회 심포지엄
+]
+.subtitle[
+## 22년 대한응급의학회 추계학술대회
+]
+.author[
 ### 김진섭
+]
+.institute[
 ### 차라투(주)
-### 2022-4-8
+]
 
 ---
 
@@ -172,8 +179,8 @@ https://www.evanmiller.org/ab-testing/t-test.html 에서 바로 가능.
 
 ---
 
-<div id="htmlwidget-971abe79f9540aaecd4f" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-971abe79f9540aaecd4f">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: sex and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["Female","Female","Female","Male","Male","Female","Female","Male","Female","Female","Male","Female","Male","Female","Female","Male","Female","Female","Male","Female","Male","Male","Male","Male","Male","Female","Female","Male","Male","Female"],[123,128,98,167,152,220,135,129,152,142,150,163,130,168,156,161,142,149,182,152,147,130,160,135,148,164,153,85,118,131]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sex<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-748c9da295c3f9edbd53" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-748c9da295c3f9edbd53">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: sex and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["Male","Male","Female","Female","Male","Male","Female","Male","Female","Female","Female","Male","Female","Female","Female","Female","Female","Female","Male","Female","Male","Female","Male","Male","Male","Male","Male","Female","Female","Female"],[120,191,137,227,168,107,159,145,182,188,173,173,162,137,110,127,153,168,134,161,123,144,187,107,162,109,135,131,140,204]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sex<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -188,17 +195,17 @@ nev.ttest
 ## 	Welch Two Sample t-test
 ## 
 ## data:  tChol by sex
-## t = 0.66377, df = 27.925, p-value = 0.5123
+## t = 1.4342, df = 25.743, p-value = 0.1635
 ## alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
 ## 95 percent confidence interval:
-##  -12.66746  24.81032
+##  -6.875538 38.567845
 ## sample estimates:
 ## mean in group Female   mean in group Male 
-##             148.5000             142.4286
+##             159.0000             143.1538
 ```
 
 .large[
-여자의 평균 콜레스테롤 값은 148.5, 남자는 142.4 이고 `\(p\)`-value는 0.512  
+여자의 평균 콜레스테롤 값은 159, 남자는 143.2 이고 `\(p\)`-value는 0.164  
 
 ]
 
@@ -218,17 +225,17 @@ ev.ttest
 ## 	Two Sample t-test
 ## 
 ## data:  tChol by sex
-## t = 0.65983, df = 28, p-value = 0.5148
+## t = 1.4376, df = 28, p-value = 0.1616
 ## alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
 ## 95 percent confidence interval:
-##  -12.77713  24.91998
+##  -6.732062 38.424370
 ## sample estimates:
 ## mean in group Female   mean in group Male 
-##             148.5000             142.4286
+##             159.0000             143.1538
 ```
 
 
-앞서는 **Welch t-test** 였는데 이름이 바뀐 것을 확인할 수 있고 `\(p\)`-value도 0.515로 다름. 
+앞서는 **Welch t-test** 였는데 이름이 바뀐 것을 확인할 수 있고 `\(p\)`-value도 0.162로 다름. 
 - 특별한 경우가 아니고서야 위험한 등분산가정을 할 필요가 없음.   
 
 - **R** 에서 디폴트도 `F` 임.
@@ -284,7 +291,7 @@ res.wilcox
 ## 	Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  tChol by sex
-## W = 125.5, p-value = 0.5886
+## W = 142.5, p-value = 0.1871
 ## alternative hypothesis: true location shift is not equal to 0
 ```
 
@@ -314,8 +321,8 @@ res.wilcox
 
 ---
 
-<div id="htmlwidget-d7df040cc265c7429a94" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d7df040cc265c7429a94">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: group and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["C","C","C","B","C","B","B","B","C","A","B","B","A","B","C","A","C","C","A","A","A","A","C","B","C","B","A","B","C","B"],[148,126,128,144,140,117,147,182,146,115,125,171,140,111,132,146,177,145,160,53,127,159,113,163,174,145,187,122,162,162]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b308ca5761c5125791c1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b308ca5761c5125791c1">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.t: group and total cholesterol<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],["C","C","C","B","C","B","B","B","C","A","B","B","A","B","C","A","C","C","A","A","A","A","C","B","C","B","A","B","C","B"],[148,126,128,144,140,117,147,182,146,115,125,171,140,111,132,146,177,145,160,53,127,159,113,163,174,145,187,122,162,162]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>tChol<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -412,8 +419,8 @@ class: center, middle
 
 ---
 
-<div id="htmlwidget-33128eb401387905293d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-33128eb401387905293d">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.chi: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,1,1,0,0,1,1,1,1,1,0,1,1,1,0,1],[0,0,1,1,0,0,0,0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,1,0,0,1,1,1,1,0,1,1,0,0,1,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-07b102da000a29c49717" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-07b102da000a29c49717">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.chi: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,1,1,0,0,1,1,1,1,1,0,1,1,1,0,1],[0,0,1,1,0,0,0,0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,1,0,0,1,1,1,1,0,1,1,0,0,1,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -462,8 +469,8 @@ res.chi
 
 ---
 
-<div id="htmlwidget-6ba32fa4378169d6700c" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6ba32fa4378169d6700c">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.fisher: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1],[0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-57d7243368cde6d9a701" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-57d7243368cde6d9a701">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.fisher: HTN &amp; DM medication<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30","person 31","person 32","person 33","person 34","person 35","person 36","person 37","person 38","person 39","person 40","person 41","person 42","person 43","person 44","person 45","person 46","person 47","person 48","person 49","person 50"],[1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1],[0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>HTN_medi<\/th>\n      <th>DM_medi<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -565,8 +572,8 @@ class: center, middle
 
 
 ---
-<div id="htmlwidget-d3fefcefdbc4290707ba" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d3fefcefdbc4290707ba">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.pt: systolic blood pressure measured by hand &amp; machine<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[128,128,120,119,124,130,127,131,127,120,119,131,129,129,125,129,126,132,123,111,125,125,119,112,129,126,125,128,125,128],[128,119,119,126,118,124,128,129,117,130,123,128,128,133,127,126,127,119,122,125,124,127,128,126,127,123,129,123,142,123]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>SBP_hand<\/th>\n      <th>SBP_machine<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-18430f66b8f801e89858" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-18430f66b8f801e89858">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.pt: systolic blood pressure measured by hand &amp; machine<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[128,128,120,119,124,130,127,131,127,120,119,131,129,129,125,129,126,132,123,111,125,125,119,112,129,126,125,128,125,128],[128,119,119,126,118,124,128,129,117,130,123,128,128,133,127,126,127,119,122,125,124,127,128,126,127,123,129,123,142,123]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>SBP_hand<\/th>\n      <th>SBP_machine<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -608,12 +615,12 @@ pt.ttest.pair
 ## 
 ## data:  data.pt$SBP_hand and data.pt$SBP_machine
 ## t = -0.46171, df = 29, p-value = 0.6477
-## alternative hypothesis: true difference in means is not equal to 0
+## alternative hypothesis: true mean difference is not equal to 0
 ## 95 percent confidence interval:
 ##  -3.257804  2.057804
 ## sample estimates:
-## mean of the differences 
-##                    -0.6
+## mean difference 
+##            -0.6
 ```
 
 이번에는 **사람마다 차이값을 먼저 구한 후 그것이 0인지 테스트** 했고, `\(p\)`-value는 0.648이다.  
@@ -664,8 +671,8 @@ class: center, middle
 
 ---
 
-<div id="htmlwidget-c242c4e2b3321167c0d7" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c242c4e2b3321167c0d7">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.mc: Abdominal pain - before &amp; after<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[0,1,0,0,0,1,0,0,0,0,1,1,0,1,0,1,1,0,0,0,1,1,1,0,1,1,0,1,0,1],[0,1,1,0,1,0,0,0,0,1,0,0,0,1,1,0,1,0,1,1,1,0,0,1,0,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Pain_before<\/th>\n      <th>Pain_after<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1cad792f2475b0941331" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1cad792f2475b0941331">{"x":{"filter":"none","vertical":false,"caption":"<caption>data.mc: Abdominal pain - before &amp; after<\/caption>","data":[["person 1","person 2","person 3","person 4","person 5","person 6","person 7","person 8","person 9","person 10","person 11","person 12","person 13","person 14","person 15","person 16","person 17","person 18","person 19","person 20","person 21","person 22","person 23","person 24","person 25","person 26","person 27","person 28","person 29","person 30"],[0,1,0,0,0,1,0,0,0,0,1,1,0,1,0,1,1,0,0,0,1,1,1,0,1,1,0,1,0,1],[0,1,1,0,1,0,0,0,0,1,0,0,0,1,1,0,1,0,1,1,1,0,0,1,0,0,0,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Pain_before<\/th>\n      <th>Pain_after<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -953,8 +960,8 @@ ANOVA p-value 는 **rx 중 튀는 것이 있는지?** 를 통합평가.
 
 ---
 
-<div id="htmlwidget-08d3301b39fc92d62ae0" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-08d3301b39fc92d62ae0">{"x":{"filter":"none","vertical":false,"caption":"<caption>Linear regression predicting time\n<\/caption>","data":[["sex","age","rx: ref.=Obs","   Lev","   Lev+5FU","","No. of observations","R-squared","AIC value"],["13.93 (-72.26,100.12)","0.38 (-3.22,3.99)",null,"24.66 (-79.49,128.82)","271.07 (166.41,375.74)","","1858","0.0169","30717.803"],["0.751","0.835",null,"0.643","&lt; 0.001","","","",""],["32.67 (-53.21,118.55)","0.37 (-3.21,3.95)",null,"22.98 (-81.3,127.27)","273.05 (168.19,377.9)","","","",""],["0.456","0.84",null,"0.666","&lt; 0.001","","","",""],["","",null,"","**",null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>crude coeff.(95%CI)<\/th>\n      <th>crude P value<\/th>\n      <th>adj. coeff.(95%CI)<\/th>\n      <th>adj. P value<\/th>\n      <th>sig<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"visible":false,"targets":5},{"orderable":false,"targets":0}],"scrollX":true,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(row).css({'background-color':value == \"**\" ? \"yellow\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-bf1b3628490d97f3b291" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bf1b3628490d97f3b291">{"x":{"filter":"none","vertical":false,"caption":"<caption>Linear regression predicting time\n<\/caption>","data":[["sex","age","rx: ref.=Obs","   Lev","   Lev+5FU","","No. of observations","R-squared","AIC value"],["13.93 (-72.26,100.12)","0.38 (-3.22,3.99)",null,"24.66 (-79.49,128.82)","271.07 (166.41,375.74)","","1858","0.0169","30717.803"],["0.751","0.835",null,"0.643","&lt; 0.001","","","",""],["32.67 (-53.21,118.55)","0.37 (-3.21,3.95)",null,"22.98 (-81.3,127.27)","273.05 (168.19,377.9)","","","",""],["0.456","0.84",null,"0.666","&lt; 0.001","","","",""],["","",null,"","**",null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>crude coeff.(95%CI)<\/th>\n      <th>crude P value<\/th>\n      <th>adj. coeff.(95%CI)<\/th>\n      <th>adj. P value<\/th>\n      <th>sig<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"visible":false,"targets":5},{"orderable":false,"targets":0}],"scrollX":true,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(row).css({'background-color':value == \"**\" ? \"yellow\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 
 
 ---
@@ -1031,8 +1038,8 @@ $$
 
 ---
 
-<div id="htmlwidget-ef184072b2efcf4b1507" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ef184072b2efcf4b1507">{"x":{"filter":"none","vertical":false,"caption":"<caption>Logistic regression predicting status\n<\/caption>","data":[["sex","age","rx: ref.=Obs","   Lev","   Lev+5FU","","No. of observations","AIC value"],["0.97 (0.81,1.17)","1 (0.99,1)",null,"0.96 (0.77,1.2)","0.55 (0.44,0.68)","","1858","2549.4309"],["0.758","0.296",null,"0.709","&lt; 0.001","","",""],["0.93 (0.77,1.12)","1 (0.99,1)",null,"0.96 (0.77,1.2)","0.54 (0.43,0.68)","","",""],["0.454","0.294",null,"0.747","&lt; 0.001","","",""],["","",null,"","**",null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>crude OR.(95%CI)<\/th>\n      <th>crude P value<\/th>\n      <th>adj. OR.(95%CI)<\/th>\n      <th>adj. P value<\/th>\n      <th>sig<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"visible":false,"targets":5},{"orderable":false,"targets":0}],"scrollX":true,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(row).css({'background-color':value == \"**\" ? \"yellow\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-f02bac0ef65f474cea9d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f02bac0ef65f474cea9d">{"x":{"filter":"none","vertical":false,"caption":"<caption>Logistic regression predicting status\n<\/caption>","data":[["sex","age","rx: ref.=Obs","   Lev","   Lev+5FU","","No. of observations","AIC value"],["0.97 (0.81,1.17)","1 (0.99,1)",null,"0.96 (0.77,1.2)","0.55 (0.44,0.68)","","1858","2549.4309"],["0.758","0.296",null,"0.709","&lt; 0.001","","",""],["0.93 (0.77,1.12)","1 (0.99,1)",null,"0.96 (0.77,1.2)","0.54 (0.43,0.68)","","",""],["0.454","0.294",null,"0.747","&lt; 0.001","","",""],["","",null,"","**",null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>crude OR.(95%CI)<\/th>\n      <th>crude P value<\/th>\n      <th>adj. OR.(95%CI)<\/th>\n      <th>adj. P value<\/th>\n      <th>sig<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"visible":false,"targets":5},{"orderable":false,"targets":0}],"scrollX":true,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(row).css({'background-color':value == \"**\" ? \"yellow\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 
 
 ---
@@ -2061,8 +2068,8 @@ Kaplan-meier 와 마찬가지로 구간별로 통계량을 계산.
 
 ---
 
-<div id="htmlwidget-245b097cc1a7fad3e6ba" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-245b097cc1a7fad3e6ba">{"x":{"filter":"none","vertical":false,"caption":"<caption>Cox model on time ('time') to event ('status')<\/caption>","data":[["sex","age","rx: ref.=Obs","   Lev","   Lev+5FU",null,"No. of observations","No. of events"],["0.97 (0.85,1.1)","1 (0.99,1)",null,"0.98 (0.84,1.14)","0.64 (0.55,0.76)",null,"1858","920"],["0.61","0.382",null,"0.786","&lt; 0.001",null,null,null],["0.95 (0.84,1.08)","1 (0.99,1)",null,"0.98 (0.84,1.14)","0.64 (0.55,0.76)",null,null,null],["0.446","0.468",null,"0.811","&lt; 0.001",null,null,null],[null,null,null,null,"**",null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>crude HR(95%CI)<\/th>\n      <th>crude P value<\/th>\n      <th>adj. HR(95%CI)<\/th>\n      <th>adj. P value<\/th>\n      <th>sig<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"visible":false,"targets":5},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(row).css({'background-color':value == \"**\" ? \"yellow\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-d6bdc4b2fde5b2277588" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d6bdc4b2fde5b2277588">{"x":{"filter":"none","vertical":false,"caption":"<caption>Cox model on time ('time') to event ('status')<\/caption>","data":[["sex","age","rx: ref.=Obs","   Lev","   Lev+5FU",null,"No. of observations","No. of events"],["0.97 (0.85,1.1)","1 (0.99,1)",null,"0.98 (0.84,1.14)","0.64 (0.55,0.76)",null,"1858","920"],["0.61","0.382",null,"0.786","&lt; 0.001",null,null,null],["0.95 (0.84,1.08)","1 (0.99,1)",null,"0.98 (0.84,1.14)","0.64 (0.55,0.76)",null,null,null],["0.446","0.468",null,"0.811","&lt; 0.001",null,null,null],[null,null,null,null,"**",null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>crude HR(95%CI)<\/th>\n      <th>crude P value<\/th>\n      <th>adj. HR(95%CI)<\/th>\n      <th>adj. P value<\/th>\n      <th>sig<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"visible":false,"targets":5},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(row).css({'background-color':value == \"**\" ? \"yellow\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 
 ---
 # 생존분석: 비례위험가정
@@ -2267,6 +2274,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
