@@ -126,9 +126,36 @@ class: center, middle
 SCI 논문 200건 지원
 ]
 <center>
-<img src="https://jinseob2kim.github.io/lecture-general/cdmkdh/paper.jpg" width=50%></a>
+<img src="paper.png" width=80%></a>
 </center>
 
+---
+# R&D, 지원사업 
+
+.large[
+- 창업도약패키지 
+
+- 과기정통부 R&D: 공개SW 통계패키지 개발
+
+- 심평원 CDM 변환용역
+
+]
+
+
+---
+# R&D: stargarten
+
+.large[
+총괄책임자
+
+- with 파이디지털헬스케어, 앤틀러
+
+]
+
+<center>
+<img src="https://jinseob2kim.github.io/lecture-general/APPFGH2022/statgarten.png
+" width=80%></a>
+</center>
 
 
 ---
