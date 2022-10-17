@@ -48,3 +48,6 @@ Lecture: general topic
 * [KAIST ICISTS(SUM; Start Ur Misson) 강연](http://www.icists.org/): [의학연구로 사람을 살리다](https://jinseob2kim.github.io/lecture-general/kaist-icists-sum)
 
 * 아시아태평양지역 국제보건 국회의원 포럼 디지털 헬스 스타트업 발표: [Zarathu 소개 ](https://jinseob2kim.github.io/lecture-general/APPFGH2022)
+
+
+* [2022 융합형 의사과학자 심포지움](http://www.medsci.or.kr/): [의료데이터분석가 성장기](https://jinseob2kim.github.io/lecture-general/medical-scientist)
