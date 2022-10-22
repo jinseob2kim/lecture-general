@@ -2,7 +2,7 @@
 title: "의료데이터분석가 성장기"
 author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://openstat.ai)
 institute: "차라투(주)"
-date: "2022-10-19"
+date: "2022-10-22"
 output:
   xaringan::moon_reader:
     css: ["css/footer-header.css", "default"]
