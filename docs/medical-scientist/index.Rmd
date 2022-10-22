@@ -321,7 +321,7 @@ Statin 병용요법 비열등성검정
 </center>
 
 ---
-# R&D: stargarten
+# R&D: statgarten
 
 .large[
 총괄책임자
