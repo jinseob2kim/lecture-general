@@ -17,7 +17,6 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9" 
-subtitle: "22년 대한응급의학회 추계학술대회"
 ---
 
 ```{r setup, include=FALSE}
