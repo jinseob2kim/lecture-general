@@ -51,3 +51,6 @@ Lecture: general topic
 
 
 * [2022 융합형 의사과학자 심포지움](http://www.medsci.or.kr/): [의료데이터분석가 성장기](https://jinseob2kim.github.io/lecture-general/medical-scientist)
+
+
+* [2023 대한심혈관중재학회 하계국제학술대회](http://www.medsci.or.kr/): [Non-Inferiority 연구 시작부터 마무리까지 실전 최적화 훈련](https://jinseob2kim.github.io/lecture-general/KSIC2023)

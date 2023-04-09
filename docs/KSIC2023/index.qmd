@@ -1,0 +1,168 @@
+---
+title: "Non-Inferiority Trial 실전"
+author: "Jinseob Kim (차라투)"
+date: "2023-06-24"
+format:
+  revealjs: 
+    theme: default
+    logo: https://raw.githubusercontent.com/jinseob2kim/lecture-general/master/docs/APPFGH2022/zarathu_eng.png
+    footer: "www.zarathu.com"
+    self-contained: false
+    chalkboard: 
+      buttons: false
+    preview-links: true
+    show-notes: false
+    slide-number: false
+    width: 1600
+    height: 900
+editor: visual
+subtitle: "KSIC Summer Conference 2023"
+---
+
+## Contents
+
+1. 샘플수 계산
+
+2. 비열등성 마진(margin)
+
+3. 분석결과 제시
+
+4. 실제 리비전 요구사항
+
+
+## References
+
+1. [LOADSTAR](https://jamanetwork.com/journals/jama/article-abstract/2802214)(JAMA `23): YUHS
+
+2. [RACING](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(22)00916-3/fulltext)(Lancet `22): YUHS
+
+3. [FLAVOUR](https://www.nejm.org/doi/full/10.1056/NEJMoa2201546)(NEJM `22): SNU
+
+4. [RENOVATE-COMPLEX-PCI](https://www.nejm.org/doi/full/10.1056/NEJMoa2216607)(NEJM `23): SMC
+
+
+## Zarathu are
+
+We provide analytic services for medical research
+
+-   Web based statistical SW
+-   National Health Data analysis, consulting
+
+::: columns
+::: {.column width="60%"}
+![](https://shinykorea.github.io/corona-activityrecord/d1.png)
+:::
+
+::: {.column width="40%"}
+![](http://cdn.bosa.co.kr/news/photo/202009/2135109_169966_5652.jpg) ![](https://cdn.docdocdoc.co.kr/news/photo/201807/1057873_1117467_2355.jpg)
+:::
+:::
+
+
+# 리비전 실제 
+
+## RACING
+
+1. Kaplan-meier estimate 쓰지말고 그냥 proportion 써라.
+
+![](img/kmracing.png){width=50%}
+
+- KM: 9.3 vs 10.3% -> 9.1 vs 9.9% (Event/N)  
+
+
+## RACING
+
+2. Wilson CI 써라 
+
+- For the primary and key secondary outcome I would question if the **Normal approximation does not hold**. 
+
+- 보수적인 지표
+
+![](img/wilson.png){width=50%}
+
+
+## LOADSTAR
+
+1. some lack of clarity regarding the exact statistical test used to establish the confidence interval around the difference in event rate
+
+- Kaplan meier 방법으로 두 군의 Incidence  값과 standard error 를 각각 얻습니다.
+- 이것을 이용해  difference 값과 upper 97.5% 신뢰구간을 구합니다. 
+- 본 연구에서 Cox 분석은 없습니다.
+
+2. an unclear rational for a non-inferiority trial at all, i.e., why is the targeted approach considered less burdensome and therefore advantageous if equally effective?
+
+- "target이 burden이 작기때문에 non-inferiority를 증명하는 것만으로 충분하다는 논리" 에 대한 의문.
+- targeted  approach 가 왜 burden이 작냐는 질문에 답변 필요
+
+## LOADSTAR
+
+3. poor justification for the 3% non-inferiority margin, since that would correspond to a NNT of about 33, which would seem to justify the use of fixed high-intensity therapy if that were the true difference
+
+- margin 3% 너무 큰거 아니냐?
+- 실제로 3% 차이면 기존 fixed therapy가 더 나은것이라는 의견. 임상적 설명 필요.  
+
+4. uncertainty regarding the responsiveness of the endpoint over the duration of follow up.
+
+- 3년 F/U 기간 이후엔 어떠냐. 더 오래 관찰해야할 수도 있다는 의견.
+- 3년 이후 outcome이 혹시 있다면 보여주고, 아니면 3년관찰로 충분히 의미있다고 설명. 
+
+
+## RENOVATE-COMPLEX-PCI
+
+1. P10 L53. Earlier you stated that the randomization was stratified by clinical presentation and by treatment center. Did you apply a stratified logrank test to incorporate this design feature, and include these covariates in the Cox model estimation? Please clarify.
+
+- 다기관 고려한 stratified 분석해라. 
+- **R coxph 식에 `+strata(기관변수)` 추가 **
+
+```{r, echo=T, eval=F}
+coxph(Surv(time, status) ~ group + strata(hospital), data = data)
+```
+
+## RENOVATE-COMPLEX-PCI
+
+2. P13 L32. What was the “per protocol” analysis? This is the first time this is mentioned; it should be explained in the methods section. Please also note that per protocol analyses that are based on an analysis dataset constructed by eliminating cases based on post-randomization events (e.g., treatment crossover) are generally biased and are not allowed. More principled methods of analyzing a trial subject to non-adherence should be used. See for instance Hernan and Robins, NEJM 2017; 377: 1391-1398.
+
+-> Per-protocol 하면서 연구디자인 깨지는거 아니냐?
+
+Per-protocol은 Image군에서 Iamge를 하지 않은 환자, Angio군에서 Image를 한 환자를 프로토콜에서 Protocol violation이라고 미리 지정했었음. 
+
+
+## RENOVATE-COMPLEX-PCI 
+
+3. P13 L36-39. The analyses that properly account for competing risks should be the primary analyses here; the standard K-M or Cox model estimates that ignore competing risks are incorrect. Please describe the method used to accommodate competing risks in the methods section, and present these results as the primary analysis.
+
+-> Competing risk analysis 를 primary로 해라 
+
+::: columns
+::: {.column width="40%"}
+```{r}
+library(jskm);library(survival)
+colon$status2 <- colon$status
+colon$status2[1:400] <- 2
+colon$status2 <- factor(colon$status2)
+fit2 <- survfit(Surv(time,status2)~rx, data=colon)
+jskm(fit2, mark = F, surv.scale = "percent", table = T, status.cmprsk = "1")
+
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo=T, eval=F}
+library(jskm);library(survival)
+colon$status2 <- colon$status
+colon$status2[1:400] <- 2
+colon$status2 <- factor(colon$status2)
+fit2 <- survfit(Surv(time,status2)~rx, data=colon)
+jskm(fit2, mark = F, surv.scale = "percent", table = T, status.cmprsk = "1")
+
+```
+:::
+:::
+
+
+
+
+
+# 감사합니다
+
+
