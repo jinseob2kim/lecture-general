@@ -41,6 +41,81 @@ subtitle: "KSIC Summer Conference 2023"
 4. [RENOVATE-COMPLEX-PCI](https://www.nejm.org/doi/full/10.1056/NEJMoa2216607)(NEJM `23): SMC
 
 
+# 샘플 수 계산 
+
+
+
+
+## **Proportion vs Survival** based approach
+
+[Proportion](http://powerandsamplesize.com/Calculators/Test-Odds-Ratio/Non-Inferiority-or-Superiority)
+
+- Event rate 만 이용. 
+- Racing, LOADSTAR
+
+[Survival](https://nshi.jp/en/js/twosurvyrni/) 
+
+- Event rate, accural/FU time 고려
+- FLAVOUR, RENOVATE-COMPLEX-PCI
+
+
+## Racing
+
+::: columns
+::: {.column width="60%"}
+![](img/sample_racing.png)
+
+:::
+
+::: {.column width="40%"}
+![](img/racing_sample.png)
+:::
+:::
+
+
+## LOADSTAR
+
+::: columns
+::: {.column width="60%"}
+![](img/sample_loadstar.png)
+
+:::
+
+::: {.column width="40%"}
+![](img/loadstar_sample.png)
+:::
+:::
+
+
+## FLAVOUR
+
+::: columns
+::: {.column width="35%"}
+![](img/sample_flavour.png)
+
+:::
+
+::: {.column width="65%"}
+![](img/flavour_sample.png)
+:::
+:::
+
+
+## RENOVATE-COMPLEX-PCI
+
+::: columns
+::: {.column width="35%"}
+![](img/sample_reno.png)
+
+:::
+
+::: {.column width="65%"}
+![](img/reno_sample.png)
+:::
+:::
+
+
+
 ## Zarathu are
 
 We provide analytic services for medical research

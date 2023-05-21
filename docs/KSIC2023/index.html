@@ -7,7 +7,7 @@
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.335">
+  <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Jinseob Kim (차라투)">
   <title>Non-Inferiority Trial 실전</title>
@@ -421,6 +421,64 @@ Jinseob Kim (차라투)
 <li><p><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2216607">RENOVATE-COMPLEX-PCI</a>(NEJM `23): SMC</p></li>
 </ol>
 </section>
+<section>
+<section id="샘플-수-계산" class="title-slide slide level1 center">
+<h1>샘플 수 계산</h1>
+
+</section>
+<section id="proportion-vs-survival-based-approach" class="slide level2">
+<h2><strong>Proportion vs Survival</strong> based approach</h2>
+<p><a href="http://powerandsamplesize.com/Calculators/Test-Odds-Ratio/Non-Inferiority-or-Superiority">Proportion</a></p>
+<ul>
+<li>Event rate 만 이용.</li>
+<li>Racing, LOADSTAR</li>
+</ul>
+<p><a href="https://nshi.jp/en/js/twosurvyrni/">Survival</a></p>
+<ul>
+<li>Event rate, accural/FU time 고려</li>
+<li>FLAVOUR, RENOVATE-COMPLEX-PCI</li>
+</ul>
+</section>
+<section id="racing" class="slide level2">
+<h2>Racing</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/sample_racing.png"></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/racing_sample.png"></p>
+</div>
+</div>
+</section>
+<section id="loadstar" class="slide level2">
+<h2>LOADSTAR</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/sample_loadstar.png"></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/loadstar_sample.png"></p>
+</div>
+</div>
+</section>
+<section id="flavour" class="slide level2">
+<h2>FLAVOUR</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><img data-src="img/sample_flavour.png"></p>
+</div><div class="column" style="width:65%;">
+<p><img data-src="img/flavour_sample.png"></p>
+</div>
+</div>
+</section>
+<section id="renovate-complex-pci" class="slide level2">
+<h2>RENOVATE-COMPLEX-PCI</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><img data-src="img/sample_reno.png"></p>
+</div><div class="column" style="width:65%;">
+<p><img data-src="img/reno_sample.png"></p>
+</div>
+</div>
+</section>
 <section id="zarathu-are" class="slide level2">
 <h2>Zarathu are</h2>
 <p>We provide analytic services for medical research</p>
@@ -435,13 +493,13 @@ Jinseob Kim (차라투)
 <p><img data-src="http://cdn.bosa.co.kr/news/photo/202009/2135109_169966_5652.jpg"> <img data-src="https://cdn.docdocdoc.co.kr/news/photo/201807/1057873_1117467_2355.jpg"></p>
 </div>
 </div>
-</section>
+</section></section>
 <section>
 <section id="리비전-실제" class="title-slide slide level1 center">
 <h1>리비전 실제</h1>
 
 </section>
-<section id="racing" class="slide level2">
+<section id="racing-1" class="slide level2">
 <h2>RACING</h2>
 <ol type="1">
 <li>Kaplan-meier estimate 쓰지말고 그냥 proportion 써라.</li>
@@ -451,7 +509,7 @@ Jinseob Kim (차라투)
 <li>KM: 9.3 vs 10.3% -&gt; 9.1 vs 9.9% (Event/N)</li>
 </ul>
 </section>
-<section id="racing-1" class="slide level2">
+<section id="racing-2" class="slide level2">
 <h2>RACING</h2>
 <ol start="2" type="1">
 <li>Wilson CI 써라</li>
@@ -462,7 +520,7 @@ Jinseob Kim (차라투)
 </ul>
 
 <img data-src="img/wilson.png" style="width:50.0%" class="r-stretch"></section>
-<section id="loadstar" class="slide level2">
+<section id="loadstar-1" class="slide level2">
 <h2>LOADSTAR</h2>
 <ol type="1">
 <li>some lack of clarity regarding the exact statistical test used to establish the confidence interval around the difference in event rate</li>
@@ -480,7 +538,7 @@ Jinseob Kim (차라투)
 <li>targeted approach 가 왜 burden이 작냐는 질문에 답변 필요</li>
 </ul>
 </section>
-<section id="loadstar-1" class="slide level2">
+<section id="loadstar-2" class="slide level2">
 <h2>LOADSTAR</h2>
 <ol start="3" type="1">
 <li>poor justification for the 3% non-inferiority margin, since that would correspond to a NNT of about 33, which would seem to justify the use of fixed high-intensity therapy if that were the true difference</li>
@@ -497,7 +555,7 @@ Jinseob Kim (차라투)
 <li>3년 이후 outcome이 혹시 있다면 보여주고, 아니면 3년관찰로 충분히 의미있다고 설명.</li>
 </ul>
 </section>
-<section id="renovate-complex-pci" class="slide level2">
+<section id="renovate-complex-pci-1" class="slide level2">
 <h2>RENOVATE-COMPLEX-PCI</h2>
 <ol type="1">
 <li>P10 L53. Earlier you stated that the randomization was stratified by clinical presentation and by treatment center. Did you apply a stratified logrank test to incorporate this design feature, and include these covariates in the Cox model estimation? Please clarify.</li>
@@ -510,7 +568,7 @@ Jinseob Kim (차라투)
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> group <span class="sc">+</span> <span class="fu">strata</span>(hospital), <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="renovate-complex-pci-1" class="slide level2">
+<section id="renovate-complex-pci-2" class="slide level2">
 <h2>RENOVATE-COMPLEX-PCI</h2>
 <ol start="2" type="1">
 <li>P13 L32. What was the “per protocol” analysis? This is the first time this is mentioned; it should be explained in the methods section. Please also note that per protocol analyses that are based on an analysis dataset constructed by eliminating cases based on post-randomization events (e.g., treatment crossover) are generally biased and are not allowed. More principled methods of analyzing a trial subject to non-adherence should be used. See for instance Hernan and Robins, NEJM 2017; 377: 1391-1398.</li>
@@ -518,7 +576,7 @@ Jinseob Kim (차라투)
 <p>-&gt; Per-protocol 하면서 연구디자인 깨지는거 아니냐?</p>
 <p>Per-protocol은 Image군에서 Iamge를 하지 않은 환자, Angio군에서 Image를 한 환자를 프로토콜에서 Protocol violation이라고 미리 지정했었음.</p>
 </section>
-<section id="renovate-complex-pci-2" class="slide level2">
+<section id="renovate-complex-pci-3" class="slide level2">
 <h2>RENOVATE-COMPLEX-PCI</h2>
 <ol start="3" type="1">
 <li>P13 L36-39. The analyses that properly account for competing risks should be the primary analyses here; the standard K-M or Cox model estimates that ignore competing risks are incorrect. Please describe the method used to accommodate competing risks in the methods section, and present these results as the primary analysis.</li>
