@@ -115,23 +115,13 @@ subtitle: "KSIC Summer Conference 2023"
 :::
 
 
+# 비열등성 마진(margin)
 
-## Zarathu are
 
-We provide analytic services for medical research
 
--   Web based statistical SW
--   National Health Data analysis, consulting
+# 분석결과 제시
 
-::: columns
-::: {.column width="60%"}
-![](https://shinykorea.github.io/corona-activityrecord/d1.png)
-:::
 
-::: {.column width="40%"}
-![](http://cdn.bosa.co.kr/news/photo/202009/2135109_169966_5652.jpg) ![](https://cdn.docdocdoc.co.kr/news/photo/201807/1057873_1117467_2355.jpg)
-:::
-:::
 
 
 # 리비전 실제 
