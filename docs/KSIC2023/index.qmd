@@ -27,8 +27,6 @@ subtitle: "KSIC Summer Conference 2023"
 
 3. 분석결과 제시
 
-4. 실제 리비전 요구사항
-
 
 ## References
 
@@ -44,19 +42,17 @@ subtitle: "KSIC Summer Conference 2023"
 # 샘플 수 계산 
 
 
-
-
 ## **Proportion vs Survival** based approach
 
 [Proportion](http://powerandsamplesize.com/Calculators/Test-Odds-Ratio/Non-Inferiority-or-Superiority)
 
 - Event rate 만 이용. 
-- Racing, LOADSTAR
+- Racing, LOADSTAR, FLAVOUR
 
 [Survival](https://nshi.jp/en/js/twosurvyrni/) 
 
 - Event rate, accural/FU time 고려
-- FLAVOUR, RENOVATE-COMPLEX-PCI
+- RENOVATE-COMPLEX-PCI
 
 
 ## Racing
@@ -118,48 +114,15 @@ subtitle: "KSIC Summer Conference 2023"
 # 비열등성 마진(margin)
 
 
-
-# 분석결과 제시
-
-
-
-
-# 리비전 실제 
-
-## RACING
-
-1. Kaplan-meier estimate 쓰지말고 그냥 proportion 써라.
-
-![](img/kmracing.png){width=50%}
-
-- KM: 9.3 vs 10.3% -> 9.1 vs 9.9% (Event/N)  
-
-
-## RACING
-
-2. Wilson CI 써라 
-
-- For the primary and key secondary outcome I would question if the **Normal approximation does not hold**. 
-
-- 보수적인 지표
-
-![](img/wilson.png){width=50%}
-
+## LOADSTAR 리비전
 
 ## LOADSTAR
-
-1. some lack of clarity regarding the exact statistical test used to establish the confidence interval around the difference in event rate
-
-- Kaplan meier 방법으로 두 군의 Incidence  값과 standard error 를 각각 얻습니다.
-- 이것을 이용해  difference 값과 upper 97.5% 신뢰구간을 구합니다. 
-- 본 연구에서 Cox 분석은 없습니다.
 
 2. an unclear rational for a non-inferiority trial at all, i.e., why is the targeted approach considered less burdensome and therefore advantageous if equally effective?
 
 - "target이 burden이 작기때문에 non-inferiority를 증명하는 것만으로 충분하다는 논리" 에 대한 의문.
 - targeted  approach 가 왜 burden이 작냐는 질문에 답변 필요
 
-## LOADSTAR
 
 3. poor justification for the 3% non-inferiority margin, since that would correspond to a NNT of about 33, which would seem to justify the use of fixed high-intensity therapy if that were the true difference
 
@@ -172,7 +135,87 @@ subtitle: "KSIC Summer Conference 2023"
 - 3년 이후 outcome이 혹시 있다면 보여주고, 아니면 3년관찰로 충분히 의미있다고 설명. 
 
 
-## RENOVATE-COMPLEX-PCI
+
+# 분석결과 제시
+
+## Difference with upper 97.5(or 95)% CI
+
+```{r, echo=T}
+library(survival)
+fit <- summary(survfit(Surv(time, status) ~ sex, data = colon), times = 365)
+
+kmdiff <- diff(1 - fit$surv) 
+sediff <- sqrt(sum(fit$std.err^2))
+
+c(Diff = kmdiff, LCI = kmdiff - 1.96 * sediff, UCI = kmdiff + 1.96 * sediff)
+```
+Upper limit < margin 이면 유의한 결과.
+
+```{r, echo=T}
+margin <- 3
+pv <- 1 - pnorm(abs((margin - kmdiff)/sediff))
+pv
+```
+
+
+## KM estimate vs Proportion
+
+KM 발생률을 대부분 썼으나 proportion 을 요구하는 경우도 있음. 
+
+- RACING: Kaplan-meier estimate 쓰지말고 그냥 proportion 써라.
+
+![](img/kmracing.png){width=50%}
+
+- KM: 9.3 vs 10.3% -> **9.1 vs 9.9% (Event/N)**  
+
+
+## CI for proportion difference
+
+RACING: Wilson CI 써라 
+
+- For the primary and key secondary outcome I would question if the **Normal approximation does not hold**. 
+
+- 보수적인 지표
+
+![](img/wilson.png){width=50%}
+
+
+## Primary outcome만 비열등성 검정 
+
+::: columns
+::: {.column width="65%"}
+![](img/tb_loadstar){width=80%}
+
+:::
+
+::: {.column width="35%"}
+>Analyses of **secondary endpoints were not adjusted for multiplicity**, and findings should be interpreted as exploratory because of the potential for type I error
+:::
+:::
+
+
+## LOADSTAR 리비전
+
+Some lack of clarity regarding the exact statistical test used to establish the confidence interval around the difference in event rate
+
+- Kaplan meier 방법으로 두 군의 Incidence  값과 standard error 를 각각 얻습니다.
+- 이것을 이용해  difference 값과 upper 97.5% 신뢰구간을 구합니다. 
+- 본 연구에서 Cox 분석은 없습니다.
+
+
+## HR 필요?
+
+**LOADSTAR**: HR 지표가 아예 없음. Rate difference 만 보여줌. 
+
+- 따라서 Cox 분석도 없음. **simple is the best**
+
+**RENOVATE-COMPLEX-PCI**: 반대로 고급분석요구 
+
+- Stratified Cox: 각 병원의 고유 특성을 고려
+- Competing risk analysis: Other cause death 고려
+
+
+## RENOVATE-COMPLEX-PCI 리비전
 
 1. P10 L53. Earlier you stated that the randomization was stratified by clinical presentation and by treatment center. Did you apply a stratified logrank test to incorporate this design feature, and include these covariates in the Cox model estimation? Please clarify.
 
@@ -183,16 +226,7 @@ subtitle: "KSIC Summer Conference 2023"
 coxph(Surv(time, status) ~ group + strata(hospital), data = data)
 ```
 
-## RENOVATE-COMPLEX-PCI
-
-2. P13 L32. What was the “per protocol” analysis? This is the first time this is mentioned; it should be explained in the methods section. Please also note that per protocol analyses that are based on an analysis dataset constructed by eliminating cases based on post-randomization events (e.g., treatment crossover) are generally biased and are not allowed. More principled methods of analyzing a trial subject to non-adherence should be used. See for instance Hernan and Robins, NEJM 2017; 377: 1391-1398.
-
--> Per-protocol 하면서 연구디자인 깨지는거 아니냐?
-
-Per-protocol은 Image군에서 Iamge를 하지 않은 환자, Angio군에서 Image를 한 환자를 프로토콜에서 Protocol violation이라고 미리 지정했었음. 
-
-
-## RENOVATE-COMPLEX-PCI 
+## RENOVATE-COMPLEX-PCI 리비전
 
 3. P13 L36-39. The analyses that properly account for competing risks should be the primary analyses here; the standard K-M or Cox model estimates that ignore competing risks are incorrect. Please describe the method used to accommodate competing risks in the methods section, and present these results as the primary analysis.
 
@@ -223,6 +257,15 @@ jskm(fit2, mark = F, surv.scale = "percent", table = T, status.cmprsk = "1")
 ```
 :::
 :::
+
+
+## RENOVATE-COMPLEX-PCI 리비전
+
+2. P13 L32. What was the “per protocol” analysis? This is the first time this is mentioned; it should be explained in the methods section. Please also note that per protocol analyses that are based on an analysis dataset constructed by eliminating cases based on post-randomization events (e.g., treatment crossover) are generally biased and are not allowed. More principled methods of analyzing a trial subject to non-adherence should be used. See for instance Hernan and Robins, NEJM 2017; 377: 1391-1398.
+
+-> Per-protocol 하면서 연구디자인 깨지는거 아니냐?
+
+Per-protocol은 Image군에서 Iamge를 하지 않은 환자, Angio군에서 Image를 한 환자를 프로토콜에서 Protocol violation이라고 미리 지정했었음. 
 
 
 
