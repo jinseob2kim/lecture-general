@@ -483,31 +483,25 @@ Jinseob Kim (차라투)
 <h1>비열등성 마진(margin)</h1>
 
 </section>
+<section id="statistical-clinical" class="slide level2">
+<h2>Statistical &amp; Clinical</h2>
+<ul>
+<li><p>차이가 없을 때 p &lt; 0.05 나와야 함.</p></li>
+<li><p>임상적으로 허용가능한 범위</p></li>
+</ul>
+
+<img data-src="https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2017/nejm_2017.377.issue-14/nejmra1510063/20180122/images/img_medium/nejmra1510063_f1.jpeg" class="r-stretch quarto-figure-center"><p class="caption">https://www.nejm.org/doi/full/10.1056/NEJMra1510063</p></section>
 <section id="loadstar-리비전" class="slide level2">
 <h2>LOADSTAR 리비전</h2>
-</section>
-<section id="loadstar-1" class="slide level2">
-<h2>LOADSTAR</h2>
-<ol start="2" type="1">
-<li>an unclear rational for a non-inferiority trial at all, i.e., why is the targeted approach considered less burdensome and therefore advantageous if equally effective?</li>
-</ol>
+<p>An unclear rational for a non-inferiority trial at all, i.e., <strong>why is the targeted approach considered less burdensome</strong> and therefore advantageous if equally effective?</p>
 <ul>
 <li>“target이 burden이 작기때문에 non-inferiority를 증명하는 것만으로 충분하다는 논리” 에 대한 의문.</li>
 <li>targeted approach 가 왜 burden이 작냐는 질문에 답변 필요</li>
 </ul>
-<ol start="3" type="1">
-<li>poor justification for the 3% non-inferiority margin, since that would correspond to a NNT of about 33, which would seem to justify the use of fixed high-intensity therapy if that were the true difference</li>
-</ol>
+<p><strong>Poor justification for the 3% non-inferiority margin</strong>, since that would correspond to a NNT of about 33, which would seem to justify the use of fixed high-intensity therapy if that were the true difference</p>
 <ul>
 <li>margin 3% 너무 큰거 아니냐?</li>
 <li>실제로 3% 차이면 기존 fixed therapy가 더 나은것이라는 의견. 임상적 설명 필요.</li>
-</ul>
-<ol start="4" type="1">
-<li>uncertainty regarding the responsiveness of the endpoint over the duration of follow up.</li>
-</ol>
-<ul>
-<li>3년 F/U 기간 이후엔 어떠냐. 더 오래 관찰해야할 수도 있다는 의견.</li>
-<li>3년 이후 outcome이 혹시 있다면 보여주고, 아니면 3년관찰로 충분히 의미있다고 설명.</li>
 </ul>
 </section></section>
 <section>
@@ -521,10 +515,13 @@ Jinseob Kim (차라투)
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(survival)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>fit <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">data =</span> colon), <span class="at">times =</span> <span class="dv">365</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>kmdiff <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="dv">1</span> <span class="sc">-</span> fit<span class="sc">$</span>surv) </span>
-<span id="cb1-5"><a href="#cb1-5"></a>sediff <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(fit<span class="sc">$</span>std.err<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="do">## Surv2 - Surv1 = Inci1 - Inci2</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>kmdiff <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="dv">1</span> <span class="sc">-</span> fit<span class="sc">$</span>surv) </span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">c</span>(<span class="at">Diff =</span> kmdiff, <span class="at">LCI =</span> kmdiff <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff, <span class="at">UCI =</span> kmdiff <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="do">## Var(Surv1 + Surv2) = Var(Surv1) + Var(Surv2)</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>sediff <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(fit<span class="sc">$</span>std.err<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="fu">c</span>(<span class="at">Diff =</span> kmdiff, <span class="at">LCI =</span> kmdiff <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff, <span class="at">UCI =</span> kmdiff <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Diff          LCI          UCI 
 -0.024406273 -0.058041994  0.009229448 </code></pre>
@@ -579,6 +576,11 @@ Jinseob Kim (차라투)
 <li>Kaplan meier 방법으로 두 군의 Incidence 값과 standard error 를 각각 얻습니다.</li>
 <li>이것을 이용해 difference 값과 upper 97.5% 신뢰구간을 구합니다.</li>
 <li>본 연구에서 Cox 분석은 없습니다.</li>
+</ul>
+<p>Uncertainty regarding the responsiveness of the endpoint over the duration of follow up.</p>
+<ul>
+<li>3년 F/U 기간 이후엔 어떠냐. 더 오래 관찰해야할 수도 있다는 의견.</li>
+<li>3년 이후 outcome이 혹시 있다면 보여주고, 아니면 3년관찰로 충분히 의미있다고 설명.</li>
 </ul>
 </section>
 <section id="hr-필요" class="slide level2">

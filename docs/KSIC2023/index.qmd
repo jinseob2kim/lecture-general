@@ -114,25 +114,28 @@ subtitle: "KSIC Summer Conference 2023"
 # 비열등성 마진(margin)
 
 
+## Statistical & Clinical
+
+- 차이가 없을 때 p < 0.05 나와야 함. 
+
+- 임상적으로 허용가능한 범위
+
+![https://www.nejm.org/doi/full/10.1056/NEJMra1510063](https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2017/nejm_2017.377.issue-14/nejmra1510063/20180122/images/img_medium/nejmra1510063_f1.jpeg)
+
+
 ## LOADSTAR 리비전
 
-## LOADSTAR
-
-2. an unclear rational for a non-inferiority trial at all, i.e., why is the targeted approach considered less burdensome and therefore advantageous if equally effective?
+An unclear rational for a non-inferiority trial at all, i.e., **why is the targeted approach considered less burdensome** and therefore advantageous if equally effective?
 
 - "target이 burden이 작기때문에 non-inferiority를 증명하는 것만으로 충분하다는 논리" 에 대한 의문.
 - targeted  approach 가 왜 burden이 작냐는 질문에 답변 필요
 
 
-3. poor justification for the 3% non-inferiority margin, since that would correspond to a NNT of about 33, which would seem to justify the use of fixed high-intensity therapy if that were the true difference
+**Poor justification for the 3% non-inferiority margin**, since that would correspond to a NNT of about 33, which would seem to justify the use of fixed high-intensity therapy if that were the true difference
 
 - margin 3% 너무 큰거 아니냐?
 - 실제로 3% 차이면 기존 fixed therapy가 더 나은것이라는 의견. 임상적 설명 필요.  
 
-4. uncertainty regarding the responsiveness of the endpoint over the duration of follow up.
-
-- 3년 F/U 기간 이후엔 어떠냐. 더 오래 관찰해야할 수도 있다는 의견.
-- 3년 이후 outcome이 혹시 있다면 보여주고, 아니면 3년관찰로 충분히 의미있다고 설명. 
 
 
 
@@ -144,7 +147,10 @@ subtitle: "KSIC Summer Conference 2023"
 library(survival)
 fit <- summary(survfit(Surv(time, status) ~ sex, data = colon), times = 365)
 
+## Surv2 - Surv1 = Inci1 - Inci2
 kmdiff <- diff(1 - fit$surv) 
+
+## Var(Surv1 + Surv2) = Var(Surv1) + Var(Surv2)
 sediff <- sqrt(sum(fit$std.err^2))
 
 c(Diff = kmdiff, LCI = kmdiff - 1.96 * sediff, UCI = kmdiff + 1.96 * sediff)
@@ -201,6 +207,11 @@ Some lack of clarity regarding the exact statistical test used to establish the 
 - Kaplan meier 방법으로 두 군의 Incidence  값과 standard error 를 각각 얻습니다.
 - 이것을 이용해  difference 값과 upper 97.5% 신뢰구간을 구합니다. 
 - 본 연구에서 Cox 분석은 없습니다.
+
+Uncertainty regarding the responsiveness of the endpoint over the duration of follow up.
+
+- 3년 F/U 기간 이후엔 어떠냐. 더 오래 관찰해야할 수도 있다는 의견.
+- 3년 이후 outcome이 혹시 있다면 보여주고, 아니면 3년관찰로 충분히 의미있다고 설명. 
 
 
 ## HR 필요?
