@@ -276,7 +276,7 @@ jskm(fit2, mark = F, surv.scale = "percent", table = T, status.cmprsk = "1")
 
 -> Per-protocol 하면서 연구디자인 깨지는거 아니냐?
 
-Per-protocol: Image군에서 Iamge를 하지 않은 환자, Angio군에서 Image를 한 환자를 프로토콜에서 Protocol violation이라고 미리 지정.
+Per-protocol: Image군에서 Angio, Angio군에서 Image를 한 환자를  Protocol violation이라고 미리 정의.
 
 
 ## PP scenario
