@@ -272,12 +272,25 @@ jskm(fit2, mark = F, surv.scale = "percent", table = T, status.cmprsk = "1")
 
 ## RENOVATE-COMPLEX-PCI 리비전
 
-2. P13 L32. What was the “per protocol” analysis? This is the first time this is mentioned; it should be explained in the methods section. Please also note that per protocol analyses that are based on an analysis dataset constructed by eliminating cases based on post-randomization events (e.g., treatment crossover) are generally biased and are not allowed. More principled methods of analyzing a trial subject to non-adherence should be used. See for instance Hernan and Robins, NEJM 2017; 377: 1391-1398.
+2. P13 L32. What was the “per protocol” analysis? This is the first time this is mentioned; it should be explained in the methods section. Please also note that per protocol analyses that are based on an analysis dataset constructed by **eliminating cases based on post-randomization events (e.g., treatment crossover) are generally biased and are not allowed**. More principled methods of analyzing a trial subject to non-adherence should be used. See for instance Hernan and Robins, NEJM 2017; 377: 1391-1398.
 
 -> Per-protocol 하면서 연구디자인 깨지는거 아니냐?
 
-Per-protocol은 Image군에서 Iamge를 하지 않은 환자, Angio군에서 Image를 한 환자를 프로토콜에서 Protocol violation이라고 미리 지정했었음. 
+Per-protocol: Image군에서 Iamge를 하지 않은 환자, Angio군에서 Image를 한 환자를 프로토콜에서 Protocol violation이라고 미리 지정.
 
+
+## PP scenario
+
+
+<center>
+<img src="img/nejmpp.png" width=50%></a>
+</center>
+
+
+
+A는 OK, B -> C -> D 로 갈수록 복잡한 보정 필요.
+
+* A 에 해당함을 주장.
 
 
 
