@@ -19,6 +19,7 @@ editor: visual
 subtitle: "KSIC Summer Conference 2023"
 ---
 
+
 ## Contents
 
 1. 샘플수 계산
@@ -113,6 +114,8 @@ subtitle: "KSIC Summer Conference 2023"
 
 ## Use `gsdesign` packages
 
+::: columns
+::: {.column width="60%"}
 ```{r, echo=T, eval = F}
 library(gsDesign)
 ## Annual incidence
@@ -131,12 +134,11 @@ nSurv(
   beta = 0.1,       
   alpha = 0.025,       # 1-sided
   eta = 0,             # Annual drop out rate
-  ratio = 2            # Randomization ratio, experimental/control
-)
+  ratio = 2)           # Randomization ratio, experimental/control
 ```
+:::
 
-
-## `gsdesign` result
+::: {.column width="40%"}
 
 ```{r}
 library(gsDesign)
@@ -155,10 +157,13 @@ nSurv(
   minfup = 1,          # 4- 3  
   beta = 0.1,       
   alpha = 0.025,       # 1-sided
-  eta = 0,             # Annual drop out rate
+  eta = 0.02,             # Annual drop out rate
   ratio = 2            # Randomization ratio, experimental/control
 )
 ```
+
+:::
+:::
 
 
 # 비열등성 마진(margin)

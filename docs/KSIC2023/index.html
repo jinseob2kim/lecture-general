@@ -480,6 +480,8 @@ Jinseob Kim (차라투)
 </section>
 <section id="use-gsdesign-packages" class="slide level2">
 <h2>Use <code>gsdesign</code> packages</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(gsDesign)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="do">## Annual incidence</span></span>
@@ -498,12 +500,9 @@ Jinseob Kim (차라투)
 <span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">beta =</span> <span class="fl">0.1</span>,       </span>
 <span id="cb1-16"><a href="#cb1-16"></a>  <span class="at">alpha =</span> <span class="fl">0.025</span>,       <span class="co"># 1-sided</span></span>
 <span id="cb1-17"><a href="#cb1-17"></a>  <span class="at">eta =</span> <span class="dv">0</span>,             <span class="co"># Annual drop out rate</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>  <span class="at">ratio =</span> <span class="dv">2</span>            <span class="co"># Randomization ratio, experimental/control</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="at">ratio =</span> <span class="dv">2</span>)           <span class="co"># Randomization ratio, experimental/control</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="gsdesign-result" class="slide level2">
-<h2><code>gsdesign</code> result</h2>
+</div><div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Fixed design, two-arm trial with time-to-event
@@ -513,20 +512,22 @@ Hazard ratio                  H1/H0=0.5925/1
 Study duration:                   T=4
 Accrual duration:                   3
 Min. end-of-study follow-up: minfup=1
-Expected events (total, H1):        165.1713
-Expected sample size (total):       1566.412
+Expected events (total, H1):        165.1735
+Expected sample size (total):       1609.307
 Accrual rates:
     Stratum 1
-0-3  522.1375
+0-3  536.4356
 Control event rates (H1):
       Stratum 1
 0-Inf    0.0619
 Censoring rates:
       Stratum 1
-0-Inf         0
+0-Inf      0.02
 Power:                 100*(1-beta)=90%
 Type I error (1-sided):   100*alpha=2.5%
 Randomization (Exp/Control):  ratio= 2 </code></pre>
+</div>
+</div>
 </div>
 </div>
 </section></section>
