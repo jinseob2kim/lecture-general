@@ -22,7 +22,12 @@ x <- nSurv(
   beta = 0.1,       
   alpha = 0.025,       # 1-sided
   eta = 0,             # Annual drop out rate
-  ratio = 1            # Randomization ratio, experimental/control
+  ratio = 2            # Randomization ratio, experimental/control
 )
 
 x
+
+
+
+
+

@@ -477,6 +477,58 @@ Jinseob Kim (차라투)
 <p><img data-src="img/reno_sample.png"></p>
 </div>
 </div>
+</section>
+<section id="use-gsdesign-packages" class="slide level2">
+<h2>Use <code>gsdesign</code> packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(gsDesign)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="do">## Annual incidence</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>Pc <span class="ot">&lt;-</span> <span class="fl">0.06</span>; Pt <span class="ot">&lt;-</span> <span class="fl">0.036</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="do">## Hazard rate: S(t) = exp(-lambda * t)</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>lambda_c <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> Pc); lambda_t <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> Pt)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>hr <span class="ot">&lt;-</span> lambda_t<span class="sc">/</span>lambda_c</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">nSurv</span>(</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="at">lambdaC =</span> lambda_c,  <span class="co"># Hazard rate of control group</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="at">hr =</span> hr,             <span class="co"># Alternative hypothesis</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="at">hr0 =</span> <span class="dv">1</span>,             <span class="co"># Null hypothesis</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="at">T =</span> <span class="dv">4</span>,               <span class="co"># Total study period              </span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="at">R =</span> <span class="dv">3</span>,               <span class="co"># Accrural period </span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="at">minfup =</span> <span class="dv">1</span>,          <span class="co"># 4- 3  </span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">beta =</span> <span class="fl">0.1</span>,       </span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="at">alpha =</span> <span class="fl">0.025</span>,       <span class="co"># 1-sided</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>  <span class="at">eta =</span> <span class="dv">0</span>,             <span class="co"># Annual drop out rate</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="at">ratio =</span> <span class="dv">2</span>            <span class="co"># Randomization ratio, experimental/control</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gsdesign-result" class="slide level2">
+<h2><code>gsdesign</code> result</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Fixed design, two-arm trial with time-to-event
+outcome (Lachin and Foulkes, 1986).
+Solving for:  Accrual rate 
+Hazard ratio                  H1/H0=0.5925/1
+Study duration:                   T=4
+Accrual duration:                   3
+Min. end-of-study follow-up: minfup=1
+Expected events (total, H1):        165.1713
+Expected sample size (total):       1566.412
+Accrual rates:
+    Stratum 1
+0-3  522.1375
+Control event rates (H1):
+      Stratum 1
+0-Inf    0.0619
+Censoring rates:
+      Stratum 1
+0-Inf         0
+Power:                 100*(1-beta)=90%
+Type I error (1-sided):   100*alpha=2.5%
+Randomization (Exp/Control):  ratio= 2 </code></pre>
+</div>
+</div>
 </section></section>
 <section>
 <section id="비열등성-마진margin" class="title-slide slide level1 center">
@@ -512,16 +564,16 @@ Jinseob Kim (차라투)
 <section id="difference-with-upper-97.5or-95-ci" class="slide level2">
 <h2>Difference with upper 97.5(or 95)% CI</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(survival)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>fit <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">data =</span> colon), <span class="at">times =</span> <span class="dv">365</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="do">## Surv2 - Surv1 = Inci1 - Inci2</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>kmdiff <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="dv">1</span> <span class="sc">-</span> fit<span class="sc">$</span>surv) </span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="do">## Var(Surv1 + Surv2) = Var(Surv1) + Var(Surv2)</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>sediff <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(fit<span class="sc">$</span>std.err<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="fu">c</span>(<span class="at">Diff =</span> kmdiff, <span class="at">LCI =</span> kmdiff <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff, <span class="at">UCI =</span> kmdiff <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>fit <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">data =</span> colon), <span class="at">times =</span> <span class="dv">365</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="do">## Surv2 - Surv1 = Inci1 - Inci2</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>kmdiff <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="dv">1</span> <span class="sc">-</span> fit<span class="sc">$</span>surv) </span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="do">## Var(Surv1 + Surv2) = Var(Surv1) + Var(Surv2)</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>sediff <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(fit<span class="sc">$</span>std.err<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="fu">c</span>(<span class="at">Diff =</span> kmdiff, <span class="at">LCI =</span> kmdiff <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff, <span class="at">UCI =</span> kmdiff <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sediff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Diff          LCI          UCI 
 -0.024406273 -0.058041994  0.009229448 </code></pre>
@@ -529,9 +581,9 @@ Jinseob Kim (차라투)
 </div>
 <p>Upper limit &lt; margin 이면 유의한 결과.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>margin <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>pv <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fu">abs</span>((margin <span class="sc">-</span> kmdiff)<span class="sc">/</span>sediff))</span>
-<span id="cb3-3"><a href="#cb3-3"></a>pv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>margin <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>pv <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fu">abs</span>((margin <span class="sc">-</span> kmdiff)<span class="sc">/</span>sediff))</span>
+<span id="cb5-3"><a href="#cb5-3"></a>pv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -605,7 +657,7 @@ Jinseob Kim (차라투)
 <li><strong>R coxph 식에 <code>+strata(기관변수)</code> 추가 </strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> group <span class="sc">+</span> <span class="fu">strata</span>(hospital), <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> group <span class="sc">+</span> <span class="fu">strata</span>(hospital), <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="renovate-complex-pci-리비전-1" class="slide level2">
@@ -618,17 +670,17 @@ Jinseob Kim (차라투)
 <div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(jskm);<span class="fu">library</span>(survival)</span>
-<span id="cb6-2"><a href="#cb6-2"></a>colon<span class="sc">$</span>status2 <span class="ot">&lt;-</span> colon<span class="sc">$</span>status</span>
-<span id="cb6-3"><a href="#cb6-3"></a>colon<span class="sc">$</span>status2[<span class="dv">1</span><span class="sc">:</span><span class="dv">400</span>] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>colon<span class="sc">$</span>status2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(colon<span class="sc">$</span>status2)</span>
-<span id="cb6-5"><a href="#cb6-5"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(time,status2)<span class="sc">~</span>rx, <span class="at">data=</span>colon)</span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">jskm</span>(fit2, <span class="at">mark =</span> F, <span class="at">surv.scale =</span> <span class="st">"percent"</span>, <span class="at">table =</span> T, <span class="at">status.cmprsk =</span> <span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(jskm);<span class="fu">library</span>(survival)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>colon<span class="sc">$</span>status2 <span class="ot">&lt;-</span> colon<span class="sc">$</span>status</span>
+<span id="cb8-3"><a href="#cb8-3"></a>colon<span class="sc">$</span>status2[<span class="dv">1</span><span class="sc">:</span><span class="dv">400</span>] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>colon<span class="sc">$</span>status2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(colon<span class="sc">$</span>status2)</span>
+<span id="cb8-5"><a href="#cb8-5"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(time,status2)<span class="sc">~</span>rx, <span class="at">data=</span>colon)</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">jskm</span>(fit2, <span class="at">mark =</span> F, <span class="at">surv.scale =</span> <span class="st">"percent"</span>, <span class="at">table =</span> T, <span class="at">status.cmprsk =</span> <span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
