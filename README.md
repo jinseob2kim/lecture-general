@@ -54,3 +54,7 @@ Lecture: general topic
 
 
 * [2023 대한심혈관중재학회 하계국제학술대회](http://www.kscvi.org/conf/42nd/): [Non-Inferiority 연구 시작부터 마무리까지 실전 최적화 훈련](https://jinseob2kim.github.io/lecture-general/KSIC2023)
+
+
+* [2023 연세 심장내과 컨퍼런스](): [RCT에서 고려할 통계](https://jinseob2kim.github.io/lecture-general/yonsei_conf)
+
