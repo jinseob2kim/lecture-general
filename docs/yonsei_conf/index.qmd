@@ -334,6 +334,14 @@ jskm(fit2, mark = F, surv.scale = "percent", table = T, status.cmprsk = "1")
 :::
 :::
 
+## 번외: Landmark analysis
+
+```{r}
+fit3 <- survfit(Surv(time, status) ~ sex, data = colon)
+jskm(fit3, mark = F, surv.scale = "percent", table = T, pval = T, pval.coord = c(350, 0.5), cut.landmark = 730, cumhaz = T)
+```
+
+
 ## RENOVATE-COMPLEX-PCI 리비전
 
 2.  P13 L32. What was the "per protocol" analysis? This is the first time this is mentioned; it should be explained in the methods section. Please also note that per protocol analyses that are based on an analysis dataset constructed by **eliminating cases based on post-randomization events (e.g., treatment crossover) are generally biased and are not allowed**. More principled methods of analyzing a trial subject to non-adherence should be used. See for instance Hernan and Robins, NEJM 2017; 377: 1391-1398.
