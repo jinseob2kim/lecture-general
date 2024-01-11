@@ -54,7 +54,7 @@ layout: true
 
 - 소상공인 + 정부지원(사업비, 사무실) = 스타트업
 
-- 의학연구지원 $\rightarrow$ 임상시험분석시장 목표
+- 의학연구지원 $\rightarrow$ 임상시험분석시장 진출
 ]
 
 --
@@ -275,6 +275,8 @@ class: center, middle
 
 - [서울대병원 순환기내과 통계자문계약](http://pf.kakao.com/_XsuxgC/55577702)
 
+- 기타: 제약/바이오, 임상시험SW, 디지털치료기기 스타트업 등 
+
 ---
 # 주요 논문 성과 
 
@@ -287,7 +289,20 @@ SCI 논문 200건 지원
 
 
 ---
-# Lancet
+# NEJM
+
+.large[
+심혈관중재시술 전략비교
+
+> 삼성서울병원 이주명, 최기홍 교수님을 도와 두 심혈관중재시술(PCI) 전략을 비교, 다기관 고려한 stratified cox 와 competing risk analysis 를 수행하고 관련 통계자문을 제공하였습니다. 본 연구는 New England Journal of Medicine(NEJM, IF 176.079) 에 게재되었습니다.
+]
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fbf058199-3a3a-49ab-990b-66dc135fb739%2FUntitled.png&blockId=5f2b13d8-6953-411a-a245-73e0e8d1afc7" width=80%></a>
+</center>
+
+---
+# LANCET
 
 .large[
 Statin 병용요법 비열등성검정
@@ -298,6 +313,18 @@ Statin 병용요법 비열등성검정
 <center>
 <img src="http://k.kakaocdn.net/dn/boaUap/btrHDQhI2j1/zVeZ4Mv3DkybiLejdtJ5D1/img_xl.jpg" width=80%></a>
 </center>
+
+---
+# JAMA
+
+Statin 치료전략 비교
+
+> 연세의료원 심장내과 홍명기교수 연구팀을 도와 LODESTAR (Low-Density Lipoprotein Cholesterol-Targeting Statin Therapy Versus Intensity-Based Statin Therapy in Patients With Coronary Artery Disease) Trial 을 분석, statin 치료전략을 비교하고 리비전에 필요한 통계자문을 제공했습니다. 본 연구는 JAMA(IF 157.3) 에 게재되었습니다.
+
+<center>
+<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdbaf5241-d562-4c7c-a957-d73fd34983da%2Fimg_l.jpg&blockId=b3ecef97-63d8-4f32-b8dc-dfd392734543" width=80%></a>
+</center>
+
 
 
 
@@ -424,10 +451,10 @@ class: center, middle
 ]
 
 ---
-# 100,000 다운로드
+# 130,000 다운로드
 
 <center>
-<img src="cran20221015.png" width=80%></a>
+<img src="CRAN20241011.png" width=80%></a>
 </center>
 
 
@@ -474,9 +501,9 @@ https://github.com/shinykorea/Meetup
 # 프로그래밍갤러리 R 유저모임
 
 .large[
-디시인사이드 프로그래밍 갤러리 고정닉 활동: **[조선니체](https://gallog.dcinside.com/jinseob2kim)**
+디시인사이드 프로그래밍 갤러리 고정닉 활동: **[김옥균](https://gallog.dcinside.com/jinseob2kim)**
 
-카카오톡 오픈채팅방 운영: 정모 2회
+카카오톡 오픈채팅방 운영: 닉네임 大逆不道玉均
 ]
 
 <center>
@@ -797,12 +824,14 @@ class: center, middle
 .large[
 [R](https://www.r-project.org/)은 이제 단순한 통계프로그램이 아님.
 
-* [R Markdown](https://rmarkdown.rstudio.com/): 논문과 발표자료를 [R](https://www.r-project.org/) 에서 직접 만듦. [과거 정리 내용](https://blog.zarathu.com/posts/2019-01-03-rmarkdown/)
+* [Quarto](https://quarto.org): 논문과 발표자료를 [R](https://www.r-project.org/) 에서 직접 만듦. [과거 정리 내용](https://blog.zarathu.com/posts/2019-01-03-rmarkdown/)
 ]
 --
 
 .large[
-* [blogdown](https://github.com/rstudio/blogdown): 홈페이지도 만들 수 있음. 당사 홈페이지도 이것과 [distill](https://rstudio.github.io/distill/) 로 제작.
+* [blogdown](https://github.com/rstudio/blogdown): 홈페이지도 만들 수 있음. 당사 홈페이지도 이것과 [Quarto blog](https://quarto.org/docs/websites/website-blog.html) 로 제작.
+
+* [Quarto book](https://quarto.org/docs/books/): 책도 직접 만들 수 있음.
 ]
 --
 
@@ -862,7 +891,7 @@ include_graphics("https://user-images.githubusercontent.com/163582/53144527-35f7
 # 홈페이지
 
 .large[
-[blogdown](https://github.com/rstudio/blogdown), [distill](https://rstudio.github.io/distill/): [깃허브](https://pages.github.com/) 통해 무료 웹호스팅 가능.
+[blogdown](https://github.com/rstudio/blogdown), [Quarto blog](https://quarto.org/docs/websites/website-blog.html): [깃허브](https://pages.github.com/) 통해 무료 웹호스팅 가능.
 
 ```{r, out.width= "80%"}
 include_graphics("https://www.storybench.org/wp-content/uploads/2019/05/blogdown-new-site-e1557149319624-730x457.png")
@@ -955,11 +984,11 @@ class: center, middle
 
 - 심평원/공단(5테라 어떻게..), 자체 의뢰데이터
 
+- IITP 과제평가 무난히..
 
-IITP 과제 무사히
+- 올해 나올 지원사업, R&D 찾아보기
 
-
-SW마에스트로, 인턴쉽 유망주 육성
+- 인턴쉽 유망주 육성
 ]
 
 
@@ -1018,6 +1047,8 @@ SW마에스트로, 인턴쉽 유망주 육성
 - 20대: 통계는 가짜수학이다. 허나 의대에선 이것밖에..
 
 - 30대: 수학은 세계관이다 $0.999... = 1$ 일수도 아닐수도, 아름다운것이 선택받는다
+
+- 40대: 수학이 날 버렸다..
 
 ]
 
@@ -1101,7 +1132,11 @@ SW마에스트로, 인턴쉽 유망주 육성
 .large[
 > 이세상 인간들은 다 사실 외롭고 쓸쓸하다. 겉으로는 행복한척 잘난척 하지만, 대다수의 인간은 자기 스스로가 밑에서부터 고장 나고 있다는것을 자각하며 살아간다. 
 
+> 나이를 먹는다는것은 통찰력이 생기는 것이 아니라 감각이 붕괴되는 것이다.  통찰력이 생겼다고 자부하지 말고 당신의 감각이 하나 더 붕괴됬음을 슬퍼해라. 늙어감에 예외는 없다. 
+
 미친듯이 성장한다는 느낌이 들어야 간신히 본전.
+
+
 
 ]
 
