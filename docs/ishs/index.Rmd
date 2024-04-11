@@ -742,6 +742,18 @@ class: center, middle
 
 ]
 
+<center>
+<img src="https://th.bing.com/th/id/OIP.7lniNST3KZfY_EGh2QFbjgHaHa?rs=1&pid=ImgDetMain" width=30%></a>
+</center>
+
+
+---
+<center>
+<img src="logo.png" width=100%></a>
+</center>
+
+
+
 ---
 # 헬스케어 업계에서 의사란?
 
