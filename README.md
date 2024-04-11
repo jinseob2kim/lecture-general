@@ -58,3 +58,4 @@ Lecture: general topic
 
 * [2023 연세 심장내과 컨퍼런스](): [RCT에서 고려할 통계](https://jinseob2kim.github.io/lecture-general/yonsei_conf)
 
+* [2024 인천과학고 스타트업 & VC 모임](): [의학연구지원기업 차라투](https://jinseob2kim.github.io/lecture-general/ishs)
