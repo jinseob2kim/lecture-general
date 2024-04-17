@@ -76,142 +76,42 @@ We have modulized more than 90% of analytical methods of medical researches. And
 
 ## R package: Shiny -> exe
 
+インターネットが遮断された病院のために
 - [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
 
 <center><a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"/></a></center>
 
 
-## Open-source R&D
+## 韓国Rコミュニティ: Shinykorea
 
-**Cloud based open-source statistical software development**
+::: columns
+::: {.column width="50%"}
+- 定期的なミートアップ
 
--   Ministry of Science and ICT(\$800,000)
--   **Fast, Easy-to-use, and for all people**
+![](スクリーンショット 2024-04-17 午後3.02.34.png)
+:::
 
-<center><a href="https://github.com/statgarten/"><img src="statgarten.png" width="50%"/></a></center>
+::: {.column width="50%"}
+- コロナダッシュボード共同開発
+![](https://shinykorea.github.io/corona-activityrecord/d1.png)
+:::
+:::
+
 
 ::: notes
 We were selected for open source SW start-up and open source software R&D hosted by Ministry of Science and ICT, based on our contribution to open source and community. The topic of R and D is to develop Cloud based open-source statistical software for general public, not doctors. As you see the figure below, we are developing it under the project name of "statgarten".
 :::
 
-## Achievements
 
--   Support \>300 SCI papers.
--   Venture business certificate
--   100,000 Download: open-source package
 
-<center><img src="paper.png" width="60%"/></center>
+## With TokyoR
 
-::: notes
-Now, I will introduce other achievement. Since establishing the company, we have supported data analysis more than three hundred SCI papers including the Lancet, the world's most prestigious journal, and our open source statistical package recorded more than one hundred thousand downloads. Based on this, we get venture business certificate and various start-up support programs.
-:::
+- 次のメートアップには必ず現場で参加し、ぜひ皆様と交流したいと思います。
+- Shinykoreaと共同カンファレンスができればと思います。
 
-## Team
 
-::: columns
-::: {.column width="40%"}
-![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe8629c40-8e65-409a-99ff-5c4a650edd1b%2FUntitled.png&blockId=c0dda860-ad50-450c-8f32-caf37c6db53f)
-:::
+# ご傾聴、ありがとうございました。
 
-::: {.column width="60%"}
-**Jinseob Kim**, Founder
-
--   Mathematical Olympiad
--   Medical Doctor
--   Master of Public Health
--   SW engineer, Samsung electronics
-:::
-
-With 7 members
-
--   4 medicine/statistics, 2 developer, 1 persian
-:::
-
-::: notes
-I will introduce my team now. I am a doctor majored public health. I founded Zarathu 4 years ago based on my experience at Mathematical Olympiad, Graduate School of Public Health and Health Service Group of Samsung Electronics of dealing with various health data. There are seven team members currently and their average age is twenty five, including 4 who majored medicine/statistics, 2 developers and 1 who majored Persian.
-:::
-
-## Plan
-
-::: columns
-::: {.column width="50%"}
-**Now: medical research**
-
--   No.1 data analysis
--   Global service
--   Open-source contribution
-:::
-
-::: {.column width="50%"}
-**Future: new drug**
-
--   Clinical trial data analysis
--   With global pharma, CRO, big tech
--   DTx/DCT specific service
-:::
-:::
-
-::: notes
-I will tell you about our future plan. Our current goal is to become the No. 1 data analysis company in the field of medical research. I think we are already No. 1.
-
-Based on a strong network with Korean researchers, we are actively supporting global collaborative research. In addition, We will continuously contribute to the open source ecosystem and related communities.
-
-We currently support analytics for medical research., but we plan to support analysis for clinical trials in the future. We have signed our first contract with domestic pharma company recently. Especially, We will provide service specialized especially for Digital Therapeutics(DTx) and decentralized clinical trial(DCT).
-:::
-
-## Vision
-
-::: columns
-::: {.column width="50%"}
-**Save the world**
-
--   Supporting doctors
--   Make new knowledge
--   Save life
--   Save the world
--   Save the universe(?)
-:::
-
-::: {.column width="50%"}
-**Produce rising stars**
-
--   New job: research supporter
--   Medicine + data analysis + IT
--   Full remote, global recruit
-
-![](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af54-08c87b335298/dcniwyk-227f5054-927e-4d46-90d2-5e251f63de8c.png/v1/fill/w_934,h_856,strp/_produce_101__logo___png_by_tsukinofleur_dcniwyk-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MyIsInBhdGgiOiJcL2ZcL2QwODJhNTM3LTlhNDUtNDUxMi1hZjU0LTA4Yzg3YjMzNTI5OFwvZGNuaXd5ay0yMjdmNTA1NC05MjdlLTRkNDYtOTBkMi01ZTI1MWY2M2RlOGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RiQt71nDAAqXO4lU3Bb976adEZqm2oQfEQdQ5oCnf8s){width="50%"}
-:::
-:::
-
-::: notes
-Zarathu thinks 'Save the World' and 'Produce rising star' as our core value. We start by saving the world by helping medical researchers to make new medical knowledge, and finally we support our next generations to save the universe. The most important thing for us is to produce our data scientists as global stars. We will create new job called 'research support specialist' and make this job more popular than doctor and lawyer.
-:::
-
-## Collaborate
-
-::: columns
-::: {.column width="50%"}
-**Medical data, research**
-
--   Data standardization
--   **openstat.ai** global service
--   Analytic service
-:::
-
-::: {.column width="50%"}
-**Produce data scientist**
-
--   Education
--   Internship
--   Recruitment
-:::
-:::
-
-::: notes
-I want to suggest one thing to everyone here. Zarathu can help your country to make a better use of medical data. We can help to standardize the data for global collaborative research, and to use Openstat.ai service specific to your country. We will also support analytical service. We will not end just providing service, but we will produce young data scientists in your country . We will constantly do education and internship program and support to recruit them in Korea.
-:::
-
-# Thank you for your time
 
 ::: notes
 If anyone has questions I'll be happy to answer them.
