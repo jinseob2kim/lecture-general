@@ -6,7 +6,7 @@ format:
   revealjs: 
     theme: default
     logo: zarathu_eng.png
-    footer: "www.zarathu.com"
+    footer: "github.com/jinseob2kim"
     self-contained: false
     chalkboard: 
       buttons: false
@@ -28,11 +28,24 @@ subtitle: "Zarathu Co.,Ltd(ツァラトゥ株式会社)"
 
 キャリア
 
-- Medical Doctor, 成均館(ソンギュングァン)大学校, 韓国 (~2009)
+- Medical Doctor, 成均館(ソンギュングァン)大学, 韓国 (~2009)
 - 予防医学専門医、ソウル大学保健大学院 (~2013)
 - エンジニア、サムスン電子無線事業部ヘルスサービスグループ (~2016)
 - 創業, Zarathu Co.,Ltd (2018~)
 
+**jinseob2kim@gmail.com, github.com/jinseob2kim**
+
+
+::: notes
+こんにちは、韓国(かんこく)の医学(いがく)研究(けんきゅう)分析(ぶんせき)紹介(しょうかい)で発表するキム·ジンソプと申します。
+
+時間(じかん)が短(みじか)いので、簡単(かんたん)に私の紹介(しょうかい)と開発(かいはつ)したRパッケージ、そして韓国のRコミュニティであるシャイニーコリアについてお話(はな)します。 今後, 持続的(じぞく的てき)に皆(みんな)さんと交流(交流こうりゅう)したいし、次(つぎ)のミートアップは必(かなら)ず日本を訪問(ほうもん)して参加(さんか)します。
+
+
+私は韓国でツァラトゥという医学(いがく)研究(けんきゅう)支援(しえん)会社(かいしゃ)を創業(そうぎょう)して6年間(ねんかん)運営(うんえい)中(ちゅう)であり、研究者(けんきゅうしゃ)と製薬(せいやく)会社に分析(ぶんせき)サービスを提供(ていきょう)しています。 分析機能(きのう)はRパッケージにしてCRANに公開(こうかい)し、継続的(けいぞくてき)にアップデート中です。 日本のユーザーのブログでも何度(なんど)か紹介(しょうかい)されています。
+
+私は韓国の医科大学(いかだいがく)を卒業(そつぎょう)し、保健大学院(ほけんだいがくいん)で予防医学(よぼういがく)を専攻(せんこう)した後(あと)、サムスン電子(でんし)無線事業部(むせんじぎょうぶ)のヘルスサービスグループで勤務(勤務)していました。
+:::
 
 ## Shiny application
 
@@ -56,7 +69,7 @@ subtitle: "Zarathu Co.,Ltd(ツァラトゥ株式会社)"
 :::
 
 ::: notes
-So, We developed real-time web application that researchers can use easily. First, We have released openstat dot A.I., a free web site, containing analyzes commonly used in medical research. Researchers do not need to install it on their PCs, but can access it from any device including PC, mobile and tablet. Researchers can directly upload their data, and analyze it with a click rather than coding, and download the report right away. Customized web application for specific researches are provided with paid service.
+私はShinyで分析ウェブをサービスしますが、無料(むりょう)ウェブでは研究者(けんきゅう者しゃ)が自分(じぶん)のデータを直接(ちょくせつ)アップロードした後(あと)、医学研究(いがくけんきゅう)でよく利用(りよう)される分析を行(おこな)うことができます。 研究者(けんきゅうしゃ)に合(あ)わせた分析ウェブは有料(ゆうりょう)でサービスします。
 :::
 
 ## R package for medical research
