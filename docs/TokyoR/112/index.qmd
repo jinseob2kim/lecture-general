@@ -39,7 +39,7 @@ subtitle: "Zarathu Co.,Ltd(ツァラトゥ株式会社)"
 ::: notes
 こんにちは、韓国(かんこく)の医学(いがく)研究(けんきゅう)分析(ぶんせき)紹介(しょうかい)で発表するキム·ジンソプと申します。
 
-時間(じかん)が短(みじか)いので、簡単(かんたん)に私の紹介(しょうかい)と開発(かいはつ)したRパッケージ、そして韓国のRコミュニティであるシャイニーコリアについてお話(はな)します。 今後, 持続的(じぞく的てき)に皆(みんな)さんと交流(交流こうりゅう)したいし、次(つぎ)のミートアップは必(かなら)ず日本を訪問(ほうもん)して参加(さんか)します。
+時間(じかん)が短(みじか)いので、簡単(かんたん)に私の紹介(しょうかい)と開発(かいはつ)したRパッケージ、そして韓国のRコミュニティであるシャイニーコリアについてお話(はな)します。 これから, 持続的(じぞくてき)に皆(みんな)さんと交流(こうりゅう)したいし、次(つぎ)のミートアップは必(かなら)ず日本を訪問(ほうもん)して参加(さんか)します。
 
 
 私は韓国でツァラトゥという医学(いがく)研究(けんきゅう)支援(しえん)会社(かいしゃ)を創業(そうぎょう)して6年間(ねんかん)運営(うんえい)中(ちゅう)であり、研究者(けんきゅうしゃ)と製薬(せいやく)会社に分析(ぶんせき)サービスを提供(ていきょう)しています。 分析機能(きのう)はRパッケージにしてCRANに公開(こうかい)し、継続的(けいぞくてき)にアップデート中です。 日本のユーザーのブログでも何度(なんど)か紹介(しょうかい)されています。
@@ -84,7 +84,7 @@ CRAN(計15万回ダウンロード)
 <center><a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"/></a></center>
 
 ::: notes
-We have modulized more than 90% of analytical methods of medical researches. And all analytical modules are released as open source softwares. Anyone can reuse our codes. Figures below are open source softwares we developed with R, a programing language in field of data science
+分析ウェブの分析機能はすべてRパッケージで開発(かいはつ)しCRANに公開(こうかい)しましたが、jskmはKapan-meier生存分析(せいぞん分析ぶんせき)、jstableは回帰分析結果(かいきぶんせきけっか)テーブル、jsmoduleはShiny moduleを含(ふく)みます。
 :::
 
 ## R package: Shiny -> exe
@@ -94,6 +94,10 @@ We have modulized more than 90% of analytical methods of medical researches. And
 
 <center><a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"/></a></center>
 
+
+::: notes
+インターネット接続(せつぞく)ができなくなった病院(びょういん)のために、Shinyアプリをexeファイルに変換(へんかん)するパッケージを開発(かいはつ)し、CRANに公開(こうかい)しました。詳(くわしい)内容(ないよう)はRbloggerに公開(こうかい)しました。
+:::
 
 ## 韓国Rコミュニティ: Shinykorea
 
@@ -112,7 +116,7 @@ We have modulized more than 90% of analytical methods of medical researches. And
 
 
 ::: notes
-We were selected for open source SW start-up and open source software R&D hosted by Ministry of Science and ICT, based on our contribution to open source and community. The topic of R and D is to develop Cloud based open-source statistical software for general public, not doctors. As you see the figure below, we are developing it under the project name of "statgarten".
+韓国ではShinykoreaというRミットアップがあって、私(わたくし)がリーダーを務(つと)めています。定期(ていき)的(てき)にミートアップを開(ひら)き、プロジェクトも一緒(いっしょに)行(おこな)います。 コロナの時(とき)はダッシュボードを一緒(いっしょに)開発(かいはつ)しました。
 :::
 
 
@@ -123,9 +127,14 @@ We were selected for open source SW start-up and open source software R&D hosted
 - Shinykoreaと共同カンファレンスができればと思います。
 
 
+:::notes
+次(つぎ)のメートアップには必(かならず)現場(げんば)で参加(さんか)し、ぜひ皆(みんな)様(さま)と交流(こうりゅう)したいと思(おも)います。Shinykoreaと共同(きょうどう)カンファレンスができればと思います。
+:::
+
+
 # ご傾聴、ありがとうございました。
 
 
 ::: notes
-If anyone has questions I'll be happy to answer them.
+ご傾聴(けいちょう)、ありがとうございました。
 :::
