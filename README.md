@@ -62,4 +62,4 @@ Lecture: general topic
 
 
 * [TokyoR 112회 밋업](https://tokyor.connpass.com/event/312792/): [韓国の医学研究Rデータ分析紹介
-](https://jinseob2kim.github.io/lecture-general/tokyoR/112)
+](https://jinseob2kim.github.io/lecture-general/TokyoR/112)
