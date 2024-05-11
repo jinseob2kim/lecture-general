@@ -1,5 +1,6 @@
 ---
-title: "의학연구지원기업 차라투"
+title: "의료데이터분석가 성장기"
+subtitle: "절대 쓸모있는 사람이 되지 마라"
 author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://openstat.ai)
 institute: "차라투(주)"
 output:
@@ -543,7 +544,7 @@ class: center, middle
 .large[
 https://github.com/shinykorea/Meetup
 
-- 월 1회 공부내용 공유. 30회 진행 
+- 월 1회 공부내용 공유. 42회 진행 
 
 - 의료/유전학/축산/반도체/게임/IPTV/회계 등 다양한 분야 사람들이 모임. 
 
@@ -577,7 +578,531 @@ https://github.com/shinykorea/Meetup
 
 
 
+---
 
+class: center, middle
+
+# R 데이터분석
+
+
+---
+# [data.table](https://blog.zarathu.com/posts/2022-02-11-datatable/)
+
+.large[
+가장 빠른 스피드, 빅데이터용 필수패키지
+
+- 심평원/공단분석 필수.
+
+- 파일 가장 빨리 읽고 쓰는 [fst](https://www.fstpackage.org/)와 찰떡궁합
+
+- 멀티코어 지원
+
+]
+
+<center>
+<a href="https://github.com/fastverse/fastverse"><img src="https://pbs.twimg.com/media/E8mHra4VgA0vnY_.jpg" width=100%></a>
+</center>
+
+
+---
+# [R plot](https://blog.zarathu.com/posts/2022-03-25-graph/)
+
+.large[
+[ggplot2](https://ggplot2.tidyverse.org/) > Base: 사실상 표준 
+
+- [ggpubr](https://partrita.github.io/posts/ggpubr/) : 연구용 그림 + p-value 최적화
+
+- [highcharter](https://jkunst.com/highcharter/): 반응형 그림, 상업용은 유료
+
+- [jskm](https://github.com/jinseob2kim/jskm): 자체 개발 kaplan-meier 패키지 
+]
+
+<center>
+<a href="https://github.com/jinseob2kim/jskm"><img src="https://github.com/jinseob2kim/jskm/blob/master/man/figures/README-unnamed-chunk-4-2.png" width=50%></a>
+</center>
+
+---
+# PPT export: [officer](https://davidgohel.github.io/officer/)
+
+.large[
+그림 직접수정위해 반드시 PPT with 벡터그래픽 필요
+]
+
+```{r, eval=F, echo=T}
+library(rvg);library(officer)
+editable_graph <- dml(ggobj = gg_plot)
+doc <- read_pptx()
+doc <- add_slide(doc)
+doc <- ph_with(x = doc, editable_graph,
+   location = ph_location_type(type = "body") )
+print(doc, target = "reports/rvg.pptx")
+```
+
+<center>
+<a href="https://ardata-fr.github.io/officeverse/reports/rvg.pptx"><img src="https://ardata-fr.github.io/officeverse/static/reports/rvg.png width=40%></a>
+</center>
+
+
+
+---
+# 공단/심평원분석 전략 
+
+.large[
+공단/심평원은 SAS 파일, 그러나 R로 대부분 가능 
+
+- [haven](https://haven.tidyverse.org) 패키지로 sas7bdat 읽기, but 느림
+
+- csv 또는 fst로 변환하여 R로 빨리 읽기
+
+- SAS는 R서버 RAM보다 큰 데이터 다룰 때만: 크게크게 쳐냄
+
+- 반출 테이블: xlsx 하나에 탭들로 저장, [openxlsx](https://github.com/ycphs/openxlsx) 패키지 이용
+
+- 반출 그림: pptx 하나에 여러 슬라이드로 저장. [officer](https://davidgohel.github.io/officer/)
+
+]
+
+
+---
+# [openxlsx](https://github.com/ycphs/openxlsx)
+
+```r
+# create workbook
+wb <- createWorkbook()
+addWorksheet(wb = wb, sheetName = "htwt")
+writeData(wb = wb, sheet = "htwt", x = htwt)
+addWorksheet(wb = wb, sheetName = "smk")
+writeData(wb = wb, sheet = "smk", x = smk, rowNames=T)
+saveWorkbook(wb, "tables.xlsx", overwrite = T) 
+```
+.large[
+[반출 파일 실습](https://github.com/jinseob2kim/R-skku-biohrs/blob/main/lecture/dataexport.pptx?raw=true)
+]
+
+
+---
+# CDM(OMOP) with R
+
+.large[
+CDM 분석 모든과정은 [R패키지](https://github.com/OHDSI)로 구현됨.
+]
+
+<center>
+<img src="https://www.ohdsi.org/wp-content/uploads/2020/06/methodsLibrary.png" width=70%></a>
+</center>
+
+
+---
+# 분석코드, 결과도 R패키지
+
+.large[
+연구설계, 분석방법이 포함된 자체 R패키지가 코드공유 표준. 
+
+- R패키지를 여러 기관에서 실행
+]
+
+https://github.com/zarathucorp/RanitidineCancerRisk
+
+--
+.large[
+분석결과는 R Shiny로 
+
+- 실행결과를 R기반 웹애플리케이션으로 표현
+
+- 분석코드에 웹코드도 포함되어있음.
+]
+
+
+
+---
+
+# 통계 
+
+.large[
+
+데이터 형태에 따라 
+- 일반, 반복측정, 표본추출, Propensity/IPTW
+
+생존분석: Time-dependent analysis, landmark analysis
+
+메타분석: [meta](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/), [자체 개발앱](https://openstat.ai/app/meta-analysis/)
+
+시계열분석: [fpp3 교과서](https://otexts.com/fpp3/)- ARIMA, [prophet](https://facebook.github.io/prophet/)
+
+ML general: [caret](https://topepo.github.io/caret/index.html)
+
+Non-linear(GAM) model: [mgcv](https://www.maths.ed.ac.uk/~swood34/mgcv/)
+
+
+]
+
+---
+# 분석(X), 결과테이블(O)
+
+```{r, echo=T}
+tb <- jstable::CreateTableOneJS(c("sex", "age", "status", "time"), strata = "rx", data = colon, nonnormal = "time")
+kable(tb$table[, 1:6])
+```
+
+---
+# 표본추출(국건영)
+
+```{r, echo=T}
+nhanesSvy <- svydesign(ids = ~ SDMVPSU, strata = ~ SDMVSTRA, weights = ~ WTMEC2YR, nest = T, data = nhanes)
+tb <- jstable::svyCreateTableOneJS(c("HI_CHOL", "agecat"), strata = "RIAGENDR", data = nhanesSvy)
+kable(tb$table[, 1:5])
+```
+
+---
+# 회귀분석류 table 만들기 
+
+```{r, echo=T}
+glm_gaussian <- glm(mpg~cyl + disp, data = mtcars)
+jstable::glmshow.display(glm_gaussian, decimal = 2)$table %>% kable
+glm_binomial <- glm(vs~cyl + disp, data = mtcars, family = binomial)
+jstable::glmshow.display(glm_binomial, decimal = 2)$table %>% kable
+```
+
+[더 살펴보기](https://github.com/jinseob2kim/jstable)
+
+
+---
+# Propensity score
+
+.large[
+
+그룹간의 baseline 맞춰주는 방법
+
+- **Matching**: 적당한 사람들을 뽑음, N loss
+
+- **IPTW(Inverse probability treatment weighting)**: 사람마다 가중치를 다르게 줌, N loss 無
+
+- [MatchIt](https://cran.r-project.org/web/packages/MatchIt/vignettes/MatchIt.html): 2그룹 PS matching, IPTW 
+
+- [twang](https://cran.r-project.org/web/packages/twang/index.html) : 3그룹 이상 IPTW
+]
+
+
+
+
+---
+# [생존분석 심화](https://blog.zarathu.com/posts/2020-10-29-survivalpractice/)
+
+
+**Time-dependent  coefficients**
+- 비례위험가정 깨질 때, Landmark analysis
+
+**Time-dependent covariate**
+- 관찰 시작 후 covariate 상태가 바뀔때 (ex: 약물복용) 
+
+예: 피부질환 진단 후(Indexdate) 약물치료 여부에 따른 Outcome
+- **Indexdate ~ 약물치료일, 약물치료일 ~ F/U 마지막날** 한 사람의 데이터를 2개로 나눔.
+
+Competing risk analysis: 최신 `survival` 패키지 기본옵션. 
+
+- 심혈관질환 발생할 사람이었는데 죽어서 못본다?
+
+- 심혈관질환: outcome, 사망: competing risk
+
+
+
+---
+# Landmark analysis
+
+```{r, include=F}
+colon$status <- as.integer(as.character(colon$status))
+```
+
+```{r, echo=T, out.width="50%"}
+fit <- survfit(Surv(time,status)~rx, data=colon)
+jskm::jskm(fit, mark = F,  surv.scale = "percent", pval =T, table = T, cut.landmark = 500, showpercent = T)
+```
+
+
+
+---
+# Meta analysis
+
+.large[
+[meta](https://github.com/guido-s/meta/) 패키지가 표준
+- Forest/Drapery plot, Sub-group analysis
+
+- Random/Fixed effect
+
+- Publication bias: Funnel plot/Trim & fill 
+]
+
+[자체 개발앱](https://openstat.ai/app/meta-analysis/)
+
+
+
+---
+# 시계열
+
+.large[
+[fpp3](https://otexts.com/fpp3/) 교과서 추천
+
+- [tsibble](https://tsibble.tidyverts.org/): 시계열 데이터전처리 
+
+- [fable](https://fable.tidyverts.org/): ARIMA 계수 자동추정, 간단한 시계열 인공신경망
+
+- [prophet](https://facebook.github.io/prophet/): Meta 가 개발한 Additive model 기반 패키지 
+]
+
+<center>
+<a href="https://www.youtube.com/watch?v=6v3_AsbhqrE"><img src="https://i.ytimg.com/vi/6v3_AsbhqrE/maxresdefault.jpg" width=40%></a>
+</center>
+
+
+
+---
+# ETC
+
+.large[
+Non-linear(GAM) model
+- [mgcv](https://www.maths.ed.ac.uk/~swood34/mgcv/) 패키지가 표준
+- [강의자료](https://jinseob2kim.github.io/R-skku-biohrs/gam/#/title-slide)
+
+ML general
+- [caret](https://topepo.github.io/caret/index.html)
+]
+
+
+---
+# [Github](https://github.com/)
+
+.large[
+코딩하는 사람은 무조건 써야함. R보다 더 중요
+
+- 코드 관리, 모든 중간기록 보관
+
+- 오픈소스 SW(예: R패키지) 는 대부분 Github 프로젝트
+
+- 포트폴리오 관리: 사실상의 이력서
+
+- 간단한 홈페이지 운영 가능: 본 슬라이드도 Github 호스팅
+]
+
+
+
+---
+
+class: center, middle
+
+# 서비스
+
+
+---
+# [R](https://www.r-project.org/)의 확장
+
+.large[
+[R](https://www.r-project.org/)은 이제 단순한 통계프로그램이 아님.
+
+* [Quarto](https://quarto.org): 논문과 발표자료를 [R](https://www.r-project.org/) 에서 직접 만듦. [과거 정리 내용](https://blog.zarathu.com/posts/2019-01-03-rmarkdown/)
+]
+--
+
+.large[
+* [blogdown](https://github.com/rstudio/blogdown): 홈페이지도 만들 수 있음. 당사 홈페이지도 이것과 [Quarto blog](https://quarto.org/docs/websites/website-blog.html) 로 제작.
+
+* [Quarto book](https://quarto.org/docs/books/): 책도 직접 만들 수 있음.
+]
+--
+
+.large[
+* [Shiny](https://shiny.rstudio.com/), [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/): 서버 구축하고 웹기반 앱을 만들 수 있음. 간단한 Shiny 앱들은 Shinyapps.io 에서 무료호스팅.
+
+]
+--
+
+법인 설립 후 모든 작업에 [R](https://www.r-project.org/)을 이용함. 
+
+---
+# 논문 
+
+.large[
+[R](https://www.r-project.org/)에서 글, 그림, 테이블, 참고문헌까지 직접 작성. 
+ 
+* [rticles](https://github.com/rstudio/rticles): 대부분 학술지의 템플릿을 포함.
+
+```{r, fig.align='center', out.width= "50%"}
+include_graphics("https://bookdown.org/yihui/rmarkdown/images/rticles-templates.png")
+```
+
+]
+
+[준비하던 박사논문](https://blog.zarathu.com/posts/2018-11-08-mdlm/)  
+
+
+---
+# 발표 슬라이드
+
+.large[
+논문쓸 때 이용했던 R 코드 활용, 빠르게 발표 슬라이드 제작 가능.
+
+* [기본 템플릿](https://rmarkdown.rstudio.com/lesson-11.html), [xaringan](https://github.com/yihui/xaringan) 패키지: 이 슬라이드도 [xaringan](https://github.com/yihui/xaringan)으로 제작.
+
+```{r, out.width= "70%"}
+include_graphics("https://user-images.githubusercontent.com/163582/53144527-35f7a500-3562-11e9-862e-892d3fd7036d.gif")
+```
+
+포스터: [posterdown](https://brentthorne.github.io/posterdown_html_showcase/), [pagedown](https://pagedown.rbind.io/poster-relaxed)
+]
+
+---
+# 발표 슬라이드: revealjs
+
+.large[
+22년 10월 현재, 새로만드는 슬라이드는 [revealjs](https://quarto.org/docs/presentations/revealjs/)로 작업 
+
+<iframe src="https://jinseob2kim.github.io/lecture-general/APPFGH2022" width="100%" height="300px"></iframe>
+
+]
+
+
+
+---
+# 홈페이지
+
+.large[
+[blogdown](https://github.com/rstudio/blogdown), [Quarto blog](https://quarto.org/docs/websites/website-blog.html): [깃허브](https://pages.github.com/) 통해 무료 웹호스팅 가능.
+
+```{r, out.width= "80%"}
+include_graphics("https://www.storybench.org/wp-content/uploads/2019/05/blogdown-new-site-e1557149319624-730x457.png")
+```
+
+[홈페이지](https://github.com/zarathucorp/zarathu), [블로그](https://github.com/zarathucorp/blog)
+]
+
+---
+# 웹 앱
+
+.large[
+[Shiny](https://shiny.rstudio.com/): [R](https://www.r-project.org/) 코드만으로 웹앱 제작
+]
+
+```{r}
+include_graphics("ps.png")
+```
+
+
+---
+class: center, middle
+
+# Real World data
+
+
+---
+# Why RWD?
+
+기존 임상시험은 RCT
+
+- 연구를 위해 세팅된 환경에서 환자를 새로 모집하여 **랜덤**분배
+- 인과성 인정받을 수 있으나, 비싸고 오래걸림
+
+
+<center>
+<img src="FLAVOUR.png" width=80%></a>
+</center>
+
+
+---
+# RWD, RWE
+
+존재하는 데이터로 RCT만큼의 인과성을 얻을 수 있을까?
+- N수가 크다는 장점이 있음(심평원/공단데이터, 다국가데이터)
+- Propensity score 매칭, IPTW
+
+
+<center>
+<img src="bmj.png" width=100%></a>
+</center>
+
+
+---
+# PS matching
+
+.large[
+Propensity score란?
+
+- 치료군 vs 대조군 연구에서, age/sex/기저질환 등의 변수를 이용하여 치료군에 속할 확률을 계산한 값
+- 같은 PS 면 치료군에 속할 확률이 동일 
+- 같은 PS면 age/sex/기저질환 이 비슷
+- 치료군/대조군을 1/0으로 코딩하여 로지스틱 회귀분석, ML 
+
+따라서, **치료군의 PS와 비슷한 사람을 대조군에서 뽑으면** 두 그룹의 Baseline이 비슷해지겠군!
+- 여기까지 알면 50점 
+- 이럴거면 치료군에 속할 확률을 굳이 계산할 필요가 없음. 그냥 두군의 baseline 비슷한 사람 뽑으면 됨
+]
+
+---
+# 인과추론 
+
+.large[
+RCT: 어떤 사람이 두 군에 배정될 확률이 50:50 
+
+PS matching: PS가 0.7인 사람이 두 군에 배정될 확률? 50:50 
+- PS 0.7인 사람이 치료군에 있다면, 대조군에서도 맞춰서 뽑았을 것임
+- 여기까지 알면 90점 
+]
+
+
+--
+
+.large[
+**그럼 PS matching하면 RCT만큼 인정받을 수 있다?**
+- **No**
+- 치료군과 동일 특성을 가진 대조군이 매칭되므로, 연구집단 전체가 치료군의 특성을 가짐(예: 더 고령/ 남자가 많다 등)
+- ATE(average treatment effect)를 추정할 수 없음, **ATT(average treatment effect on the treated)** 임. 
+
+]
+
+---
+# IPTW
+
+.large[
+Inverse probability of treatment weighting
+
+- 매칭 안하고 모든 샘플을 씀. 단 각 사람마다 가중치가 다름
+- A는 1명이지만 2명처럼 간주, B는 1명이지만 10명처럼 간주
+- 사람별 가중치를 조절하면 Baseline을 동일하게 맞출 수 있음
+- 치료군엔 $1/PS$, 대조군엔 $1/(1-PS)$ 로 가중치 부여 
+
+- 여기까지 알면 50점
+]
+
+
+
+---
+# 인과추론 
+
+.large[
+PS 0.7인 사람이 각 군에 속할 확률은?
+- PS 0.7인 사람은 치료군에 속할 확률이 0.7, 대조군에 속할 확률이 0.3
+
+$$0.7 * 1/0.7 = 0.3 * 1/0.3 = 1$$  
+
+- 따라서 PS 0.7인 사람이 치료군과 대조군에 동일하게 분포
+]
+
+--
+
+.large[
+그럼 IPTW는 ATE vs ATT?
+]
+
+
+---
+# RWD 뜨는 이유?
+
+.large[
+임상시험 비용, 기간 절감 
+
+- 3상은 안되더라도 4상은..?
+
+N수가 크므로 희귀질환연구 가능 
+
+]
 
 
 ---
@@ -608,6 +1133,8 @@ class: center, middle
 
 .large[
 겸임교수로 [R빅데이터분석](https://github.com/jinseob2kim/R-skku-biohrs) 3학점 강의(월 19-21시)
+
+같은 내용으로 현재 길병원 매주 교육 진행
 ]
 
 <center>
@@ -650,11 +1177,9 @@ class: center, middle
 # 지금 목표 
 
 .large[
-- 고객 분석 및 연구디자인 자문
+- 임상시험 시장 진출
 
-- 창업지원사업, R&D 계획서
-
-- IITP, 디딤돌 과제평가 무난히..
+- 올해도 무사히
 
 - 일본 진출
 
@@ -765,6 +1290,49 @@ class: center, middle
 </center>
 
 
+---
+# Goyard
+
+<center>
+<img src="https://i.balaan.io/images/71/71eba3/71eba30a3774c845db57949c3b350c46eea4a2b4a2f563257ecf85944952e1f6.jpg" width=80%></a>
+</center>
+
+
+---
+# Baobao
+![](https://img.shoplineapp.com/media/image_clips/63710e0f364f8a002849470d/original.png?1668353550)
+---
+# Trinity
+
+![](https://img.danawa.com/prod_img/500000/622/172/img/13172622_1.jpg?_v=20221004173551)
+
+
+---
+# 쓸모있는 사람 No
+
+.large[
+**쓸모있다 = 값을 평가할 수 있다 **
+- 쓸모로 승부보려면 기적까지 일으켜야
+
+**아름다움**을 다루는 사람: 美
+- 아름다움은 값을 평가할 수 없다
+- 값을 제대로 평가하지 못해 패닉바잉 유도
+
+**도덕**을 다루는 사람: 善 
+- 한국은 도덕 쟁탈전을 벌이는 하나의 거대한 극장
+
+
+**세계관**을 만드는 사람: 眞 
+- 도덕, 아름다움을 스스로 정의한다. 
+- 신
+]
+
+
+---
+
+.large[
+> 오직 하나의 완전무결한 이(理)만이 대접받는 사회이기 때문에 “자신의 삶이 얼마나 도덕적인가를 소리 높여 다른 사람들에게 끊임없이 표현하지 않으면” 안 된다. 이런 곳에서 권력 투쟁이란 곧 “도덕을 내세워 권력을 잡는 세력이 얼마나 도덕적이니 않은가를 폭로하는 싸움”이 된다. 상대의 도덕을 싸잡아 비난할수록 ‘훌륭한 선비’가 된다. 
+]
 
 ---
 # 헬스케어 업계에서 의사란?
@@ -772,10 +1340,18 @@ class: center, middle
 .large[
 劉(유) 씨
 - 삼국지 유비: 한황실 재건 명분, 유황숙 대접, 천하통일까지? 
-
-
 ]
 
+
+---
+
+<center>
+<img src="yubi.png" width=70%></a>
+</center>
+
+<center>
+<img src="yubi2.jpg" width=50%></a>
+</center>
 
 
 
@@ -809,6 +1385,17 @@ class: center, middle
 - 이 데이터를 헛되게 쓰는건, 환자의 희생과 의료진의 노력을 헛되게 만드는 것. 
 
 ]
+
+
+---
+# 아뿔사 단월드 선배님
+
+<center>
+<img src="https://blog.jinbo.net/attach/2520/191030581.jpg" width=100%></a>
+</center>
+
+
+
 
 
 ---
