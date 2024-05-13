@@ -1323,6 +1323,16 @@ class: center, middle
 
 
 ---
+# 아름다운 연구
+
+[클림트를 해부하다](http://www.bosa.co.kr/news/articleView.html?idxno=2215247)
+
+<center>
+<img src="cl.png" width=60%></a>
+</center>
+
+
+---
 # 쓸모있는 사람 No
 
 .large[
