@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -352,8 +417,8 @@
 <p>경력</p>
 <ul>
 <li>의학사, 성균관대학교 (~2009)</li>
-<li>예방의학전문의/박사수료、서울대보건대학원 (~2013)</li>
-<li>책임、삼성전자 DMC연구소/무선사업부 (~2016)</li>
+<li>예방의학전문의/박사수료,서울대보건대학원 (~2013)</li>
+<li>책임, 삼성전자 DMC연구소/무선사업부 (~2016)</li>
 <li>대표, 차라투 (2018~)</li>
 </ul>
 <p><strong>jinseob2kim@gmail.com, github.com/jinseob2kim</strong></p>
@@ -370,116 +435,218 @@
 <a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"></a>
 </center>
 </section>
-<section id="shiny-application" class="slide level2">
-<h2>Shiny application</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+<center>
+<a href="https://github.com/jinseob2kim/jskm"><img src="jskm.png" width="100%"></a>
+</center>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-1-2.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-3-1.png"></p>
+</div></div>
+</section>
+<section id="일본-블로그-리뷰" class="slide level2">
+<h2>일본 블로그 리뷰</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="jskm_japan.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="jskm_japan2.png"></p>
+</div></div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<center>
+<a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"></a>
+</center>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="do">## Gaussian</span></span>
+<span id="cb1-2"><a href=""></a>glm_gaussian <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_gaussian, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="sc">$</span>first.line</span>
+<span id="cb2-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Linear regression predicting mpg</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="sc">$</span>table</span>
+<span id="cb2-5"><a href=""></a>     crude <span class="fu">coeff.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. coeff.(95%</span>CI)    adj. P value</span>
+<span id="cb2-6"><a href=""></a>cyl  <span class="st">"-2.88 (-3.51,-2.24)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-1.59 (-2.98,-0.19)"</span> <span class="st">"0.034"</span></span>
+<span id="cb2-7"><a href=""></a>disp <span class="st">"-0.04 (-0.05,-0.03)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-0.02 (-0.04,0)"</span>     <span class="st">"0.054"</span></span>
+<span id="cb2-8"><a href=""></a></span>
+<span id="cb2-9"><a href=""></a><span class="sc">$</span>last.lines</span>
+<span id="cb2-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">R-squared = 0.7596</span><span class="sc">\n</span><span class="st">AIC value = 167.1456</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## Binomial</span></span>
+<span id="cb3-2"><a href=""></a>glm_binomial <span class="ot">&lt;-</span> <span class="fu">glm</span>(vs<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
+<span id="cb3-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_binomial, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="sc">$</span>first.line</span>
+<span id="cb4-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Logistic regression predicting vs</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb4-3"><a href=""></a> </span>
+<span id="cb4-4"><a href=""></a><span class="sc">$</span>table</span>
+<span id="cb4-5"><a href=""></a>     crude <span class="fu">OR.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. OR.(95%</span>CI)    adj. P value</span>
+<span id="cb4-6"><a href=""></a>cyl  <span class="st">"0.2 (0.08,0.56)"</span>  <span class="st">"0.002"</span>       <span class="st">"0.15 (0.02,1.02)"</span> <span class="st">"0.053"</span>     </span>
+<span id="cb4-7"><a href=""></a>disp <span class="st">"0.98 (0.97,0.99)"</span> <span class="st">"0.002"</span>       <span class="st">"1 (0.98,1.03)"</span>    <span class="st">"0.715"</span>     </span>
+<span id="cb4-8"><a href=""></a></span>
+<span id="cb4-9"><a href=""></a><span class="sc">$</span>last.lines</span>
+<span id="cb4-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">AIC value = 23.8304</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="중국-영상블로그-리뷰" class="slide level2">
+<h2>중국 영상/블로그 리뷰</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="jstable_ch.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="jstable_ch2.png"></p>
+</div></div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<center>
+<a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"></a>
+</center>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="https://github.com/jinseob2kim/jsmodule/blob/master/vignettes/figures/ps.png?raw=true"></p>
+</div><div class="column" style="width:50%;">
+<p>1-2줄의 코드만으로 분석웹을 만들 수 있도록 각 분석기능을 모듈화</p>
+<p><img data-src="jsmodule2.png"></p>
+</div></div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="jsmodule3.png" class="r-stretch"></section>
+<section id="무료-통계웹" class="slide level2">
+<h2>무료 통계웹</h2>
 <ul>
-<li>ウェブで統計分析を実行した後、その結果を論文用テーブルと図でダウンロード</li>
-<li>無料統計ウェブ openstat.ai</li>
+<li>흔한 분석기능들을 무료로 분석할 수 있는 openstat.ai 런칭</li>
+<li>jskm/jstable/jsmodule 분석모듈 적용</li>
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><a href="https://openstat.ai/"><strong>openstat.ai</strong></a><strong>: free</strong></p>
 <p><img data-src="example-meta.png"></p>
 </div><div class="column" style="width:50%;">
-<p><strong>ユーザーに合わせた分析ウェブは有料</strong></p>
+<p><strong>맞춤형 분석웹은 유료제작</strong></p>
 <p><img data-src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&amp;blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7"></p>
 </div></div>
-<aside class="notes">
-<p>私（わたくし）はShinyを用（もち）いて分析（ぶんせき）ウェブサービスを提供（ていきょう）しており、無料（むりょう）のウェブサービスでは研究者（けんきゅうしゃ）が自分（じぶん）のデータを直接（ちょくせつ）アップロードした後（あと）、医学研究（いがくけんきゅう）でよく利用（りよう）される分析（ぶんせき）を行（おこな）うことができます。研究者（けんきゅうしゃ）に特化（とっか）した分析（ぶんせき）ウェブは有料（ゆうりょう）でサービスしています。</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+</section>
+<section id="국가-rd-선정" class="slide level2">
+<h2>국가 R&amp;D 선정</h2>
+<p>IITP, NIPA 공개SW R&amp;D와 창업성장기술개발 디딤돌 통해 기술개발 및 의학연구용 고도화 수행</p>
+<p>`22 IITP “공개SW 기반의 클라우드 통계 패키지SW 개발” (2년 10.5억)</p>
+<ul>
+<li>통계 비전공자 및 일반인용</li>
+</ul>
+<p>`23 NIPA 공개SW 기술확산 지원사업 “(의학연구위한) 오픈소스 SaaS 의료데이터 분석 서비스” (7개월 2억)</p>
+<ul>
+<li>의학연구용</li>
+</ul>
+<p>`23 창업성장기술개발 디딤돌 “(의학연구위한) 오픈소스 분석웹”(1.2억)</p>
+<ul>
+<li>의학연구용 &amp; 임상시험</li>
+</ul>
+</section>
+<section id="저작권-등록" class="slide level2">
+<h2>저작권 등록</h2>
+<center>
+<img src="jj.png" width="50%">
+</center>
+</section>
+<section id="오픈소스-관리" class="slide level2">
+<h2>오픈소스 관리</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>https://statgarten-issue.streamlit.app/</p>
+<p><img data-src="metric.png"></p>
+</div><div class="column" style="width:50%;">
+<p>깃헙액션</p>
+<ul>
+<li>테스트, 홈페이지 업데이트, 라이선스동의, 코드 styler</li>
+</ul>
+<p><img data-src="ga.png"></p>
+</div></div>
+</section>
+<section id="라이선스검증" class="slide level2">
+<h2>라이선스검증</h2>
+<center>
+<img src="license.png" width="80%">
+</center>
 </section>
 <section id="r-package-shiny---exe" class="slide level2">
 <h2>R package: Shiny -&gt; exe</h2>
-<p>インターネットが遮断された病院のために - <a href="https://github.com/ChangwooLim/executablePackeR">executablePackeR</a></p>
+<p>R없이 exe 파일로 로컬실행 - <a href="https://github.com/ChangwooLim/executablePackeR">executablePackeR</a></p>
 <center>
 <a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"></a>
 </center>
-<aside class="notes">
-<p>インターネット接続（せつぞく）ができない病院（びょういん）のために、Shinyアプリをexeファイルに変換（へんかん）するパッケージを開発（かいはつ）し、CRANに公開（こうかい）しました。詳細（しょうさい）はRbloggerに公開（こうかい）しています。</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="韓国rコミュニティ-shinykorea" class="slide level2">
-<h2>韓国Rコミュニティ: Shinykorea</h2>
+<section id="r커뮤니티-shinykorea" class="slide level2">
+<h2>R커뮤니티: Shinykorea</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li>定期的なミートアップ</li>
+<li>정기적 밋업</li>
 </ul>
 <p><img data-src="スクリーンショット%202024-04-17%20午後3.02.34.png"></p>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>コロナダッシュボード共同開発 <img data-src="https://shinykorea.github.io/corona-activityrecord/d1.png"></li>
+<li>코로나 대시보드 공동개발 <img data-src="https://shinykorea.github.io/corona-activityrecord/d1.png"></li>
 </ul>
 </div></div>
-<aside class="notes">
-<p>韓国（かんこく）では「Shinykorea」というRコミュニティのミートアップを定期的（ていきてき）に開催（かいさい）しており、私（わたくし）がリーダーを務（つと）めています。コロナの際（さい）には、ダッシュボードの開発（かいはつ）も一緒（いっしょ）に行（おこな）いました。</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+</section>
+<section id="오픈소스기여-인턴십" class="slide level2">
+<h2>오픈소스기여: 인턴십</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>정기적 밋업</li>
+</ul>
+<p><img data-src="intern.png"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>인턴의 오픈소스 패키지개발 참여</li>
+</ul>
+<p><img data-src="internr.png"></p>
+</div></div>
+</section>
+<section id="교육" class="slide level2">
+<h2>교육</h2>
+<p>성균관대학교 바이오헬스규제과학과 겸임교수 강의</p>
+<ul>
+<li><p>https://github.com/jinseob2kim/r-skku-biohrs</p></li>
+<li><p>R활용 의료데이터분석, 강의록과 강의영상 모두 공개</p></li>
+</ul>
+<center>
+<a href="https://github.com/jinseob2kim/r-skku-biohrs"><img src="biohrs.png" width="60%"></a>
+</center>
 </section>
 <section id="with-tokyor" class="slide level2">
 <h2>With TokyoR</h2>
 <ul>
-<li>次のメートアップには必ず現場で参加し、ぜひ皆様と交流したいと思います。</li>
-<li>Shinykoreaと共同カンファレンスができればと思います。</li>
+<li>일본 R 커뮤니티 TokyoR 밋업 발표, 연말 컨퍼런스 발표자 신청</li>
 </ul>
-<aside class="notes">
-<p>次回（じかい）のミートアップにはぜひ現地（げんち）で参加（さんか）し、皆（みな）様（さま）と交流（こうりゅう）したいと思（おも）っています。将来的（しょうらいてき）にはShinykoreaと共同（きょうどう）カンファレンスを開催（かいさい）できればと考（かんが）えています。</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<center>
+<blockquote>
+<img src="tokyor.png" width="80%">
+</blockquote></center>
+
 </section>
-<section id="ご清聴ありがとうございました" class="title-slide slide level1 center">
-<h1>ご清聴、ありがとうございました。</h1>
-<aside class="notes">
-<p>ご清聴（せいちょう）ありがとうございました。</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="executive-summary" class="title-slide slide level1 center">
+<h1>Executive summary</h1>
+<ul>
+<li><p>의학연구용 R 패키지 개발, 중국/일본에서 인기</p></li>
+<li><p>국가 R&amp;D 선정</p></li>
+<li><p>최신 오픈소스 관리기술</p></li>
+<li><p>라이선스 검증</p></li>
+<li><p>오픈소스 활성화: 커뮤니티, 인턴십, 교육</p></li>
+<li><p>일본 R 커뮤니티 참여</p></li>
+</ul>
+</section>
+
+<section id="감사합니다" class="title-slide slide level1 center">
+<h1>감사합니다</h1>
 <div class="quarto-auto-generated-content">
 <p><img src="zarathu_eng.png" class="slide-logo"></p>
 <div class="footer footer-default">

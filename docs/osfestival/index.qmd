@@ -47,11 +47,143 @@ CRAN(총 17만회 다운로드)
 <center><a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"/></a></center>
 
 
+## 
 
-## Shiny application
+<center><a href="https://github.com/jinseob2kim/jskm"><img src="jskm.png" width="100%"/></a></center>
 
--   ウェブで統計分析を実行した後、その結果を論文用テーブルと図でダウンロード
--   無料統計ウェブ openstat.ai
+
+::: columns
+::: {.column width="50%"}
+
+![](https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-1-2.png)
+:::
+
+::: {.column width="50%"}
+
+![](https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-3-1.png)
+:::
+:::
+
+
+
+
+## 일본 블로그 리뷰
+
+
+::: columns
+::: {.column width="50%"}
+
+![](jskm_japan.png)
+:::
+
+::: {.column width="50%"}
+
+![](jskm_japan2.png)
+:::
+:::
+
+
+## 
+
+<center><a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"/></a></center>
+
+
+::: columns
+::: {.column width="50%"}
+
+```r
+## Gaussian
+glm_gaussian <- glm(mpg~cyl + disp, data = mtcars)
+glmshow.display(glm_gaussian, decimal = 2)
+```
+
+```r
+$first.line
+[1] "Linear regression predicting mpg\n"
+
+$table
+     crude coeff.(95%CI)   crude P value adj. coeff.(95%CI)    adj. P value
+cyl  "-2.88 (-3.51,-2.24)" "< 0.001"     "-1.59 (-2.98,-0.19)" "0.034"
+disp "-0.04 (-0.05,-0.03)" "< 0.001"     "-0.02 (-0.04,0)"     "0.054"
+
+$last.lines
+[1] "No. of observations = 32\nR-squared = 0.7596\nAIC value = 167.1456\n\n"
+
+```
+:::
+
+::: {.column width="50%"}
+
+
+```r
+## Binomial
+glm_binomial <- glm(vs~cyl + disp, data = mtcars, family = binomial)
+glmshow.display(glm_binomial, decimal = 2)
+```
+
+```r
+$first.line
+[1] "Logistic regression predicting vs\n"
+ 
+$table
+     crude OR.(95%CI)   crude P value adj. OR.(95%CI)    adj. P value
+cyl  "0.2 (0.08,0.56)"  "0.002"       "0.15 (0.02,1.02)" "0.053"     
+disp "0.98 (0.97,0.99)" "0.002"       "1 (0.98,1.03)"    "0.715"     
+
+$last.lines
+[1] "No. of observations = 32\nAIC value = 23.8304\n\n"
+```
+
+:::
+:::
+
+
+## 중국 영상/블로그 리뷰
+
+
+::: columns
+::: {.column width="50%"}
+
+![](jstable_ch.png)
+:::
+
+::: {.column width="50%"}
+
+![](jstable_ch2.png)
+:::
+:::
+
+
+## 
+
+<center><a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"/></a></center>
+
+
+::: columns
+::: {.column width="50%"}
+
+![](https://github.com/jinseob2kim/jsmodule/blob/master/vignettes/figures/ps.png?raw=true)
+:::
+
+::: {.column width="50%"}
+
+1-2줄의 코드만으로 분석웹을 만들 수 있도록 각 분석기능을 모듈화
+
+![](jsmodule2.png)
+:::
+:::
+
+##
+
+![](jsmodule3.png)
+
+
+
+
+## 무료 통계웹 
+
+- 흔한 분석기능들을 무료로 분석할 수 있는 openstat.ai 런칭
+- jskm/jstable/jsmodule 분석모듈 적용
 
 ::: columns
 ::: {.column width="50%"}
@@ -61,57 +193,140 @@ CRAN(총 17만회 다운로드)
 :::
 
 ::: {.column width="50%"}
-**ユーザーに合わせた分析ウェブは有料**
+**맞춤형 분석웹은 유료제작**
 
 ![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7)
 :::
 :::
 
-::: notes
-私（わたくし）はShinyを用（もち）いて分析（ぶんせき）ウェブサービスを提供（ていきょう）しており、無料（むりょう）のウェブサービスでは研究者（けんきゅうしゃ）が自分（じぶん）のデータを直接（ちょくせつ）アップロードした後（あと）、医学研究（いがくけんきゅう）でよく利用（りよう）される分析（ぶんせき）を行（おこな）うことができます。研究者（けんきゅうしゃ）に特化（とっか）した分析（ぶんせき）ウェブは有料（ゆうりょう）でサービスしています。
+## 국가 R&D 선정
+
+IITP, NIPA 공개SW R&D와 창업성장기술개발 디딤돌 통해 기술개발 및 의학연구용 고도화 수행
+
+`22 IITP "공개SW 기반의 클라우드 통계 패키지SW 개발" (2년 10.5억)
+
+- 통계 비전공자 및 일반인용
+
+`23 NIPA 공개SW 기술확산 지원사업 (7개월 2억)
+
+- 의학연구용
+
+`23 창업성장기술개발 디딤돌 (1.2억)
+
+- 의학연구용 & 임상시험 
+
+
+## 저작권 등록 
+
+<center><img src="jj.png" width="50%"/></a></center>
+
+
+
+## 오픈소스 관리
+
+::: columns
+::: {.column width="50%"}
+
+https://statgarten-issue.streamlit.app/
+
+![](metric.png)
 :::
+
+::: {.column width="50%"}
+
+깃헙액션
+
+- 테스트, 홈페이지 업데이트, 라이선스동의, 코드 styler
+
+![](ga.png)
+:::
+:::
+
+## 라이선스검증 
+
+<center><img src="license.png" width="80%"/></a></center>
 
 
 
 ## R package: Shiny -\> exe
 
-インターネットが遮断された病院のために - [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
+R없이 exe 파일로 로컬실행 - [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
 
 <center><a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"/></a></center>
 
-::: notes
-インターネット接続（せつぞく）ができない病院（びょういん）のために、Shinyアプリをexeファイルに変換（へんかん）するパッケージを開発（かいはつ）し、CRANに公開（こうかい）しました。詳細（しょうさい）はRbloggerに公開（こうかい）しています。
-:::
 
-## 韓国Rコミュニティ: Shinykorea
+
+## R커뮤니티: Shinykorea
 
 ::: columns
 ::: {.column width="50%"}
--   定期的なミートアップ
+-   정기적 밋업
 
 ![](スクリーンショット%202024-04-17%20午後3.02.34.png)
 :::
 
 ::: {.column width="50%"}
--   コロナダッシュボード共同開発 ![](https://shinykorea.github.io/corona-activityrecord/d1.png)
+-   코로나 대시보드 공동개발 ![](https://shinykorea.github.io/corona-activityrecord/d1.png)
 :::
 :::
 
-::: notes
-韓国（かんこく）では「Shinykorea」というRコミュニティのミートアップを定期的（ていきてき）に開催（かいさい）しており、私（わたくし）がリーダーを務（つと）めています。コロナの際（さい）には、ダッシュボードの開発（かいはつ）も一緒（いっしょ）に行（おこな）いました。
+## 오픈소스기여: 인턴십
+
+
+::: columns
+::: {.column width="50%"}
+-   정기적 밋업
+
+![](intern.png)
 :::
+
+::: {.column width="50%"}
+- 인턴의 오픈소스 패키지개발 참여
+
+![](internr.png)
+:::
+:::
+
+
+## 교육
+
+성균관대학교 바이오헬스규제과학과 겸임교수 강의
+
+- https://github.com/jinseob2kim/r-skku-biohrs
+
+- R활용 의료데이터분석, 강의록과 강의영상 모두 공개
+
+
+<center><a href="https://github.com/jinseob2kim/r-skku-biohrs"><img src="biohrs.png" width="60%"/></a></center>
+
+
+
+
 
 ## With TokyoR
 
--   次のメートアップには必ず現場で参加し、ぜひ皆様と交流したいと思います。
--   Shinykoreaと共同カンファレンスができればと思います。
+- 일본 R 커뮤니티 TokyoR 밋업 발표, 연말 컨퍼런스 발표자 신청 
 
-::: notes
-次回（じかい）のミートアップにはぜひ現地（げんち）で参加（さんか）し、皆（みな）様（さま）と交流（こうりゅう）したいと思（おも）っています。将来的（しょうらいてき）にはShinykoreaと共同（きょうどう）カンファレンスを開催（かいさい）できればと考（かんが）えています。
-:::
+<center>><img src="tokyor.png" width="80%"/></a></center>
 
-# ご清聴、ありがとうございました。
 
-::: notes
-ご清聴（せいちょう）ありがとうございました。
-:::
+
+
+
+
+## Executive summary
+
+- 의학연구용 R 패키지 개발, 중국/일본에서 인기
+
+- 국가 R&D 선정 
+
+- 최신 오픈소스 관리기술
+
+- 라이선스 검증
+
+- 오픈소스 활성화: 커뮤니티, 인턴십, 교육
+
+- 일본 R 커뮤니티 참여 
+
+
+# 감사합니다

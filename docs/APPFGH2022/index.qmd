@@ -26,283 +26,223 @@ We provide analytic services for medical research
 -   Web based statistical SW
 -   National Health Data analysis, consulting
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="60%"}
-![](https://shinykorea.github.io/corona-activityrecord/d1.png){}
-
+![](https://shinykorea.github.io/corona-activityrecord/d1.png)
 :::
 
 ::: {.column width="40%"}
-
-![](http://cdn.bosa.co.kr/news/photo/202009/2135109_169966_5652.jpg){}
-![](https://cdn.docdocdoc.co.kr/news/photo/201807/1057873_1117467_2355.jpg){}
-
+![](http://cdn.bosa.co.kr/news/photo/202009/2135109_169966_5652.jpg) ![](https://cdn.docdocdoc.co.kr/news/photo/201807/1057873_1117467_2355.jpg)
+:::
 :::
 
-::::
-
-::: {.notes}
-Hello, Thank you for being here.  I'm Jinseob Kim, CEO of Zarathu Company. I’m going to talk about my business and what we can do together.
-Let’s start by introducing my service. Zarathu provides analytic services for medical research. Firstly, We develop web-based statistical software that doctors can easily use without installing it. Second, we help medical researchers analyze national data. Korea has high-quality healthcare big data at the national level, so doctors do many studies with this data. For example, National Health Insurance Service(NHIS) and Health Insurance Review & Assessment Service(HIRA) support big data research using their data.
-We also provide statistical consulting and education for doctors, researchers and students.
+::: notes
+Hello, Thank you for being here. I'm Jinseob Kim, CEO of Zarathu Company. I’m going to talk about my business and what we can do together. Let’s start by introducing my service. Zarathu provides analytic services for medical research. Firstly, We develop web-based statistical software that doctors can easily use without installing it. Second, we help medical researchers analyze national data. Korea has high-quality healthcare big data at the national level, so doctors do many studies with this data. For example, National Health Insurance Service(NHIS) and Health Insurance Review & Assessment Service(HIRA) support big data research using their data. We also provide statistical consulting and education for doctors, researchers and students.
 :::
-
 
 ## Medical data is important
 
 There are tears of patients and doctors in **Medical data**
 
 -   A record of desperate struggle of patients and doctors
--   Data $\rightarrow$ knowledge & technology 
+-   Data $\rightarrow$ knowledge & technology
 -   Better data analysis saves lives
 
-
-::: {.notes}
+::: notes
 But, do you think it is really necessary? Let’s talk about medical data first. Medical data is very important. This is a record of desperate struggle of patients and doctors. There are a lot of tears in it. We should make knowledge and technology that can save the world with this data. Better data analysis saves lives.
 :::
 
-
-
 ## Medical research surge
 
-With Covid19 
+With Covid19
 
--  Medical research has doubled.
+-   Medical research has doubled.
 
--  Clinical trials for new drugs are also on the rise
+-   Clinical trials for new drugs are also on the rise
 
--  Digital Therapeutics(DTx), decentralized clinical trial(DCT) 
+-   Digital Therapeutics(DTx), decentralized clinical trial(DCT)
 
-::: {.notes}
-Now, many people think that medical data and research are important. After Covid-19, the demands for analyzing medical data has been rapidly increased. and the number of medical articles increased double. Not just researching, but clinical trials to develop new drugs are also increasing. As IT technology develops, not only edible drugs but also mobile apps are recognized as digital therapeutics, DTx, and clinical trials do not require patients to visit a hospital. This is called decentralized clinical trial, DCT. 
-
+::: notes
+Now, many people think that medical data and research are important. After Covid-19, the demands for analyzing medical data has been rapidly increased. and the number of medical articles increased double. Not just researching, but clinical trials to develop new drugs are also increasing. As IT technology develops, not only edible drugs but also mobile apps are recognized as digital therapeutics, DTx, and clinical trials do not require patients to visit a hospital. This is called decentralized clinical trial, DCT.
 :::
-
 
 ## No service for medical research
 
--  Doctors don't have time to analyze their data
--  Statistical software is not specialized in medical research
-
+-   Doctors don't have time to analyze their data
+-   Statistical software is not specialized in medical research
 
 **Doctors need fast, easy-to-use and medical-specific service**
 
-::: {.notes}
-Although the demand for medical data analysis is increasing, there was no service that researchers can quickly and easily use. 
-In case of existing statistical software, we should pay a fee, install it and code ourselves. And there is a lack of analysis modules specialized in the medical field.  Furthermore, it is hard to find companies that have medical expertise. 
-Doctors want services that is easy and quick to use and specialized for medical field. 
-
+::: notes
+Although the demand for medical data analysis is increasing, there was no service that researchers can quickly and easily use. In case of existing statistical software, we should pay a fee, install it and code ourselves. And there is a lack of analysis modules specialized in the medical field. Furthermore, it is hard to find companies that have medical expertise. Doctors want services that is easy and quick to use and specialized for medical field.
 :::
-
 
 ## 1. Web application
 
-- No install, any devices
-- Realtime & GUI
+-   No install, any devices
+-   Realtime & GUI
 
-:::: {.columns}
+::: columns
 ::: {.column width="50%"}
-**[openstat.ai](https://openstat.ai/): free**
+[**openstat.ai**](https://openstat.ai/)**: free**
 
-![](example-meta.png){}
-
-
-
+![](example-meta.png)
 :::
+
 ::: {.column width="50%"}
 **Customized: paid**
 
-![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7){}
-
+![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7)
+:::
 :::
 
-::::
-
-::: {.notes}
-So, We developed real-time web application that researchers can use easily. 
-First, We have released openstat dot A.I., a free web site, containing analyzes commonly used in medical research. Researchers do not need to install it on their PCs, but can access it from any device including PC, mobile and tablet. Researchers can directly upload their data, and analyze it with a click rather than coding, and download the report right away. Customized web application for specific researches are provided with paid service. 
+::: notes
+So, We developed real-time web application that researchers can use easily. First, We have released openstat dot A.I., a free web site, containing analyzes commonly used in medical research. Researchers do not need to install it on their PCs, but can access it from any device including PC, mobile and tablet. Researchers can directly upload their data, and analyze it with a click rather than coding, and download the report right away. Customized web application for specific researches are provided with paid service.
 :::
-
-
 
 ## 2. Open-source package
 
--  Analysis module: cover 90% of medical research 
--  Open-source: you can see all our source code
+-   Analysis module: cover 90% of medical research
+-   Open-source: you can see all our source code
 
-<center>
-<a href="https://github.com/zarathucorp/"><img src="github.png" width=60%></a>
-</center>
+<center><a href="https://github.com/zarathucorp/"><img src="github.png" width="60%"/></a></center>
 
-::: {.notes}
+::: notes
 We have modulized more than 90% of analytical methods of medical researches. And all analytical modules are released as open source softwares. Anyone can reuse our codes. Figures below are open source softwares we developed with R, a programing language in field of data science
 :::
-
 
 ## Open-source R&D
 
 **Cloud based open-source statistical software development**
 
--  Ministry of Science and ICT($800,000)
--  **Fast, Easy-to-use, and for all people**
+-   Ministry of Science and ICT(\$800,000)
+-   **Fast, Easy-to-use, and for all people**
 
-<center>
-<a href="https://github.com/statgarten/"><img src="statgarten.png" width=50%></a>
-</center>
+<center><a href="https://github.com/statgarten/"><img src="statgarten.png" width="50%"/></a></center>
 
-::: {.notes}
-We were selected for open source SW start-up and open source software R&D hosted by Ministry of Science and ICT, based on our contribution to open source and community. 
-The topic of R and D is to develop Cloud based open-source statistical software for general public, not doctors. As you see the figure below, we are developing it under the project name of “statgarten”.
+::: notes
+We were selected for open source SW start-up and open source software R&D hosted by Ministry of Science and ICT, based on our contribution to open source and community. The topic of R and D is to develop Cloud based open-source statistical software for general public, not doctors. As you see the figure below, we are developing it under the project name of “statgarten”.
 :::
-
 
 ## Achievements
 
--  Support >300 SCI papers.
--  Venture business certificate
--  100,000 Download: open-source package
+-   Support \>300 SCI papers.
+-   Venture business certificate
+-   100,000 Download: open-source package
 
-<center><img src="paper.png" width = 60%></center>
+<center><img src="paper.png" width="60%"/></center>
 
-::: {.notes}
-Now, I will introduce other achievement. Since establishing the company, we have supported data analysis  more than three hundred SCI papers including the Lancet, the world’s most prestigious journal, and our open source statistical package  recorded more than one hundred thousand downloads. 
-Based on this, we get venture business certificate and various start-up support programs. 
+::: notes
+Now, I will introduce other achievement. Since establishing the company, we have supported data analysis more than three hundred SCI papers including the Lancet, the world’s most prestigious journal, and our open source statistical package recorded more than one hundred thousand downloads. Based on this, we get venture business certificate and various start-up support programs.
 :::
 
 ## Team
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="40%"}
-
 ![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe8629c40-8e65-409a-99ff-5c4a650edd1b%2FUntitled.png&blockId=c0dda860-ad50-450c-8f32-caf37c6db53f)
 :::
 
 ::: {.column width="60%"}
 **Jinseob Kim**, Founder
 
--  Mathematical Olympiad
--  Medical Doctor
--  Master of Public Health
--  SW engineer, Samsung electronics
-
-
+-   Mathematical Olympiad
+-   Medical Doctor
+-   Master of Public Health
+-   SW engineer, Samsung electronics
 :::
 
-With 7 members 
+With 7 members
 
--  4 medicine/statistics, 2 developer, 1 persian
-::::
-
-
-::: {.notes}
-I will introduce my team now. I am a doctor majored public health. I founded Zarathu 4 years ago  based on my experience at Mathematical Olympiad, Graduate School of Public Health and Health Service Group of Samsung Electronics of dealing with various health data. There are seven team members currently and their average age is twenty five, including 4 who majored medicine/statistics, 2 developers and 1 who majored Persian. 
+-   4 medicine/statistics, 2 developer, 1 persian
 :::
 
+::: notes
+I will introduce my team now. I am a doctor majored public health. I founded Zarathu 4 years ago based on my experience at Mathematical Olympiad, Graduate School of Public Health and Health Service Group of Samsung Electronics of dealing with various health data. There are seven team members currently and their average age is twenty five, including 4 who majored medicine/statistics, 2 developers and 1 who majored Persian.
+:::
 
+## Plan
 
-## Plan 
-
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 **Now: medical research**
 
--  No.1 data analysis
--  Global service
--  Open-source contribution
-
-
+-   No.1 data analysis
+-   Global service
+-   Open-source contribution
 :::
 
 ::: {.column width="50%"}
 **Future: new drug**
 
--  Clinical trial data analysis
--  With global pharma, CRO, big tech
--  DTx/DCT specific service
-
-
+-   Clinical trial data analysis
+-   With global pharma, CRO, big tech
+-   DTx/DCT specific service
+:::
 :::
 
-::::
-
-::: {.notes}
-I will tell you about our future plan. Our current goal is to become the No. 1 data analysis company in the field of medical research. I think we are already No. 1. 
+::: notes
+I will tell you about our future plan. Our current goal is to become the No. 1 data analysis company in the field of medical research. I think we are already No. 1.
 
 Based on a strong network with Korean researchers, we are actively supporting global collaborative research. In addition, We will continuously contribute to the open source ecosystem and related communities.
 
-We currently support analytics for medical research., but we plan to support analysis for clinical trials in the future.  We have signed our first contract with domestic pharma company recently. Especially, We will provide  service specialized especially for Digital Therapeutics(DTx) and decentralized clinical trial(DCT). 
+We currently support analytics for medical research., but we plan to support analysis for clinical trials in the future. We have signed our first contract with domestic pharma company recently. Especially, We will provide service specialized especially for Digital Therapeutics(DTx) and decentralized clinical trial(DCT).
 :::
 
 ## Vision
-:::: {.columns}
 
+::: columns
 ::: {.column width="50%"}
 **Save the world**
 
--  Supporting doctors
--  Make new knowledge
--  Save life
--  Save the world
--  Save the universe(?)
-
+-   Supporting doctors
+-   Make new knowledge
+-   Save life
+-   Save the world
+-   Save the universe(?)
 :::
 
 ::: {.column width="50%"}
 **Produce rising stars**
 
--  New job: research supporter
--  Medicine + data analysis + IT
--  Full remote, global recruit
+-   New job: research supporter
+-   Medicine + data analysis + IT
+-   Full remote, global recruit
 
-![](
-https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af54-08c87b335298/dcniwyk-227f5054-927e-4d46-90d2-5e251f63de8c.png/v1/fill/w_934,h_856,strp/_produce_101__logo___png_by_tsukinofleur_dcniwyk-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MyIsInBhdGgiOiJcL2ZcL2QwODJhNTM3LTlhNDUtNDUxMi1hZjU0LTA4Yzg3YjMzNTI5OFwvZGNuaXd5ay0yMjdmNTA1NC05MjdlLTRkNDYtOTBkMi01ZTI1MWY2M2RlOGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RiQt71nDAAqXO4lU3Bb976adEZqm2oQfEQdQ5oCnf8s){width=50%}
+![](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d082a537-9a45-4512-af54-08c87b335298/dcniwyk-227f5054-927e-4d46-90d2-5e251f63de8c.png/v1/fill/w_934,h_856,strp/_produce_101__logo___png_by_tsukinofleur_dcniwyk-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MyIsInBhdGgiOiJcL2ZcL2QwODJhNTM3LTlhNDUtNDUxMi1hZjU0LTA4Yzg3YjMzNTI5OFwvZGNuaXd5ay0yMjdmNTA1NC05MjdlLTRkNDYtOTBkMi01ZTI1MWY2M2RlOGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RiQt71nDAAqXO4lU3Bb976adEZqm2oQfEQdQ5oCnf8s){width="50%"}
+:::
 :::
 
-::::
-
-::: {.notes}
-Zarathu thinks ‘Save the World’ and ‘Produce rising star’ as our core value. 
-We start by saving the world by helping medical researchers to make new medical knowledge, and finally we support our next generations to save the universe. 
-The most important thing for us is to produce our data scientists as global stars. We will create new job called ‘research support specialist’ and make this job  more popular than doctor and lawyer.  
+::: notes
+Zarathu thinks ‘Save the World’ and ‘Produce rising star’ as our core value. We start by saving the world by helping medical researchers to make new medical knowledge, and finally we support our next generations to save the universe. The most important thing for us is to produce our data scientists as global stars. We will create new job called ‘research support specialist’ and make this job more popular than doctor and lawyer.
 :::
 
 ## Collaborate
 
-
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 **Medical data, research**
 
--  Data standardization
--  **openstat.ai** global service
--  Analytic service
-
-
+-   Data standardization
+-   **openstat.ai** global service
+-   Analytic service
 :::
 
 ::: {.column width="50%"}
 **Produce data scientist**
 
--  Education
--  Internship
--  Recruitment
+-   Education
+-   Internship
+-   Recruitment
+:::
 :::
 
-::::
-
-::: {.notes}
-I want to suggest one thing to everyone here. 
-Zarathu can help your country to make a better use of medical data. We can help to standardize the data for global collaborative research, and to use  Openstat.ai service specific to your country. We will also support analytical service. We will not end just providing service, but we will produce young data scientists in your country . We will constantly do education and internship program and support to recruit them in Korea.  
+::: notes
+I want to suggest one thing to everyone here. Zarathu can help your country to make a better use of medical data. We can help to standardize the data for global collaborative research, and to use Openstat.ai service specific to your country. We will also support analytical service. We will not end just providing service, but we will produce young data scientists in your country . We will constantly do education and internship program and support to recruit them in Korea.
 :::
 
 # Thank you for your time
 
-::: {.notes}
+::: notes
 If anyone has questions I’ll be happy to answer them.
-
 :::
-
