@@ -63,3 +63,7 @@ Lecture: general topic
 
 * [TokyoR 112회 밋업](https://tokyor.connpass.com/event/312792/): [韓国の医学研究Rデータ分析紹介
 ](https://jinseob2kim.github.io/lecture-general/TokyoR/112)
+
+
+* [2024 오픈소스 페스티벌](https://tokyor.connpass.com/event/312792/): [의학연구를 위한 오픈소스 R 통계패키지
+](https://jinseob2kim.github.io/lecture-general/osfestival)

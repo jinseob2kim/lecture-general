@@ -1,0 +1,117 @@
+---
+title: "의학연구를 위한 오픈소스 R 통계패키지"
+author: "김진섭"
+date: "2024-12-06"
+format:
+  revealjs: 
+    theme: default
+    logo: zarathu_eng.png
+    footer: "github.com/jinseob2kim"
+    self-contained: false
+    chalkboard: 
+      buttons: false
+    preview-links: true
+    show-notes: false
+    slide-number: false
+    width: 1600
+    height: 900
+editor: visual
+subtitle: "차라투(주)"
+---
+
+## 자기소개
+
+회사: 차라투 주식회사(Zarathu Co.,Ltd)
+
+-   R 활용 의학연구지원
+-   R 패키지 개발 및 교육
+
+경력
+
+-   의학사, 성균관대학교 (\~2009)
+-   예방의학전문의/박사수료,서울대보건대학원 (\~2013)
+-   책임, 삼성전자 DMC연구소/무선사업부 (\~2016)
+-   대표, 차라투 (2018\~)
+
+**jinseob2kim\@gmail.com, github.com/jinseob2kim**
+
+
+## R package for medical research
+
+CRAN(총 17만회 다운로드)
+
+-   [jskm](https://github.com/jinseob2kim/jskm): 생존분석 그림
+-   [jstable](https://github.com/jinseob2kim/jskm): 분석결과를 보고서/논문용 테이블로 
+-   [jsmodule](https://github.com/jinseob2kim/jskm): Shiny module & 로컬에서 실행하는 분석웹
+
+<center><a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"/></a></center>
+
+
+
+## Shiny application
+
+-   ウェブで統計分析を実行した後、その結果を論文用テーブルと図でダウンロード
+-   無料統計ウェブ openstat.ai
+
+::: columns
+::: {.column width="50%"}
+[**openstat.ai**](https://openstat.ai/)**: free**
+
+![](example-meta.png)
+:::
+
+::: {.column width="50%"}
+**ユーザーに合わせた分析ウェブは有料**
+
+![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7)
+:::
+:::
+
+::: notes
+私（わたくし）はShinyを用（もち）いて分析（ぶんせき）ウェブサービスを提供（ていきょう）しており、無料（むりょう）のウェブサービスでは研究者（けんきゅうしゃ）が自分（じぶん）のデータを直接（ちょくせつ）アップロードした後（あと）、医学研究（いがくけんきゅう）でよく利用（りよう）される分析（ぶんせき）を行（おこな）うことができます。研究者（けんきゅうしゃ）に特化（とっか）した分析（ぶんせき）ウェブは有料（ゆうりょう）でサービスしています。
+:::
+
+
+
+## R package: Shiny -\> exe
+
+インターネットが遮断された病院のために - [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
+
+<center><a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"/></a></center>
+
+::: notes
+インターネット接続（せつぞく）ができない病院（びょういん）のために、Shinyアプリをexeファイルに変換（へんかん）するパッケージを開発（かいはつ）し、CRANに公開（こうかい）しました。詳細（しょうさい）はRbloggerに公開（こうかい）しています。
+:::
+
+## 韓国Rコミュニティ: Shinykorea
+
+::: columns
+::: {.column width="50%"}
+-   定期的なミートアップ
+
+![](スクリーンショット%202024-04-17%20午後3.02.34.png)
+:::
+
+::: {.column width="50%"}
+-   コロナダッシュボード共同開発 ![](https://shinykorea.github.io/corona-activityrecord/d1.png)
+:::
+:::
+
+::: notes
+韓国（かんこく）では「Shinykorea」というRコミュニティのミートアップを定期的（ていきてき）に開催（かいさい）しており、私（わたくし）がリーダーを務（つと）めています。コロナの際（さい）には、ダッシュボードの開発（かいはつ）も一緒（いっしょ）に行（おこな）いました。
+:::
+
+## With TokyoR
+
+-   次のメートアップには必ず現場で参加し、ぜひ皆様と交流したいと思います。
+-   Shinykoreaと共同カンファレンスができればと思います。
+
+::: notes
+次回（じかい）のミートアップにはぜひ現地（げんち）で参加（さんか）し、皆（みな）様（さま）と交流（こうりゅう）したいと思（おも）っています。将来的（しょうらいてき）にはShinykoreaと共同（きょうどう）カンファレンスを開催（かいさい）できればと考（かんが）えています。
+:::
+
+# ご清聴、ありがとうございました。
+
+::: notes
+ご清聴（せいちょう）ありがとうございました。
+:::
