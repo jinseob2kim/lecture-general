@@ -23,18 +23,17 @@ subtitle: "Zarathu Co.,Ltd(ツァラトゥ株式会社)"
 
 代表: Zarathu Co.,Ltd
 
-- R活用した医学研究支援
-- Rパッケージ開発, 教育
+-   R活用した医学研究支援
+-   Rパッケージ開発, 教育
 
 キャリア
 
-- Medical Doctor, 成均館(ソンギュングァン)大学, 韓国 (~2009)
-- 予防医学専門医、ソウル大学保健大学院 (~2013)
-- エンジニア、サムスン電子無線事業部ヘルスサービスグループ (~2016)
-- 創業, Zarathu Co.,Ltd (2018~)
+-   Medical Doctor, 成均館(ソンギュングァン)大学, 韓国 (\~2009)
+-   予防医学専門医、ソウル大学保健大学院 (\~2013)
+-   エンジニア、サムスン電子無線事業部ヘルスサービスグループ (\~2016)
+-   創業, Zarathu Co.,Ltd (2018\~)
 
-**jinseob2kim@gmail.com, github.com/jinseob2kim**
-
+**jinseob2kim\@gmail.com, github.com/jinseob2kim**
 
 ::: notes
 こんにちは。私（わたくし）はキム・ジンソプと申（もう）します。本日（ほんじつ）は韓国（かんこく）の医学研究（いがくけんきゅう）分析（ぶんせき）を紹介（しょうかい）させていただきます。
@@ -48,10 +47,8 @@ subtitle: "Zarathu Co.,Ltd(ツァラトゥ株式会社)"
 
 ## Shiny application
 
-- ウェブで統計分析を実行した後、その結果を論文用テーブルと図でダウンロード
-- 無料統計ウェブ openstat.ai
-
-
+-   ウェブで統計分析を実行した後、その結果を論文用テーブルと図でダウンロード
+-   無料統計ウェブ openstat.ai
 
 ::: columns
 ::: {.column width="50%"}
@@ -75,10 +72,9 @@ subtitle: "Zarathu Co.,Ltd(ツァラトゥ株式会社)"
 
 CRAN(計15万回ダウンロード)
 
-- [jskm](https://github.com/jinseob2kim/jskm): 生存分析 kaplan-meier plot
-- [jstable](https://github.com/jinseob2kim/jskm): 回帰分析 テーブル作り
-- [jsmodule](https://github.com/jinseob2kim/jskm): Shiny module & ローカルコンピュータでopenstat.aiを実行
-
+-   [jskm](https://github.com/jinseob2kim/jskm): 生存分析 kaplan-meier plot
+-   [jstable](https://github.com/jinseob2kim/jskm): 回帰分析 テーブル作り
+-   [jsmodule](https://github.com/jinseob2kim/jskm): Shiny module & ローカルコンピュータでopenstat.aiを実行
 
 <center><a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"/></a></center>
 
@@ -86,13 +82,11 @@ CRAN(計15万回ダウンロード)
 分析（ぶんせき）ウェブの機能（きのう）はすべてRパッケージで開発（かいはつ）され、CRANに公開（こうかい）されています。これには、Kaplan-Meier生存（せいぞん）分析（ぶんせき）用（よう）のjskm、回帰分析（かいきぶんせき）結果（けっか）を表現（ひょうげん）するjstable、そしてShiny moduleを含（ふく）むjsmoduleがあります。
 :::
 
-## R package: Shiny -> exe
+## R package: Shiny -\> exe
 
-インターネットが遮断された病院のために
-- [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
+インターネットが遮断された病院のために - [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
 
 <center><a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"/></a></center>
-
 
 ::: notes
 インターネット接続（せつぞく）ができない病院（びょういん）のために、Shinyアプリをexeファイルに変換（へんかん）するパッケージを開発（かいはつ）し、CRANに公開（こうかい）しました。詳細（しょうさい）はRbloggerに公開（こうかい）しています。
@@ -102,37 +96,30 @@ CRAN(計15万回ダウンロード)
 
 ::: columns
 ::: {.column width="50%"}
-- 定期的なミートアップ
+-   定期的なミートアップ
 
-![](スクリーンショット 2024-04-17 午後3.02.34.png)
+![](スクリーンショット%202024-04-17%20午後3.02.34.png)
 :::
 
 ::: {.column width="50%"}
-- コロナダッシュボード共同開発
-![](https://shinykorea.github.io/corona-activityrecord/d1.png)
+-   コロナダッシュボード共同開発 ![](https://shinykorea.github.io/corona-activityrecord/d1.png)
 :::
 :::
-
 
 ::: notes
 韓国（かんこく）では「Shinykorea」というRコミュニティのミートアップを定期的（ていきてき）に開催（かいさい）しており、私（わたくし）がリーダーを務（つと）めています。コロナの際（さい）には、ダッシュボードの開発（かいはつ）も一緒（いっしょ）に行（おこな）いました。
 :::
 
-
-
 ## With TokyoR
 
-- 次のメートアップには必ず現場で参加し、ぜひ皆様と交流したいと思います。
-- Shinykoreaと共同カンファレンスができればと思います。
+-   次のメートアップには必ず現場で参加し、ぜひ皆様と交流したいと思います。
+-   Shinykoreaと共同カンファレンスができればと思います。
 
-
-:::notes
+::: notes
 次回（じかい）のミートアップにはぜひ現地（げんち）で参加（さんか）し、皆（みな）様（さま）と交流（こうりゅう）したいと思（おも）っています。将来的（しょうらいてき）にはShinykoreaと共同（きょうどう）カンファレンスを開催（かいさい）できればと考（かんが）えています。
 :::
 
-
 # ご清聴、ありがとうございました。
-
 
 ::: notes
 ご清聴（せいちょう）ありがとうございました。

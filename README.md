@@ -67,3 +67,7 @@ Lecture: general topic
 
 * [2024 오픈소스 페스티벌](https://tokyor.connpass.com/event/312792/): [의학연구를 위한 오픈소스 R 통계패키지
 ](https://jinseob2kim.github.io/lecture-general/osfestival)
+
+
+* [2024 Japan.R](https://japanr.connpass.com/event/334154/?utm_campaign=event_participate_to_follower&utm_source=notifications&utm_medium=twitter): [韓国の医学研究Rデータ分析紹介
+](https://jinseob2kim.github.io/lecture-general/japanR2024)

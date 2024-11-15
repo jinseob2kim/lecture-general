@@ -1,0 +1,304 @@
+---
+title: "医学研究のためのオープンソースR統計パッケージ"
+author: "金珍燮（キム·ジンソプ)"
+date: "2024-12-07"
+format:
+  revealjs: 
+    theme: default
+    logo: zarathu_eng.png
+    footer: "github.com/jinseob2kim"
+    self-contained: false
+    chalkboard: 
+      buttons: false
+    preview-links: true
+    show-notes: false
+    slide-number: false
+    width: 1600
+    height: 900
+editor: visual
+subtitle: "Zarathu Co., Ltd"
+---
+
+## 自己紹介
+
+会社: ツァラトゥ株式会社(Zarathu Co.,Ltd)
+
+-   R活用した医学研究支援
+-   Rパッケージ開発, 教育
+
+キャリア
+
+-   Medical Doctor, 成均館(ソンギュングァン)大学, 韓国 (\~2009)
+-   予防医学専門医、ソウル大学保健大学院 (\~2013)
+-   エンジニア、サムスン電子無線事業部ヘルスサービスグループ (\~2016)
+-   創業, Zarathu Co.,Ltd (2018\~)
+
+**jinseob2kim\@gmail.com, github.com/jinseob2kim**
+
+::: notes
+こんにちは。私（わたくし）はキム・ジンソプと申（もう）します。本日（ほんじつ）は韓国（かんこく）の医学研究（いがくけんきゅう）分析（ぶんせき）を紹介（しょうかい）させていただきます。
+
+時間（じかん）が限（かぎ）られているため、簡潔（かんけつ）に自己（じこ）紹介（しょうかい）と私（わたくし）が開発（かいはつ）したRパッケージ、そして韓国（かんこく）のRコミュニティ「シャイニーコリア」についてお話（はなし）しします。今後（こんご）も皆（みな）さんとの交流（こうりゅう）を持続的（じぞくてき）に行（おこな）いたいと思（おも）っており、次回（じかい）のミートアップでは必（かなら）ず日本（にほん）を訪（おとず）れ、参加（さんか）したいと考（かんが）えています。
+
+私（わたくし）は韓国（かんこく）で「ツァラトゥ」という医学研究（いがくけんきゅう）支援（しえん）会社（かいしゃ）を創業（そうぎょう）し、6年間（ろくねんかん）運営（うんえい）しております。この会社（かいしゃ）は、研究者（けんきゅうしゃ）と製薬（せいやく）会社（かいしゃ）に分析（ぶんせき）サービスを提供（ていきょう）しています。私たちの分析（ぶんせき）機能（きのう）はRパッケージとしてCRANに公開（こうかい）されており、継続的（けいぞくてき）に更新（こうしん）しています。日本（にほん）のユーザーのブログでも度々（たびたび）紹介（しょうかい）されています。
+
+私（わたくし）は韓国（かんこく）の医科大学（いかだいがく）を卒業（そつぎょう）後（ご）、保健（ほけん）大学院（だいがくいん）で予防医学（よぼういがく）を専攻（せんこう）し、その後（そのご）サムスン電子（でんし）の無線（むせん）事業部（じぎょうぶ）ヘルスサービスグループで勤務（きんむ）しました。
+:::
+
+
+## 医学研究のためのスR統計パッケージ
+
+CRAN(計17万回ダウンロード)
+
+-   [jskm](https://github.com/jinseob2kim/jskm): 生存分析 kaplan-meier plot
+-   [jstable](https://github.com/jinseob2kim/jskm): 分析結果（記述統計、回帰、サブグループ分析）テーブル生成
+-   [jsmodule](https://github.com/jinseob2kim/jskm): Shiny module & ローカルコンピュータでopenstat.aiを実行
+
+<center><a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"/></a></center>
+
+## 
+
+<center><a href="https://github.com/jinseob2kim/jskm"><img src="jskm.png" width="100%"/></a></center>
+
+::: columns
+::: {.column width="50%"}
+![](https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-1-2.png)
+:::
+
+::: {.column width="50%"}
+![](https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-3-1.png)
+:::
+:::
+
+## 日本ブログレビュー
+
+::: columns
+::: {.column width="50%"}
+![](jskm_japan.png)
+:::
+
+::: {.column width="50%"}
+![](jskm_japan2.png)
+:::
+:::
+
+## 
+
+<center><a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"/></a></center>
+
+::: columns
+::: {.column width="50%"}
+``` r
+## Gaussian
+glm_gaussian <- glm(mpg~cyl + disp, data = mtcars)
+glmshow.display(glm_gaussian, decimal = 2)
+```
+
+``` r
+$first.line
+[1] "Linear regression predicting mpg\n"
+
+$table
+     crude coeff.(95%CI)   crude P value adj. coeff.(95%CI)    adj. P value
+cyl  "-2.88 (-3.51,-2.24)" "< 0.001"     "-1.59 (-2.98,-0.19)" "0.034"
+disp "-0.04 (-0.05,-0.03)" "< 0.001"     "-0.02 (-0.04,0)"     "0.054"
+
+$last.lines
+[1] "No. of observations = 32\nR-squared = 0.7596\nAIC value = 167.1456\n\n"
+```
+:::
+
+::: {.column width="50%"}
+``` r
+## Binomial
+glm_binomial <- glm(vs~cyl + disp, data = mtcars, family = binomial)
+glmshow.display(glm_binomial, decimal = 2)
+```
+
+``` r
+$first.line
+[1] "Logistic regression predicting vs\n"
+ 
+$table
+     crude OR.(95%CI)   crude P value adj. OR.(95%CI)    adj. P value
+cyl  "0.2 (0.08,0.56)"  "0.002"       "0.15 (0.02,1.02)" "0.053"     
+disp "0.98 (0.97,0.99)" "0.002"       "1 (0.98,1.03)"    "0.715"     
+
+$last.lines
+[1] "No. of observations = 32\nAIC value = 23.8304\n\n"
+```
+:::
+:::
+
+## 中国での映像やブログレビュー
+
+::: columns
+::: {.column width="50%"}
+![](jstable_ch.png)
+:::
+
+::: {.column width="50%"}
+![](jstable_ch2.png)
+:::
+:::
+
+## 
+
+<center><a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"/></a></center>
+
+::: columns
+::: {.column width="50%"}
+![](https://github.com/jinseob2kim/jsmodule/blob/master/vignettes/figures/ps.png?raw=true)
+:::
+
+::: {.column width="50%"}
+1~2行のコードだけで分析ウェブを作れるよう、各分析機能をモジュールとして開発
+
+![](jsmodule2.png)
+:::
+:::
+
+## 
+
+![](jsmodule3.png)
+
+## 無料統計ウェブ
+
+-  よく利用される分析機能を無料で分析できるopenstat.ai 公開
+-  jskm/jstable/jsmoduleの分析モジュールを適用
+
+::: columns
+::: {.column width="50%"}
+[**openstat.ai**](https://openstat.ai/)**: free**
+
+![](example-meta.png)
+:::
+
+::: {.column width="50%"}
+**研究に合わせた分析ウェブは有料サービス**
+
+![](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7)
+:::
+:::
+
+## 国家R&D選定
+
+3件の国家R&D支援事業を通じて技術開発および医学研究用の高度化を遂行
+
+\`22 科学技術情報通信部「公開SW基盤のクラウド統計パッケージSW開発」(2年1億円)
+
+-   統計非専攻者及び一般向け
+
+\`23 情報通信産業振興院公開SW技術拡散支援事業(7ヶ月2000万円)
+
+-   医学研究用
+
+\`23 中小ベンチャー部 (1200万円)
+
+-  医学研究用&臨床試験
+
+## 著作権登録
+
+<center><img src="jj.png" width="50%"/></a></center>
+
+## オープンソース管理
+
+::: columns
+::: {.column width="50%"}
+https://statgarten-issue.streamlit.app/
+
+![](metric.png)
+:::
+
+::: {.column width="50%"}
+Github action
+
+- テスト、ホームページアップデート、ライセンス同意、コードstyle
+
+![](ga.png)
+:::
+:::
+
+## オープンソースライセンス検証
+
+<center><img src="license.png" width="80%"/></a></center>
+
+## R package: Shiny -\> exe
+
+R必要なくexeファイルにしてローカル環境で実行 - [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
+
+<center><a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"/></a></center>
+
+## Rコミュニティ: Shinykorea
+
+::: columns
+::: {.column width="50%"}
+-   定期的ミートアップ
+
+![](スクリーンショット%202024-04-17%20午後3.02.34.png)
+:::
+
+::: {.column width="50%"}
+-   コロナダッシュボード共同開発 ![](https://shinykorea.github.io/corona-activityrecord/d1.png)
+:::
+:::
+
+## オープンソースの寄与:インターンシップ
+
+::: columns
+::: {.column width="50%"}
+- 定期的に選抜
+
+
+![](intern.png)
+:::
+
+::: {.column width="50%"}
+-   インターンのオープンソースパッケージ開発参加
+
+![](internr.png)
+:::
+:::
+
+## 教育
+
+成均館大学校バイオヘルス規制科学科兼任教授講義
+
+-   https://github.com/jinseob2kim/r-skku-biohrs
+
+-   R活用医療データ分析、講義録と講義映像を全て公開
+
+<center><a href="https://github.com/jinseob2kim/r-skku-biohrs"><img src="biohrs.png" width="60%"/></a></center>
+
+## With TokyoR
+
+-   TokyoRミートアップ発表
+
+<center>
+
+> <img src="tokyor.png" width="80%"/></a>
+>
+> </center>
+
+## 要約
+
+- 医学研究用Rパッケージの開発、日本/中国で活用
+
+- 国家R&D選定
+
+- 最新オープンソース管理技術
+
+- ライセンス検証
+
+- オープンソースの活性化: コミュニティ、インターンシップ、教育
+
+- 日本Rコミュニティ参加
+
+
+# ご清聴、ありがとうございました。
+
+
+::: notes
+ご清聴（せいちょう）ありがとうございました。
+:::
+
