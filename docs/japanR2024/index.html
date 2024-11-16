@@ -423,7 +423,7 @@
 </ul>
 <p><strong>jinseob2kim@gmail.com, github.com/jinseob2kim</strong></p>
 <aside class="notes">
-<p>こんにちは。私（わたくし）はキム・ジンソプと申（もう）します。本日（ほんじつ）は韓国（かんこく）の医学研究（いがくけんきゅう）分析（ぶんせき）を紹介（しょうかい）させていただきます。</p>
+<p>こんにちは。私（わたくし）はキム・ジンソプと申（もう）します。本日（ほんじつ）は韓国（かんこく）の医学研究（いがくけんきゅうのためのオープンソースR統計(とうけい)パッケージ。</p>
 <p>時間（じかん）が限（かぎ）られているため、簡潔（かんけつ）に自己（じこ）紹介（しょうかい）と私（わたくし）が開発（かいはつ）したRパッケージ、そして韓国（かんこく）のRコミュニティ「シャイニーコリア」についてお話（はなし）しします。今後（こんご）も皆（みな）さんとの交流（こうりゅう）を持続的（じぞくてき）に行（おこな）いたいと思（おも）っており、次回（じかい）のミートアップでは必（かなら）ず日本（にほん）を訪（おとず）れ、参加（さんか）したいと考（かんが）えています。</p>
 <p>私（わたくし）は韓国（かんこく）で「ツァラトゥ」という医学研究（いがくけんきゅう）支援（しえん）会社（かいしゃ）を創業（そうぎょう）し、6年間（ろくねんかん）運営（うんえい）しております。この会社（かいしゃ）は、研究者（けんきゅうしゃ）と製薬（せいやく）会社（かいしゃ）に分析（ぶんせき）サービスを提供（ていきょう）しています。私たちの分析（ぶんせき）機能（きのう）はRパッケージとしてCRANに公開（こうかい）されており、継続的（けいぞくてき）に更新（こうしん）しています。日本（にほん）のユーザーのブログでも度々（たびたび）紹介（しょうかい）されています。</p>
 <p>私（わたくし）は韓国（かんこく）の医科大学（いかだいがく）を卒業（そつぎょう）後（ご）、保健（ほけん）大学院（だいがくいん）で予防医学（よぼういがく）を専攻（せんこう）し、その後（そのご）サムスン電子（でんし）の無線（むせん）事業部（じぎょうぶ）ヘルスサービスグループで勤務（きんむ）しました。</p>
@@ -450,6 +450,21 @@
 <center>
 <a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"></a>
 </center>
+<aside class="notes">
+<p>今回ご紹介するRパッケージは3つで、CRANから合計17万回ダウンロードされました。 콘카이 고쇼오카이스루 아아루팟케에지와 밋츠데, 크란 카라 고오케에 주우나나만카이 다운로오도사레마시타</p>
+<p>第一に、生存分析のKaplan-meier絵を描くjskm、第二に、多様な回帰分析結果を論文用テーブルに作るjstable、最後に各分析機能をShiny moduleにして、これを集めてローカルで実行可能な分析ウェブを提供するjsmoduleです。 다이이치니, 세에존분세키노 카푸란마이아아에오 에가쿠 jskm, 다이 니니 타요오나 카이키분세키켓카오 론분요오테에부루니 츠쿠루 jstable, 사이고니 카쿠분세키키노오오 샤이니이 모주우루니 시테 코레오 아츠메테 로오카루데 짓코오 카노오나 분세키웨부오 테에쿄오스루 jsmodule 데스</p>
+<p>以下のスクリーンショットは、3 パッケージのクランの累積ダウンロード数です。 이카노 스쿠리이쇼쯔토와 산 팟케에지노 쿠란노 루이세키다운로오도스우데스</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -462,6 +477,19 @@
 </div><div class="column" style="width:50%;">
 <p><img data-src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-3-1.png"></p>
 </div></div>
+<aside class="notes">
+<p>まず、JSKMをご紹介します。 このパッケージは医学研究で多く利用されるKapan-meierの絵のために作られ、Landmark分析、Competing risk分析、そしてアメリカ国民健康栄養調査のようなSurvey dataを支援することが最大の特徴です。 마즈 제에에스케에에무오 고쇼오카이시마스 코노 팟케에지와 이가쿠켄큐우데 오오쿠 리요오사레루 카판마이아아노 에노 타메니 츠쿠라레 란도마아쿠분세키 콘피티구 리스쿠분세키 소시테 아메리카 코쿠민켄코오에에요오초오사노요오나 사아베이 데에타오 시엔스루 코토가 사이다이노 토쿠초오데스</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="日本ブログレビュー" class="slide level2">
 <h2>日本ブログレビュー</h2>
@@ -471,13 +499,29 @@
 </div><div class="column" style="width:50%;">
 <p><img data-src="jskm_japan2.png"></p>
 </div></div>
-<p>Landmark, Competing risk analysis support</p>
+<p>Survey data, Landmark, Competing risk analysis support</p>
+<aside class="notes">
+<p>特に日本の研究者の方がランドマーク分析機能をたくさん利用してくださって、ブログレビューがたくさんあります。 토쿠니 니혼노 켄큐우샤노 호오가 란도마아쿠분세키키노오오 타쿠산 리요오시테쿠다삿테 부로구레뷰우가 타쿠산 아리마스</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <center>
 <a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"></a>
 </center>
+<ul>
+<li>GLM, Cox, Linear mixed model, GEE, Survey glm, survey cox</li>
+</ul>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="do">## Gaussian</span></span>
@@ -508,6 +552,19 @@
 <span id="cb4-9"><a href=""></a><span class="sc">$</span>last.lines</span>
 <span id="cb4-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">AIC value = 23.8304</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
+<aside class="notes">
+<p>特に日本の研究者の方がランドマーク分析機能をたくさん利用してくださって、ブログレビューがたくさんあります。 토쿠니 니혼노 켄큐우샤노 호오가 란도마아쿠분세키키노오오 타쿠산 리요오시테쿠다삿테 부로구레뷰우가 타쿠산 아리마스</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="subgroup-analysis" class="slide level2">
 <h2>Subgroup analysis</h2>
@@ -560,7 +617,11 @@
 <img data-src="그림1.png" class="r-stretch"></section>
 <section id="論文支援実績" class="slide level2">
 <h2>論文支援実績</h2>
-<p>SCI論文200編以上支援 - 医学分野 トップジャーナル NEJM、LANCET、JAMAを含む</p>
+<p>SCI論文200編以上支援</p>
+<ul>
+<li>医学分野 トップジャーナル NEJM、LANCET、JAMAを含む</li>
+<li>6つの大学病院と年単位研究支援契約、10のバイオ会社の臨床試験分析支援</li>
+</ul>
 
 <img data-src="그림2.png" class="r-stretch"></section>
 <section id="無料統計ウェブ" class="slide level2">
