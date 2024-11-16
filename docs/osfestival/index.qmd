@@ -323,7 +323,7 @@ R없이 exe 파일로 로컬실행 - [executablePackeR](https://github.com/Chang
 
 ::: columns
 ::: {.column width="50%"}
--   정기적 선발발
+-   정기적 선발
 
 ![](intern.png)
 :::
