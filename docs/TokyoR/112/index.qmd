@@ -4,7 +4,13 @@ author: "金珍燮（キム·ジンソプ)"
 date: "2024-04-25"
 format:
   revealjs: 
-    theme: default
+    theme: zarathu_theme.scss
+    title-slide-attributes:
+      data-background-image: bg.png
+      data-background-size: cover
+      data-background-opacity: "0.2"
+    template-partials:
+      - title-slide.html
     logo: zarathu_eng.png
     footer: "github.com/jinseob2kim"
     self-contained: false

@@ -1,0 +1,105 @@
+/*-- scss:functions --*/
+
+
+/*-- scss:defaults --*/
+// https://quarto.org/docs/presentations/revealjs/themes.html
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Serif+KR:wght@200..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+$zarathu_main_color: #2A3D21;
+
+$font-family-sans-serif: "Noto Serif", "Noto Serif KR","Noto Serif JP"  !default;
+$font-family-monospace: "Noto Sans Mono" !default;
+
+
+
+// $font-family-sans-serif	“Source Sans Pro”, Helvetica, sans-serif
+// $font-family-monospace	monospace
+// $presentation-font-size-root	40px
+// $presentation-font-smaller	0.7
+// $presentation-line-height	1.3
+  
+
+
+// colors
+
+$presentation-heading-color: $zarathu_main_color;
+$link-color: lighten($zarathu_main_color, 15%);
+
+// $body-bg	#fff
+// $body-color	#222
+// $text-muted	lighten($body-color, 50%)
+// $link-color	#2a76dd
+// $link-color-hover	lighten($link-color, 15%)
+// $selection-bg	lighten($link-color, 25%)
+// $selection-color	$body-bg
+// $light-bg-text-color	#222
+// $light-bg-link-color	#2a76dd
+// $light-bg-code-color	#4758ab
+// $dark-bg-text-color	#fff
+// $dark-bg-link-color	#42affa
+// $dark-bg-code-color	#ffa07a
+
+
+
+
+// headings
+
+
+$presentation-h2-font-size: 2.0em;
+
+
+// $presentation-h1-font-size	2.5em
+// $presentation-h2-font-size	1.6em
+// $presentation-h3-font-size	1.3em
+// $presentation-h4-font-size	1em
+// $presentation-heading-font	$font-family-sans-serif
+// $presentation-heading-color	$body-color
+// $presentation-heading-line-height	1.2
+// $presentation-heading-letter-spacing	normal
+// $presentation-heading-text-transform	none
+// $presentation-heading-text-shadow	none
+// $presentation-heading-font-weight	600
+// $presentation-h1-text-shadow	none
+
+// code blocks
+
+// $code-block-bg	$body-bg
+// $code-block-border-color	lighten($body-color, 60%)
+// $code-block-font-size	0.55em
+
+// Inline Code
+
+// $code-color	var(–quarto-hl-fu-color)
+// $code-bg	transparent
+
+// Tabsets
+
+// $tabset-border-color	$code-block-border-color
+
+// Layout
+
+// $border-color	lighten($body-color, 30%)
+// $border-width	1px
+// $border-radius	3px
+// $presentation-block-margin	12px
+// $presentation-slide-text-align	left
+// $presentation-title-slide-text-align	center
+
+// Callouts
+
+// $callout-border-width	The left border width of callouts. Defaults to 0.3rem.
+// $callout-border-scale	The border color of callouts computed by shifting the callout color by this amount. Defaults to 0%.
+// $callout-icon-scale	The color of the callout icon computed by shifting the callout color by this amount. Defaults to 10%.
+// $callout-margin-top	The amount of top margin on the callout. Defaults to 1rem.
+// $callout-margin-bottom	The amount of bottom margin on the callout. Defaults to 1rem.
+// $callout-color-<type>
+// note	#0d6efd
+// tip #198754
+// caution #dc3545
+// warning #fd7e14
+// important #ffc107
+
+
+/*-- scss:rules --*/

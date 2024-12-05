@@ -4,7 +4,11 @@ author: "김진섭"
 date: "2024-12-06"
 format:
   revealjs: 
-    theme: default
+    theme: zarathu_theme.scss
+    title-slide-attributes:
+      data-background-image: bg.png
+      data-background-size: cover
+      data-background-opacity: "0.3"
     logo: Zarathu Circle Clipping Mask2.png
     footer: "github.com/jinseob2kim"
     self-contained: false
@@ -35,72 +39,57 @@ subtitle: "차라투(주)"
 
 **jinseob2kim\@gmail.com, github.com/jinseob2kim**
 
-
 ## R package for medical research
 
 CRAN(총 17만회 다운로드)
 
 -   [jskm](https://github.com/jinseob2kim/jskm): 생존분석 그림
--   [jstable](https://github.com/jinseob2kim/jskm): 분석결과를 보고서/논문용 테이블로 
+-   [jstable](https://github.com/jinseob2kim/jskm): 분석결과를 보고서/논문용 테이블로
 -   [jsmodule](https://github.com/jinseob2kim/jskm): Shiny module & 로컬에서 실행하는 분석웹
 
 <center><a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"/></a></center>
-
 
 ## 
 
 <center><a href="https://github.com/jinseob2kim/jskm"><img src="jskm.png" width="100%"/></a></center>
 
-
 ::: columns
 ::: {.column width="50%"}
-
 ![](https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-1-2.png)
 :::
 
 ::: {.column width="50%"}
-
 ![](https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-3-1.png)
 :::
 :::
 
-
-
-
 ## 일본 블로그 리뷰
-
 
 ::: columns
 ::: {.column width="50%"}
-
 ![](jskm_japan.png)
 :::
 
 ::: {.column width="50%"}
-
 ![](jskm_japan2.png)
 :::
 :::
 
-
 Landmark, Competing risk analysis support
-
 
 ## 
 
 <center><a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"/></a></center>
 
-
 ::: columns
 ::: {.column width="50%"}
-
-```r
+``` r
 ## Gaussian
 glm_gaussian <- glm(mpg~cyl + disp, data = mtcars)
 glmshow.display(glm_gaussian, decimal = 2)
 ```
 
-```r
+``` r
 $first.line
 [1] "Linear regression predicting mpg\n"
 
@@ -111,20 +100,17 @@ disp "-0.04 (-0.05,-0.03)" "< 0.001"     "-0.02 (-0.04,0)"     "0.054"
 
 $last.lines
 [1] "No. of observations = 32\nR-squared = 0.7596\nAIC value = 167.1456\n\n"
-
 ```
 :::
 
 ::: {.column width="50%"}
-
-
-```r
+``` r
 ## Binomial
 glm_binomial <- glm(vs~cyl + disp, data = mtcars, family = binomial)
 glmshow.display(glm_binomial, decimal = 2)
 ```
 
-```r
+``` r
 $first.line
 [1] "Logistic regression predicting vs\n"
  
@@ -136,18 +122,16 @@ disp "0.98 (0.97,0.99)" "0.002"       "1 (0.98,1.03)"    "0.715"
 $last.lines
 [1] "No. of observations = 32\nAIC value = 23.8304\n\n"
 ```
-
 :::
 :::
-
 
 ## Subgroup analysis
 
-```r
+``` r
 TableSubgroupMultiGLM(status ~ sex, var_subgroups = c("kk", "kk1"), data = lung, family = "binomial")
 ```
 
-```r
+``` r
     Variable Count Percent           OR Lower Upper P value P for interaction
 sex2  Overall   228     100         3.01  1.65  5.47  <0.001              <NA>
 1          kk  <NA>    <NA>         <NA>  <NA>  <NA>    <NA>             0.476
@@ -158,11 +142,11 @@ sex2  Overall   228     100         3.01  1.65  5.47  <0.001              <NA>
 6           1   217    96.4         2.85  1.55  5.25   0.001              <NA>
 ```
 
-```r
+``` r
 TableSubgroupMultiCox(Surv(time, status) ~ sex, var_subgroups = c("kk", "kk1"), data = lung)
 ```
 
-```r
+``` r
     Variable Count Percent Point Estimate Lower Upper sex=1 sex=2 P value P for interaction
 sex  Overall   228     100           1.91  1.14   3.2   100   100   0.014              <NA>
 1       <NA>  <NA>    <NA>           <NA>  <NA>  <NA>  <NA>  <NA>    <NA>              <NA>
@@ -173,47 +157,37 @@ sex  Overall   228     100           1.91  1.14   3.2   100   100   0.014       
 6        kk1  <NA>    <NA>           <NA>  <NA>  <NA>  <NA>  <NA>    <NA>             0.997
 7          0     8     3.6           <NA>  <NA>  <NA>     0   100    <NA>              <NA>
 8          1   217    96.4           1.88  1.12  3.17   100   100   0.018              <NA>
-
 ```
-
-
 
 ## 중국 영상/블로그 리뷰
 
-
 ::: columns
 ::: {.column width="50%"}
-
 ![](jstable_ch.png)
 :::
 
 ::: {.column width="50%"}
-
 ![](jstable_ch2.png)
 :::
 :::
-
 
 ## 
 
 <center><a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"/></a></center>
 
-
 ::: columns
 ::: {.column width="50%"}
-
 ![](https://github.com/jinseob2kim/jsmodule/blob/master/vignettes/figures/ps.png?raw=true)
 :::
 
 ::: {.column width="50%"}
-
 1-2줄의 코드만으로 분석웹을 만들 수 있도록 각 분석기능을 모듈화
 
 ![](jsmodule2.png)
 :::
 :::
 
-##
+## 
 
 ![](jsmodule3.png)
 
@@ -221,17 +195,15 @@ sex  Overall   228     100           1.91  1.14   3.2   100   100   0.014       
 
 SCI 논문 200편이상 지원
 
-- 의학분야 탑저널 NEJM, LANCET, JAMA 포함 
-- 6개 대학병원과 연단위 연구지원 계약, 10개 바이오회사의 임상시험분석 지원
+-   의학분야 탑저널 NEJM, LANCET, JAMA 포함
+-   6개 대학병원과 연단위 연구지원 계약, 10개 바이오회사의 임상시험분석 지원
 
 ![](그림2.png)
 
+## 무료 통계웹
 
-
-## 무료 통계웹 
-
-- 흔한 분석기능들을 무료로 분석할 수 있는 openstat.ai 런칭
-- jskm/jstable/jsmodule 분석모듈 적용
+-   흔한 분석기능들을 무료로 분석할 수 있는 openstat.ai 런칭
+-   jskm/jstable/jsmodule 분석모듈 적용
 
 ::: columns
 ::: {.column width="50%"}
@@ -251,58 +223,49 @@ SCI 논문 200편이상 지원
 
 IITP, NIPA 공개SW R&D와 창업성장기술개발 디딤돌 통해 기술개발 및 의학연구용 고도화 수행
 
-`22 IITP "공개SW 기반의 클라우드 통계 패키지SW 개발" (2년 10.5억)
+\`22 IITP "공개SW 기반의 클라우드 통계 패키지SW 개발" (2년 10.5억)
 
-- 통계 비전공자 및 일반인용
+-   통계 비전공자 및 일반인용
 
-`23 NIPA 공개SW 기술확산 지원사업 (7개월 2억)
+\`23 NIPA 공개SW 기술확산 지원사업 (7개월 2억)
 
-- 의학연구용
+-   의학연구용
 
-`23 창업성장기술개발 디딤돌 (1.2억)
+\`23 창업성장기술개발 디딤돌 (1.2억)
 
-- 의학연구용 & 임상시험 
+-   의학연구용 & 임상시험
 
-
-## 저작권 등록 
+## 저작권 등록
 
 <center><img src="jj.png" width="50%"/></a></center>
-
-
 
 ## 오픈소스 관리
 
 ::: columns
 ::: {.column width="50%"}
-
 https://statgarten-issue.streamlit.app/
 
 ![](metric.png)
 :::
 
 ::: {.column width="50%"}
-
 깃헙액션
 
-- 테스트, 홈페이지 업데이트, 라이선스동의, 코드 styler
+-   테스트, 홈페이지 업데이트, 라이선스동의, 코드 styler
 
 ![](ga.png)
 :::
 :::
 
-## 라이선스검증 
+## 라이선스검증
 
 <center><img src="license.png" width="80%"/></a></center>
-
-
 
 ## R package: Shiny -\> exe
 
 R없이 exe 파일로 로컬실행 - [executablePackeR](https://github.com/ChangwooLim/executablePackeR)
 
 <center><a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"/></a></center>
-
-
 
 ## R커뮤니티: Shinykorea
 
@@ -320,7 +283,6 @@ R없이 exe 파일로 로컬실행 - [executablePackeR](https://github.com/Chang
 
 ## 오픈소스기여: 인턴십
 
-
 ::: columns
 ::: {.column width="50%"}
 -   정기적 선발
@@ -329,52 +291,44 @@ R없이 exe 파일로 로컬실행 - [executablePackeR](https://github.com/Chang
 :::
 
 ::: {.column width="50%"}
-- 인턴의 오픈소스 패키지개발 참여
+-   인턴의 오픈소스 패키지개발 참여
 
 ![](internr.png)
 :::
 :::
 
-
 ## 교육
 
 성균관대학교 바이오헬스규제과학과 겸임교수 강의
 
-- https://github.com/jinseob2kim/r-skku-biohrs
+-   https://github.com/jinseob2kim/r-skku-biohrs
 
-- R활용 의료데이터분석, 강의록과 강의영상 모두 공개
-
+-   R활용 의료데이터분석, 강의록과 강의영상 모두 공개
 
 <center><a href="https://github.com/jinseob2kim/r-skku-biohrs"><img src="biohrs.png" width="60%"/></a></center>
 
-
-
-
-
 ## With TokyoR
 
-- 일본 R 커뮤니티 TokyoR 밋업 발표, 연말 컨퍼런스 발표자 신청 
+-   일본 R 커뮤니티 TokyoR 밋업 발표, 연말 컨퍼런스 발표자 신청
 
-<center>><img src="tokyor.png" width="80%"/></a></center>
+<center>
 
-
-
-
-
+> <img src="tokyor.png" width="80%"/></a>
+>
+> </center>
 
 ## Executive summary
 
-- 의학연구용 R 패키지 개발, 중국/일본에서 인기
+-   의학연구용 R 패키지 개발, 중국/일본에서 인기
 
-- 국가 R&D 선정 
+-   국가 R&D 선정
 
-- 최신 오픈소스 관리기술
+-   최신 오픈소스 관리기술
 
-- 라이선스 검증
+-   라이선스 검증
 
-- 오픈소스 활성화: 커뮤니티, 인턴십, 교육
+-   오픈소스 활성화: 커뮤니티, 인턴십, 교육
 
-- 일본 R 커뮤니티 참여 
-
+-   일본 R 커뮤니티 참여
 
 # 감사합니다
