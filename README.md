@@ -71,3 +71,5 @@ Lecture: general topic
 
 * [2024 Japan.R](https://japanr.connpass.com/event/334154/?utm_campaign=event_participate_to_follower&utm_source=notifications&utm_medium=twitter): [韓国の医学研究Rデータ分析紹介
 ](https://jinseob2kim.github.io/lecture-general/japanR2024)
+
+* [대한심혈관중재학회 제21회 동계국제학술대회 (KSIC 2025)]: [통계를 배우자!: Group Differences Adjustment in Observational Studies](https://jinseob2kim.github.io/lecture-general/KSIC2025)
