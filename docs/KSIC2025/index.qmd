@@ -41,20 +41,296 @@ subtitle: "Zarathu Co., Ltd"
 
 ## Executive summary
 
-1. Baseline 맞춘다(X), RCT를 모방한다(O)
-</br>
+**Baseline 맞춘다(X), RCT를 모방한다(O)**
 
-2. Matching, IPTW의 장단점을 이해한다
+- ATE(average treatment effect) vs ATT(average treatment effect on treated)
 
-- Matching은 ATT(average treatment effect on treated), IPTW는 ATE(average treatment effect)
+- Matching은 ATT, IPTW는 ATE
 
-- Matchinig은 심플하지만 샘플이 감소. IPTW는 샘플은 유지하지만 분석방법 복잡 & Weight문제
+**2그룹 `MatchIt`, 3그룹 `twang` 패키지** 
 
-- 3그룹 이상일땐 가장 작은 그룹에 맞춰 매칭 or IPTW with `twang` package.
+- Logistic regression, Nearest neighbor, caliper 이해 
 
-3. openstat.ai 에서 2그룹 매칭 & IPTW 후 분석가능
+- 3그룹 matching은 가장 작은 N수에 맞춰 2번 수행
 
-4. Clone Censor weight라는 새로운 방법론 
+- openstat.ai 에서 2그룹 matching/IPTW 지원
+
+
+**분석 이슈** 
+
+- Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)
+
+- 성별에 따라 매칭/IPTW 해도 되는가?
+
+
+## Causal inference
+
+목표는 Causal inference, RCT like design 
+
+- $ITE = Y_{1i} - Y_{0i}$, 하늘만이..
+
+- $ATE = E[Y_1 - Y_0]$, **RCT**
+
+- $ATT = E[Y_1 - Y_0 | T=1]$, $ATC = E[Y_1 - Y_0 | T=0]$
+
+
+## PS matching
+
+Propensity score란?
+
+- 치료군 vs 대조군 연구에서, age/sex/기저질환 등의 변수를 이용하여 치료군에 속할 확률을 계산한 값
+- 같은 PS 면 치료군에 속할 확률이 동일 
+- 같은 PS면 age/sex/기저질환 이 비슷
+- 치료/대조군을 1/0으로 코딩하여 Logistic regression(다른 것도 가능)
+- 치료군이 더 많다면 치료군을 0, 대조군을 1로 코딩
+
+따라서, **치료군의 PS와 비슷한 사람을 대조군에서 뽑으면** 두 그룹의 Baseline이 비슷해지겠군!
+
+- 여기까지 알면 50점 
+
+
+## RCT 관점
+
+RCT: 어떤 사람이 두 군에 배정될 확률이 50:50 
+
+PS matching: PS가 0.7인 사람이 두 군에 배정될 확률? 50:50 
+
+- PS 0.7인 사람이 치료군에 있다면, 대조군에서도 맞춰서 뽑았을 것임
+- 여기까지 알면 90점 
+
+
+**그럼 PS matching하면 RCT만큼 인정받을 수 있다?**
+
+- **No**
+- 치료군과 동일 특성을 가진 대조군이 매칭되므로, 연구집단 전체가 치료군의 특성을 가짐(예: 더 고령/ 남자가 많다 등)
+- ATE(average treatment effect) 가 아님, **ATT(average treatment effect on the treated)**. 
+
+
+
+## IPTW
+
+Inverse probability of treatment weighting
+
+- 매칭 안하고 모든 샘플을 씀. 단 각 사람마다 가중치가 다름
+- A는 1명이지만 2명처럼 간주, B는 1명이지만 10명처럼 간주
+- 사람별 가중치를 조절하면 Baseline을 동일하게 맞출 수 있음
+- 치료군엔 $1/PS$, 대조군엔 $1/(1-PS)$ 로 가중치 부여 
+- 여기까지 알면 50점
+
+
+
+## RCT 관점 
+
+PS 0.7인 사람이 각 군에 속할 확률은?
+
+- 치료군 0.7, 대조군 0.3
+
+$$0.7 \times \frac{1}{0.7} = 0.3 \times \frac{1}{0.3} = 1$$  
+
+- 따라서 PS 0.7인 사람이 치료군과 대조군에 동일하게 분포
+
+
+그럼 IPTW는 ATE vs ATT?
+
+
+## ATE weight, ATT weight
+
+ATE weight
+
+ $$
+    w_i \text{ for } ATE=
+    \begin{cases}
+    \frac{1}{p_i} & \text{if treated} \\
+    \frac{1}{1 - p_i} & \text{if control}
+    \end{cases}
+    $$
+전체 샘플(Treated + Control) 의 2배를 랜덤하게 배정한 RCT
+
+ATT weight
+
+   $$
+    w_i \text{ for } ATT =
+    \begin{cases}
+    1 & \text{if treated} \\
+    \frac{p_i}{1 - p_i} & \text{if control}
+    \end{cases}
+    $$
+Treated + Treated 를 랜덤하게 배정
+
+
+
+## [ATT& ATE]{style="color:navy;"}
+
+-   ATE(Average Treatment Effect): **전체 환자 집단**(코호트)에서 **TAVI**가 **수술** 에 비해 효과적인가?
+-   대조군(Surgery)와 TAVI군의 baseline을 가중치를 주어 **전체 코호트(AS 환자군)와 양군을 유사하게 만들어**, 전체 코호트에서 RCT를 진행하였을 때 예상되는 결과를 모사 
+    $$
+    w_i =
+    \begin{cases}
+    \frac{1}{p_i} & \text{if treated TAVI} \\
+    \frac{1}{1 - p_i} & \text{if  (Surgery)}
+    \end{cases}
+    $$
+
+
+
+## [TAVI vs Surgery: Example data]{style="color:navy;"}
+
+```{r}
+library(dplyr)
+library(knitr)
+df <- data.frame(
+  name = c("빈센조", "루카스", "제이슨", "토마스", "리오넬",
+           "카밀라", "아칸지", "에밀리", "노이어", "호날두",
+           "앨리스", "밥", "찰리", "다니엘", "엘리자베스",
+           "프랭크", "그레이스", "헨리", "이사벨", "제임스",
+           "존", "마리아", "피터", "사라", "데이비드",
+           "제니퍼", "케빈", "레베카", "토니", "엘리",
+           "스티브", "안나", "마이클", "제시카", "댄",
+           "소피아", "브라이언", "나탈리", "대니얼", "엘레나",
+           "로버트", "줄리아", "스콧", "니콜", "앤드류",
+           "케이트", "라이언", "미셸", "조셉", "엘레나"),
+  age = c(35, 48, 50, 53, 55,
+          68, 70, 75, 80, 85,
+          40, 45, 52, 60, 62,
+          67, 73, 77, 82, 88,
+          42, 49, 54, 59, 61,
+          46, 51, 76, 81, 83,
+          37, 47, 51, 68, 84,
+          59, 62, 78, 84, 89,
+          39, 46, 53, 77, 75,
+          54, 59, 86, 88, 83),
+  TAVI = c(1, 0, 0, 1, 0,
+           1, 1, 0, 1, 1,
+           0, 0, 0, 1, 1,
+           0, 1, 0, 1, 1,
+           0, 0, 1, 1, 0,
+           0, 1, 0, 1, 1,
+           1, 0, 0, 1, 1,
+           0, 1, 0, 1, 1,
+           0, 0, 0, 1, 1,
+           0, 1, 0, 1, 1),
+  Survival = c(1, 1, 1, 0, 1,
+               1, 1, 1, 0, 0,
+               1, 1, 0, 0, 1,
+               1, 1, 1, 0, 0,
+               1, 1, 0, 0, 1,
+               1, 1, 1, 0, 0,
+               1, 1, 1, 0, 1,
+               1, 1, 1, 0, 0,
+               1, 1, 0, 0, 1,
+               1, 1, 1, 0, 0)
+)
+model <- glm(TAVI ~ age, data = df, family = binomial)
+df$Propensity_score <- predict(model, type = "response")
+
+rmarkdown::paged_table(df)
+```
+
+## [ATT& ATE]{style="color:navy;"}
+
+```{r}
+library(knitr)
+library(kableExtra)
+df<- df %>%
+  mutate(
+    ATE = ifelse(TAVI == 1, 1 / Propensity_score, 1 / (1 - Propensity_score)),
+    ATT = ifelse(TAVI == 1, 1, Propensity_score / (1 - Propensity_score))
+  )
+
+a<- df %>%
+  select(name, age, TAVI, Survival, Propensity_score, ATE, ATT) %>%
+  kable("html") %>%
+    kable_styling(
+    full_width = FALSE,       
+    position = "center",      
+    font_size = 20            
+  ) %>%
+  row_spec(which(df$name == "빈센조"), background = "yellow") %>% 
+  row_spec(which(df$name == "에밀리"), background = "skyblue") 
+a
+
+```
+
+## [ATT& ATE]{style="color:navy;"}
+
+```{r}
+att_group <- df %>%
+  mutate(weight = ATT) %>%
+  group_by(TAVI) %>%
+  summarise(
+    avg_age = weighted.mean(age, weight),
+    sd = sqrt(weighted.mean((age - weighted.mean(age, weight))^2, weight))
+  )
+
+
+ate_group <- df %>%
+  mutate(weight = ATE) %>%
+  group_by(TAVI) %>%
+  summarise(
+    avg_age = weighted.mean(age, weight),
+    sd = sqrt(weighted.mean((age - weighted.mean(age, weight))^2, weight))
+  )
+
+original_cohort <- df %>%
+  group_by(TAVI) %>% 
+  summarise(
+    avg_age = mean(age),
+    sd = sd(age)
+  )
+num<-mean(df$age)%>% round(., digits = 2)
+baseline_table <- data.frame(
+  그룹 = c("ATT", "ATE", "Original Cohort"),
+  Treatment = c(att_group$avg_age[att_group$TAVI == 1] %>% round(., digits = 2),
+               ate_group$avg_age[ate_group$TAVI == 1]%>% round(., digits = 2),
+               paste0(original_cohort$avg_age[original_cohort$TAVI ==1]%>% round(., digits = 2), '(',num, ')')),
+  Control = c(att_group$avg_age[att_group$TAVI == 0]%>% round(., digits = 2),
+              ate_group$avg_age[ate_group$TAVI == 0]%>% round(., digits = 2),
+              paste0(original_cohort$avg_age[original_cohort$TAVI ==0]%>% round(., digits = 2), '(', num, ')'))
+)
+
+kable(baseline_table, "html", caption = "Treatment, Control 그룹의 Age 비교") %>%
+  kable_styling(full_width = T)
+
+```
+
+
+## IPTW win? 
+
+IPTW는 ATE니까 무조건 이걸해야겠네?
+
+- Weight 100 인 사람이 있다면? 
+
+Truncated weight
+
+- 99% quantile 값 이상은 99%로 바꿈 
+- weight 10 이상은 10으로 바꿈
+- Baseline 이 덜 맞춰지게 됨, ATE 훼손
+
+분석난이도 증가
+
+- GLM, Cox에 Weight를 고려 (`glm`, `cox` weights 옵션 또는 `svyglm`, `svycox`)
+
+- Weighted Kaplan-meier from svycox (`survfit` weights 옵션 또는 `svykm`)
+
+##
+
+```{r, echo=F}
+library(survey)
+data(pbc, package = "survival")
+pbc$randomized <- with(pbc, !is.na(trt) & trt > 0)
+biasmodel <- glm(randomized ~ age * edema, data = pbc)
+pbc$randprob <- fitted(biasmodel)
+
+dpbc <- svydesign(id = ~1, prob = ~randprob, strata = ~edema, data = subset(pbc, randomized))
+```
+
+```{r, echo=T}
+s1 <- svykm(Surv(time, status > 0) ~ sex, design = dpbc)
+jskm::svyjskm(s1, pval = T, table = T, design = dpbc)
+```
+
+log-rank test(X), survey rank test(O)
+
 
 
 
