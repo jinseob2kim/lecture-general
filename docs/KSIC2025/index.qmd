@@ -10,7 +10,7 @@ format:
       data-background-size: cover
       data-background-opacity: "0.3"
     logo: Zarathu Circle Clipping Mask2.png
-    footer: "zarathu.com"
+    footer: "openstat.ai"
     self-contained: false
     chalkboard: 
       buttons: false
