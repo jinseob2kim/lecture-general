@@ -1748,341 +1748,100 @@ Discarded       0       0</code></pre>
 </div>
 </div>
 </section>
+<section id="openstat.ai" class="slide level2">
+<h2>openstat.ai</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="openstat.png"> <img data-src="mat.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="tb1.png"> <img data-src="km.png"></p>
+</div></div>
+</section>
 <section id="그룹-a-vs-b-vs-c" class="slide level2">
 <h2>3그룹 A vs B vs C</h2>
 <p>Matching: N수 제일 작은 그룹(A) 에 맞춰 여러번 매칭</p>
 <ul>
 <li><code>MatchIt</code> 그대로 쓸 수 있는건 장점</li>
-<li>ATT도 아닌 <span class="math inline">\(ATT_{A}\)</span>?</li>
+<li><span class="math inline">\(ATT\)</span>도 아닌 <span class="math inline">\(ATT_{A}\)</span>?</li>
 </ul>
 <p>IPTW: <code>twang::mnps</code></p>
 <ul>
 <li>시간이 오래걸림: 공단데이터에서 24시간 걸릴수도</li>
-<li>ATE 가능, 더 추천</li>
+<li><span class="math inline">\(ATE\)</span> 가능, 더 추천</li>
 </ul>
 </section>
-<section id="日本ブログレビュー" class="slide level2">
-<h2>日本ブログレビュー</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="jskm_japan.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="jskm_japan2.png"></p>
-</div></div>
-<p>Survey data, Landmark, Competing risk analysis support</p>
-<aside class="notes">
-<p>特に日本の研究者の方がランドマーク分析機能をたくさん利用してくださって、ブログレビューがたくさんあります。 토쿠니 니혼노 켄큐우샤노 호오가 란도마아쿠분세키키노오오 타쿠산 리요오시테쿠다삿테 부로구레뷰우가 타쿠산 아리마스</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<center>
-<a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"></a>
-</center>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="do">## Gaussian</span></span>
-<span id="cb13-2"><a href=""></a>glm_gaussian <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars)</span>
-<span id="cb13-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_gaussian, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="sc">$</span>first.line</span>
-<span id="cb14-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Linear regression predicting mpg</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb14-3"><a href=""></a></span>
-<span id="cb14-4"><a href=""></a><span class="sc">$</span>table</span>
-<span id="cb14-5"><a href=""></a>     crude <span class="fu">coeff.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. coeff.(95%</span>CI)    adj. P value</span>
-<span id="cb14-6"><a href=""></a>cyl  <span class="st">"-2.88 (-3.51,-2.24)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-1.59 (-2.98,-0.19)"</span> <span class="st">"0.034"</span></span>
-<span id="cb14-7"><a href=""></a>disp <span class="st">"-0.04 (-0.05,-0.03)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-0.02 (-0.04,0)"</span>     <span class="st">"0.054"</span></span>
-<span id="cb14-8"><a href=""></a></span>
-<span id="cb14-9"><a href=""></a><span class="sc">$</span>last.lines</span>
-<span id="cb14-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">R-squared = 0.7596</span><span class="sc">\n</span><span class="st">AIC value = 167.1456</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="do">## Binomial</span></span>
-<span id="cb15-2"><a href=""></a>glm_binomial <span class="ot">&lt;-</span> <span class="fu">glm</span>(vs<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
-<span id="cb15-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_binomial, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="sc">$</span>first.line</span>
-<span id="cb16-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Logistic regression predicting vs</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb16-3"><a href=""></a> </span>
-<span id="cb16-4"><a href=""></a><span class="sc">$</span>table</span>
-<span id="cb16-5"><a href=""></a>     crude <span class="fu">OR.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. OR.(95%</span>CI)    adj. P value</span>
-<span id="cb16-6"><a href=""></a>cyl  <span class="st">"0.2 (0.08,0.56)"</span>  <span class="st">"0.002"</span>       <span class="st">"0.15 (0.02,1.02)"</span> <span class="st">"0.053"</span>     </span>
-<span id="cb16-7"><a href=""></a>disp <span class="st">"0.98 (0.97,0.99)"</span> <span class="st">"0.002"</span>       <span class="st">"1 (0.98,1.03)"</span>    <span class="st">"0.715"</span>     </span>
-<span id="cb16-8"><a href=""></a></span>
-<span id="cb16-9"><a href=""></a><span class="sc">$</span>last.lines</span>
-<span id="cb16-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">AIC value = 23.8304</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div>
-</section>
-<section id="subgroup-analysis" class="slide level2">
-<h2>Subgroup analysis</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">TableSubgroupMultiGLM</span>(status <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>    Variable Count Percent           OR Lower Upper P value P <span class="cf">for</span> interaction</span>
-<span id="cb18-2"><a href=""></a>sex2  Overall   <span class="dv">228</span>     <span class="dv">100</span>         <span class="fl">3.01</span>  <span class="fl">1.65</span>  <span class="fl">5.47</span>  <span class="sc">&lt;</span><span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb18-3"><a href=""></a><span class="dv">1</span>          kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.476</span></span>
-<span id="cb18-4"><a href=""></a><span class="dv">2</span>           <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>            <span class="dv">7</span>   <span class="fl">0.7</span> <span class="fl">70.03</span>   <span class="fl">0.098</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb18-5"><a href=""></a><span class="dv">3</span>           <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>         <span class="fl">2.94</span>  <span class="fl">1.55</span>  <span class="fl">5.57</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb18-6"><a href=""></a><span class="dv">4</span>         kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.984</span></span>
-<span id="cb18-7"><a href=""></a><span class="dv">5</span>           <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span> <span class="fl">314366015.19</span>     <span class="dv">0</span>   <span class="cn">Inf</span>   <span class="fl">0.997</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb18-8"><a href=""></a><span class="dv">6</span>           <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>         <span class="fl">2.85</span>  <span class="fl">1.55</span>  <span class="fl">5.25</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">TableSubgroupMultiCox</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>    Variable Count Percent Point Estimate Lower Upper sex<span class="ot">=</span><span class="dv">1</span> sex<span class="ot">=</span><span class="dv">2</span> P value P <span class="cf">for</span> interaction</span>
-<span id="cb20-2"><a href=""></a>sex  Overall   <span class="dv">228</span>     <span class="dv">100</span>           <span class="fl">1.91</span>  <span class="fl">1.14</span>   <span class="fl">3.2</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.014</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb20-3"><a href=""></a><span class="dv">1</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb20-4"><a href=""></a><span class="dv">2</span>         kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.525</span></span>
-<span id="cb20-5"><a href=""></a><span class="dv">3</span>          <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>           <span class="fl">2.88</span>  <span class="fl">0.31</span> <span class="fl">26.49</span>    <span class="dv">10</span>   <span class="dv">100</span>    <span class="fl">0.35</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb20-6"><a href=""></a><span class="dv">4</span>          <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>           <span class="fl">1.84</span>  <span class="fl">1.08</span>  <span class="fl">3.14</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.026</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb20-7"><a href=""></a><span class="dv">5</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb20-8"><a href=""></a><span class="dv">6</span>        kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.997</span></span>
-<span id="cb20-9"><a href=""></a><span class="dv">7</span>          <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span>           <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>     <span class="dv">0</span>   <span class="dv">100</span>    <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb20-10"><a href=""></a><span class="dv">8</span>          <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>           <span class="fl">1.88</span>  <span class="fl">1.12</span>  <span class="fl">3.17</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.018</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="中国での動画やブログレビュー" class="slide level2">
-<h2>中国での動画やブログレビュー</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="jstable_ch.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="jstable_ch2.png"></p>
-</div></div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<center>
-<a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"></a>
-</center>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="https://github.com/jinseob2kim/jsmodule/blob/master/vignettes/figures/ps.png?raw=true"></p>
-</div><div class="column" style="width:50%;">
-<p>1~2行のコードだけで分析ウェブを作れるよう、各分析機能をmoduleとして開発</p>
-<p><img data-src="jsmodule2.png"></p>
-</div></div>
-<aside class="notes">
-<p>마지막으로 jsmodule입니다. jskm, jstable 내용을 포함해 의학통계에서 많이 이용되는 분석기능들을 Shiny module로 만들고, 이 모듈들을 모아 로컬에서 실행할 수 있는 Shiny App 을 만들었습니다. Shiny App은 총 5종류로 일반데이터용, Survey data용, GEE를 적용한 반복측정데이터용, 마지막으로 인과추론 분석방법인 Propensity score mathching과 IPTW 를 수행할 수 있는 Shiny App 입니다. 각 분석기능은 독립적으로 Shiny module로 개발되었으므로, 누구나 자신의 Shiny app에 적용할 수 있습니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-
-<img data-src="그림1.png" class="r-stretch"><aside class="notes">
-<p>이것은 jskm을 Shiny module로 만든 것이며, 그림은 PPT로 다운받아 직접 편집할 수 있습니다. officer과 rvg 패키지를 이용했습니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="論文支援実績" class="slide level2">
-<h2>論文支援実績</h2>
-<p>SCI論文200編以上サポート</p>
+<section id="issue-1-matching-후-pair정보-이용" class="slide level2">
+<h2>Issue 1: Matching 후 pair정보 이용</h2>
+<p>Matching 후 stratified cox를 해야하는가? Yes or No</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata)</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(subclass), <span class="at">data =</span> mdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>Pair 마다 baseline hazard가 다르다는 가정</strong></p>
 <ul>
-<li>医学分野 トップジャーナル NEJM、LANCET、JAMAを含む</li>
-<li>6つの大学病院と年単位研究支援契約、10ヶ所の製薬会社の臨床試験分析をサポート</li>
+<li><p>RCT 재현 관점: 필요없음(pair정보 없음)</p></li>
+<li><p>매칭이 너무 잘 되어서 pair정보가 확실하다면?</p></li>
+<li><p>Pair 들끼리 뭔가 다르다면?</p></li>
+<li><p>OMOP-CDM ATLAS에서는 strata 사용하는게 Default.</p></li>
 </ul>
-
-<img data-src="그림2.png" class="r-stretch"><aside class="notes">
-<p>저희 회사에서는 이 패키지들을 이용해 의학연구를 지원하고 있으며, 세계 3대 의학저널인 NEJM, LANCET, JAMA 포함 200편 이상의 SCI 논문에 필요한 분석을 지원하였습니다. 한국의 6개 대학병원과 연단위 계약을 수행중이며, 10개이상 제약회사의 임상시험 데이터분석을 지원중입니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="無料統計ウェブ" class="slide level2">
-<h2>無料統計ウェブ</h2>
+<section id="번외-baseline-hazard-보정방법" class="slide level2">
+<h2>번외: baseline hazard 보정방법</h2>
+<p>예) 다기관 RCT에서 hospital, stratified random</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(hospital), <span class="at">data =</span> mdata)</span>
+<span id="cb14-2"><a href=""></a></span>
+<span id="cb14-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> hospital, <span class="at">data =</span> mdata)</span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a>cox3 <span class="ot">&lt;-</span> coxme<span class="sc">::</span><span class="fu">coxme</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>hospital), <span class="at">data =</span> mdata)</span>
+<span id="cb14-6"><a href=""></a></span>
+<span id="cb14-7"><a href=""></a>cox4 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata, <span class="at">cluster =</span> hospital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
 <ul>
-<li>よく利用される分析機能を無料で分析できるopenstat.ai 公開</li>
-<li>jskm/jstable/jsmoduleの分析moduleを適用</li>
+<li><p><code>+ hospital</code> 도 가능, but 각 병원의 계수를 굳이 구할필요가?</p></li>
+<li><p><code>coxme</code>: mixed model의 Random effect, <code>strata</code>와 비슷한 의미</p></li>
+<li><p><code>cluster = hospital</code>: 같은 hospital 간에 상관관계가 있음을 보정하므로 <code>strata</code>와 비슷한 의미일 것 같지만, <strong>baseline hazard 이 다르다는 가정이 아님</strong>. <code>cluster</code> 옵션 전후 HR은 변하지 않음, SE만 변화.</p></li>
 </ul>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><a href="https://openstat.ai/"><strong>openstat.ai</strong></a><strong>: free</strong></p>
-<p><img data-src="example-meta.png"></p>
-</div><div class="column" style="width:30%;">
-<p><strong>Openstat QR code</strong></p>
-<p><img data-src="오픈스탯.png"></p>
-</div></div>
-<aside class="notes">
-<p>연구자들이 R 패키지 설치없이도 웹에서 이용할 수 있도록 하기 위해 openstat.ai를 출시하였습니다. 연구자는 자신의 데이터를 업로드하여 jsmodule의 4가지 Shiny app을 이용할 수 있습니다. 메타분석, 샘플수계산을 위한 Shiny app도 이용할 수 있습니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="国家rd選定" class="slide level2">
-<h2>国家R&amp;D選定</h2>
-<p>3件の国家R&amp;D支援事業を通じて技術開発および医学研究用の高度化を遂行</p>
-<p>`22 (韓国)科学技術情報通信部「公開SW基盤のクラウド統計パッケージSW開発」(2年1億円)</p>
+<section id="issue-2-sex를-그룹변수로-matching-가능" class="slide level2">
+<h2>Issue 2: Sex를 그룹변수로 Matching 가능?</h2>
+<p>Sex가 RCT 가능한가?</p>
 <ul>
-<li>統計非専攻者及び一般向け</li>
+<li><strong>불가능</strong> vs 하늘(?) 이 준 랜덤</li>
 </ul>
-<p>`23 (韓国)情報通信産業振興院公開SW技術拡散支援事業(7ヶ月2000万円)</p>
+<p>Matching: <span class="math inline">\(ATT\)</span></p>
 <ul>
-<li>医学研究用</li>
+<li>남자 vs 남자같은 여자, 여자 vs 여자같은 남자</li>
 </ul>
-<p>`23 (韓国)中小ベンチャー部 (1200万円)</p>
+<p>IPTW: <span class="math inline">\(ATE\)</span> 니까 OK?</p>
 <ul>
-<li>医学研究用&amp;臨床試験</li>
+<li>전체 연구대상자(남자 + 여자) 를 남/여 1:1로 랜덤배정했다는 뜻</li>
 </ul>
-<aside class="notes">
-<p>저희 패키지는 한국에서 3건의 R&amp;D 지원을 받아 개발 및 의학연구/임상시험용 고도화를 수행하였습니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="著作権登録" class="slide level2">
-<h2>著作権登録</h2>
-<center>
-<img src="jj.png" width="50%">
-</center>
-<aside class="notes">
-<p>R&amp;D 지원을 통해 소프트웨어 저작권을 등록했으며</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="オープンソース管理" class="slide level2">
-<h2>オープンソース管理</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>https://statgarten-issue.streamlit.app/</p>
-<p><img data-src="metric.png"></p>
-</div><div class="column" style="width:50%;">
-<p>Github action</p>
+<section id="executive-summary-1" class="slide level2">
+<h2>Executive summary</h2>
+<p><strong>Baseline 맞춘다(X), RCT를 모방한다(O)</strong></p>
 <ul>
-<li>テスト、ホームページアップデート、ライセンス同意、コードstyle</li>
+<li><p>ATE(average treatment effect) vs ATT(average treatment effect on treated)</p></li>
+<li><p>Matching은 ATT, IPTW는 ATE</p></li>
 </ul>
-<p><img data-src="ga.png"></p>
-</div></div>
-<aside class="notes">
-<p>자체 개발한 파이썬 streamlit 기반 대시보드를 이용해 깃허브 활성화 정도를 실시간으로 체크할 수 있으며, 모든 패키지는 Github action을 통해 에러체크, 홈페이지 업데이트, 코드 스타일링, 라이선스 동의가 자동으로 수행됩니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="オープンソースライセンス検証" class="slide level2">
-<h2>オープンソースライセンス検証</h2>
-<center>
-<img src="license.png" width="80%">
-</center>
-<aside class="notes">
-<p>모든 패키지는 나라에서 지원하는 오픈소스라이선스검증 프로그램을 이용해, 라이선스 문제가 없음을 검증받았습니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="r-package-shiny---exe" class="slide level2">
-<h2>R package: Shiny -&gt; exe</h2>
-<p>R必要なくexeファイルにしてローカル環境で実行 - <a href="https://github.com/ChangwooLim/executablePackeR">executablePackeR</a></p>
-<center>
-<a href="https://www.r-bloggers.com/2023/03/creating-standalone-apps-from-shiny-with-electron-2023-macos-m1//"><img src="スクリーンショット 2024-04-17 午後12.02.26.png" width="50%"></a>
-</center>
-<aside class="notes">
-<p>폐쇄 인터넷망 및 R패키지 설치가 어려운 병원들을 위해, Shiny app을 exe파일로 만들어주는 R패키지를 만들어 크랜에 공개하였습니다. 이 패키지를 이용하면 exe 파일의 실행만으로 shiny app을 이용할 수 있으며, 알블로거에도 소개되었습니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="要約" class="slide level2">
-<h2>要約</h2>
+<p><strong>2그룹 <code>MatchIt</code>, 3그룹 <code>twang</code> 패키지</strong></p>
 <ul>
-<li><p>医学研究用Rパッケージの開発、日本/中国で活用</p></li>
-<li><p>国家R&amp;D選定</p></li>
-<li><p>最新オープンソース管理技術</p></li>
-<li><p>ライセンス検証</p></li>
+<li><p>Logistic regression, Nearest neighbor, caliper 이해</p></li>
+<li><p>3그룹 matching은 가장 작은 N수에 맞춰 2번 수행</p></li>
+<li><p>openstat.ai 에서 2그룹 matching/IPTW 지원</p></li>
+</ul>
+<p><strong>분석 이슈</strong></p>
+<ul>
+<li><p>Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)</p></li>
+<li><p>성별에 따라 매칭/IPTW 해도 되는가?</p></li>
 </ul>
 </section>
-<section id="ご清聴ありがとうございました" class="title-slide slide level1 center">
-<h1>ご清聴、ありがとうございました。</h1>
-<aside class="notes">
-<p>ご清聴（せいちょう）ありがとうございました。</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="감사합니다." class="title-slide slide level1 center">
+<h1>감사합니다.</h1>
 <div class="quarto-auto-generated-content">
 <p><img src="Zarathu Circle Clipping Mask2.png" class="slide-logo"></p>
 <div class="footer footer-default">
