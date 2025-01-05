@@ -329,7 +329,123 @@ s1 <- svykm(Surv(time, status > 0) ~ sex, design = dpbc)
 jskm::svyjskm(s1, pval = T, table = T, design = dpbc)
 ```
 
-log-rank test(X), survey rank test(O)
+log-rank test(X), survey rank test(O, `survey::svyranktest`)
+
+- 또는 `IPWsurvival::adjusted.LR` 이용(SAS 디폴트)
+
+
+## `MatchIt`
+
+2그룹 PS/IPTW에서 가장 많이 쓰는 패키지 
+
+```{r, echo=T}
+library(MatchIt)
+data("lalonde", package = "MatchIt")
+
+table(lalonde$treat)
+
+#1:1 NN matching w/ replacement on a logistic regression PS
+m.out <- matchit(treat ~ age + educ + race + married + 
+                   nodegree + re74 + re75, data = lalonde, distance = "glm", method = "nearest", ratio = 1, caliper = NULL)
+m.out
+```
+- `distance`: glm(로지스틱) 이 기본, 다른 ML모델도 가능
+- `method`: nearest 충분, ratio: 1:N 매칭
+- `caliper`: 매칭이 잘 안될때(ex: Treat/Control 숫자가 비슷할 때)
+
+## Matching data
+
+```{r, echo=T}
+mdata <- match.data(m.out)
+rmarkdown::paged_table(mdata[order(mdata$subclass), c("treat", "distance", "subclass")])
+```
+
+## Matching 결과 확인
+
+```{r, echo=T}
+summary(m.out)
+```
+
+## `jstable::CreateTableOneJS`
+
+
+```{r, echo=T}
+jstable::CreateTableOneJS(vars = names(m.out$X), strata = "treat", data = lalonde, smd = T)$table %>% kable
+```
+
+
+## Mathing data
+
+```{r, echo=T}
+jstable::CreateTableOneJS(vars = names(m.out$X), strata = "treat", data = mdata, smd = T)$table %>% kable
+```
+
+## Caliper
+
+```{r, echo=T}
+m.out.caliper <- matchit(treat ~ age + educ + race + married + 
+                   nodegree + re74 + re75, data = lalonde, method = "nearest", ratio = 1, caliper = 0.1)
+jstable::CreateTableOneJS(vars = names(m.out$X), strata = "treat", data = match.data(m.out.caliper), smd = T)$table %>% kable
+```
+
+## IPTW: `svyCreateTableOneJS`
+
+```{r, echo=T}
+library(survey)
+lalonde$wt <- ifelse(lalonde$treat == 1, 1/m.out$distance, 1/(1 - m.out$distance))
+design.lalonde <- svydesign(ids=~1, strata=NULL, weights=~wt, data = lalonde)
+jstable::svyCreateTableOneJS(vars = names(m.out$X), strata = "treat", data = design.lalonde, smd = T)$table %>% kable
+```
+
+## openstat.ai
+
+
+
+
+## 3그룹 A vs B vs C 
+
+Matching: N수 제일 작은 그룹(A) 에 맞춰 여러번 매칭 
+
+- `MatchIt` 그대로 쓸 수 있는건 장점
+- $ATT$도 아닌 $ATT_{A}$?
+
+
+IPTW: `twang::mnps`
+
+- 시간이 오래걸림: 공단데이터에서 24시간 걸릴수도
+- $ATE$ 가능, 더 추천
+
+
+## Issue 1: Matching 후 pair정보 이용
+
+
+## Issue 2: Sex를 그룹변수로 Matching 가능?
+
+
+## Executive summary
+
+**Baseline 맞춘다(X), RCT를 모방한다(O)**
+
+- ATE(average treatment effect) vs ATT(average treatment effect on treated)
+
+- Matching은 ATT, IPTW는 ATE
+
+**2그룹 `MatchIt`, 3그룹 `twang` 패키지** 
+
+- Logistic regression, Nearest neighbor, caliper 이해 
+
+- 3그룹 matching은 가장 작은 N수에 맞춰 2번 수행
+
+- openstat.ai 에서 2그룹 matching/IPTW 지원
+
+
+**분석 이슈** 
+
+- Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)
+
+- 성별에 따라 매칭/IPTW 해도 되는가?
+
+
 
 
 
