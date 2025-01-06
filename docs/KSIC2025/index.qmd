@@ -43,135 +43,117 @@ subtitle: "Zarathu Co., Ltd"
 
 **Baseline 맞춘다(X), RCT를 모방한다(O)**
 
-- ATE(average treatment effect) vs ATT(average treatment effect on treated)
+-   ATE(average treatment effect) vs ATT(average treatment effect on treated)
 
-- Matching은 ATT, IPTW는 ATE
+-   Matching은 ATT, IPTW는 ATE
 
-**2그룹 `MatchIt`, 3그룹 `twang` 패키지** 
+**2그룹 `MatchIt`, 3그룹 `twang` 패키지**
 
-- Logistic regression, Nearest neighbor, caliper 이해 
+-   Logistic regression, Nearest neighbor, caliper 이해
 
-- 3그룹 matching은 가장 작은 N수에 맞춰 2번 수행
+-   3그룹 matching은 가장 작은 N수에 맞춰 2번 수행
 
-- openstat.ai 에서 2그룹 matching/IPTW 지원
+-   openstat.ai 에서 2그룹 matching/IPTW 지원
 
+**분석 이슈**
 
-**분석 이슈** 
+-   Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)
 
-- Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)
-
-- 성별에 따라 매칭/IPTW 해도 되는가?
-
+-   성별에 따라 매칭/IPTW 해도 되는가?
 
 ## Causal inference
 
-목표는 Causal inference, RCT like design 
+목표는 Causal inference, RCT like design
 
-- $ITE = Y_{1i} - Y_{0i}$, 하늘만이..
+-   $ITE = Y_{1i} - Y_{0i}$, 하늘만이..
 
-- $ATE = E[Y_1 - Y_0]$, **RCT**
+-   $ATE = E[Y_1 - Y_0]$, **RCT**
 
-- $ATT = E[Y_1 - Y_0 | T=1]$, $ATC = E[Y_1 - Y_0 | T=0]$
-
+-   $ATT = E[Y_1 - Y_0 | T=1]$, $ATC = E[Y_1 - Y_0 | T=0]$
 
 ## PS matching
 
 Propensity score란?
 
-- 치료군 vs 대조군 연구에서, age/sex/기저질환 등의 변수를 이용하여 치료군에 속할 확률을 계산한 값
-- 같은 PS 면 치료군에 속할 확률이 동일 
-- 같은 PS면 age/sex/기저질환 이 비슷
-- 치료/대조군을 1/0으로 코딩하여 Logistic regression(다른 것도 가능)
-- 치료군이 더 많다면 치료군을 0, 대조군을 1로 코딩
+-   치료군 vs 대조군 연구에서, age/sex/기저질환 등의 변수를 이용하여 치료군에 속할 확률을 계산한 값
+-   같은 PS 면 치료군에 속할 확률이 동일
+-   같은 PS면 age/sex/기저질환 이 비슷
+-   치료/대조군을 1/0으로 코딩하여 Logistic regression(다른 것도 가능)
+-   치료군이 더 많다면 치료군을 0, 대조군을 1로 코딩
 
 따라서, **치료군의 PS와 비슷한 사람을 대조군에서 뽑으면** 두 그룹의 Baseline이 비슷해지겠군!
 
-- 여기까지 알면 50점 
-
+-   여기까지 알면 50점
 
 ## RCT 관점
 
-RCT: 어떤 사람이 두 군에 배정될 확률이 50:50 
+RCT: 어떤 사람이 두 군에 배정될 확률이 50:50
 
-PS matching: PS가 0.7인 사람이 두 군에 배정될 확률? 50:50 
+PS matching: PS가 0.7인 사람이 두 군에 배정될 확률? 50:50
 
-- PS 0.7인 사람이 치료군에 있다면, 대조군에서도 맞춰서 뽑았을 것임
-- 여기까지 알면 90점 
-
+-   PS 0.7인 사람이 치료군에 있다면, 대조군에서도 맞춰서 뽑았을 것임
+-   여기까지 알면 90점
 
 **그럼 PS matching하면 RCT만큼 인정받을 수 있다?**
 
-- **No**
-- 치료군과 동일 특성을 가진 대조군이 매칭되므로, 연구집단 전체가 치료군의 특성을 가짐(예: 더 고령/ 남자가 많다 등)
-- ATE(average treatment effect) 가 아님, **ATT(average treatment effect on the treated)**. 
-
-
+-   **No**
+-   치료군과 동일 특성을 가진 대조군이 매칭되므로, 연구집단 전체가 치료군의 특성을 가짐(예: 더 고령/ 남자가 많다 등)
+-   ATE(average treatment effect) 가 아님, **ATT(average treatment effect on the treated)**.
 
 ## IPTW
 
 Inverse probability of treatment weighting
 
-- 매칭 안하고 모든 샘플을 씀. 단 각 사람마다 가중치가 다름
-- A는 1명이지만 2명처럼 간주, B는 1명이지만 10명처럼 간주
-- 사람별 가중치를 조절하면 Baseline을 동일하게 맞출 수 있음
-- 치료군엔 $1/PS$, 대조군엔 $1/(1-PS)$ 로 가중치 부여 
-- 여기까지 알면 50점
+-   매칭 안하고 모든 샘플을 씀. 단 각 사람마다 가중치가 다름
+-   A는 1명이지만 2명처럼 간주, B는 1명이지만 10명처럼 간주
+-   사람별 가중치를 조절하면 Baseline을 동일하게 맞출 수 있음
+-   치료군엔 $1/PS$, 대조군엔 $1/(1-PS)$ 로 가중치 부여
+-   여기까지 알면 50점
 
-
-
-## RCT 관점 
+## RCT 관점
 
 PS 0.7인 사람이 각 군에 속할 확률은?
 
-- 치료군 0.7, 대조군 0.3
+-   치료군 0.7, 대조군 0.3
 
-$$0.7 \times \frac{1}{0.7} = 0.3 \times \frac{1}{0.3} = 1$$  
+$$0.7 \times \frac{1}{0.7} = 0.3 \times \frac{1}{0.3} = 1$$
 
-- 따라서 PS 0.7인 사람이 치료군과 대조군에 동일하게 분포
-
+-   따라서 PS 0.7인 사람이 치료군과 대조군에 동일하게 분포
 
 그럼 IPTW는 ATE vs ATT?
-
 
 ## ATE weight, ATT weight
 
 ATE weight
 
- $$
+$$
     w_i \text{ for } ATE=
     \begin{cases}
     \frac{1}{p_i} & \text{if treated} \\
     \frac{1}{1 - p_i} & \text{if control}
     \end{cases}
-    $$
-전체 샘플(Treated + Control) 의 2배를 랜덤하게 배정한 RCT
+    $$ 전체 샘플(Treated + Control) 의 2배를 랜덤하게 배정한 RCT
 
 ATT weight
 
-   $$
+$$
     w_i \text{ for } ATT =
     \begin{cases}
     1 & \text{if treated} \\
     \frac{p_i}{1 - p_i} & \text{if control}
     \end{cases}
-    $$
-Treated + Treated 를 랜덤하게 배정
-
-
+    $$ Treated + Treated 를 랜덤하게 배정
 
 ## [ATT& ATE]{style="color:navy;"}
 
 -   ATE(Average Treatment Effect): **전체 환자 집단**(코호트)에서 **TAVI**가 **수술** 에 비해 효과적인가?
--   대조군(Surgery)와 TAVI군의 baseline을 가중치를 주어 **전체 코호트(AS 환자군)와 양군을 유사하게 만들어**, 전체 코호트에서 RCT를 진행하였을 때 예상되는 결과를 모사 
-    $$
+-   대조군(Surgery)와 TAVI군의 baseline을 가중치를 주어 **전체 코호트(AS 환자군)와 양군을 유사하게 만들어**, 전체 코호트에서 RCT를 진행하였을 때 예상되는 결과를 모사 $$
     w_i =
     \begin{cases}
     \frac{1}{p_i} & \text{if treated TAVI} \\
     \frac{1}{1 - p_i} & \text{if  (Surgery)}
     \end{cases}
     $$
-
-
 
 ## [TAVI vs Surgery: Example data]{style="color:navy;"}
 
@@ -293,26 +275,25 @@ kable(baseline_table, "html", caption = "Treatment, Control 그룹의 Age 비교
 
 ```
 
-
-## IPTW win? 
+## IPTW win?
 
 IPTW는 ATE니까 무조건 이걸해야겠네?
 
-- Weight 100 인 사람이 있다면? 
+-   Weight 100 인 사람이 있다면?
 
 Truncated weight
 
-- 99% quantile 값 이상은 99%로 바꿈 
-- weight 10 이상은 10으로 바꿈
-- Baseline 이 덜 맞춰지게 됨, ATE 훼손
+-   99% quantile 값 이상은 99%로 바꿈
+-   weight 10 이상은 10으로 바꿈
+-   Baseline 이 덜 맞춰지게 됨, ATE 훼손
 
 분석난이도 증가
 
-- GLM, Cox에 Weight를 고려 (`glm`, `cox` weights 옵션 또는 `svyglm`, `svycox`)
+-   GLM, Cox에 Weight를 고려 (`glm`, `cox` weights 옵션 또는 `svyglm`, `svycox`)
 
-- Weighted Kaplan-meier from svycox (`survfit` weights 옵션 또는 `svykm`)
+-   Weighted Kaplan-meier from svycox (`survfit` weights 옵션 또는 `svykm`)
 
-##
+## 
 
 ```{r, echo=F}
 library(survey)
@@ -331,12 +312,11 @@ jskm::svyjskm(s1, pval = T, table = T, design = dpbc)
 
 log-rank test(X), survey rank test(O, `survey::svyranktest`)
 
-- 또는 `IPWsurvival::adjusted.LR` 이용(SAS 디폴트)
-
+-   또는 `IPWsurvival::adjusted.LR` 이용(SAS 디폴트)
 
 ## `MatchIt`
 
-2그룹 PS/IPTW에서 가장 많이 쓰는 패키지 
+2그룹 PS/IPTW에서 가장 많이 쓰는 패키지
 
 ```{r, echo=T}
 library(MatchIt)
@@ -349,9 +329,10 @@ m.out <- matchit(treat ~ age + educ + race + married +
                    nodegree + re74 + re75, data = lalonde, distance = "glm", method = "nearest", ratio = 1, caliper = NULL)
 m.out
 ```
-- `distance`: glm(로지스틱) 이 기본, 다른 ML모델도 가능
-- `method`: nearest 충분, ratio: 1:N 매칭
-- `caliper`: 매칭이 잘 안될때(ex: Treat/Control 숫자가 비슷할 때)
+
+-   `distance`: glm(로지스틱) 이 기본, 다른 ML모델도 가능
+-   `method`: nearest 충분, ratio: 1:N 매칭
+-   `caliper`: 매칭이 잘 안될때(ex: Treat/Control 숫자가 비슷할 때)
 
 ## Matching data
 
@@ -363,74 +344,113 @@ rmarkdown::paged_table(mdata[order(mdata$subclass), c("treat", "distance", "subc
 ## Matching 결과 확인
 
 ```{r, echo=T}
-summary(m.out)
+summary(m.out) 
 ```
 
 ## `jstable::CreateTableOneJS`
 
+```{r, echo=F}
+#| results: asis
+cat('<div id="section1">') 
+cat("<style>#section1 table, #section1 th, #section1 td {font-size: 20px;}</style>")
+```
 
 ```{r, echo=T}
+#| results: asis
 jstable::CreateTableOneJS(vars = names(m.out$X), strata = "treat", data = lalonde, smd = T)$table %>% kable
 ```
 
+```{r, echo=F}
+#| results: asis
+cat('</div>')
+```
 
 ## Mathing data
 
+```{r, echo=F}
+#| results: asis
+cat('<div id="section2">') 
+cat("<style>#section2 table, #section2 th, #section2 td {font-size: 20px;}</style>")
+```
+
 ```{r, echo=T}
+#| results: asis
 jstable::CreateTableOneJS(vars = names(m.out$X), strata = "treat", data = mdata, smd = T)$table %>% kable
 ```
 
+```{r, echo=F}
+#| results: asis
+cat('</div>')
+```
+
 ## Caliper
+```{r, echo=F}
+#| results: asis
+cat('<div id="section3">') 
+cat("<style>#section3 table, #section3 th, #section3 td {font-size: 20px;}</style>")
+```
+
 
 ```{r, echo=T}
+#| results: asis
 m.out.caliper <- matchit(treat ~ age + educ + race + married + 
                    nodegree + re74 + re75, data = lalonde, method = "nearest", ratio = 1, caliper = 0.1)
 jstable::CreateTableOneJS(vars = names(m.out$X), strata = "treat", data = match.data(m.out.caliper), smd = T)$table %>% kable
 ```
 
+```{r, echo=F}
+#| results: asis
+cat('</div>')
+```
+
 ## IPTW: `svyCreateTableOneJS`
 
+```{r, echo=F}
+#| results: asis
+cat('<div id="section4">') 
+cat("<style>#section4 table, #section4 th, #section4 td {font-size: 20px;}</style>")
+```
+
 ```{r, echo=T}
+#| results: asis
 library(survey)
 lalonde$wt <- ifelse(lalonde$treat == 1, 1/m.out$distance, 1/(1 - m.out$distance))
 design.lalonde <- svydesign(ids=~1, strata=NULL, weights=~wt, data = lalonde)
 jstable::svyCreateTableOneJS(vars = names(m.out$X), strata = "treat", data = design.lalonde, smd = T)$table %>% kable
 ```
 
-## openstat.ai 
+```{r, echo=F}
+#| results: asis
+cat('</div>')
+```
+
+## openstat.ai
 
 ::: columns
 ::: {.column width="50%"}
-![](openstat.png)
-![](mat.png)
+![](openstat.png) ![](mat.png)
 :::
 
 ::: {.column width="50%"}
-![](tb1.png)
-![](km.png)
+![](tb1.png) ![](km.png)
 :::
 :::
 
+## 3그룹 A vs B vs C
 
+Matching: N수 제일 작은 그룹(A) 에 맞춰 여러번 매칭
 
-
-## 3그룹 A vs B vs C 
-
-Matching: N수 제일 작은 그룹(A) 에 맞춰 여러번 매칭 
-
-- `MatchIt` 그대로 쓸 수 있는건 장점
-- $ATT$도 아닌 $ATT_{A}$?
-
+-   `MatchIt` 그대로 쓸 수 있는건 장점
+-   $ATT$도 아닌 $ATT_{A}$?
 
 IPTW: `twang::mnps`
 
-- 시간이 오래걸림: 공단데이터에서 24시간 걸릴수도
-- $ATE$ 가능, 더 추천
-
+-   시간이 오래걸림: 공단데이터에서 24시간 걸릴수도
+-   $ATE$ 가능, 더 추천
 
 ## Issue 1: Matching 후 pair정보 이용
 
-Matching 후 stratified cox를 해야하는가? Yes or No 
+Matching 후 stratified cox를 해야하는가? Yes or No
 
 ```{r, echo= T, eval=F}
 cox1 <- coxph(Surv(time, status) ~ treat, data = mdata)
@@ -438,19 +458,17 @@ cox1 <- coxph(Surv(time, status) ~ treat, data = mdata)
 cox2 <- coxph(Surv(time, status) ~ treat + strata(subclass), data = mdata)
 ```
 
-
 </br>
 
 **Pair 마다 baseline hazard가 다르다는 가정**
 
-- RCT 재현 관점: 필요없음(pair정보 없음)
+-   RCT 재현 관점: 필요없음(pair정보 없음)
 
-- 매칭이 너무 잘 되어서 pair정보가 확실하다면?
+-   매칭이 너무 잘 되어서 pair정보가 확실하다면?
 
-- Pair 들끼리 뭔가 다르다면?
+-   Pair 들끼리 뭔가 다르다면?
 
-- OMOP-CDM ATLAS에서는 strata 사용하는게 Default.
-
+-   OMOP-CDM ATLAS에서는 strata 사용하는게 Default.
 
 ## 번외: baseline hazard 보정방법
 
@@ -468,52 +486,46 @@ cox4 <- coxph(Surv(time, status) ~ treat, data = mdata, cluster = hospital)
 
 </br>
 
-- `+ hospital` 도 가능, but 각 병원의 계수를 굳이 구할필요가?
+-   `+ hospital` 도 가능, but 각 병원의 계수를 굳이 구할필요가?
 
-- `coxme`: mixed model의 Random effect, `strata`와 비슷한 의미 
+-   `coxme`: mixed model의 Random effect, `strata`와 비슷한 의미
 
-- `cluster = hospital`: 같은 hospital 간에 상관관계가 있음을 보정하므로 `strata`와 비슷한 의미일 것 같지만, **baseline hazard 이 다르다는 가정이 아님**. `cluster` 옵션 전후 HR은 변하지 않음, SE만 변화.   
-
-
+-   `cluster = hospital`: 같은 hospital 간에 상관관계가 있음을 보정하므로 `strata`와 비슷한 의미일 것 같지만, **baseline hazard 이 다르다는 가정이 아님**. `cluster` 옵션 전후 HR은 변하지 않음, SE만 변화.
 
 ## Issue 2: Sex를 그룹변수로 Matching 가능?
 
 Sex가 RCT 가능한가?
 
-- **불가능** vs 하늘(?) 이 준 랜덤
+-   **불가능** vs 하늘(?) 이 준 랜덤
 
 Matching: $ATT$
 
-- 남자 vs 남자같은 여자, 여자 vs 여자같은 남자 
+-   남자 vs 남자같은 여자, 여자 vs 여자같은 남자
 
-IPTW: $ATE$ 니까 OK? 
+IPTW: $ATE$ 니까 OK?
 
-- 전체 연구대상자(남자 + 여자) 를 남/여 1:1로 랜덤배정했다는 뜻
-
+-   전체 연구대상자(남자 + 여자) 를 남/여 1:1로 랜덤배정했다는 뜻
 
 ## Executive summary
 
 **Baseline 맞춘다(X), RCT를 모방한다(O)**
 
-- ATE(average treatment effect) vs ATT(average treatment effect on treated)
+-   ATE(average treatment effect) vs ATT(average treatment effect on treated)
 
-- Matching은 ATT, IPTW는 ATE
+-   Matching은 ATT, IPTW는 ATE
 
-**2그룹 `MatchIt`, 3그룹 `twang` 패키지** 
+**2그룹 `MatchIt`, 3그룹 `twang` 패키지**
 
-- Logistic regression, Nearest neighbor, caliper 이해 
+-   Logistic regression, Nearest neighbor, caliper 이해
 
-- 3그룹 matching은 가장 작은 N수에 맞춰 2번 수행
+-   3그룹 matching은 가장 작은 N수에 맞춰 2번 수행
 
-- openstat.ai 에서 2그룹 matching/IPTW 지원
+-   openstat.ai 에서 2그룹 matching/IPTW 지원
 
+**분석 이슈**
 
-**분석 이슈** 
+-   Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)
 
-- Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)
-
-- 성별에 따라 매칭/IPTW 해도 되는가?
-
-
+-   성별에 따라 매칭/IPTW 해도 되는가?
 
 # 감사합니다.
