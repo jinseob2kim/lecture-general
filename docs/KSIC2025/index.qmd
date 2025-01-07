@@ -384,12 +384,12 @@ cat('</div>')
 ```
 
 ## Caliper
+
 ```{r, echo=F}
 #| results: asis
 cat('<div id="section3">') 
 cat("<style>#section3 table, #section3 th, #section3 td {font-size: 20px;}</style>")
 ```
-
 
 ```{r, echo=T}
 #| results: asis
@@ -505,6 +505,39 @@ Matching: $ATT$
 IPTW: $ATE$ 니까 OK?
 
 -   전체 연구대상자(남자 + 여자) 를 남/여 1:1로 랜덤배정했다는 뜻
+
+## 최신 Trial emulation 방법론
+
+![](lancet_ccw.png){width=650px} <br> - **Clone-Censor-Weight** method <br> - **Clone** : eligibile한 모든 대상자를 clone -\> Treatment, Control arm에 assign <br> - **Censor** : assign된 arm의 strategy에서 벗어나면, Protocol violation -\> artificial censoring <br> - **Weight** : 관찰시간에 따라 artificial censoring되지 않고 남아있을 확률의 역수를 가중치로 부여
+
+-   연구 시작시점에 치료군과 대조군이 완전히 동일
+
+## Immortal time bias
+
+![](immortal_time_bias.jpg){fig-align="center"}
+
+-   When Time-zero (f/u start date) ≠ Treatment start date <br>
+-   Misclassification bias, Selection bias <br>
+-   Overestimation of treatment effect
+-   Clone-Censor-Weight method를 통해 Intervention/약물 연구에서 발생하는 immortal time bias를 해소
+
+## Clone-Censor-Weight
+
+::: columns
+::: {.column width="50%"}
+![CCW Model](CCW_model.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+-   A는 치료군, A의 clone인 A'은 대조군
+-   A'은 A가 치료를 받은 시점에 artificial censoring
+-   A'과 B'은 artificial censoring 되는 시점이 다르다
+-   real-world RCT에서는 artificial censoring이 발생하지 않음
+    -   artificial censoring에 의해 관찰하지 못하는 event 발생을 보정
+-   시점별로 **artificial censor(0/1)** 될 확률을 logistic regression으로 추정
+    -   censor되지 않고 남아있을 확률이 0.2라면, 가중치 5를 곱하여 5명으로 간주 (**IPCW**)\
+:::
+:::
 
 ## Executive summary
 
