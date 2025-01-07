@@ -506,9 +506,9 @@ IPTW: $ATE$ 니까 OK?
 
 -   전체 연구대상자(남자 + 여자) 를 남/여 1:1로 랜덤배정했다는 뜻
 
-## Clone-Censor-Weight method
+## 최신 Trial emulation 방법론
 
-![](lancet_ccw.png){fig-align="center"} <br><br> - **Clone** : eligibile한 모든 대상자를 clone -\> Treatment, Control arm에 assign <br><br> - **Censor** : assign된 arm의 strategy에서 벗어나면, Protocol violation -\> artificial censoring <br><br> - **Weight** : 관찰시간에 따라 artificial censoring되지 않고 남아있을 확률의 역수를 가중치로 부여
+![](lancet_ccw.png){width=650px} <br> - **Clone-Censor-Weight** method <br> - **Clone** : eligibile한 모든 대상자를 clone -\> Treatment, Control arm에 assign <br> - **Censor** : assign된 arm의 strategy에서 벗어나면, Protocol violation -\> artificial censoring <br> - **Weight** : 관찰시간에 따라 artificial censoring되지 않고 남아있을 확률의 역수를 가중치로 부여
 
 -   연구 시작시점에 치료군과 대조군이 완전히 동일
 
@@ -516,8 +516,8 @@ IPTW: $ATE$ 니까 OK?
 
 ![](immortal_time_bias.jpg){fig-align="center"}
 
--   When Time-zero (f/u start date) ≠ Treatment start date <br><br>
--   Misclassification bias, Selection bias <br><br>
+-   When Time-zero (f/u start date) ≠ Treatment start date <br>
+-   Misclassification bias, Selection bias <br>
 -   Overestimation of treatment effect
 -   Clone-Censor-Weight method를 통해 Intervention/약물 연구에서 발생하는 immortal time bias를 해소
 
@@ -529,7 +529,7 @@ IPTW: $ATE$ 니까 OK?
 :::
 
 ::: {.column width="50%"}
--   A는 치료군, A의 clone인 A'은 대조군 <br><br>
+-   A는 치료군, A의 clone인 A'은 대조군
 -   A'은 A가 치료를 받은 시점에 artificial censoring
 -   A'과 B'은 artificial censoring 되는 시점이 다르다
 -   real-world RCT에서는 artificial censoring이 발생하지 않음
