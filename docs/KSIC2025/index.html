@@ -8,7 +8,7 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.47">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="김진섭">
   <meta name="dcterms.date" content="2025-01-18">
@@ -1212,17 +1212,27 @@ Discarded       0       0</code></pre>
 <div id="section1">
 <style>#section1 table, #section1 th, #section1 td {font-size: 20px;}</style>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">level</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">0</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">p</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">test</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">SMD</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sig</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
 </tr>
 </thead>
 <tbody>
@@ -1328,8 +1338,6 @@ Discarded       0       0</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </section>
 <section id="mathing-data" class="slide level2">
@@ -1337,17 +1345,27 @@ Discarded       0       0</code></pre>
 <div id="section2">
 <style>#section2 table, #section2 th, #section2 td {font-size: 20px;}</style>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> mdata, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">level</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">0</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">p</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">test</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">SMD</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sig</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
 </tr>
 </thead>
 <tbody>
@@ -1453,8 +1471,6 @@ Discarded       0       0</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </section>
 <section id="caliper" class="slide level2">
@@ -1464,17 +1480,27 @@ Discarded       0       0</code></pre>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>m.out.caliper <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> </span>
 <span id="cb11-2"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="fl">0.1</span>)</span>
 <span id="cb11-3"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> <span class="fu">match.data</span>(m.out.caliper), <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 5%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">level</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">0</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">p</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">test</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">SMD</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sig</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
 </tr>
 </thead>
 <tbody>
@@ -1580,8 +1606,6 @@ Discarded       0       0</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </section>
 <section id="iptw-svycreatetableonejs" class="slide level2">
@@ -1592,17 +1616,27 @@ Discarded       0       0</code></pre>
 <span id="cb12-2"><a href=""></a>lalonde<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(lalonde<span class="sc">$</span>treat <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>m.out<span class="sc">$</span>distance, <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> m.out<span class="sc">$</span>distance))</span>
 <span id="cb12-3"><a href=""></a>design.lalonde <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">strata=</span><span class="cn">NULL</span>, <span class="at">weights=</span><span class="sc">~</span>wt, <span class="at">data =</span> lalonde)</span>
 <span id="cb12-4"><a href=""></a>jstable<span class="sc">::</span><span class="fu">svyCreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> design.lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">level</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">0</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">p</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">test</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">SMD</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sig</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
 </tr>
 </thead>
 <tbody>
@@ -1708,8 +1742,6 @@ Discarded       0       0</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </section>
 <section id="openstat.ai" class="slide level2">
@@ -1805,14 +1837,14 @@ Discarded       0       0</code></pre>
 <section id="clone-censor-weight" class="slide level2">
 <h2>Clone-Censor-Weight</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="CCW_model.png"></p>
 <figcaption>CCW Model</figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:70%;">
 <ul>
 <li>A는 치료군, A의 clone인 A’은 대조군</li>
 <li>A’은 A가 치료를 받은 시점에 artificial censoring</li>

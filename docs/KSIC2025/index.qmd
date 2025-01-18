@@ -524,11 +524,11 @@ IPTW: $ATE$ 니까 OK?
 ## Clone-Censor-Weight
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="30%"}
 ![CCW Model](CCW_model.png){fig-align="center"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 -   A는 치료군, A의 clone인 A'은 대조군
 -   A'은 A가 치료를 받은 시점에 artificial censoring
 -   A'과 B'은 artificial censoring 되는 시점이 다르다
