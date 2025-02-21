@@ -105,10 +105,6 @@ class: center, middle
 - 30살까지 수원 프OOOO, 대치 위OO. 
 
 
----
-# 1학기 수시
-
-> 지금은 없어졌는데 학부 입학전형 중에 2001년부터 올림피아드 경시대회 특기자 전형이 있었어요. 당시 제가 2000년에 입학하고 부학장님께 올림피아드 경시대회 수상자들 중 의과대학에 와서 재능을 발휘하면 굉장한 시너지를 낼 인재들이 숨어있다고 건의를 했었는데, 좋게 받아들여져서 처음으로 해당 제도가 생겼고 그때 들어왔던 친구들이 좋은 성과를 내서 인원이 늘어나기도 했던 기억이 있어요. 제 의견이 정책으로 이어지는 과정을 직접 경험하며, 지금의 예방의학 정책 자문에 대한 꿈이 생겨났을 수도 있겠네요.(웃음, 성균관의대 사회의학 김종헌 교수)
 
 ---
 
@@ -147,16 +143,6 @@ DMC 연구소로 입사 10개월만에 무선사업부로 이동.
 <a href="https://newsimg.sedaily.com/2018/08/05/1S38RAKVMO_1.jpg/"><img src="https://newsimg.sedaily.com/2018/08/05/1S38RAKVMO_1.jpg" width=50%></a>
 </center>
 
----
-
-# 삼성전자에서 만난 의사.
-.large[
-- 중앙의대卒, 진단검사의학 전문의, 現 근무
-
-- 연세의대 03학번(WELT 대표), 인턴中 무선사업부 입사, 사내벤처 1호.
-
-- 美 소아과 의사
-]
 
 ---
 
@@ -264,46 +250,17 @@ class: center, middle
 ---
 # 주요 계약 
 
+- 강동/강남/동탄성심, 일산/상계백, 길, 고대안암병원과 연단위 계약
 
-- 대한심혈관중재학회 [COBIS III 레지스트리](https://clinicaltrials.gov/ct2/show/NCT03068494) 분석: [추가계약](http://pf.kakao.com/_XsuxgC/48388190)
-
-
-- 서울성모병원 [COREA-AMI II 레지스트리](https://clinicaltrials.gov/ct2/show/NCT02806102) 분석: [10개 연구 계약](http://pf.kakao.com/_XsuxgC/48043955)
-
-
-- 삼성서울병원 [공통데이터모델(CDM)](http://www.feedernet.org/html/?pmode=cdmdrn) 분석: [심평원 코로나데이터](https://hira-covid19.net/) 분석 중 
-
-
-- 강동성심병원 CDM 분석지원: 공단표본데이터 분석 중 
-
-
-- 경기도감염병관리지원단 코로나 대시보드 with Shinykorea: [최종보고](https://shinykorea.github.io/corona-activityrecord) 
-
-
-- 삼성서울병원 이식외과 육종(sarcoma) 데이터 분석: [5개 연구 계약](http://pf.kakao.com/_XsuxgC/51701089) 
-
-
-- 해운대백병원 정신질환 네트워크분석: [논문 5편](http://pf.kakao.com/_XsuxgC/52664370) 게재
-
-
-- 성균관의대 환경역학연구실 [미세먼지 대시보드](http://pf.kakao.com/_XsuxgC/43627405)
-
-
-- [삼성서울병원 정신과 통계자문계약](http://pf.kakao.com/_XsuxgC/55192190)
-
-- [서울대병원 순환기내과 통계자문계약](http://pf.kakao.com/_XsuxgC/55577702)
-
-- 기타: 제약/바이오, 임상시험SW, 디지털치료기기 스타트업 등 
-
----
-# 주요 논문 성과 
+- 루닛/신라젠 등 바이오회사 임상시험 연구설계 및 통계분석 지원 
 
 .large[
 SCI 논문 200건 지원
 ]
 <center>
-<img src="https://jinseob2kim.github.io/lecture-general/statreview/paper.png" width=80%></a>
+<img src="https://jinseob2kim.github.io/lecture-general/statreview/paper.png" width=60%></a>
 </center>
+
 
 
 ---
@@ -472,14 +429,12 @@ Statin 치료전략 비교
 # 재무 & 팀
 
 .large[
-최근 2년간 평균 매출 성장률 100%
 
 - 21년 1.45억 -> 22년 2.74억 -> 23년 5.82억(원) 
 - 창업 후 투자, 대출 없이 운영중 
 
-팀원 8명(평균나이 27세), 인턴 4명(의사 2명)
+팀원 7명(평균나이 27세), 인턴 5명(의사 2명, 의대생 2명, 연세대 스타트업인턴십)
 
-- R 패키지 개발자 2명, 백엔드 개발자 1명, 분석가 3명, 의사 1명, 마케팅 1명
 - 100% 원격근무, 재량근로제 계약
 ]
 
@@ -534,18 +489,6 @@ class: center, middle
 <img src="CRAN20241011.png" width=80%></a>
 </center>
 
-
----
-# 발표: 개발환경구축
-<center>
-<img src="RUCK2018.jpg" width=80%></a>
-</center>
-
----
-# 발표: R패키지 개발 후기
-<center>
-<img src="RUCK2019.jpg" width=80%></a>
-</center>
 
 
 ---
@@ -642,7 +585,7 @@ class: center, middle
 
 - 의대생, 의사 인턴십을 공식 프로그램으로
 
-- 사주
+- 사주, 전생?
 ]
 
 
@@ -738,7 +681,7 @@ class: center, middle
 ![](https://img.danawa.com/prod_img/500000/622/172/img/13172622_1.jpg?_v=20221004173551)
 
 ---
-# AngraMynew(?)
+# AngraMyNew(?)
 
 <center>
 <img src="スクリーンショット 2025-02-21 午後4.10.25.png" width=70%></a>
@@ -746,6 +689,7 @@ class: center, middle
 
 
 ---
+# 디자인권
 
 ![](スクリーンショット 2025-02-21 午後4.06.29.png)
 ---
