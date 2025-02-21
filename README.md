@@ -73,3 +73,5 @@ Lecture: general topic
 ](https://jinseob2kim.github.io/lecture-general/japanR2024)
 
 * [대한심혈관중재학회 제21회 동계국제학술대회 (KSIC 2025)](https://www.kscvi.org/conf/ksic2025/program/program.php?days=3#day_div): [통계를 배우자!: Group Differences Adjustment in Observational Studies](https://jinseob2kim.github.io/lecture-general/KSIC2025)
+
+* [2025 인천과학고 총동문회](): [멘토링](https://jinseob2kim.github.io/lecture-general/ishs2025)
