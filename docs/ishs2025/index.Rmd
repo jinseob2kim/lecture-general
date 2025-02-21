@@ -740,7 +740,10 @@ class: center, middle
 ---
 # AngraMynew(?)
 
-![](スクリーンショット 2025-02-21 午後4.10.25.png)
+<center>
+<img src="スクリーンショット 2025-02-21 午後4.10.25.png" width=70%></a>
+</center>
+
 
 ---
 
@@ -844,6 +847,15 @@ class: center, middle
 <center>
 <img src="merged_image.jpg" width=100%></a>
 </center>
+
+---
+# 전생공부
+
+<center>
+<img src="スクリーンショット 2025-02-21 午後4.29.26.png" width=100%></a>
+</center>
+
+
 
 
 ---
