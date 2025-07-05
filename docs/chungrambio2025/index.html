@@ -511,19 +511,6 @@
 <img src="https://raw.githubusercontent.com/jinseob2kim/lecture-general/refs/heads/master/docs/cdm-intro/cdmintro3.png" width="80%">
 </center>
 </section>
-<section id="omop-cdm" class="slide level2">
-<h2>OMOP CDM</h2>
-<p><strong>OMOP (2008-2013)</strong> www.omop.org</p>
-<ul>
-<li>OMOP = Observational Medical Outcomes Partnership</li>
-<li>Research on methods for drug safety evaluation</li>
-<li>Methods library developed; positive/negative drug outcome pairs</li>
-<li>Common Data Model (then, was a byproduct)</li>
-<li>Foundation for the NHI</li>
-<li>Transition to Reagan Udall Foundation for the FDA</li>
-</ul>
-<p><strong>OHDSI</strong> (after 2013) www.ohdsi.org - OHDSI = Observational Health Data Science and Informatics - Continues to use the name ‘OMOP CDM’ - Community of researchers; public; non-pharma funded</p>
-</section>
 <section id="omop-cdm-v6" class="slide level2">
 <h2>OMOP CDM V6</h2>
 <center>
@@ -751,7 +738,6 @@
 <section id="cdm-summary" class="slide level2">
 <h2>CDM summary</h2>
 <ul>
-<li><p>연구지원법인 차라투 운영하면서 CDM 공동연구 진행</p></li>
 <li><p>CDM은 병원들의 데이터를 똑같은 형태로 만든다.</p></li>
 <li><p>하나의 분석코드로 다기관메타분석 가능</p></li>
 <li><p>분석 전과정에 R을 이용하나, <a href="https://feedernet.com/">Feedernet</a> 에서 R없이 기본분석 가능.</p></li>
@@ -2448,6 +2434,61 @@ Discarded       0       0</code></pre>
 <a href="https://github.com/jinseob2kim/r-skku-biohrs"><img src="biohrs.png" width="60%"></a>
 </center>
 </section>
+<section id="분석결과-공유-연구자와의-소통" class="slide level2">
+<h2>분석결과 공유: 연구자와의 소통</h2>
+<p>SPSS, SAS, R 결과를 그냥 보내줄 수 없음.</p>
+<ul>
+<li>그럼 엑셀/Word 테이블을 직접?</li>
+<li>그림 수정해달라고 한다면?</li>
+</ul>
+<p>몇번만 왔다갔다하면 서로 지침</p>
+</section>
+<section id="solution-1-r로-직접-테이블-ppt-작성" class="slide level2">
+<h2>Solution 1: R로 직접 테이블, PPT 작성</h2>
+<p>R에서 테이블형태로 만들고, 이것들을 모아 하나의 엑셀로 저장</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>openxlsx<span class="sc">::</span><span class="fu">write.xlsx</span>(<span class="fu">list</span>(<span class="at">Baseline =</span> tb1old, <span class="at">Baseline_add =</span> tb1add, <span class="at">OR =</span> res.OR), <span class="st">"new.xlsx"</span>, <span class="at">rowNames =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="openxlsx.png" class="r-stretch"></section>
+<section id="soultion-2-flextable로-word생성" class="slide level2">
+<h2>Soultion 2: Flextable로 Word생성</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="do">## Continuous Exposure, Add Phase/Remove ICU day to covariates</span></span>
+<span id="cb27-2"><a href=""></a>tb2.add <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">"Energy"</span>, <span class="st">"Protein"</span>), <span class="cf">function</span>(v){</span>
+<span id="cb27-3"><a href=""></a>  covs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Phase"</span>, <span class="st">"age"</span>, <span class="st">"sex"</span>, <span class="st">"baseline_SOFA"</span>, <span class="st">"malnutrition"</span>)</span>
+<span id="cb27-4"><a href=""></a>  form <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"death_180days"</span>, <span class="st">"~"</span>, v, <span class="st">"+"</span>, <span class="fu">paste</span>(covs, <span class="at">collapse =</span> <span class="st">"+"</span>), <span class="st">"+ (1|No)"</span>)</span>
+<span id="cb27-5"><a href=""></a>  model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(<span class="fu">as.formula</span>(form), <span class="at">data =</span> along, <span class="at">family =</span> binomial, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
+<span id="cb27-6"><a href=""></a>  <span class="fu">tbl_regression</span>(model, <span class="at">exponentiate =</span> T, <span class="at">estimate_fun =</span> <span class="cf">function</span>(x) <span class="fu">style_number</span>(x, <span class="at">digits =</span> <span class="dv">2</span>),</span>
+<span id="cb27-7"><a href=""></a>                 <span class="at">pvalue_fun =</span> <span class="cf">function</span>(x) <span class="fu">style_number</span>(x, <span class="at">digits =</span> <span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="fu">bold_p</span>(<span class="at">t =</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span> <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href=""></a>    <span class="fu">as_flex_table</span>()</span>
+<span id="cb27-9"><a href=""></a>})</span>
+<span id="cb27-10"><a href=""></a></span>
+<span id="cb27-11"><a href=""></a><span class="fu">save_as_docx</span>(<span class="at">Energy =</span> tb2.add[[<span class="dv">1</span>]], <span class="at">Protein =</span> tb2.add[[<span class="dv">2</span>]], <span class="at">path =</span> <span class="st">"table2_add.docx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="figure-as-ppt" class="slide level2">
+<h2>Figure as PPT</h2>
+<p>편집가능한 벡터그래픽으로 제공</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">library</span>(rvg);<span class="fu">library</span>(officer)</span>
+<span id="cb28-2"><a href=""></a>doc <span class="ot">&lt;-</span> <span class="fu">read_pptx</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href=""></a>       <span class="fu">add_slide</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href=""></a>       <span class="fu">ph_with</span>(<span class="fu">dml</span>(<span class="at">ggobj =</span> gg_plot),</span>
+<span id="cb28-5"><a href=""></a>   <span class="at">location =</span> <span class="fu">ph_location_type</span>(<span class="at">type =</span> <span class="st">"body"</span>))</span>
+<span id="cb28-6"><a href=""></a><span class="fu">print</span>(doc, <span class="at">target =</span> <span class="st">"reports/rvg.pptx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<center>
+<a href="https://ardata-fr.github.io/officeverse/static/reports/rvg.pptx"><img src="https://ardata-fr.github.io/officeverse/static/reports/rvg.png" width="40%"></a>
+</center>
+</section>
+<section id="웹-애플리케이션-shiny" class="slide level2">
+<h2>웹 애플리케이션: Shiny</h2>
+<p>분석옵션을 조절하고 그 결과를 다운받을 수 있도록 제작</p>
+
+<img data-src="cox.png" class="r-stretch"></section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+
+<img data-src="km.png" class="r-stretch"></section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+
+<img data-src="forest.png" class="r-stretch"></section>
 <section id="executive-summary-1" class="slide level2">
 <h2>Executive summary</h2>
 <p>병원데이터: <strong>(1) 연구위해 정리된 (2) 연구위해 정리해야 할</strong></p>

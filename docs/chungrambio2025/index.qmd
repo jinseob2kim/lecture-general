@@ -130,22 +130,6 @@ EMR 을 데이터베이스화
 </center>
 
 
-## OMOP CDM
-
-**OMOP (2008-2013)** www.omop.org
-
-- OMOP = Observational Medical Outcomes Partnership
-- Research on methods for drug safety evaluation
-- Methods library developed; positive/negative drug outcome pairs
-- Common Data Model (then, was a byproduct)
-- Foundation for the NHI
-- Transition to Reagan Udall Foundation for the FDA
-
-**OHDSI** (after 2013) www.ohdsi.org
-- OHDSI = Observational Health Data Science and Informatics
-- Continues to use the name ‘OMOP CDM’
-- Community of researchers; public; non-pharma funded
-
 
 ## OMOP CDM V6
 
@@ -409,8 +393,6 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/jgh.14983
 
 
 ## CDM summary
-
-- 연구지원법인 차라투 운영하면서 CDM 공동연구 진행 
 
 - CDM은 병원들의 데이터를 똑같은 형태로 만든다.
 
@@ -1281,7 +1263,58 @@ R에서 테이블형태로 만들고, 이것들을 모아 하나의 엑셀로 �
 openxlsx::write.xlsx(list(Baseline = tb1old, Baseline_add = tb1add, OR = res.OR), "new.xlsx", rowNames = T)
 ```
 
+![](openxlsx.png)
 
+
+## Soultion 2: Flextable로 Word생성
+
+```r
+## Continuous Exposure, Add Phase/Remove ICU day to covariates
+tb2.add <- lapply(c("Energy", "Protein"), function(v){
+  covs <- c("Phase", "age", "sex", "baseline_SOFA", "malnutrition")
+  form <- paste0("death_180days", "~", v, "+", paste(covs, collapse = "+"), "+ (1|No)")
+  model <- glmer(as.formula(form), data = along, family = binomial, nAGQ = 0)
+  tbl_regression(model, exponentiate = T, estimate_fun = function(x) style_number(x, digits = 2),
+                 pvalue_fun = function(x) style_number(x, digits = 3)) %>% bold_p(t = 0.05) %>% bold_labels() %>% 
+    as_flex_table()
+})
+
+save_as_docx(Energy = tb2.add[[1]], Protein = tb2.add[[2]], path = "table2_add.docx")
+```
+
+## Figure as PPT
+
+편집가능한 벡터그래픽으로 제공
+
+```r
+library(rvg);library(officer)
+doc <- read_pptx() %>% 
+       add_slide() %>% 
+       ph_with(dml(ggobj = gg_plot),
+   location = ph_location_type(type = "body"))
+print(doc, target = "reports/rvg.pptx")
+```
+
+<center>
+<a href="https://ardata-fr.github.io/officeverse/static/reports/rvg.pptx"><img src="https://ardata-fr.github.io/officeverse/static/reports/rvg.png" width=40%></a>
+</center>
+
+
+## 웹 애플리케이션: Shiny
+
+분석옵션을 조절하고 그 결과를 다운받을 수 있도록 제작 
+
+![](cox.png)
+
+
+##
+
+![](km.png)
+
+
+##
+
+![](forest.png)
 
 
 
