@@ -390,6 +390,8 @@
   </style>
   <link href="index_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
   <script src="index_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
+  <script src="index_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="index_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -755,8 +757,1539 @@
 <li><p>분석 전과정에 R을 이용하나, <a href="https://feedernet.com/">Feedernet</a> 에서 R없이 기본분석 가능.</p></li>
 </ul>
 </section>
-<section id="r-package-for-medical-research" class="slide level2">
-<h2>R package for medical research</h2>
+<section id="공단-심평원" class="slide level2">
+<h2>공단, 심평원</h2>
+<p>세계적으로 경쟁력있는 국가빅데이터로 연구활발</p>
+<ul>
+<li>BMJ, European Heart Journal 등 최고수준 저널에 게재</li>
+</ul>
+<p>전국민의 청구자료 모음</p>
+<ul>
+<li><p>공단은 국가검진자료까지 포함, 특정연구 위해서만 제공하는 변수도 있음</p></li>
+<li><p>한의, 치의학 데이터 따로 존재</p></li>
+</ul>
+<p>원격(심평원, 공단표본), 분석실방문(공단 맞춤형)</p>
+</section>
+<section id="bmj-산모-자녀-매칭" class="slide level2">
+<h2>BMJ: 산모 자녀 매칭</h2>
+<blockquote>
+<p>경희대학교 의학과 연동건 교수 연구팀(김현진 석사연구원, 하버드의과대학 강지승 박사, 연세대 의과대학 신재일 교수)이 한국 건강보험공단 대규모 의료 빅데이터를 구축해 산모의 임신 중 마약성 진통제 사용과 출산 이후 소아의 신경정신과적 장애의 발병 연관성을 분석했다. 의료 빅데이터를 통해 이를 분석한 연구는 세계 최초의 일이다. 연구 성과는 의학 분야 세계 5대 학술지로 꼽히는영국의학저널(BMJ) 에 게재됐다.</p>
+</blockquote>
+<blockquote>
+<p>성균관대학교 약학대학 신주영 교수 연구팀(공동 1저자 최아형 박사, 이혜성 연구교수, 공저자 정한얼 박사)은 국내 산모ㆍ신생아 연계 보건의료 빅데이터를 활용해 산모 및 신생아에서의 항생제 사용과 어린이의 신경발달장애 발생 간의 관련성을 구명한 연구 결과를 지난 22일 세계적인 학술지 ’British Medical Journal(BMJ, (Impact Factor=107.7)’에 게재했다고 28일 밝혔다.</p>
+</blockquote>
+</section>
+<section id="ehj-전자담배" class="slide level2">
+<h2>EHJ: 전자담배</h2>
+<blockquote>
+<p>최기홍 삼성서울병원 순환기내과 교수(사진)는 이 같은 내용이 담긴 논문 ’경피적 관상동맥 중재술을 받은 흡연자들의 전자담배 전환 예후: 한국 전국 연구’를 지난해 10월 유럽심장저널에 게재했다. 최 교수는 국민건강보험 데이터를 활용해 흡연 경험이 있는 1만7000명에 대해 조사했다. 연구팀은 관상동맥 스텐트 시술을 받은 환자를 △계속 일반 담배를 피운 그룹 △전자담배로 전환한 그룹 △완전히 금연한 그룹 등으로 나눠 예후를 면밀히 분석했다.</p>
+</blockquote>
+</section>
+<section id="청구자료-특징" class="slide level2">
+<h2>청구자료 특징</h2>
+<p><strong>명세서데이터(20)</strong>: 환자(ID) 병원 방문(Key) 당 1행</p>
+<ul>
+<li>날짜, 진단명, 보험청구비, 입원여부 등 기본 정보</li>
+</ul>
+<p><strong>검사/처치/원내처방(30)</strong>: 방문당 여러 행(동일 Key가 여러 행)</p>
+<ul>
+<li>날짜, 검사/처치/처방명, 기간</li>
+</ul>
+<p><strong>원외처방(60 or 53)</strong>: 방문당 여러 행(동일 Key가 여러 행)</p>
+<ul>
+<li>날짜, 처방명, 기간</li>
+</ul>
+<p><strong>검진(g1e, 공단만)</strong>: 1/2년마다 수행하는 건강검진</p>
+<ul>
+<li>기본 검진항목, 특화검진(암, 폐암스크리닝, 영유아, 생애최초 등)</li>
+</ul>
+<p>그 외: 소득(건강보험 10분위), 지역, 요양기관</p>
+</section>
+<section id="청구자료-분석" class="slide level2">
+<h2>청구자료 분석</h2>
+<p>폐쇄된 서버(인터넷 안됨)</p>
+<ul>
+<li><p>R 패키지 설치도 마음대로 안됨</p></li>
+<li><p>분석결과를 반출신청해야함: 엑셀, PPT 등으로 만들어야 함</p></li>
+</ul>
+<p>분석SW</p>
+<ul>
+<li>SAS(기본), R, Python(공단 최근)</li>
+</ul>
+</section>
+<section id="sas" class="slide level2">
+<h2>SAS</h2>
+<p><strong>SAS: 안정적으로 실행됨, 그 뿐</strong></p>
+<ul>
+<li><p><code>proc sql</code> 로 sql문을 그대로 쓸 수 있음</p></li>
+<li><p>RAM &lt; HDD: 중간결과를 계속 저장해가면서 해야함</p></li>
+<li><p>느림, 그렇지만 무조건 실행은 됨</p></li>
+<li><p>통계 실행할 순 있지만, 반출파일로 정리는 어떻게?</p></li>
+<li><p>유료: 개인적으로 쓸순 없다.</p></li>
+</ul>
+</section>
+<section id="r-추천" class="slide level2">
+<h2>R 추천</h2>
+<p><strong>처음 데이터 읽기 힘들다, 이후부턴 최고</strong></p>
+<ul>
+<li><p>SAS파일은 R에서 매우 느리게 읽힘, csv/fst 로 변환해야(최근 공단은 txt로 제공)</p></li>
+<li><p>RAM &gt; HDD: 유연하고 한번에 데이터 매니지먼트 가능</p></li>
+<li><p>RAM이라 빠르지만, 서버터질 가능성</p></li>
+<li><p>최신 통계방법론 이용, 분석결과를 테이블/PPT로 저장하기 편함</p></li>
+<li><p>무료</p></li>
+</ul>
+</section>
+<section id="data.table" class="slide level2">
+<h2>data.table</h2>
+<ul>
+<li>기본 read/write 함수보다 30배이상 빠름</li>
+<li>Group by 연산을 빠르게 수행</li>
+<li>Merge, wide -&gt; long -&gt; wide 변환에 특화</li>
+</ul>
+
+<img data-src="https://www.machinelearningplus.com/wp-content/uploads/2019/11/data_table_syntax.png" class="r-stretch"></section>
+<section id="fst" class="slide level2">
+<h2>fst</h2>
+<p>R에서만 읽을 수 있는 fst 확장자 지원</p>
+<ul>
+<li><code>data.table</code> 보다 더 빠름</li>
+<li><code>data.table</code> 호환</li>
+</ul>
+<p>공단/심평원에선 제대로 설치 못할 가능성</p>
+
+<img data-src="https://www.fstpackage.org/README-speed-bench-1.png" class="r-stretch"></section>
+<section id="magrittr" class="slide level2">
+<h2><code>%&gt;%</code>: magrittr</h2>
+<p>기존 코딩: Step마다 실행</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">subset</span>(a, Sex <span class="sc">==</span> <span class="st">"M"</span>)</span>
+<span id="cb1-2"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(DM <span class="sc">~</span> Age <span class="sc">+</span> Weight <span class="sc">+</span> BMI, <span class="at">data =</span> b, <span class="at">family =</span> binomial)</span>
+<span id="cb1-3"><a href=""></a>summ.model <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)</span>
+<span id="cb1-4"><a href=""></a>summ.model<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>%&gt;%</code>: 의식의 흐름대로 한번에 실행</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>a <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href=""></a>  <span class="fu">subset</span>(Sex <span class="sc">==</span> <span class="st">"M"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href=""></a>  <span class="fu">glm</span>(DM <span class="sc">~</span> Age <span class="sc">+</span> Weight <span class="sc">+</span> BMI, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href=""></a>  summary <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href=""></a>  .<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>data.table 과 연계 추천</p>
+</section>
+<section id="multicore" class="slide level2">
+<h2>Multicore</h2>
+<p><code>parallel::mclapply</code> : 서버에서만</p>
+<ul>
+<li>다른 약물들/질병들에 대해 동일조건으로 과거력 변수 생성</li>
+<li>다른 Outcome에 대해 동일한 분석을 반복수행(Cox, Logistic)</li>
+</ul>
+<p><strong>너무 많은 코어쓰면 공단/심평원에서 전화올 수 있음</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>info.cci <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">mclapply</span>(<span class="fu">names</span>(code.cci), <span class="cf">function</span>(x){</span>
+<span id="cb3-2"><a href=""></a>  data.asd[, MDCARE_STRT_DT <span class="sc">:</span><span class="er">=</span> Indexdate]</span>
+<span id="cb3-3"><a href=""></a>  dt <span class="ot">&lt;-</span> m40[<span class="fu">like</span>(MCEX_SICK_SYM, <span class="fu">paste</span>(code.cci[[x]], <span class="at">collapse =</span> <span class="st">"|"</span>))][, MDCARE_STRT_DT <span class="sc">:</span><span class="er">=</span> <span class="fu">as.Date</span>(<span class="fu">as.character</span>(MDCARE_STRT_DT), <span class="at">format =</span> <span class="st">"%Y%m%d"</span>)][, .(RN_INDI, MDCARE_STRT_DT, <span class="at">Incidate =</span> MDCARE_STRT_DT)]  </span>
+<span id="cb3-4"><a href=""></a>  dt[, .SD[<span class="dv">1</span>], keyby <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"RN_INDI"</span>, <span class="st">"MDCARE_STRT_DT"</span>)][data.asd, on <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"RN_INDI"</span>, <span class="st">"MDCARE_STRT_DT"</span>), roll <span class="ot">=</span> <span class="dv">365</span>][, ev <span class="sc">:</span><span class="er">=</span> <span class="fu">as.integer</span>(<span class="sc">!</span><span class="fu">is.na</span>(Incidate))][]<span class="sc">$</span>ev <span class="sc">*</span> cciscore[x]</span>
+<span id="cb3-5"><a href=""></a>}, <span class="at">mc.cores =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span>  <span class="fu">do.call</span>(cbind, .) <span class="sc">%&gt;%</span> <span class="fu">cbind</span>(<span class="fu">rowSums</span>(.))</span>
+<span id="cb3-6"><a href=""></a><span class="fu">colnames</span>(info.cci) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"Prev_"</span>, <span class="fu">names</span>(code.cci)), <span class="st">"CCI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="통계" class="slide level2">
+<h2>통계</h2>
+<p>흔히 쓰는 통계는 Table1을 위한 통계, Logistic/Cox/Subgroup analysis</p>
+<ul>
+<li>Table 1 을 변수별로 통계구하지 않고, 한번에 수행</li>
+<li>회귀분석은 Univariate/Multivariate 동시에 보여줘야</li>
+<li>Subgroup analysis는 forestplot으로 보여줘야</li>
+</ul>
+
+<img data-src="https://blogs.sas.com/content/graphicallyspeaking/files/2016/05/Subgroup_Forest_SG_94.png" class="r-stretch"></section>
+<section id="인과추론psiptw" class="slide level2">
+<h2>인과추론(PS/IPTW)</h2>
+<p><strong>Baseline 맞춘다(X), RCT를 모방한다(O)</strong></p>
+<ul>
+<li><p>ATE(average treatment effect) vs ATT(average treatment effect on treated)</p></li>
+<li><p>Matching은 ATT, IPTW는 ATE</p></li>
+</ul>
+<p><strong>2그룹 <code>MatchIt</code>, 3그룹 <code>twang</code> 패키지</strong></p>
+<ul>
+<li><p>Logistic regression, Nearest neighbor, caliper 이해</p></li>
+<li><p>3그룹 matching은 가장 작은 N수에 맞춰 2번 수행</p></li>
+<li><p>openstat.ai 에서 2그룹 matching/IPTW 지원</p></li>
+</ul>
+<p><strong>분석 이슈</strong></p>
+<ul>
+<li><p>Matching 후 pair정보 이용해야 하는가?(ex: stratified cox)</p></li>
+<li><p>성별에 따라 매칭/IPTW 해도 되는가?</p></li>
+</ul>
+</section>
+<section id="causal-inference" class="slide level2">
+<h2>Causal inference</h2>
+<p>목표는 Causal inference, RCT like design</p>
+<ul>
+<li><p><span class="math inline">\(ITE = Y_{1i} - Y_{0i}\)</span>, 하늘만이..</p></li>
+<li><p><span class="math inline">\(ATE = E[Y_1 - Y_0]\)</span>, <strong>RCT</strong></p></li>
+<li><p><span class="math inline">\(ATT = E[Y_1 - Y_0 | T=1]\)</span>, <span class="math inline">\(ATC = E[Y_1 - Y_0 | T=0]\)</span></p></li>
+</ul>
+</section>
+<section id="ps-matching" class="slide level2">
+<h2>PS matching</h2>
+<p>Propensity score란?</p>
+<ul>
+<li>치료군 vs 대조군 연구에서, age/sex/기저질환 등의 변수를 이용하여 치료군에 속할 확률을 계산한 값</li>
+<li>같은 PS 면 치료군에 속할 확률이 동일</li>
+<li>같은 PS면 age/sex/기저질환 이 비슷</li>
+<li>치료/대조군을 1/0으로 코딩하여 Logistic regression(다른 것도 가능)</li>
+<li>치료군이 더 많다면 치료군을 0, 대조군을 1로 코딩</li>
+</ul>
+<p>따라서, <strong>치료군의 PS와 비슷한 사람을 대조군에서 뽑으면</strong> 두 그룹의 Baseline이 비슷해지겠군!</p>
+<ul>
+<li>여기까지 알면 50점</li>
+</ul>
+</section>
+<section id="rct-관점" class="slide level2">
+<h2>RCT 관점</h2>
+<p>RCT: 어떤 사람이 두 군에 배정될 확률이 50:50</p>
+<p>PS matching: PS가 0.7인 사람이 두 군에 배정될 확률? 50:50</p>
+<ul>
+<li>PS 0.7인 사람이 치료군에 있다면, 대조군에서도 맞춰서 뽑았을 것임</li>
+<li>여기까지 알면 90점</li>
+</ul>
+<p><strong>그럼 PS matching하면 RCT만큼 인정받을 수 있다?</strong></p>
+<ul>
+<li><strong>No</strong></li>
+<li>치료군과 동일 특성을 가진 대조군이 매칭되므로, 연구집단 전체가 치료군의 특성을 가짐(예: 더 고령/ 남자가 많다 등)</li>
+<li>ATE(average treatment effect) 가 아님, <strong>ATT(average treatment effect on the treated)</strong>.</li>
+</ul>
+</section>
+<section id="iptw" class="slide level2">
+<h2>IPTW</h2>
+<p>Inverse probability of treatment weighting</p>
+<ul>
+<li>매칭 안하고 모든 샘플을 씀. 단 각 사람마다 가중치가 다름</li>
+<li>A는 1명이지만 2명처럼 간주, B는 1명이지만 10명처럼 간주</li>
+<li>사람별 가중치를 조절하면 Baseline을 동일하게 맞출 수 있음</li>
+<li>치료군엔 <span class="math inline">\(1/PS\)</span>, 대조군엔 <span class="math inline">\(1/(1-PS)\)</span> 로 가중치 부여</li>
+<li>여기까지 알면 50점</li>
+</ul>
+</section>
+<section id="rct-관점-1" class="slide level2">
+<h2>RCT 관점</h2>
+<p>PS 0.7인 사람이 각 군에 속할 확률은?</p>
+<ul>
+<li>치료군 0.7, 대조군 0.3</li>
+</ul>
+<p><span class="math display">\[0.7 \times \frac{1}{0.7} = 0.3 \times \frac{1}{0.3} = 1\]</span></p>
+<ul>
+<li>따라서 PS 0.7인 사람이 치료군과 대조군에 동일하게 분포</li>
+</ul>
+<p>그럼 IPTW는 ATE vs ATT?</p>
+</section>
+<section id="ate-weight-att-weight" class="slide level2">
+<h2>ATE weight, ATT weight</h2>
+<p>ATE weight</p>
+<p><span class="math display">\[
+    w_i \text{ for } ATE=
+    \begin{cases}
+    \frac{1}{p_i} &amp; \text{if treated} \\
+    \frac{1}{1 - p_i} &amp; \text{if control}
+    \end{cases}
+    \]</span> 전체 샘플(Treated + Control) 의 2배를 랜덤하게 배정한 RCT</p>
+<p>ATT weight</p>
+<p><span class="math display">\[
+    w_i \text{ for } ATT =
+    \begin{cases}
+    1 &amp; \text{if treated} \\
+    \frac{p_i}{1 - p_i} &amp; \text{if control}
+    \end{cases}
+    \]</span> Treated + Treated 를 랜덤하게 배정</p>
+</section>
+<section id="att-ate" class="slide level2">
+<h2><span style="color:navy;">ATT&amp; ATE</span></h2>
+<ul>
+<li>ATE(Average Treatment Effect): <strong>전체 환자 집단</strong>(코호트)에서 <strong>TAVI</strong>가 <strong>수술</strong> 에 비해 효과적인가?</li>
+<li>대조군(Surgery)와 TAVI군의 baseline을 가중치를 주어 <strong>전체 코호트(AS 환자군)와 양군을 유사하게 만들어</strong>, 전체 코호트에서 RCT를 진행하였을 때 예상되는 결과를 모사 <span class="math display">\[
+w_i =
+\begin{cases}
+\frac{1}{p_i} &amp; \text{if treated TAVI} \\
+\frac{1}{1 - p_i} &amp; \text{if  (Surgery)}
+\end{cases}
+\]</span></li>
+</ul>
+</section>
+<section id="tavi-vs-surgery-example-data" class="slide level2">
+<h2><span style="color:navy;">TAVI vs Surgery: Example data</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["TAVI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Survival"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Propensity_score"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"빈센조","2":"35","3":"1","4":"1","5":"0.1718567"},{"1":"루카스","2":"48","3":"0","4":"1","5":"0.3163092"},{"1":"제이슨","2":"50","3":"0","4":"1","5":"0.3435664"},{"1":"토마스","2":"53","3":"1","4":"0","5":"0.3864109"},{"1":"리오넬","2":"55","3":"0","4":"1","5":"0.4160330"},{"1":"카밀라","2":"68","3":"1","4":"1","5":"0.6136449"},{"1":"아칸지","2":"70","3":"1","4":"1","5":"0.6424478"},{"1":"에밀리","2":"75","3":"0","4":"1","5":"0.7097903"},{"1":"노이어","2":"80","3":"1","4":"0","5":"0.7690095"},{"1":"호날두","2":"85","3":"1","4":"0","5":"0.8192224"},{"1":"앨리스","2":"40","3":"0","4":"1","5":"0.2202580"},{"1":"밥","2":"45","3":"0","4":"1","5":"0.2777194"},{"1":"찰리","2":"52","3":"0","4":"0","5":"0.3718948"},{"1":"다니엘","2":"60","3":"1","4":"0","5":"0.4923210"},{"1":"엘리자베스","2":"62","3":"1","4":"1","5":"0.5231400"},{"1":"프랭크","2":"67","3":"0","4":"1","5":"0.5989249"},{"1":"그레이스","2":"73","3":"1","4":"1","5":"0.6837417"},{"1":"헨리","2":"77","3":"0","4":"1","5":"0.7345263"},{"1":"이사벨","2":"82","3":"1","4":"0","5":"0.7901901"},{"1":"제임스","2":"88","3":"1","4":"0","5":"0.8450253"},{"1":"존","2":"42","3":"0","4":"1","5":"0.2421700"},{"1":"마리아","2":"49","3":"0","4":"1","5":"0.3297948"},{"1":"피터","2":"54","3":"1","4":"0","5":"0.4011317"},{"1":"사라","2":"59","3":"1","4":"0","5":"0.4769187"},{"1":"데이비드","2":"61","3":"0","4":"1","5":"0.5077378"},{"1":"제니퍼","2":"46","3":"0","4":"1","5":"0.2902582"},{"1":"케빈","2":"51","3":"1","4":"1","5":"0.3576063"},{"1":"레베카","2":"76","3":"0","4":"1","5":"0.7223278"},{"1":"토니","2":"81","3":"1","4":"0","5":"0.7797825"},{"1":"엘리","2":"83","3":"1","4":"0","5":"0.8002318"},{"1":"스티브","2":"37","3":"1","4":"1","5":"0.1901277"},{"1":"안나","2":"47","3":"0","4":"1","5":"0.3031256"},{"1":"마이클","2":"51","3":"0","4":"1","5":"0.3576063"},{"1":"제시카","2":"68","3":"1","4":"0","5":"0.6136449"},{"1":"댄","2":"84","3":"1","4":"1","5":"0.8099085"},{"1":"소피아","2":"59","3":"0","4":"1","5":"0.4769187"},{"1":"브라이언","2":"62","3":"1","4":"1","5":"0.5231400"},{"1":"나탈리","2":"78","3":"0","4":"1","5":"0.7463771"},{"1":"대니얼","2":"84","3":"1","4":"0","5":"0.8099085"},{"1":"엘레나","2":"89","3":"1","4":"0","5":"0.8529311"},{"1":"로버트","2":"39","3":"0","4":"1","5":"0.2098490"},{"1":"줄리아","2":"46","3":"0","4":"1","5":"0.2902582"},{"1":"스콧","2":"53","3":"0","4":"0","5":"0.3864109"},{"1":"니콜","2":"77","3":"1","4":"0","5":"0.7345263"},{"1":"앤드류","2":"75","3":"1","4":"1","5":"0.7097903"},{"1":"케이트","2":"54","3":"0","4":"1","5":"0.4011317"},{"1":"라이언","2":"59","3":"1","4":"1","5":"0.4769187"},{"1":"미셸","2":"86","3":"0","4":"1","5":"0.8281768"},{"1":"조셉","2":"88","3":"1","4":"0","5":"0.8450253"},{"1":"엘레나","2":"83","3":"1","4":"0","5":"0.8002318"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[6],"max":[6]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="att-ate-1" class="slide level2">
+<h2><span style="color:navy;">ATT&amp; ATE</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top" data-quarto-postprocess="true" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">age</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">TAVI</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Survival</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Propensity_score</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ATE</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ATT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; background-color: yellow !important;">빈센조</td>
+<td style="text-align: right; background-color: yellow !important;">35</td>
+<td style="text-align: right; background-color: yellow !important;">1</td>
+<td style="text-align: right; background-color: yellow !important;">1</td>
+<td style="text-align: right; background-color: yellow !important;">0.1718567</td>
+<td style="text-align: right; background-color: yellow !important;">5.818801</td>
+<td style="text-align: right; background-color: yellow !important;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">루카스</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3163092</td>
+<td style="text-align: right;">1.462649</td>
+<td style="text-align: right;">0.4626495</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">제이슨</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3435664</td>
+<td style="text-align: right;">1.523383</td>
+<td style="text-align: right;">0.5233834</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">토마스</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.3864109</td>
+<td style="text-align: right;">2.587919</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">리오넬</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4160330</td>
+<td style="text-align: right;">1.712426</td>
+<td style="text-align: right;">0.7124256</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">카밀라</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.6136449</td>
+<td style="text-align: right;">1.629607</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">아칸지</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.6424478</td>
+<td style="text-align: right;">1.556547</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: skyblue !important;">에밀리</td>
+<td style="text-align: right; background-color: skyblue !important;">75</td>
+<td style="text-align: right; background-color: skyblue !important;">0</td>
+<td style="text-align: right; background-color: skyblue !important;">1</td>
+<td style="text-align: right; background-color: skyblue !important;">0.7097903</td>
+<td style="text-align: right; background-color: skyblue !important;">3.445784</td>
+<td style="text-align: right; background-color: skyblue !important;">2.4457837</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">노이어</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.7690095</td>
+<td style="text-align: right;">1.300374</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">호날두</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8192224</td>
+<td style="text-align: right;">1.220670</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">앨리스</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2202580</td>
+<td style="text-align: right;">1.282475</td>
+<td style="text-align: right;">0.2824754</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">밥</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2777194</td>
+<td style="text-align: right;">1.384504</td>
+<td style="text-align: right;">0.3845035</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">찰리</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.3718948</td>
+<td style="text-align: right;">1.592090</td>
+<td style="text-align: right;">0.5920901</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">다니엘</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.4923210</td>
+<td style="text-align: right;">2.031195</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">엘리자베스</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5231400</td>
+<td style="text-align: right;">1.911534</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">프랭크</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5989249</td>
+<td style="text-align: right;">2.493298</td>
+<td style="text-align: right;">1.4932985</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">그레이스</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.6837417</td>
+<td style="text-align: right;">1.462541</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">헨리</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.7345263</td>
+<td style="text-align: right;">3.766852</td>
+<td style="text-align: right;">2.7668518</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">이사벨</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.7901901</td>
+<td style="text-align: right;">1.265518</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">제임스</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8450253</td>
+<td style="text-align: right;">1.183396</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">존</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2421700</td>
+<td style="text-align: right;">1.319557</td>
+<td style="text-align: right;">0.3195571</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">마리아</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3297948</td>
+<td style="text-align: right;">1.492080</td>
+<td style="text-align: right;">0.4920803</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">피터</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.4011317</td>
+<td style="text-align: right;">2.492947</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">사라</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.4769187</td>
+<td style="text-align: right;">2.096793</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">데이비드</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5077378</td>
+<td style="text-align: right;">2.031438</td>
+<td style="text-align: right;">1.0314379</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">제니퍼</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2902582</td>
+<td style="text-align: right;">1.408963</td>
+<td style="text-align: right;">0.4089632</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">케빈</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3576063</td>
+<td style="text-align: right;">2.796371</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">레베카</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.7223278</td>
+<td style="text-align: right;">3.601369</td>
+<td style="text-align: right;">2.6013690</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">토니</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.7797825</td>
+<td style="text-align: right;">1.282409</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">엘리</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8002318</td>
+<td style="text-align: right;">1.249638</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">스티브</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.1901277</td>
+<td style="text-align: right;">5.259622</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">안나</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3031256</td>
+<td style="text-align: right;">1.434979</td>
+<td style="text-align: right;">0.4349789</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">마이클</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3576063</td>
+<td style="text-align: right;">1.556678</td>
+<td style="text-align: right;">0.5566777</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">제시카</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.6136449</td>
+<td style="text-align: right;">1.629607</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">댄</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.8099085</td>
+<td style="text-align: right;">1.234707</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">소피아</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4769187</td>
+<td style="text-align: right;">1.911749</td>
+<td style="text-align: right;">0.9117489</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">브라이언</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5231400</td>
+<td style="text-align: right;">1.911534</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">나탈리</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.7463771</td>
+<td style="text-align: right;">3.942861</td>
+<td style="text-align: right;">2.9428614</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">대니얼</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8099085</td>
+<td style="text-align: right;">1.234707</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">엘레나</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8529311</td>
+<td style="text-align: right;">1.172428</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">로버트</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2098490</td>
+<td style="text-align: right;">1.265581</td>
+<td style="text-align: right;">0.2655808</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">줄리아</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2902582</td>
+<td style="text-align: right;">1.408963</td>
+<td style="text-align: right;">0.4089632</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">스콧</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.3864109</td>
+<td style="text-align: right;">1.629755</td>
+<td style="text-align: right;">0.6297551</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">니콜</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.7345263</td>
+<td style="text-align: right;">1.361422</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">앤드류</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.7097903</td>
+<td style="text-align: right;">1.408867</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">케이트</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4011317</td>
+<td style="text-align: right;">1.669816</td>
+<td style="text-align: right;">0.6698162</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">라이언</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4769187</td>
+<td style="text-align: right;">2.096793</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">미셸</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.8281768</td>
+<td style="text-align: right;">5.819935</td>
+<td style="text-align: right;">4.8199354</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">조셉</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8450253</td>
+<td style="text-align: right;">1.183396</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">엘레나</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8002318</td>
+<td style="text-align: right;">1.249638</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="att-ate-2" class="slide level2">
+<h2><span style="color:navy;">ATT&amp; ATE</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<caption>Treatment, Control 그룹의 Age 비교</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">그룹</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Treatment</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Control</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ATT</td>
+<td style="text-align: left;">70</td>
+<td style="text-align: left;">69.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ATE</td>
+<td style="text-align: left;">62.17</td>
+<td style="text-align: left;">63.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Original Cohort</td>
+<td style="text-align: left;">70(63.72)</td>
+<td style="text-align: left;">56.35(63.72)</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="iptw-win" class="slide level2">
+<h2>IPTW win?</h2>
+<p>IPTW는 ATE니까 무조건 이걸해야겠네?</p>
+<ul>
+<li>Weight 100 인 사람이 있다면?</li>
+</ul>
+<p>Truncated weight</p>
+<ul>
+<li>99% quantile 값 이상은 99%로 바꿈</li>
+<li>weight 10 이상은 10으로 바꿈</li>
+<li>Baseline 이 덜 맞춰지게 됨, ATE 훼손</li>
+</ul>
+<p>분석난이도 증가</p>
+<ul>
+<li><p>GLM, Cox에 Weight를 고려 (<code>glm</code>, <code>cox</code> weights 옵션 또는 <code>svyglm</code>, <code>svycox</code>)</p></li>
+<li><p>Weighted Kaplan-meier from svycox (<code>survfit</code> weights 옵션 또는 <code>svykm</code>)</p></li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>s1 <span class="ot">&lt;-</span> <span class="fu">svykm</span>(<span class="fu">Surv</span>(time, status <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">~</span> sex, <span class="at">design =</span> dpbc)</span>
+<span id="cb4-2"><a href=""></a>jskm<span class="sc">::</span><span class="fu">svyjskm</span>(s1, <span class="at">pval =</span> T, <span class="at">table =</span> T, <span class="at">design =</span> dpbc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p>log-rank test(X), survey rank test(O, <code>survey::svyranktest</code>)</p>
+<ul>
+<li>또는 <code>IPWsurvival::adjusted.LR</code> 이용(SAS 디폴트)</li>
+</ul>
+</section>
+<section id="matchit" class="slide level2">
+<h2><code>MatchIt</code></h2>
+<p>2그룹 PS/IPTW에서 가장 많이 쓰는 패키지</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb5-2"><a href=""></a><span class="fu">data</span>(<span class="st">"lalonde"</span>, <span class="at">package =</span> <span class="st">"MatchIt"</span>)</span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a><span class="fu">table</span>(lalonde<span class="sc">$</span>treat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+429 185 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co">#1:1 NN matching w/ replacement on a logistic regression PS</span></span>
+<span id="cb7-2"><a href=""></a>m.out <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> </span>
+<span id="cb7-3"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">distance =</span> <span class="st">"glm"</span>, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="cn">NULL</span>)</span>
+<span id="cb7-4"><a href=""></a>m.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A matchit object
+ - method: 1:1 nearest neighbor matching without replacement
+ - distance: Propensity score
+             - estimated with logistic regression
+ - number of obs.: 614 (original), 370 (matched)
+ - target estimand: ATT
+ - covariates: age, educ, race, married, nodegree, re74, re75</code></pre>
+</div>
+</div>
+<ul>
+<li><code>distance</code>: glm(로지스틱) 이 기본, 다른 ML모델도 가능</li>
+<li><code>method</code>: nearest 충분, ratio: 1:N 매칭</li>
+<li><code>caliper</code>: 매칭이 잘 안될때(ex: Treat/Control 숫자가 비슷할 때)</li>
+</ul>
+</section>
+<section id="matching-data" class="slide level2">
+<h2>Matching data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>mdata <span class="ot">&lt;-</span> <span class="fu">match.data</span>(m.out)</span>
+<span id="cb9-2"><a href=""></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(mdata[<span class="fu">order</span>(mdata<span class="sc">$</span>subclass), <span class="fu">c</span>(<span class="st">"treat"</span>, <span class="st">"distance"</span>, <span class="st">"subclass"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["treat"],"name":[1],"type":["int"],"align":["right"]},{"label":["distance"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["subclass"],"name":[3],"type":["fct"],"align":["left"]}],"data":[{"1":"1","2":"0.63876993","3":"1","_rn_":"NSW1"},{"1":"0","2":"0.20294667","3":"1","_rn_":"PSID300"},{"1":"1","2":"0.04292461","3":"2","_rn_":"NSW10"},{"1":"0","2":"0.04301213","3":"2","_rn_":"PSID344"},{"1":"1","2":"0.25032725","3":"3","_rn_":"NSW100"},{"1":"0","2":"0.10473300","3":"3","_rn_":"PSID280"},{"1":"1","2":"0.73802599","3":"4","_rn_":"NSW101"},{"1":"0","2":"0.65176204","3":"4","_rn_":"PSID256"},{"1":"1","2":"0.74408081","3":"5","_rn_":"NSW102"},{"1":"0","2":"0.67084800","3":"5","_rn_":"PSID375"},{"1":"1","2":"0.77079713","3":"6","_rn_":"NSW103"},{"1":"0","2":"0.71290136","3":"6","_rn_":"PSID406"},{"1":"1","2":"0.75070545","3":"7","_rn_":"NSW104"},{"1":"0","2":"0.68201376","3":"7","_rn_":"PSID268"},{"1":"1","2":"0.75364638","3":"8","_rn_":"NSW105"},{"1":"0","2":"0.68308336","3":"8","_rn_":"PSID355"},{"1":"1","2":"0.76390176","3":"9","_rn_":"NSW106"},{"1":"0","2":"0.69160171","3":"9","_rn_":"PSID326"},{"1":"1","2":"0.70259562","3":"10","_rn_":"NSW107"},{"1":"0","2":"0.49417728","3":"10","_rn_":"PSID380"},{"1":"1","2":"0.68221881","3":"11","_rn_":"NSW108"},{"1":"0","2":"0.38516198","3":"11","_rn_":"PSID260"},{"1":"1","2":"0.78443531","3":"12","_rn_":"NSW109"},{"1":"0","2":"0.74949341","3":"12","_rn_":"PSID187"},{"1":"1","2":"0.68901996","3":"13","_rn_":"NSW11"},{"1":"0","2":"0.44466699","3":"13","_rn_":"PSID354"},{"1":"1","2":"0.52238792","3":"14","_rn_":"NSW110"},{"1":"0","2":"0.11542394","3":"14","_rn_":"PSID161"},{"1":"1","2":"0.59257720","3":"15","_rn_":"NSW111"},{"1":"0","2":"0.14337079","3":"15","_rn_":"PSID220"},{"1":"1","2":"0.20656996","3":"16","_rn_":"NSW112"},{"1":"0","2":"0.10287901","3":"16","_rn_":"PSID391"},{"1":"1","2":"0.62849500","3":"17","_rn_":"NSW113"},{"1":"0","2":"0.18879446","3":"17","_rn_":"PSID265"},{"1":"1","2":"0.74120543","3":"18","_rn_":"NSW114"},{"1":"0","2":"0.66289776","3":"18","_rn_":"PSID345"},{"1":"1","2":"0.40628110","3":"19","_rn_":"NSW115"},{"1":"0","2":"0.10710477","3":"19","_rn_":"PSID180"},{"1":"1","2":"0.06254529","3":"20","_rn_":"NSW116"},{"1":"0","2":"0.06259243","3":"20","_rn_":"PSID390"},{"1":"1","2":"0.63730034","3":"21","_rn_":"NSW117"},{"1":"0","2":"0.20130824","3":"21","_rn_":"PSID341"},{"1":"1","2":"0.64751230","3":"22","_rn_":"NSW118"},{"1":"0","2":"0.23788641","3":"22","_rn_":"PSID199"},{"1":"1","2":"0.72659995","3":"23","_rn_":"NSW119"},{"1":"0","2":"0.64626932","3":"23","_rn_":"PSID376"},{"1":"1","2":"0.68244400","3":"24","_rn_":"NSW12"},{"1":"0","2":"0.41335828","3":"24","_rn_":"PSID331"},{"1":"1","2":"0.56631442","3":"25","_rn_":"NSW120"},{"1":"0","2":"0.12338720","3":"25","_rn_":"PSID274"},{"1":"1","2":"0.74816998","3":"26","_rn_":"NSW121"},{"1":"0","2":"0.67878861","3":"26","_rn_":"PSID370"},{"1":"1","2":"0.72785565","3":"27","_rn_":"NSW122"},{"1":"0","2":"0.64626932","3":"27","_rn_":"PSID398"},{"1":"1","2":"0.69809448","3":"28","_rn_":"NSW123"},{"1":"0","2":"0.48292498","3":"28","_rn_":"PSID293"},{"1":"1","2":"0.02495179","3":"29","_rn_":"NSW124"},{"1":"0","2":"0.02489599","3":"29","_rn_":"PSID33"},{"1":"1","2":"0.10175694","3":"30","_rn_":"NSW125"},{"1":"0","2":"0.09494931","3":"30","_rn_":"PSID89"},{"1":"1","2":"0.53484035","3":"31","_rn_":"NSW126"},{"1":"0","2":"0.11665805","3":"31","_rn_":"PSID404"},{"1":"1","2":"0.56639614","3":"32","_rn_":"NSW127"},{"1":"0","2":"0.12381573","3":"32","_rn_":"PSID395"},{"1":"1","2":"0.55919428","3":"33","_rn_":"NSW128"},{"1":"0","2":"0.12156128","3":"33","_rn_":"PSID405"},{"1":"1","2":"0.11300425","3":"34","_rn_":"NSW129"},{"1":"0","2":"0.09610320","3":"34","_rn_":"PSID289"},{"1":"1","2":"0.64986767","3":"35","_rn_":"NSW13"},{"1":"0","2":"0.24258938","3":"35","_rn_":"PSID240"},{"1":"1","2":"0.71871452","3":"36","_rn_":"NSW130"},{"1":"0","2":"0.62676090","3":"36","_rn_":"PSID191"},{"1":"1","2":"0.66990909","3":"37","_rn_":"NSW131"},{"1":"0","2":"0.36192884","3":"37","_rn_":"PSID97"},{"1":"1","2":"0.79063849","3":"38","_rn_":"NSW132"},{"1":"0","2":"0.75070545","3":"38","_rn_":"PSID389"},{"1":"1","2":"0.61560256","3":"39","_rn_":"NSW133"},{"1":"0","2":"0.18319778","3":"39","_rn_":"PSID417"},{"1":"1","2":"0.51049934","3":"40","_rn_":"NSW134"},{"1":"0","2":"0.11468487","3":"40","_rn_":"PSID170"},{"1":"1","2":"0.59743846","3":"41","_rn_":"NSW135"},{"1":"0","2":"0.16007795","3":"41","_rn_":"PSID91"},{"1":"1","2":"0.74567007","3":"42","_rn_":"NSW136"},{"1":"0","2":"0.67084800","3":"42","_rn_":"PSID408"},{"1":"1","2":"0.04275487","3":"43","_rn_":"NSW137"},{"1":"0","2":"0.04304778","3":"43","_rn_":"PSID109"},{"1":"1","2":"0.70735813","3":"44","_rn_":"NSW138"},{"1":"0","2":"0.54271376","3":"44","_rn_":"PSID333"},{"1":"1","2":"0.51149642","3":"45","_rn_":"NSW139"},{"1":"0","2":"0.11515593","3":"45","_rn_":"PSID171"},{"1":"1","2":"0.56241073","3":"46","_rn_":"NSW14"},{"1":"0","2":"0.12314388","3":"46","_rn_":"PSID425"},{"1":"1","2":"0.15215644","3":"47","_rn_":"NSW140"},{"1":"0","2":"0.10186827","3":"47","_rn_":"PSID95"},{"1":"1","2":"0.58410657","3":"48","_rn_":"NSW141"},{"1":"0","2":"0.13508896","3":"48","_rn_":"PSID177"},{"1":"1","2":"0.44030795","3":"49","_rn_":"NSW142"},{"1":"0","2":"0.10916184","3":"49","_rn_":"PSID183"},{"1":"1","2":"0.70268122","3":"50","_rn_":"NSW143"},{"1":"0","2":"0.53948683","3":"50","_rn_":"PSID228"},{"1":"1","2":"0.72545301","3":"51","_rn_":"NSW144"},{"1":"0","2":"0.64289289","3":"51","_rn_":"PSID386"},{"1":"1","2":"0.10300089","3":"52","_rn_":"NSW145"},{"1":"0","2":"0.09503752","3":"52","_rn_":"PSID208"},{"1":"1","2":"0.74884944","3":"53","_rn_":"NSW146"},{"1":"0","2":"0.68135700","3":"53","_rn_":"PSID189"},{"1":"1","2":"0.68487024","3":"54","_rn_":"NSW147"},{"1":"0","2":"0.43290004","3":"54","_rn_":"PSID5"},{"1":"1","2":"0.77355031","3":"55","_rn_":"NSW148"},{"1":"0","2":"0.71611962","3":"55","_rn_":"PSID401"},{"1":"1","2":"0.63267447","3":"56","_rn_":"NSW149"},{"1":"0","2":"0.19513575","3":"56","_rn_":"PSID334"},{"1":"1","2":"0.60858629","3":"57","_rn_":"NSW15"},{"1":"0","2":"0.17052457","3":"57","_rn_":"PSID224"},{"1":"1","2":"0.68173799","3":"58","_rn_":"NSW150"},{"1":"0","2":"0.38418863","3":"58","_rn_":"PSID84"},{"1":"1","2":"0.77737657","3":"59","_rn_":"NSW151"},{"1":"0","2":"0.73900570","3":"59","_rn_":"PSID158"},{"1":"1","2":"0.45386320","3":"60","_rn_":"NSW152"},{"1":"0","2":"0.11303087","3":"60","_rn_":"PSID371"},{"1":"1","2":"0.64611198","3":"61","_rn_":"NSW153"},{"1":"0","2":"0.20761828","3":"61","_rn_":"PSID31"},{"1":"1","2":"0.58607333","3":"62","_rn_":"NSW154"},{"1":"0","2":"0.13737905","3":"62","_rn_":"PSID230"},{"1":"1","2":"0.62005190","3":"63","_rn_":"NSW155"},{"1":"0","2":"0.18375605","3":"63","_rn_":"PSID264"},{"1":"1","2":"0.52646352","3":"64","_rn_":"NSW156"},{"1":"0","2":"0.11568712","3":"64","_rn_":"PSID202"},{"1":"1","2":"0.72221250","3":"65","_rn_":"NSW157"},{"1":"0","2":"0.63855416","3":"65","_rn_":"PSID69"},{"1":"1","2":"0.57863327","3":"66","_rn_":"NSW158"},{"1":"0","2":"0.13495941","3":"66","_rn_":"PSID100"},{"1":"1","2":"0.76869284","3":"67","_rn_":"NSW159"},{"1":"0","2":"0.70659714","3":"67","_rn_":"PSID134"},{"1":"1","2":"0.72249036","3":"68","_rn_":"NSW16"},{"1":"0","2":"0.64289289","3":"68","_rn_":"PSID373"},{"1":"1","2":"0.68832819","3":"69","_rn_":"NSW160"},{"1":"0","2":"0.43739641","3":"69","_rn_":"PSID356"},{"1":"1","2":"0.70900336","3":"70","_rn_":"NSW161"},{"1":"0","2":"0.54600728","3":"70","_rn_":"PSID48"},{"1":"1","2":"0.44571334","3":"71","_rn_":"NSW162"},{"1":"0","2":"0.11145877","3":"71","_rn_":"PSID424"},{"1":"1","2":"0.39689162","3":"72","_rn_":"NSW163"},{"1":"0","2":"0.10709125","3":"72","_rn_":"PSID379"},{"1":"1","2":"0.79408505","3":"73","_rn_":"NSW164"},{"1":"0","2":"0.75122604","3":"73","_rn_":"PSID231"},{"1":"1","2":"0.57223871","3":"74","_rn_":"NSW165"},{"1":"0","2":"0.12773409","3":"74","_rn_":"PSID160"},{"1":"1","2":"0.13895883","3":"75","_rn_":"NSW166"},{"1":"0","2":"0.10061710","3":"75","_rn_":"PSID156"},{"1":"1","2":"0.13090019","3":"76","_rn_":"NSW167"},{"1":"0","2":"0.09796399","3":"76","_rn_":"PSID323"},{"1":"1","2":"0.62493364","3":"77","_rn_":"NSW168"},{"1":"0","2":"0.18465798","3":"77","_rn_":"PSID410"},{"1":"1","2":"0.59033911","3":"78","_rn_":"NSW169"},{"1":"0","2":"0.14300375","3":"78","_rn_":"PSID127"},{"1":"1","2":"0.70259562","3":"79","_rn_":"NSW17"},{"1":"0","2":"0.51411241","3":"79","_rn_":"PSID96"},{"1":"1","2":"0.66235889","3":"80","_rn_":"NSW170"},{"1":"0","2":"0.27975559","3":"80","_rn_":"PSID239"},{"1":"1","2":"0.75809393","3":"81","_rn_":"NSW171"},{"1":"0","2":"0.68565238","3":"81","_rn_":"PSID266"},{"1":"1","2":"0.39094339","3":"82","_rn_":"NSW172"},{"1":"0","2":"0.10613076","3":"82","_rn_":"PSID282"},{"1":"1","2":"0.13747131","3":"83","_rn_":"NSW173"},{"1":"0","2":"0.10027830","3":"83","_rn_":"PSID342"},{"1":"1","2":"0.72803991","3":"84","_rn_":"NSW174"},{"1":"0","2":"0.64803402","3":"84","_rn_":"PSID352"},{"1":"1","2":"0.39388448","3":"85","_rn_":"NSW175"},{"1":"0","2":"0.10618524","3":"85","_rn_":"PSID281"},{"1":"1","2":"0.81592301","3":"86","_rn_":"NSW176"},{"1":"0","2":"0.76413459","3":"86","_rn_":"PSID196"},{"1":"1","2":"0.12427238","3":"87","_rn_":"NSW177"},{"1":"0","2":"0.09668459","3":"87","_rn_":"PSID362"},{"1":"1","2":"0.85315284","3":"88","_rn_":"NSW178"},{"1":"0","2":"0.78917283","3":"88","_rn_":"PSID118"},{"1":"1","2":"0.07733179","3":"89","_rn_":"NSW179"},{"1":"0","2":"0.07738177","3":"89","_rn_":"PSID365"},{"1":"1","2":"0.73496416","3":"90","_rn_":"NSW18"},{"1":"0","2":"0.64961800","3":"90","_rn_":"PSID368"},{"1":"1","2":"0.37897112","3":"91","_rn_":"NSW180"},{"1":"0","2":"0.10611283","3":"91","_rn_":"PSID267"},{"1":"1","2":"0.28701614","3":"92","_rn_":"NSW181"},{"1":"0","2":"0.10584513","3":"92","_rn_":"PSID209"},{"1":"1","2":"0.14916778","3":"93","_rn_":"NSW182"},{"1":"0","2":"0.10097106","3":"93","_rn_":"PSID351"},{"1":"1","2":"0.49468085","3":"94","_rn_":"NSW183"},{"1":"0","2":"0.11307622","3":"94","_rn_":"PSID184"},{"1":"1","2":"0.50741780","3":"95","_rn_":"NSW184"},{"1":"0","2":"0.11460021","3":"95","_rn_":"PSID185"},{"1":"1","2":"0.68962938","3":"96","_rn_":"NSW185"},{"1":"0","2":"0.44870637","3":"96","_rn_":"PSID98"},{"1":"1","2":"0.71166489","3":"97","_rn_":"NSW19"},{"1":"0","2":"0.56627812","3":"97","_rn_":"PSID291"},{"1":"1","2":"0.22463424","3":"98","_rn_":"NSW2"},{"1":"0","2":"0.10302179","3":"98","_rn_":"PSID205"},{"1":"1","2":"0.66431981","3":"99","_rn_":"NSW20"},{"1":"0","2":"0.29939542","3":"99","_rn_":"PSID420"},{"1":"1","2":"0.76517492","3":"100","_rn_":"NSW21"},{"1":"0","2":"0.69185828","3":"100","_rn_":"PSID416"},{"1":"1","2":"0.13901525","3":"101","_rn_":"NSW22"},{"1":"0","2":"0.10089079","3":"101","_rn_":"PSID77"},{"1":"1","2":"0.12238224","3":"102","_rn_":"NSW23"},{"1":"0","2":"0.09644005","3":"102","_rn_":"PSID192"},{"1":"1","2":"0.76799791","3":"103","_rn_":"NSW24"},{"1":"0","2":"0.69347663","3":"103","_rn_":"PSID218"},{"1":"1","2":"0.71931601","3":"104","_rn_":"NSW25"},{"1":"0","2":"0.63575388","3":"104","_rn_":"PSID387"},{"1":"1","2":"0.60916715","3":"105","_rn_":"NSW26"},{"1":"0","2":"0.17753518","3":"105","_rn_":"PSID327"},{"1":"1","2":"0.77079713","3":"106","_rn_":"NSW27"},{"1":"0","2":"0.71611962","3":"106","_rn_":"PSID392"},{"1":"1","2":"0.26920316","3":"107","_rn_":"NSW28"},{"1":"0","2":"0.10526247","3":"107","_rn_":"PSID409"},{"1":"1","2":"0.71611962","3":"108","_rn_":"NSW29"},{"1":"0","2":"0.61143145","3":"108","_rn_":"PSID337"},{"1":"1","2":"0.67824388","3":"109","_rn_":"NSW3"},{"1":"0","2":"0.37356634","3":"109","_rn_":"PSID41"},{"1":"1","2":"0.76799791","3":"110","_rn_":"NSW30"},{"1":"0","2":"0.69239042","3":"110","_rn_":"PSID372"},{"1":"1","2":"0.71611962","3":"111","_rn_":"NSW31"},{"1":"0","2":"0.61099700","3":"111","_rn_":"PSID335"},{"1":"1","2":"0.60981680","3":"112","_rn_":"NSW32"},{"1":"0","2":"0.17812874","3":"112","_rn_":"PSID164"},{"1":"1","2":"0.59404299","3":"113","_rn_":"NSW33"},{"1":"0","2":"0.15749966","3":"113","_rn_":"PSID358"},{"1":"1","2":"0.64289289","3":"114","_rn_":"NSW34"},{"1":"0","2":"0.20376775","3":"114","_rn_":"PSID79"},{"1":"1","2":"0.66079247","3":"115","_rn_":"NSW35"},{"1":"0","2":"0.27919906","3":"115","_rn_":"PSID227"},{"1":"1","2":"0.77862159","3":"116","_rn_":"NSW36"},{"1":"0","2":"0.74661503","3":"116","_rn_":"PSID330"},{"1":"1","2":"0.56093965","3":"117","_rn_":"NSW37"},{"1":"0","2":"0.12280561","3":"117","_rn_":"PSID207"},{"1":"1","2":"0.45094835","3":"118","_rn_":"NSW38"},{"1":"0","2":"0.11242132","3":"118","_rn_":"PSID290"},{"1":"1","2":"0.55677960","3":"119","_rn_":"NSW39"},{"1":"0","2":"0.12067790","3":"119","_rn_":"PSID353"},{"1":"1","2":"0.77632408","3":"120","_rn_":"NSW4"},{"1":"0","2":"0.73897749","3":"120","_rn_":"PSID179"},{"1":"1","2":"0.73802599","3":"121","_rn_":"NSW40"},{"1":"0","2":"0.65696967","3":"121","_rn_":"PSID15"},{"1":"1","2":"0.64650679","3":"122","_rn_":"NSW41"},{"1":"0","2":"0.22407937","3":"122","_rn_":"PSID111"},{"1":"1","2":"0.09365296","3":"123","_rn_":"NSW42"},{"1":"0","2":"0.09389349","3":"123","_rn_":"PSID275"},{"1":"1","2":"0.64626932","3":"124","_rn_":"NSW43"},{"1":"0","2":"0.21619566","3":"124","_rn_":"PSID339"},{"1":"1","2":"0.09150550","3":"125","_rn_":"NSW44"},{"1":"0","2":"0.09185220","3":"125","_rn_":"PSID251"},{"1":"1","2":"0.75656387","3":"126","_rn_":"NSW45"},{"1":"0","2":"0.68531145","3":"126","_rn_":"PSID253"},{"1":"1","2":"0.59404299","3":"127","_rn_":"NSW46"},{"1":"0","2":"0.15472910","3":"127","_rn_":"PSID76"},{"1":"1","2":"0.64626932","3":"128","_rn_":"NSW47"},{"1":"0","2":"0.21287279","3":"128","_rn_":"PSID150"},{"1":"1","2":"0.68221881","3":"129","_rn_":"NSW48"},{"1":"0","2":"0.38896237","3":"129","_rn_":"PSID59"},{"1":"1","2":"0.56093965","3":"130","_rn_":"NSW49"},{"1":"0","2":"0.12212155","3":"130","_rn_":"PSID182"},{"1":"1","2":"0.70163874","3":"131","_rn_":"NSW5"},{"1":"0","2":"0.49171251","3":"131","_rn_":"PSID238"},{"1":"1","2":"0.65368426","3":"132","_rn_":"NSW50"},{"1":"0","2":"0.25458123","3":"132","_rn_":"PSID186"},{"1":"1","2":"0.68486666","3":"133","_rn_":"NSW51"},{"1":"0","2":"0.42160328","3":"133","_rn_":"PSID308"},{"1":"1","2":"0.61665323","3":"134","_rn_":"NSW52"},{"1":"0","2":"0.18367206","3":"134","_rn_":"PSID241"},{"1":"1","2":"0.75070545","3":"135","_rn_":"NSW53"},{"1":"0","2":"0.68244400","3":"135","_rn_":"PSID381"},{"1":"1","2":"0.66079247","3":"136","_rn_":"NSW54"},{"1":"0","2":"0.26991860","3":"136","_rn_":"PSID136"},{"1":"1","2":"0.61291686","3":"137","_rn_":"NSW55"},{"1":"0","2":"0.18100270","3":"137","_rn_":"PSID385"},{"1":"1","2":"0.71611962","3":"138","_rn_":"NSW56"},{"1":"0","2":"0.60521114","3":"138","_rn_":"PSID110"},{"1":"1","2":"0.74640480","3":"139","_rn_":"NSW57"},{"1":"0","2":"0.67258034","3":"139","_rn_":"PSID8"},{"1":"1","2":"0.37847866","3":"140","_rn_":"NSW58"},{"1":"0","2":"0.10603095","3":"140","_rn_":"PSID285"},{"1":"1","2":"0.60480778","3":"141","_rn_":"NSW59"},{"1":"0","2":"0.17001671","3":"141","_rn_":"PSID348"},{"1":"1","2":"0.69906990","3":"142","_rn_":"NSW6"},{"1":"0","2":"0.48672379","3":"142","_rn_":"PSID6"},{"1":"1","2":"0.13012192","3":"143","_rn_":"NSW60"},{"1":"0","2":"0.09700298","3":"143","_rn_":"PSID272"},{"1":"1","2":"0.64626932","3":"144","_rn_":"NSW61"},{"1":"0","2":"0.20857708","3":"144","_rn_":"PSID366"},{"1":"1","2":"0.68826176","3":"145","_rn_":"NSW62"},{"1":"0","2":"0.43566747","3":"145","_rn_":"PSID99"},{"1":"1","2":"0.77017180","3":"146","_rn_":"NSW63"},{"1":"0","2":"0.70931364","3":"146","_rn_":"PSID277"},{"1":"1","2":"0.77632408","3":"147","_rn_":"NSW64"},{"1":"0","2":"0.73516648","3":"147","_rn_":"PSID399"},{"1":"1","2":"0.53662873","3":"148","_rn_":"NSW65"},{"1":"0","2":"0.12067508","3":"148","_rn_":"PSID357"},{"1":"1","2":"0.71860150","3":"149","_rn_":"NSW66"},{"1":"0","2":"0.62101848","3":"149","_rn_":"PSID419"},{"1":"1","2":"0.77632408","3":"150","_rn_":"NSW67"},{"1":"0","2":"0.71931601","3":"150","_rn_":"PSID411"},{"1":"1","2":"0.07382733","3":"151","_rn_":"NSW68"},{"1":"0","2":"0.07344016","3":"151","_rn_":"PSID114"},{"1":"1","2":"0.43251547","3":"152","_rn_":"NSW69"},{"1":"0","2":"0.10874469","3":"152","_rn_":"PSID258"},{"1":"1","2":"0.65368426","3":"153","_rn_":"NSW7"},{"1":"0","2":"0.26124827","3":"153","_rn_":"PSID271"},{"1":"1","2":"0.70914659","3":"154","_rn_":"NSW70"},{"1":"0","2":"0.56160114","3":"154","_rn_":"PSID217"},{"1":"1","2":"0.71540019","3":"155","_rn_":"NSW71"},{"1":"0","2":"0.59473716","3":"155","_rn_":"PSID159"},{"1":"1","2":"0.76123332","3":"156","_rn_":"NSW72"},{"1":"0","2":"0.68831057","3":"156","_rn_":"PSID173"},{"1":"1","2":"0.57342619","3":"157","_rn_":"NSW73"},{"1":"0","2":"0.12972391","3":"157","_rn_":"PSID384"},{"1":"1","2":"0.66079247","3":"158","_rn_":"NSW74"},{"1":"0","2":"0.26551854","3":"158","_rn_":"PSID17"},{"1":"1","2":"0.76818297","3":"159","_rn_":"NSW75"},{"1":"0","2":"0.70508501","3":"159","_rn_":"PSID140"},{"1":"1","2":"0.13557377","3":"160","_rn_":"NSW76"},{"1":"0","2":"0.09861306","3":"160","_rn_":"PSID361"},{"1":"1","2":"0.65010402","3":"161","_rn_":"NSW77"},{"1":"0","2":"0.25374406","3":"161","_rn_":"PSID188"},{"1":"1","2":"0.69574047","3":"162","_rn_":"NSW78"},{"1":"0","2":"0.46159100","3":"162","_rn_":"PSID94"},{"1":"1","2":"0.80991743","3":"163","_rn_":"NSW79"},{"1":"0","2":"0.75364638","3":"163","_rn_":"PSID388"},{"1":"1","2":"0.78972311","3":"164","_rn_":"NSW8"},{"1":"0","2":"0.75070545","3":"164","_rn_":"PSID374"},{"1":"1","2":"0.76232821","3":"165","_rn_":"NSW80"},{"1":"0","2":"0.68970689","3":"165","_rn_":"PSID269"},{"1":"1","2":"0.66079247","3":"166","_rn_":"NSW81"},{"1":"0","2":"0.26158781","3":"166","_rn_":"PSID295"},{"1":"1","2":"0.63561643","3":"167","_rn_":"NSW82"},{"1":"0","2":"0.19543867","3":"167","_rn_":"PSID225"},{"1":"1","2":"0.10034130","3":"168","_rn_":"NSW83"},{"1":"0","2":"0.09479757","3":"168","_rn_":"PSID203"},{"1":"1","2":"0.70259562","3":"169","_rn_":"NSW84"},{"1":"0","2":"0.50868759","3":"169","_rn_":"PSID24"},{"1":"1","2":"0.68145169","3":"170","_rn_":"NSW85"},{"1":"0","2":"0.38303231","3":"170","_rn_":"PSID428"},{"1":"1","2":"0.80501207","3":"171","_rn_":"NSW86"},{"1":"0","2":"0.75186535","3":"171","_rn_":"PSID412"},{"1":"1","2":"0.20030468","3":"172","_rn_":"NSW87"},{"1":"0","2":"0.10280376","3":"172","_rn_":"PSID329"},{"1":"1","2":"0.77357253","3":"173","_rn_":"NSW88"},{"1":"0","2":"0.71931601","3":"173","_rn_":"PSID367"},{"1":"1","2":"0.07859089","3":"174","_rn_":"NSW89"},{"1":"0","2":"0.07792752","3":"174","_rn_":"PSID138"},{"1":"1","2":"0.77983825","3":"175","_rn_":"NSW9"},{"1":"0","2":"0.74707356","3":"175","_rn_":"PSID423"},{"1":"1","2":"0.67456320","3":"176","_rn_":"NSW90"},{"1":"0","2":"0.36518679","3":"176","_rn_":"PSID46"},{"1":"1","2":"0.61665323","3":"177","_rn_":"NSW91"},{"1":"0","2":"0.18335100","3":"177","_rn_":"PSID427"},{"1":"1","2":"0.71611962","3":"178","_rn_":"NSW92"},{"1":"0","2":"0.60516607","3":"178","_rn_":"PSID278"},{"1":"1","2":"0.77079713","3":"179","_rn_":"NSW93"},{"1":"0","2":"0.71467967","3":"179","_rn_":"PSID400"},{"1":"1","2":"0.64650679","3":"180","_rn_":"NSW94"},{"1":"0","2":"0.22259512","3":"180","_rn_":"PSID66"},{"1":"1","2":"0.81944355","3":"181","_rn_":"NSW95"},{"1":"0","2":"0.77891154","3":"181","_rn_":"PSID226"},{"1":"1","2":"0.08328409","3":"182","_rn_":"NSW96"},{"1":"0","2":"0.08238340","3":"182","_rn_":"PSID176"},{"1":"1","2":"0.68562935","3":"183","_rn_":"NSW97"},{"1":"0","2":"0.43343756","3":"183","_rn_":"PSID27"},{"1":"1","2":"0.71809625","3":"184","_rn_":"NSW98"},{"1":"0","2":"0.61961310","3":"184","_rn_":"PSID157"},{"1":"1","2":"0.74106491","3":"185","_rn_":"NSW99"},{"1":"0","2":"0.65755729","3":"185","_rn_":"PSID234"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[6],"max":[6]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="matching-결과-확인" class="slide level2">
+<h2>Matching 결과 확인</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">summary</span>(m.out) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+matchit(formula = treat ~ age + educ + race + married + nodegree + 
+    re74 + re75, data = lalonde, method = "nearest", distance = "glm", 
+    caliper = NULL, ratio = 1)
+
+Summary of Balance for All Data:
+           Means Treated Means Control Std. Mean Diff. Var. Ratio eCDF Mean
+distance          0.5774        0.1822          1.7941     0.9211    0.3774
+age              25.8162       28.0303         -0.3094     0.4400    0.0813
+educ             10.3459       10.2354          0.0550     0.4959    0.0347
+raceblack         0.8432        0.2028          1.7615          .    0.6404
+racehispan        0.0595        0.1422         -0.3498          .    0.0827
+racewhite         0.0973        0.6550         -1.8819          .    0.5577
+married           0.1892        0.5128         -0.8263          .    0.3236
+nodegree          0.7081        0.5967          0.2450          .    0.1114
+re74           2095.5737     5619.2365         -0.7211     0.5181    0.2248
+re75           1532.0553     2466.4844         -0.2903     0.9563    0.1342
+           eCDF Max
+distance     0.6444
+age          0.1577
+educ         0.1114
+raceblack    0.6404
+racehispan   0.0827
+racewhite    0.5577
+married      0.3236
+nodegree     0.1114
+re74         0.4470
+re75         0.2876
+
+Summary of Balance for Matched Data:
+           Means Treated Means Control Std. Mean Diff. Var. Ratio eCDF Mean
+distance          0.5774        0.3629          0.9739     0.7566    0.1321
+age              25.8162       25.3027          0.0718     0.4568    0.0847
+educ             10.3459       10.6054         -0.1290     0.5721    0.0239
+raceblack         0.8432        0.4703          1.0259          .    0.3730
+racehispan        0.0595        0.2162         -0.6629          .    0.1568
+racewhite         0.0973        0.3135         -0.7296          .    0.2162
+married           0.1892        0.2108         -0.0552          .    0.0216
+nodegree          0.7081        0.6378          0.1546          .    0.0703
+re74           2095.5737     2342.1076         -0.0505     1.3289    0.0469
+re75           1532.0553     1614.7451         -0.0257     1.4956    0.0452
+           eCDF Max Std. Pair Dist.
+distance     0.4216          0.9740
+age          0.2541          1.3938
+educ         0.0757          1.2474
+raceblack    0.3730          1.0259
+racehispan   0.1568          1.0743
+racewhite    0.2162          0.8390
+married      0.0216          0.8281
+nodegree     0.0703          1.0106
+re74         0.2757          0.7965
+re75         0.2054          0.7381
+
+Sample Sizes:
+          Control Treated
+All           429     185
+Matched       185     185
+Unmatched     244       0
+Discarded       0       0</code></pre>
+</div>
+</div>
+</section>
+<section id="jstablecreatetableonejs" class="slide level2">
+<h2><code>jstable::CreateTableOneJS</code></h2>
+<div id="section1">
+<style>#section1 table, #section1 th, #section1 td {font-size: 20px;}</style>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">429</td>
+<td style="text-align: left;">185</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">28.03 ± 10.79</td>
+<td style="text-align: left;">25.82 ± 7.16</td>
+<td style="text-align: left;">0.003</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.242</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">educ</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">10.24 ± 2.86</td>
+<td style="text-align: left;">10.35 ± 2.01</td>
+<td style="text-align: left;">0.585</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.045</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">race (%)</td>
+<td style="text-align: left;">black</td>
+<td style="text-align: left;">87 (20.3)</td>
+<td style="text-align: left;">156 (84.3)</td>
+<td style="text-align: left;">&lt;0.001</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1.701</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">hispan</td>
+<td style="text-align: left;">61 (14.2)</td>
+<td style="text-align: left;">11 ( 5.9)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">281 (65.5)</td>
+<td style="text-align: left;">18 ( 9.7)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">married</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.51 ± 0.50</td>
+<td style="text-align: left;">0.19 ± 0.39</td>
+<td style="text-align: left;">&lt;0.001</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.719</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nodegree</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.60 ± 0.49</td>
+<td style="text-align: left;">0.71 ± 0.46</td>
+<td style="text-align: left;">0.007</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.235</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">re74</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">5619.24 ± 6788.75</td>
+<td style="text-align: left;">2095.57 ± 4886.62</td>
+<td style="text-align: left;">&lt;0.001</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.596</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">re75</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2466.48 ± 3292.00</td>
+<td style="text-align: left;">1532.06 ± 3219.25</td>
+<td style="text-align: left;">0.001</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.287</td>
+<td style="text-align: left;">**</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mathing-data" class="slide level2">
+<h2>Mathing data</h2>
+<div id="section2">
+<style>#section2 table, #section2 th, #section2 td {font-size: 20px;}</style>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> mdata, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">185</td>
+<td style="text-align: left;">185</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">25.30 ± 10.59</td>
+<td style="text-align: left;">25.82 ± 7.16</td>
+<td style="text-align: left;">0.585</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.057</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">educ</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">10.61 ± 2.66</td>
+<td style="text-align: left;">10.35 ± 2.01</td>
+<td style="text-align: left;">0.290</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.110</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">race (%)</td>
+<td style="text-align: left;">black</td>
+<td style="text-align: left;">87 (47.0)</td>
+<td style="text-align: left;">156 (84.3)</td>
+<td style="text-align: left;">&lt;0.001</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.855</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">hispan</td>
+<td style="text-align: left;">40 (21.6)</td>
+<td style="text-align: left;">11 ( 5.9)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">58 (31.4)</td>
+<td style="text-align: left;">18 ( 9.7)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">married</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.21 ± 0.41</td>
+<td style="text-align: left;">0.19 ± 0.39</td>
+<td style="text-align: left;">0.604</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.054</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nodegree</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.64 ± 0.48</td>
+<td style="text-align: left;">0.71 ± 0.46</td>
+<td style="text-align: left;">0.151</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.150</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">re74</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2342.11 ± 4238.98</td>
+<td style="text-align: left;">2095.57 ± 4886.62</td>
+<td style="text-align: left;">0.605</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.054</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">re75</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1614.75 ± 2632.35</td>
+<td style="text-align: left;">1532.06 ± 3219.25</td>
+<td style="text-align: left;">0.787</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.028</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="caliper" class="slide level2">
+<h2>Caliper</h2>
+<div id="section3">
+<style>#section3 table, #section3 th, #section3 td {font-size: 20px;}</style>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>m.out.caliper <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> </span>
+<span id="cb14-2"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="fl">0.1</span>)</span>
+<span id="cb14-3"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> <span class="fu">match.data</span>(m.out.caliper), <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">111</td>
+<td style="text-align: left;">111</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">26.14 ± 10.88</td>
+<td style="text-align: left;">25.95 ± 6.58</td>
+<td style="text-align: left;">0.870</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.022</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">educ</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">10.49 ± 2.66</td>
+<td style="text-align: left;">10.49 ± 2.04</td>
+<td style="text-align: left;">1.000</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">&lt;0.001</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">race (%)</td>
+<td style="text-align: left;">black</td>
+<td style="text-align: left;">80 (72.1)</td>
+<td style="text-align: left;">82 (73.9)</td>
+<td style="text-align: left;">0.954</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.041</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">hispan</td>
+<td style="text-align: left;">12 (10.8)</td>
+<td style="text-align: left;">11 ( 9.9)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">19 (17.1)</td>
+<td style="text-align: left;">18 (16.2)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">married</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.24 ± 0.43</td>
+<td style="text-align: left;">0.21 ± 0.41</td>
+<td style="text-align: left;">0.523</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.086</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nodegree</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.61 ± 0.49</td>
+<td style="text-align: left;">0.65 ± 0.48</td>
+<td style="text-align: left;">0.580</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.074</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">re74</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2408.56 ± 4436.77</td>
+<td style="text-align: left;">2667.11 ± 5732.76</td>
+<td style="text-align: left;">0.707</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.050</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">re75</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1800.87 ± 2917.71</td>
+<td style="text-align: left;">1811.30 ± 3699.16</td>
+<td style="text-align: left;">0.981</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.003</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="iptw-svycreatetableonejs" class="slide level2">
+<h2>IPTW: <code>svyCreateTableOneJS</code></h2>
+<div id="section4">
+<style>#section4 table, #section4 th, #section4 td {font-size: 20px;}</style>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(survey)</span>
+<span id="cb15-2"><a href=""></a>lalonde<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(lalonde<span class="sc">$</span>treat <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>m.out<span class="sc">$</span>distance, <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> m.out<span class="sc">$</span>distance))</span>
+<span id="cb15-3"><a href=""></a>design.lalonde <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">strata=</span><span class="cn">NULL</span>, <span class="at">weights=</span><span class="sc">~</span>wt, <span class="at">data =</span> lalonde)</span>
+<span id="cb15-4"><a href=""></a>jstable<span class="sc">::</span><span class="fu">svyCreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> design.lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">test</th>
+<th style="text-align: left;">SMD</th>
+<th style="text-align: left;">sig</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">429.00</td>
+<td style="text-align: left;">185.00</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">27.10 ± 10.80</td>
+<td style="text-align: left;">25.57 ± 6.53</td>
+<td style="text-align: left;">0.088</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.172</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">educ</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">10.29 ± 2.74</td>
+<td style="text-align: left;">10.61 ± 2.05</td>
+<td style="text-align: left;">0.303</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.132</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">race (%)</td>
+<td style="text-align: left;">black</td>
+<td style="text-align: left;">87.0 (39.8)</td>
+<td style="text-align: left;">156.0 (44.8)</td>
+<td style="text-align: left;">0.695</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.112</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">hispan</td>
+<td style="text-align: left;">61.0 (11.7)</td>
+<td style="text-align: left;">11.0 (12.2)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">281.0 (48.5)</td>
+<td style="text-align: left;">18.0 (43.0)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">married</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.41 ± 0.49</td>
+<td style="text-align: left;">0.31 ± 0.47</td>
+<td style="text-align: left;">0.228</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.197</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nodegree</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.62 ± 0.48</td>
+<td style="text-align: left;">0.57 ± 0.50</td>
+<td style="text-align: left;">0.458</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.112</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">re74</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">4552.74 ± 6337.09</td>
+<td style="text-align: left;">2932.18 ± 5709.42</td>
+<td style="text-align: left;">0.040</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.269</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">re75</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2172.04 ± 3160.14</td>
+<td style="text-align: left;">1658.07 ± 3072.89</td>
+<td style="text-align: left;">0.136</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.165</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="openstat.ai" class="slide level2">
+<h2>openstat.ai</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="openstat.png"> <img data-src="https://raw.githubusercontent.com/jinseob2kim/lecture-general/refs/heads/master/docs/KSIC2025/mat.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="tb1.png"> <img data-src="https://raw.githubusercontent.com/jinseob2kim/lecture-general/refs/heads/master/docs/KSIC2025/km.png"></p>
+</div></div>
+</section>
+<section id="그룹-a-vs-b-vs-c" class="slide level2">
+<h2>3그룹 A vs B vs C</h2>
+<p>Matching: N수 제일 작은 그룹(A) 에 맞춰 여러번 매칭</p>
+<ul>
+<li><code>MatchIt</code> 그대로 쓸 수 있는건 장점</li>
+<li><span class="math inline">\(ATT\)</span>도 아닌 <span class="math inline">\(ATT_{A}\)</span>?</li>
+</ul>
+<p>IPTW: <code>twang::mnps</code></p>
+<ul>
+<li>시간이 오래걸림: 공단데이터에서 24시간 걸릴수도</li>
+<li><span class="math inline">\(ATE\)</span> 가능, 더 추천</li>
+</ul>
+</section>
+<section id="issue-1-matching-후-pair정보-이용" class="slide level2">
+<h2>Issue 1: Matching 후 pair정보 이용</h2>
+<p>Matching 후 stratified cox를 해야하는가? Yes or No</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata)</span>
+<span id="cb16-2"><a href=""></a></span>
+<span id="cb16-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(subclass), <span class="at">data =</span> mdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>Pair 마다 baseline hazard가 다르다는 가정</strong></p>
+<ul>
+<li><p>RCT 재현 관점: 필요없음(pair정보 없음)</p></li>
+<li><p>매칭이 너무 잘 되어서 pair정보가 확실하다면?</p></li>
+<li><p>Pair 들끼리 뭔가 다르다면?</p></li>
+<li><p>OMOP-CDM ATLAS에서는 strata 사용하는게 Default.</p></li>
+</ul>
+</section>
+<section id="번외-baseline-hazard-보정방법" class="slide level2">
+<h2>번외: baseline hazard 보정방법</h2>
+<p>예) 다기관 RCT에서 hospital, stratified random</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(hospital), <span class="at">data =</span> mdata)</span>
+<span id="cb17-2"><a href=""></a></span>
+<span id="cb17-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> hospital, <span class="at">data =</span> mdata)</span>
+<span id="cb17-4"><a href=""></a></span>
+<span id="cb17-5"><a href=""></a>cox3 <span class="ot">&lt;-</span> coxme<span class="sc">::</span><span class="fu">coxme</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>hospital), <span class="at">data =</span> mdata)</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a>cox4 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata, <span class="at">cluster =</span> hospital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ul>
+<li><p><code>+ hospital</code> 도 가능, but 각 병원의 계수를 굳이 구할필요가?</p></li>
+<li><p><code>coxme</code>: mixed model의 Random effect, <code>strata</code>와 비슷한 의미</p></li>
+<li><p><code>cluster = hospital</code>: 같은 hospital 간에 상관관계가 있음을 보정하므로 <code>strata</code>와 비슷한 의미일 것 같지만, <strong>baseline hazard 이 다르다는 가정이 아님</strong>. <code>cluster</code> 옵션 전후 HR은 변하지 않음, SE만 변화.</p></li>
+</ul>
+</section>
+<section id="issue-2-sex를-그룹변수로-matching-가능" class="slide level2">
+<h2>Issue 2: Sex를 그룹변수로 Matching 가능?</h2>
+<p>Sex가 RCT 가능한가?</p>
+<ul>
+<li><strong>불가능</strong> vs 하늘(?) 이 준 랜덤</li>
+</ul>
+<p>Matching: <span class="math inline">\(ATT\)</span></p>
+<ul>
+<li>남자 vs 남자같은 여자, 여자 vs 여자같은 남자</li>
+</ul>
+<p>IPTW: <span class="math inline">\(ATE\)</span> 니까 OK?</p>
+<ul>
+<li>전체 연구대상자(남자 + 여자) 를 남/여 1:1로 랜덤배정했다는 뜻</li>
+</ul>
+</section>
+<section id="자체-개발-r-package" class="slide level2">
+<h2>자체 개발 R package</h2>
 <p>CRAN(총 20만회 다운로드)</p>
 <ul>
 <li><a href="https://github.com/jinseob2kim/jskm">jskm</a>: 생존분석 그림</li>
@@ -767,7 +2300,7 @@
 <a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"></a>
 </center>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <center>
 <a href="https://github.com/jinseob2kim/jskm"><img src="jskm.png" width="100%"></a>
@@ -789,64 +2322,64 @@
 </div></div>
 <p>Landmark, Competing risk analysis support</p>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <center>
 <a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"></a>
 </center>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="do">## Gaussian</span></span>
-<span id="cb1-2"><a href=""></a>glm_gaussian <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_gaussian, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="sc">$</span>first.line</span>
-<span id="cb2-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Linear regression predicting mpg</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="sc">$</span>table</span>
-<span id="cb2-5"><a href=""></a>     crude <span class="fu">coeff.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. coeff.(95%</span>CI)    adj. P value</span>
-<span id="cb2-6"><a href=""></a>cyl  <span class="st">"-2.88 (-3.51,-2.24)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-1.59 (-2.98,-0.19)"</span> <span class="st">"0.034"</span></span>
-<span id="cb2-7"><a href=""></a>disp <span class="st">"-0.04 (-0.05,-0.03)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-0.02 (-0.04,0)"</span>     <span class="st">"0.054"</span></span>
-<span id="cb2-8"><a href=""></a></span>
-<span id="cb2-9"><a href=""></a><span class="sc">$</span>last.lines</span>
-<span id="cb2-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">R-squared = 0.7596</span><span class="sc">\n</span><span class="st">AIC value = 167.1456</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="do">## Gaussian</span></span>
+<span id="cb18-2"><a href=""></a>glm_gaussian <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars)</span>
+<span id="cb18-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_gaussian, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="sc">$</span>first.line</span>
+<span id="cb19-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Linear regression predicting mpg</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb19-3"><a href=""></a></span>
+<span id="cb19-4"><a href=""></a><span class="sc">$</span>table</span>
+<span id="cb19-5"><a href=""></a>     crude <span class="fu">coeff.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. coeff.(95%</span>CI)    adj. P value</span>
+<span id="cb19-6"><a href=""></a>cyl  <span class="st">"-2.88 (-3.51,-2.24)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-1.59 (-2.98,-0.19)"</span> <span class="st">"0.034"</span></span>
+<span id="cb19-7"><a href=""></a>disp <span class="st">"-0.04 (-0.05,-0.03)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-0.02 (-0.04,0)"</span>     <span class="st">"0.054"</span></span>
+<span id="cb19-8"><a href=""></a></span>
+<span id="cb19-9"><a href=""></a><span class="sc">$</span>last.lines</span>
+<span id="cb19-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">R-squared = 0.7596</span><span class="sc">\n</span><span class="st">AIC value = 167.1456</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## Binomial</span></span>
-<span id="cb3-2"><a href=""></a>glm_binomial <span class="ot">&lt;-</span> <span class="fu">glm</span>(vs<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
-<span id="cb3-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_binomial, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="sc">$</span>first.line</span>
-<span id="cb4-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Logistic regression predicting vs</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb4-3"><a href=""></a> </span>
-<span id="cb4-4"><a href=""></a><span class="sc">$</span>table</span>
-<span id="cb4-5"><a href=""></a>     crude <span class="fu">OR.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. OR.(95%</span>CI)    adj. P value</span>
-<span id="cb4-6"><a href=""></a>cyl  <span class="st">"0.2 (0.08,0.56)"</span>  <span class="st">"0.002"</span>       <span class="st">"0.15 (0.02,1.02)"</span> <span class="st">"0.053"</span>     </span>
-<span id="cb4-7"><a href=""></a>disp <span class="st">"0.98 (0.97,0.99)"</span> <span class="st">"0.002"</span>       <span class="st">"1 (0.98,1.03)"</span>    <span class="st">"0.715"</span>     </span>
-<span id="cb4-8"><a href=""></a></span>
-<span id="cb4-9"><a href=""></a><span class="sc">$</span>last.lines</span>
-<span id="cb4-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">AIC value = 23.8304</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="do">## Binomial</span></span>
+<span id="cb20-2"><a href=""></a>glm_binomial <span class="ot">&lt;-</span> <span class="fu">glm</span>(vs<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
+<span id="cb20-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_binomial, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="sc">$</span>first.line</span>
+<span id="cb21-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Logistic regression predicting vs</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb21-3"><a href=""></a> </span>
+<span id="cb21-4"><a href=""></a><span class="sc">$</span>table</span>
+<span id="cb21-5"><a href=""></a>     crude <span class="fu">OR.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. OR.(95%</span>CI)    adj. P value</span>
+<span id="cb21-6"><a href=""></a>cyl  <span class="st">"0.2 (0.08,0.56)"</span>  <span class="st">"0.002"</span>       <span class="st">"0.15 (0.02,1.02)"</span> <span class="st">"0.053"</span>     </span>
+<span id="cb21-7"><a href=""></a>disp <span class="st">"0.98 (0.97,0.99)"</span> <span class="st">"0.002"</span>       <span class="st">"1 (0.98,1.03)"</span>    <span class="st">"0.715"</span>     </span>
+<span id="cb21-8"><a href=""></a></span>
+<span id="cb21-9"><a href=""></a><span class="sc">$</span>last.lines</span>
+<span id="cb21-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">AIC value = 23.8304</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="subgroup-analysis" class="slide level2">
 <h2>Subgroup analysis</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">TableSubgroupMultiGLM</span>(status <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>    Variable Count Percent           OR Lower Upper P value P <span class="cf">for</span> interaction</span>
-<span id="cb6-2"><a href=""></a>sex2  Overall   <span class="dv">228</span>     <span class="dv">100</span>         <span class="fl">3.01</span>  <span class="fl">1.65</span>  <span class="fl">5.47</span>  <span class="sc">&lt;</span><span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb6-3"><a href=""></a><span class="dv">1</span>          kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.476</span></span>
-<span id="cb6-4"><a href=""></a><span class="dv">2</span>           <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>            <span class="dv">7</span>   <span class="fl">0.7</span> <span class="fl">70.03</span>   <span class="fl">0.098</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb6-5"><a href=""></a><span class="dv">3</span>           <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>         <span class="fl">2.94</span>  <span class="fl">1.55</span>  <span class="fl">5.57</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb6-6"><a href=""></a><span class="dv">4</span>         kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.984</span></span>
-<span id="cb6-7"><a href=""></a><span class="dv">5</span>           <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span> <span class="fl">314366015.19</span>     <span class="dv">0</span>   <span class="cn">Inf</span>   <span class="fl">0.997</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb6-8"><a href=""></a><span class="dv">6</span>           <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>         <span class="fl">2.85</span>  <span class="fl">1.55</span>  <span class="fl">5.25</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">TableSubgroupMultiCox</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>    Variable Count Percent Point Estimate Lower Upper sex<span class="ot">=</span><span class="dv">1</span> sex<span class="ot">=</span><span class="dv">2</span> P value P <span class="cf">for</span> interaction</span>
-<span id="cb8-2"><a href=""></a>sex  Overall   <span class="dv">228</span>     <span class="dv">100</span>           <span class="fl">1.91</span>  <span class="fl">1.14</span>   <span class="fl">3.2</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.014</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb8-3"><a href=""></a><span class="dv">1</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb8-4"><a href=""></a><span class="dv">2</span>         kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.525</span></span>
-<span id="cb8-5"><a href=""></a><span class="dv">3</span>          <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>           <span class="fl">2.88</span>  <span class="fl">0.31</span> <span class="fl">26.49</span>    <span class="dv">10</span>   <span class="dv">100</span>    <span class="fl">0.35</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb8-6"><a href=""></a><span class="dv">4</span>          <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>           <span class="fl">1.84</span>  <span class="fl">1.08</span>  <span class="fl">3.14</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.026</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb8-7"><a href=""></a><span class="dv">5</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb8-8"><a href=""></a><span class="dv">6</span>        kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.997</span></span>
-<span id="cb8-9"><a href=""></a><span class="dv">7</span>          <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span>           <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>     <span class="dv">0</span>   <span class="dv">100</span>    <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb8-10"><a href=""></a><span class="dv">8</span>          <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>           <span class="fl">1.88</span>  <span class="fl">1.12</span>  <span class="fl">3.17</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.018</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">TableSubgroupMultiGLM</span>(status <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>    Variable Count Percent           OR Lower Upper P value P <span class="cf">for</span> interaction</span>
+<span id="cb23-2"><a href=""></a>sex2  Overall   <span class="dv">228</span>     <span class="dv">100</span>         <span class="fl">3.01</span>  <span class="fl">1.65</span>  <span class="fl">5.47</span>  <span class="sc">&lt;</span><span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb23-3"><a href=""></a><span class="dv">1</span>          kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.476</span></span>
+<span id="cb23-4"><a href=""></a><span class="dv">2</span>           <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>            <span class="dv">7</span>   <span class="fl">0.7</span> <span class="fl">70.03</span>   <span class="fl">0.098</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb23-5"><a href=""></a><span class="dv">3</span>           <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>         <span class="fl">2.94</span>  <span class="fl">1.55</span>  <span class="fl">5.57</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb23-6"><a href=""></a><span class="dv">4</span>         kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.984</span></span>
+<span id="cb23-7"><a href=""></a><span class="dv">5</span>           <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span> <span class="fl">314366015.19</span>     <span class="dv">0</span>   <span class="cn">Inf</span>   <span class="fl">0.997</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb23-8"><a href=""></a><span class="dv">6</span>           <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>         <span class="fl">2.85</span>  <span class="fl">1.55</span>  <span class="fl">5.25</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">TableSubgroupMultiCox</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>    Variable Count Percent Point Estimate Lower Upper sex<span class="ot">=</span><span class="dv">1</span> sex<span class="ot">=</span><span class="dv">2</span> P value P <span class="cf">for</span> interaction</span>
+<span id="cb25-2"><a href=""></a>sex  Overall   <span class="dv">228</span>     <span class="dv">100</span>           <span class="fl">1.91</span>  <span class="fl">1.14</span>   <span class="fl">3.2</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.014</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb25-3"><a href=""></a><span class="dv">1</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb25-4"><a href=""></a><span class="dv">2</span>         kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.525</span></span>
+<span id="cb25-5"><a href=""></a><span class="dv">3</span>          <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>           <span class="fl">2.88</span>  <span class="fl">0.31</span> <span class="fl">26.49</span>    <span class="dv">10</span>   <span class="dv">100</span>    <span class="fl">0.35</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb25-6"><a href=""></a><span class="dv">4</span>          <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>           <span class="fl">1.84</span>  <span class="fl">1.08</span>  <span class="fl">3.14</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.026</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb25-7"><a href=""></a><span class="dv">5</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb25-8"><a href=""></a><span class="dv">6</span>        kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.997</span></span>
+<span id="cb25-9"><a href=""></a><span class="dv">7</span>          <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span>           <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>     <span class="dv">0</span>   <span class="dv">100</span>    <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb25-10"><a href=""></a><span class="dv">8</span>          <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>           <span class="fl">1.88</span>  <span class="fl">1.12</span>  <span class="fl">3.17</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.018</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="중국-영상블로그-리뷰" class="slide level2">
 <h2>중국 영상/블로그 리뷰</h2>
@@ -857,7 +2390,7 @@
 <p><img data-src="jstable_ch2.png"></p>
 </div></div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <center>
 <a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"></a>
@@ -870,19 +2403,10 @@
 <p><img data-src="jsmodule2.png"></p>
 </div></div>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 
 <img data-src="jsmodule3.png" class="r-stretch"></section>
-<section id="논문지원-실적" class="slide level2">
-<h2>논문지원 실적</h2>
-<p>SCI 논문 200편이상 지원</p>
-<ul>
-<li>의학분야 탑저널 NEJM, LANCET, JAMA 포함</li>
-<li>6개 대학병원과 연단위 연구지원 계약, 10개 바이오회사의 임상시험분석 지원</li>
-</ul>
-
-<img data-src="그림2.png" class="r-stretch"></section>
 <section id="무료-통계웹" class="slide level2">
 <h2>무료 통계웹</h2>
 <ul>
@@ -926,14 +2450,22 @@
 </section>
 <section id="executive-summary-1" class="slide level2">
 <h2>Executive summary</h2>
+<p>병원데이터: <strong>(1) 연구위해 정리된 (2) 연구위해 정리해야 할</strong></p>
 <ul>
-<li><p>의학연구용 R 패키지 개발, 중국/일본에서 인기</p></li>
-<li><p>국가 R&amp;D 선정</p></li>
-<li><p>최신 오픈소스 관리기술</p></li>
-<li><p>라이선스 검증</p></li>
-<li><p>오픈소스 활성화: 커뮤니티, 인턴십, 교육</p></li>
-<li><p>일본 R 커뮤니티 참여</p></li>
+<li>정리된: 개인연구자 엑셀, 레지스트리, RCT</li>
+<li>정리 필요: CDW, CDM, 공단/심평원</li>
 </ul>
+<p><strong>데이터 정리: R(CPU &lt; RAM)</strong></p>
+<ul>
+<li><code>data.table</code>: 빠른 읽기/쓰기, 환자ID 별 작업, melt/dcast</li>
+<li><code>fst</code>: fst 확장자 통한 가장 빠른 읽기/쓰기</li>
+<li><code>%&gt;% operater</code>: 의식의 흐름대로 코드짜기, <code>parallel::mclapply</code>: 멀티코어</li>
+</ul>
+<p><strong>많이 쓰는 통계: logistic, survival, subgroup analysis, 인과추론(PS/IPTW)</strong></p>
+<ul>
+<li>자체개발한 <code>jstable</code>, <code>jskm</code>, <code>jsmodule</code> R 패키지, 무료웹 https://openstat.ai</li>
+</ul>
+<p><strong>분석결과 공유</strong>: 엑셀, PPT, 워드, 웹 애플리케이션: <code>officer</code>/<code>rvg</code>/<code>flextable</code>/<code>shiny</code></p>
 </section>
 <section id="감사합니다" class="title-slide slide level1 center">
 <h1>감사합니다</h1>
