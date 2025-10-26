@@ -6,13 +6,11 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.56">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="김진섭">
-  <meta name="dcterms.date" content="2025-07-11">
-  <title>빅데이터 활용 제약바이오연구 소개</title>
+  <title>의학연구 위한 데이터분석</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -96,211 +94,13 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-540b956c2f235b924ecb26fc226c16ba.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-
-  .callout {
-    margin-top: 1em;
-    margin-bottom: 1em;  
-    border-radius: .25rem;
-  }
-
-  .callout.callout-style-simple { 
-    padding: 0em 0.5em;
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-    display: flex;
-  }
-
-  .callout.callout-style-default {
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-  }
-
-  .callout .callout-body-container {
-    flex-grow: 1;
-  }
-
-  .callout.callout-style-simple .callout-body {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-style-default .callout-body {
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-titled.callout-style-simple .callout-body {
-    margin-top: 0.2em;
-  }
-
-  .callout:not(.callout-titled) .callout-body {
-      display: flex;
-  }
-
-  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
-    padding-left: 1.6em;
-  }
-
-  .callout.callout-titled .callout-header {
-    padding-top: 0.2em;
-    margin-bottom: -0.2em;
-  }
-
-  .callout.callout-titled .callout-title  p {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-    
-  .callout.callout-titled.callout-style-simple .callout-content  p {
-    margin-top: 0;
-  }
-
-  .callout.callout-titled.callout-style-default .callout-content  p {
-    margin-top: 0.7em;
-  }
-
-  .callout.callout-style-simple div.callout-title {
-    border-bottom: none;
-    font-size: .9rem;
-    font-weight: 600;
-    opacity: 75%;
-  }
-
-  .callout.callout-style-default  div.callout-title {
-    border-bottom: none;
-    font-weight: 600;
-    opacity: 85%;
-    font-size: 0.9rem;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-default div.callout-content {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-simple .callout-icon::before {
-    height: 1rem;
-    width: 1rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 1rem 1rem;
-  }
-
-  .callout.callout-style-default .callout-icon::before {
-    height: 0.9rem;
-    width: 0.9rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 0.9rem 0.9rem;
-  }
-
-  .callout-title {
-    display: flex
-  }
-    
-  .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  .callout.no-icon::before {
-    display: none !important;
-  }
-
-  .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  .callout.callout-titled .callout-icon::before {
-    margin-top: .5rem;
-    padding-right: .5rem;
-  }
-
-  .callout:not(.callout-titled) .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  /* Callout Types */
-
-  div.callout-note {
-    border-left-color: #4582ec !important;
-  }
-
-  div.callout-note .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
-  }
-
-  div.callout-note.callout-style-default .callout-title {
-    background-color: #dae6fb
-  }
-
-  div.callout-important {
-    border-left-color: #d9534f !important;
-  }
-
-  div.callout-important .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-important.callout-style-default .callout-title {
-    background-color: #f7dddc
-  }
-
-  div.callout-warning {
-    border-left-color: #f0ad4e !important;
-  }
-
-  div.callout-warning .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-warning.callout-style-default .callout-title {
-    background-color: #fcefdc
-  }
-
-  div.callout-tip {
-    border-left-color: #02b875 !important;
-  }
-
-  div.callout-tip .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-tip.callout-style-default .callout-title {
-    background-color: #ccf1e3
-  }
-
-  div.callout-caution {
-    border-left-color: #fd7e14 !important;
-  }
-
-  div.callout-caution .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
-  }
-
-  div.callout-caution.callout-style-default .callout-title {
-    background-color: #ffe5d0
-  }
-
-  </style>
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -398,7 +198,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="bg.png" data-background-opacity="0.3" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">빅데이터 활용 제약바이오연구 소개</h1>
+  <h1 class="title">의학연구 위한 데이터분석</h1>
   <p class="subtitle">차라투(주)</p>
 
 <div class="quarto-title-authors">
@@ -409,7 +209,6 @@
 </div>
 </div>
 
-  <p class="date">2025-07-11</p>
 </section>
 <section id="자기소개" class="slide level2">
 <h2>자기소개</h2>
@@ -1567,7 +1366,7 @@ w_i =
 <span id="cb7-3"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">distance =</span> <span class="st">"glm"</span>, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="cn">NULL</span>)</span>
 <span id="cb7-4"><a href=""></a>m.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A matchit object
+<pre><code>A `matchit` object
  - method: 1:1 nearest neighbor matching without replacement
  - distance: Propensity score
              - estimated with logistic regression
@@ -1590,7 +1389,7 @@ w_i =
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["treat"],"name":[1],"type":["int"],"align":["right"]},{"label":["distance"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["subclass"],"name":[3],"type":["fct"],"align":["left"]}],"data":[{"1":"1","2":"0.63876993","3":"1","_rn_":"NSW1"},{"1":"0","2":"0.20294667","3":"1","_rn_":"PSID300"},{"1":"1","2":"0.04292461","3":"2","_rn_":"NSW10"},{"1":"0","2":"0.04301213","3":"2","_rn_":"PSID344"},{"1":"1","2":"0.25032725","3":"3","_rn_":"NSW100"},{"1":"0","2":"0.10473300","3":"3","_rn_":"PSID280"},{"1":"1","2":"0.73802599","3":"4","_rn_":"NSW101"},{"1":"0","2":"0.65176204","3":"4","_rn_":"PSID256"},{"1":"1","2":"0.74408081","3":"5","_rn_":"NSW102"},{"1":"0","2":"0.67084800","3":"5","_rn_":"PSID375"},{"1":"1","2":"0.77079713","3":"6","_rn_":"NSW103"},{"1":"0","2":"0.71290136","3":"6","_rn_":"PSID406"},{"1":"1","2":"0.75070545","3":"7","_rn_":"NSW104"},{"1":"0","2":"0.68201376","3":"7","_rn_":"PSID268"},{"1":"1","2":"0.75364638","3":"8","_rn_":"NSW105"},{"1":"0","2":"0.68308336","3":"8","_rn_":"PSID355"},{"1":"1","2":"0.76390176","3":"9","_rn_":"NSW106"},{"1":"0","2":"0.69160171","3":"9","_rn_":"PSID326"},{"1":"1","2":"0.70259562","3":"10","_rn_":"NSW107"},{"1":"0","2":"0.49417728","3":"10","_rn_":"PSID380"},{"1":"1","2":"0.68221881","3":"11","_rn_":"NSW108"},{"1":"0","2":"0.38516198","3":"11","_rn_":"PSID260"},{"1":"1","2":"0.78443531","3":"12","_rn_":"NSW109"},{"1":"0","2":"0.74949341","3":"12","_rn_":"PSID187"},{"1":"1","2":"0.68901996","3":"13","_rn_":"NSW11"},{"1":"0","2":"0.44466699","3":"13","_rn_":"PSID354"},{"1":"1","2":"0.52238792","3":"14","_rn_":"NSW110"},{"1":"0","2":"0.11542394","3":"14","_rn_":"PSID161"},{"1":"1","2":"0.59257720","3":"15","_rn_":"NSW111"},{"1":"0","2":"0.14337079","3":"15","_rn_":"PSID220"},{"1":"1","2":"0.20656996","3":"16","_rn_":"NSW112"},{"1":"0","2":"0.10287901","3":"16","_rn_":"PSID391"},{"1":"1","2":"0.62849500","3":"17","_rn_":"NSW113"},{"1":"0","2":"0.18879446","3":"17","_rn_":"PSID265"},{"1":"1","2":"0.74120543","3":"18","_rn_":"NSW114"},{"1":"0","2":"0.66289776","3":"18","_rn_":"PSID345"},{"1":"1","2":"0.40628110","3":"19","_rn_":"NSW115"},{"1":"0","2":"0.10710477","3":"19","_rn_":"PSID180"},{"1":"1","2":"0.06254529","3":"20","_rn_":"NSW116"},{"1":"0","2":"0.06259243","3":"20","_rn_":"PSID390"},{"1":"1","2":"0.63730034","3":"21","_rn_":"NSW117"},{"1":"0","2":"0.20130824","3":"21","_rn_":"PSID341"},{"1":"1","2":"0.64751230","3":"22","_rn_":"NSW118"},{"1":"0","2":"0.23788641","3":"22","_rn_":"PSID199"},{"1":"1","2":"0.72659995","3":"23","_rn_":"NSW119"},{"1":"0","2":"0.64626932","3":"23","_rn_":"PSID376"},{"1":"1","2":"0.68244400","3":"24","_rn_":"NSW12"},{"1":"0","2":"0.41335828","3":"24","_rn_":"PSID331"},{"1":"1","2":"0.56631442","3":"25","_rn_":"NSW120"},{"1":"0","2":"0.12338720","3":"25","_rn_":"PSID274"},{"1":"1","2":"0.74816998","3":"26","_rn_":"NSW121"},{"1":"0","2":"0.67878861","3":"26","_rn_":"PSID370"},{"1":"1","2":"0.72785565","3":"27","_rn_":"NSW122"},{"1":"0","2":"0.64626932","3":"27","_rn_":"PSID398"},{"1":"1","2":"0.69809448","3":"28","_rn_":"NSW123"},{"1":"0","2":"0.48292498","3":"28","_rn_":"PSID293"},{"1":"1","2":"0.02495179","3":"29","_rn_":"NSW124"},{"1":"0","2":"0.02489599","3":"29","_rn_":"PSID33"},{"1":"1","2":"0.10175694","3":"30","_rn_":"NSW125"},{"1":"0","2":"0.09494931","3":"30","_rn_":"PSID89"},{"1":"1","2":"0.53484035","3":"31","_rn_":"NSW126"},{"1":"0","2":"0.11665805","3":"31","_rn_":"PSID404"},{"1":"1","2":"0.56639614","3":"32","_rn_":"NSW127"},{"1":"0","2":"0.12381573","3":"32","_rn_":"PSID395"},{"1":"1","2":"0.55919428","3":"33","_rn_":"NSW128"},{"1":"0","2":"0.12156128","3":"33","_rn_":"PSID405"},{"1":"1","2":"0.11300425","3":"34","_rn_":"NSW129"},{"1":"0","2":"0.09610320","3":"34","_rn_":"PSID289"},{"1":"1","2":"0.64986767","3":"35","_rn_":"NSW13"},{"1":"0","2":"0.24258938","3":"35","_rn_":"PSID240"},{"1":"1","2":"0.71871452","3":"36","_rn_":"NSW130"},{"1":"0","2":"0.62676090","3":"36","_rn_":"PSID191"},{"1":"1","2":"0.66990909","3":"37","_rn_":"NSW131"},{"1":"0","2":"0.36192884","3":"37","_rn_":"PSID97"},{"1":"1","2":"0.79063849","3":"38","_rn_":"NSW132"},{"1":"0","2":"0.75070545","3":"38","_rn_":"PSID389"},{"1":"1","2":"0.61560256","3":"39","_rn_":"NSW133"},{"1":"0","2":"0.18319778","3":"39","_rn_":"PSID417"},{"1":"1","2":"0.51049934","3":"40","_rn_":"NSW134"},{"1":"0","2":"0.11468487","3":"40","_rn_":"PSID170"},{"1":"1","2":"0.59743846","3":"41","_rn_":"NSW135"},{"1":"0","2":"0.16007795","3":"41","_rn_":"PSID91"},{"1":"1","2":"0.74567007","3":"42","_rn_":"NSW136"},{"1":"0","2":"0.67084800","3":"42","_rn_":"PSID408"},{"1":"1","2":"0.04275487","3":"43","_rn_":"NSW137"},{"1":"0","2":"0.04304778","3":"43","_rn_":"PSID109"},{"1":"1","2":"0.70735813","3":"44","_rn_":"NSW138"},{"1":"0","2":"0.54271376","3":"44","_rn_":"PSID333"},{"1":"1","2":"0.51149642","3":"45","_rn_":"NSW139"},{"1":"0","2":"0.11515593","3":"45","_rn_":"PSID171"},{"1":"1","2":"0.56241073","3":"46","_rn_":"NSW14"},{"1":"0","2":"0.12314388","3":"46","_rn_":"PSID425"},{"1":"1","2":"0.15215644","3":"47","_rn_":"NSW140"},{"1":"0","2":"0.10186827","3":"47","_rn_":"PSID95"},{"1":"1","2":"0.58410657","3":"48","_rn_":"NSW141"},{"1":"0","2":"0.13508896","3":"48","_rn_":"PSID177"},{"1":"1","2":"0.44030795","3":"49","_rn_":"NSW142"},{"1":"0","2":"0.10916184","3":"49","_rn_":"PSID183"},{"1":"1","2":"0.70268122","3":"50","_rn_":"NSW143"},{"1":"0","2":"0.53948683","3":"50","_rn_":"PSID228"},{"1":"1","2":"0.72545301","3":"51","_rn_":"NSW144"},{"1":"0","2":"0.64289289","3":"51","_rn_":"PSID386"},{"1":"1","2":"0.10300089","3":"52","_rn_":"NSW145"},{"1":"0","2":"0.09503752","3":"52","_rn_":"PSID208"},{"1":"1","2":"0.74884944","3":"53","_rn_":"NSW146"},{"1":"0","2":"0.68135700","3":"53","_rn_":"PSID189"},{"1":"1","2":"0.68487024","3":"54","_rn_":"NSW147"},{"1":"0","2":"0.43290004","3":"54","_rn_":"PSID5"},{"1":"1","2":"0.77355031","3":"55","_rn_":"NSW148"},{"1":"0","2":"0.71611962","3":"55","_rn_":"PSID401"},{"1":"1","2":"0.63267447","3":"56","_rn_":"NSW149"},{"1":"0","2":"0.19513575","3":"56","_rn_":"PSID334"},{"1":"1","2":"0.60858629","3":"57","_rn_":"NSW15"},{"1":"0","2":"0.17052457","3":"57","_rn_":"PSID224"},{"1":"1","2":"0.68173799","3":"58","_rn_":"NSW150"},{"1":"0","2":"0.38418863","3":"58","_rn_":"PSID84"},{"1":"1","2":"0.77737657","3":"59","_rn_":"NSW151"},{"1":"0","2":"0.73900570","3":"59","_rn_":"PSID158"},{"1":"1","2":"0.45386320","3":"60","_rn_":"NSW152"},{"1":"0","2":"0.11303087","3":"60","_rn_":"PSID371"},{"1":"1","2":"0.64611198","3":"61","_rn_":"NSW153"},{"1":"0","2":"0.20761828","3":"61","_rn_":"PSID31"},{"1":"1","2":"0.58607333","3":"62","_rn_":"NSW154"},{"1":"0","2":"0.13737905","3":"62","_rn_":"PSID230"},{"1":"1","2":"0.62005190","3":"63","_rn_":"NSW155"},{"1":"0","2":"0.18375605","3":"63","_rn_":"PSID264"},{"1":"1","2":"0.52646352","3":"64","_rn_":"NSW156"},{"1":"0","2":"0.11568712","3":"64","_rn_":"PSID202"},{"1":"1","2":"0.72221250","3":"65","_rn_":"NSW157"},{"1":"0","2":"0.63855416","3":"65","_rn_":"PSID69"},{"1":"1","2":"0.57863327","3":"66","_rn_":"NSW158"},{"1":"0","2":"0.13495941","3":"66","_rn_":"PSID100"},{"1":"1","2":"0.76869284","3":"67","_rn_":"NSW159"},{"1":"0","2":"0.70659714","3":"67","_rn_":"PSID134"},{"1":"1","2":"0.72249036","3":"68","_rn_":"NSW16"},{"1":"0","2":"0.64289289","3":"68","_rn_":"PSID373"},{"1":"1","2":"0.68832819","3":"69","_rn_":"NSW160"},{"1":"0","2":"0.43739641","3":"69","_rn_":"PSID356"},{"1":"1","2":"0.70900336","3":"70","_rn_":"NSW161"},{"1":"0","2":"0.54600728","3":"70","_rn_":"PSID48"},{"1":"1","2":"0.44571334","3":"71","_rn_":"NSW162"},{"1":"0","2":"0.11145877","3":"71","_rn_":"PSID424"},{"1":"1","2":"0.39689162","3":"72","_rn_":"NSW163"},{"1":"0","2":"0.10709125","3":"72","_rn_":"PSID379"},{"1":"1","2":"0.79408505","3":"73","_rn_":"NSW164"},{"1":"0","2":"0.75122604","3":"73","_rn_":"PSID231"},{"1":"1","2":"0.57223871","3":"74","_rn_":"NSW165"},{"1":"0","2":"0.12773409","3":"74","_rn_":"PSID160"},{"1":"1","2":"0.13895883","3":"75","_rn_":"NSW166"},{"1":"0","2":"0.10061710","3":"75","_rn_":"PSID156"},{"1":"1","2":"0.13090019","3":"76","_rn_":"NSW167"},{"1":"0","2":"0.09796399","3":"76","_rn_":"PSID323"},{"1":"1","2":"0.62493364","3":"77","_rn_":"NSW168"},{"1":"0","2":"0.18465798","3":"77","_rn_":"PSID410"},{"1":"1","2":"0.59033911","3":"78","_rn_":"NSW169"},{"1":"0","2":"0.14300375","3":"78","_rn_":"PSID127"},{"1":"1","2":"0.70259562","3":"79","_rn_":"NSW17"},{"1":"0","2":"0.51411241","3":"79","_rn_":"PSID96"},{"1":"1","2":"0.66235889","3":"80","_rn_":"NSW170"},{"1":"0","2":"0.27975559","3":"80","_rn_":"PSID239"},{"1":"1","2":"0.75809393","3":"81","_rn_":"NSW171"},{"1":"0","2":"0.68565238","3":"81","_rn_":"PSID266"},{"1":"1","2":"0.39094339","3":"82","_rn_":"NSW172"},{"1":"0","2":"0.10613076","3":"82","_rn_":"PSID282"},{"1":"1","2":"0.13747131","3":"83","_rn_":"NSW173"},{"1":"0","2":"0.10027830","3":"83","_rn_":"PSID342"},{"1":"1","2":"0.72803991","3":"84","_rn_":"NSW174"},{"1":"0","2":"0.64803402","3":"84","_rn_":"PSID352"},{"1":"1","2":"0.39388448","3":"85","_rn_":"NSW175"},{"1":"0","2":"0.10618524","3":"85","_rn_":"PSID281"},{"1":"1","2":"0.81592301","3":"86","_rn_":"NSW176"},{"1":"0","2":"0.76413459","3":"86","_rn_":"PSID196"},{"1":"1","2":"0.12427238","3":"87","_rn_":"NSW177"},{"1":"0","2":"0.09668459","3":"87","_rn_":"PSID362"},{"1":"1","2":"0.85315284","3":"88","_rn_":"NSW178"},{"1":"0","2":"0.78917283","3":"88","_rn_":"PSID118"},{"1":"1","2":"0.07733179","3":"89","_rn_":"NSW179"},{"1":"0","2":"0.07738177","3":"89","_rn_":"PSID365"},{"1":"1","2":"0.73496416","3":"90","_rn_":"NSW18"},{"1":"0","2":"0.64961800","3":"90","_rn_":"PSID368"},{"1":"1","2":"0.37897112","3":"91","_rn_":"NSW180"},{"1":"0","2":"0.10611283","3":"91","_rn_":"PSID267"},{"1":"1","2":"0.28701614","3":"92","_rn_":"NSW181"},{"1":"0","2":"0.10584513","3":"92","_rn_":"PSID209"},{"1":"1","2":"0.14916778","3":"93","_rn_":"NSW182"},{"1":"0","2":"0.10097106","3":"93","_rn_":"PSID351"},{"1":"1","2":"0.49468085","3":"94","_rn_":"NSW183"},{"1":"0","2":"0.11307622","3":"94","_rn_":"PSID184"},{"1":"1","2":"0.50741780","3":"95","_rn_":"NSW184"},{"1":"0","2":"0.11460021","3":"95","_rn_":"PSID185"},{"1":"1","2":"0.68962938","3":"96","_rn_":"NSW185"},{"1":"0","2":"0.44870637","3":"96","_rn_":"PSID98"},{"1":"1","2":"0.71166489","3":"97","_rn_":"NSW19"},{"1":"0","2":"0.56627812","3":"97","_rn_":"PSID291"},{"1":"1","2":"0.22463424","3":"98","_rn_":"NSW2"},{"1":"0","2":"0.10302179","3":"98","_rn_":"PSID205"},{"1":"1","2":"0.66431981","3":"99","_rn_":"NSW20"},{"1":"0","2":"0.29939542","3":"99","_rn_":"PSID420"},{"1":"1","2":"0.76517492","3":"100","_rn_":"NSW21"},{"1":"0","2":"0.69185828","3":"100","_rn_":"PSID416"},{"1":"1","2":"0.13901525","3":"101","_rn_":"NSW22"},{"1":"0","2":"0.10089079","3":"101","_rn_":"PSID77"},{"1":"1","2":"0.12238224","3":"102","_rn_":"NSW23"},{"1":"0","2":"0.09644005","3":"102","_rn_":"PSID192"},{"1":"1","2":"0.76799791","3":"103","_rn_":"NSW24"},{"1":"0","2":"0.69347663","3":"103","_rn_":"PSID218"},{"1":"1","2":"0.71931601","3":"104","_rn_":"NSW25"},{"1":"0","2":"0.63575388","3":"104","_rn_":"PSID387"},{"1":"1","2":"0.60916715","3":"105","_rn_":"NSW26"},{"1":"0","2":"0.17753518","3":"105","_rn_":"PSID327"},{"1":"1","2":"0.77079713","3":"106","_rn_":"NSW27"},{"1":"0","2":"0.71611962","3":"106","_rn_":"PSID392"},{"1":"1","2":"0.26920316","3":"107","_rn_":"NSW28"},{"1":"0","2":"0.10526247","3":"107","_rn_":"PSID409"},{"1":"1","2":"0.71611962","3":"108","_rn_":"NSW29"},{"1":"0","2":"0.61143145","3":"108","_rn_":"PSID337"},{"1":"1","2":"0.67824388","3":"109","_rn_":"NSW3"},{"1":"0","2":"0.37356634","3":"109","_rn_":"PSID41"},{"1":"1","2":"0.76799791","3":"110","_rn_":"NSW30"},{"1":"0","2":"0.69239042","3":"110","_rn_":"PSID372"},{"1":"1","2":"0.71611962","3":"111","_rn_":"NSW31"},{"1":"0","2":"0.61099700","3":"111","_rn_":"PSID335"},{"1":"1","2":"0.60981680","3":"112","_rn_":"NSW32"},{"1":"0","2":"0.17812874","3":"112","_rn_":"PSID164"},{"1":"1","2":"0.59404299","3":"113","_rn_":"NSW33"},{"1":"0","2":"0.15749966","3":"113","_rn_":"PSID358"},{"1":"1","2":"0.64289289","3":"114","_rn_":"NSW34"},{"1":"0","2":"0.20376775","3":"114","_rn_":"PSID79"},{"1":"1","2":"0.66079247","3":"115","_rn_":"NSW35"},{"1":"0","2":"0.27919906","3":"115","_rn_":"PSID227"},{"1":"1","2":"0.77862159","3":"116","_rn_":"NSW36"},{"1":"0","2":"0.74661503","3":"116","_rn_":"PSID330"},{"1":"1","2":"0.56093965","3":"117","_rn_":"NSW37"},{"1":"0","2":"0.12280561","3":"117","_rn_":"PSID207"},{"1":"1","2":"0.45094835","3":"118","_rn_":"NSW38"},{"1":"0","2":"0.11242132","3":"118","_rn_":"PSID290"},{"1":"1","2":"0.55677960","3":"119","_rn_":"NSW39"},{"1":"0","2":"0.12067790","3":"119","_rn_":"PSID353"},{"1":"1","2":"0.77632408","3":"120","_rn_":"NSW4"},{"1":"0","2":"0.73897749","3":"120","_rn_":"PSID179"},{"1":"1","2":"0.73802599","3":"121","_rn_":"NSW40"},{"1":"0","2":"0.65696967","3":"121","_rn_":"PSID15"},{"1":"1","2":"0.64650679","3":"122","_rn_":"NSW41"},{"1":"0","2":"0.22407937","3":"122","_rn_":"PSID111"},{"1":"1","2":"0.09365296","3":"123","_rn_":"NSW42"},{"1":"0","2":"0.09389349","3":"123","_rn_":"PSID275"},{"1":"1","2":"0.64626932","3":"124","_rn_":"NSW43"},{"1":"0","2":"0.21619566","3":"124","_rn_":"PSID339"},{"1":"1","2":"0.09150550","3":"125","_rn_":"NSW44"},{"1":"0","2":"0.09185220","3":"125","_rn_":"PSID251"},{"1":"1","2":"0.75656387","3":"126","_rn_":"NSW45"},{"1":"0","2":"0.68531145","3":"126","_rn_":"PSID253"},{"1":"1","2":"0.59404299","3":"127","_rn_":"NSW46"},{"1":"0","2":"0.15472910","3":"127","_rn_":"PSID76"},{"1":"1","2":"0.64626932","3":"128","_rn_":"NSW47"},{"1":"0","2":"0.21287279","3":"128","_rn_":"PSID150"},{"1":"1","2":"0.68221881","3":"129","_rn_":"NSW48"},{"1":"0","2":"0.38896237","3":"129","_rn_":"PSID59"},{"1":"1","2":"0.56093965","3":"130","_rn_":"NSW49"},{"1":"0","2":"0.12212155","3":"130","_rn_":"PSID182"},{"1":"1","2":"0.70163874","3":"131","_rn_":"NSW5"},{"1":"0","2":"0.49171251","3":"131","_rn_":"PSID238"},{"1":"1","2":"0.65368426","3":"132","_rn_":"NSW50"},{"1":"0","2":"0.25458123","3":"132","_rn_":"PSID186"},{"1":"1","2":"0.68486666","3":"133","_rn_":"NSW51"},{"1":"0","2":"0.42160328","3":"133","_rn_":"PSID308"},{"1":"1","2":"0.61665323","3":"134","_rn_":"NSW52"},{"1":"0","2":"0.18367206","3":"134","_rn_":"PSID241"},{"1":"1","2":"0.75070545","3":"135","_rn_":"NSW53"},{"1":"0","2":"0.68244400","3":"135","_rn_":"PSID381"},{"1":"1","2":"0.66079247","3":"136","_rn_":"NSW54"},{"1":"0","2":"0.26991860","3":"136","_rn_":"PSID136"},{"1":"1","2":"0.61291686","3":"137","_rn_":"NSW55"},{"1":"0","2":"0.18100270","3":"137","_rn_":"PSID385"},{"1":"1","2":"0.71611962","3":"138","_rn_":"NSW56"},{"1":"0","2":"0.60521114","3":"138","_rn_":"PSID110"},{"1":"1","2":"0.74640480","3":"139","_rn_":"NSW57"},{"1":"0","2":"0.67258034","3":"139","_rn_":"PSID8"},{"1":"1","2":"0.37847866","3":"140","_rn_":"NSW58"},{"1":"0","2":"0.10603095","3":"140","_rn_":"PSID285"},{"1":"1","2":"0.60480778","3":"141","_rn_":"NSW59"},{"1":"0","2":"0.17001671","3":"141","_rn_":"PSID348"},{"1":"1","2":"0.69906990","3":"142","_rn_":"NSW6"},{"1":"0","2":"0.48672379","3":"142","_rn_":"PSID6"},{"1":"1","2":"0.13012192","3":"143","_rn_":"NSW60"},{"1":"0","2":"0.09700298","3":"143","_rn_":"PSID272"},{"1":"1","2":"0.64626932","3":"144","_rn_":"NSW61"},{"1":"0","2":"0.20857708","3":"144","_rn_":"PSID366"},{"1":"1","2":"0.68826176","3":"145","_rn_":"NSW62"},{"1":"0","2":"0.43566747","3":"145","_rn_":"PSID99"},{"1":"1","2":"0.77017180","3":"146","_rn_":"NSW63"},{"1":"0","2":"0.70931364","3":"146","_rn_":"PSID277"},{"1":"1","2":"0.77632408","3":"147","_rn_":"NSW64"},{"1":"0","2":"0.73516648","3":"147","_rn_":"PSID399"},{"1":"1","2":"0.53662873","3":"148","_rn_":"NSW65"},{"1":"0","2":"0.12067508","3":"148","_rn_":"PSID357"},{"1":"1","2":"0.71860150","3":"149","_rn_":"NSW66"},{"1":"0","2":"0.62101848","3":"149","_rn_":"PSID419"},{"1":"1","2":"0.77632408","3":"150","_rn_":"NSW67"},{"1":"0","2":"0.71931601","3":"150","_rn_":"PSID411"},{"1":"1","2":"0.07382733","3":"151","_rn_":"NSW68"},{"1":"0","2":"0.07344016","3":"151","_rn_":"PSID114"},{"1":"1","2":"0.43251547","3":"152","_rn_":"NSW69"},{"1":"0","2":"0.10874469","3":"152","_rn_":"PSID258"},{"1":"1","2":"0.65368426","3":"153","_rn_":"NSW7"},{"1":"0","2":"0.26124827","3":"153","_rn_":"PSID271"},{"1":"1","2":"0.70914659","3":"154","_rn_":"NSW70"},{"1":"0","2":"0.56160114","3":"154","_rn_":"PSID217"},{"1":"1","2":"0.71540019","3":"155","_rn_":"NSW71"},{"1":"0","2":"0.59473716","3":"155","_rn_":"PSID159"},{"1":"1","2":"0.76123332","3":"156","_rn_":"NSW72"},{"1":"0","2":"0.68831057","3":"156","_rn_":"PSID173"},{"1":"1","2":"0.57342619","3":"157","_rn_":"NSW73"},{"1":"0","2":"0.12972391","3":"157","_rn_":"PSID384"},{"1":"1","2":"0.66079247","3":"158","_rn_":"NSW74"},{"1":"0","2":"0.26551854","3":"158","_rn_":"PSID17"},{"1":"1","2":"0.76818297","3":"159","_rn_":"NSW75"},{"1":"0","2":"0.70508501","3":"159","_rn_":"PSID140"},{"1":"1","2":"0.13557377","3":"160","_rn_":"NSW76"},{"1":"0","2":"0.09861306","3":"160","_rn_":"PSID361"},{"1":"1","2":"0.65010402","3":"161","_rn_":"NSW77"},{"1":"0","2":"0.25374406","3":"161","_rn_":"PSID188"},{"1":"1","2":"0.69574047","3":"162","_rn_":"NSW78"},{"1":"0","2":"0.46159100","3":"162","_rn_":"PSID94"},{"1":"1","2":"0.80991743","3":"163","_rn_":"NSW79"},{"1":"0","2":"0.75364638","3":"163","_rn_":"PSID388"},{"1":"1","2":"0.78972311","3":"164","_rn_":"NSW8"},{"1":"0","2":"0.75070545","3":"164","_rn_":"PSID374"},{"1":"1","2":"0.76232821","3":"165","_rn_":"NSW80"},{"1":"0","2":"0.68970689","3":"165","_rn_":"PSID269"},{"1":"1","2":"0.66079247","3":"166","_rn_":"NSW81"},{"1":"0","2":"0.26158781","3":"166","_rn_":"PSID295"},{"1":"1","2":"0.63561643","3":"167","_rn_":"NSW82"},{"1":"0","2":"0.19543867","3":"167","_rn_":"PSID225"},{"1":"1","2":"0.10034130","3":"168","_rn_":"NSW83"},{"1":"0","2":"0.09479757","3":"168","_rn_":"PSID203"},{"1":"1","2":"0.70259562","3":"169","_rn_":"NSW84"},{"1":"0","2":"0.50868759","3":"169","_rn_":"PSID24"},{"1":"1","2":"0.68145169","3":"170","_rn_":"NSW85"},{"1":"0","2":"0.38303231","3":"170","_rn_":"PSID428"},{"1":"1","2":"0.80501207","3":"171","_rn_":"NSW86"},{"1":"0","2":"0.75186535","3":"171","_rn_":"PSID412"},{"1":"1","2":"0.20030468","3":"172","_rn_":"NSW87"},{"1":"0","2":"0.10280376","3":"172","_rn_":"PSID329"},{"1":"1","2":"0.77357253","3":"173","_rn_":"NSW88"},{"1":"0","2":"0.71931601","3":"173","_rn_":"PSID367"},{"1":"1","2":"0.07859089","3":"174","_rn_":"NSW89"},{"1":"0","2":"0.07792752","3":"174","_rn_":"PSID138"},{"1":"1","2":"0.77983825","3":"175","_rn_":"NSW9"},{"1":"0","2":"0.74707356","3":"175","_rn_":"PSID423"},{"1":"1","2":"0.67456320","3":"176","_rn_":"NSW90"},{"1":"0","2":"0.36518679","3":"176","_rn_":"PSID46"},{"1":"1","2":"0.61665323","3":"177","_rn_":"NSW91"},{"1":"0","2":"0.18335100","3":"177","_rn_":"PSID427"},{"1":"1","2":"0.71611962","3":"178","_rn_":"NSW92"},{"1":"0","2":"0.60516607","3":"178","_rn_":"PSID278"},{"1":"1","2":"0.77079713","3":"179","_rn_":"NSW93"},{"1":"0","2":"0.71467967","3":"179","_rn_":"PSID400"},{"1":"1","2":"0.64650679","3":"180","_rn_":"NSW94"},{"1":"0","2":"0.22259512","3":"180","_rn_":"PSID66"},{"1":"1","2":"0.81944355","3":"181","_rn_":"NSW95"},{"1":"0","2":"0.77891154","3":"181","_rn_":"PSID226"},{"1":"1","2":"0.08328409","3":"182","_rn_":"NSW96"},{"1":"0","2":"0.08238340","3":"182","_rn_":"PSID176"},{"1":"1","2":"0.68562935","3":"183","_rn_":"NSW97"},{"1":"0","2":"0.43343756","3":"183","_rn_":"PSID27"},{"1":"1","2":"0.71809625","3":"184","_rn_":"NSW98"},{"1":"0","2":"0.61961310","3":"184","_rn_":"PSID157"},{"1":"1","2":"0.74106491","3":"185","_rn_":"NSW99"},{"1":"0","2":"0.65755729","3":"185","_rn_":"PSID234"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[6],"max":[6]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["treat"],"name":[1],"type":["int"],"align":["right"]},{"label":["distance"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["subclass"],"name":[3],"type":["fct"],"align":["left"]}],"data":[{"1":"1","2":"0.63876993","3":"1","_rn_":"NSW1"},{"1":"0","2":"0.20294667","3":"1","_rn_":"PSID300"},{"1":"1","2":"0.22463424","3":"2","_rn_":"NSW2"},{"1":"0","2":"0.10302179","3":"2","_rn_":"PSID205"},{"1":"1","2":"0.67824388","3":"3","_rn_":"NSW3"},{"1":"0","2":"0.37356634","3":"3","_rn_":"PSID41"},{"1":"1","2":"0.77632408","3":"4","_rn_":"NSW4"},{"1":"0","2":"0.73897749","3":"4","_rn_":"PSID179"},{"1":"1","2":"0.70163874","3":"5","_rn_":"NSW5"},{"1":"0","2":"0.49171251","3":"5","_rn_":"PSID238"},{"1":"1","2":"0.69906990","3":"6","_rn_":"NSW6"},{"1":"0","2":"0.48672379","3":"6","_rn_":"PSID6"},{"1":"1","2":"0.65368426","3":"7","_rn_":"NSW7"},{"1":"0","2":"0.26124827","3":"7","_rn_":"PSID271"},{"1":"1","2":"0.78972311","3":"8","_rn_":"NSW8"},{"1":"0","2":"0.75070545","3":"8","_rn_":"PSID374"},{"1":"1","2":"0.77983825","3":"9","_rn_":"NSW9"},{"1":"0","2":"0.74707356","3":"9","_rn_":"PSID423"},{"1":"1","2":"0.04292461","3":"10","_rn_":"NSW10"},{"1":"0","2":"0.04301213","3":"10","_rn_":"PSID344"},{"1":"1","2":"0.68901996","3":"11","_rn_":"NSW11"},{"1":"0","2":"0.44466699","3":"11","_rn_":"PSID354"},{"1":"1","2":"0.68244400","3":"12","_rn_":"NSW12"},{"1":"0","2":"0.41335828","3":"12","_rn_":"PSID331"},{"1":"1","2":"0.64986767","3":"13","_rn_":"NSW13"},{"1":"0","2":"0.24258938","3":"13","_rn_":"PSID240"},{"1":"1","2":"0.56241073","3":"14","_rn_":"NSW14"},{"1":"0","2":"0.12314388","3":"14","_rn_":"PSID425"},{"1":"1","2":"0.60858629","3":"15","_rn_":"NSW15"},{"1":"0","2":"0.17052457","3":"15","_rn_":"PSID224"},{"1":"1","2":"0.72249036","3":"16","_rn_":"NSW16"},{"1":"0","2":"0.64289289","3":"16","_rn_":"PSID373"},{"1":"1","2":"0.70259562","3":"17","_rn_":"NSW17"},{"1":"0","2":"0.51411241","3":"17","_rn_":"PSID96"},{"1":"1","2":"0.73496416","3":"18","_rn_":"NSW18"},{"1":"0","2":"0.64961800","3":"18","_rn_":"PSID368"},{"1":"1","2":"0.71166489","3":"19","_rn_":"NSW19"},{"1":"0","2":"0.56627812","3":"19","_rn_":"PSID291"},{"1":"1","2":"0.66431981","3":"20","_rn_":"NSW20"},{"1":"0","2":"0.29939542","3":"20","_rn_":"PSID420"},{"1":"1","2":"0.76517492","3":"21","_rn_":"NSW21"},{"1":"0","2":"0.69185828","3":"21","_rn_":"PSID416"},{"1":"1","2":"0.13901525","3":"22","_rn_":"NSW22"},{"1":"0","2":"0.10089079","3":"22","_rn_":"PSID77"},{"1":"1","2":"0.12238224","3":"23","_rn_":"NSW23"},{"1":"0","2":"0.09644005","3":"23","_rn_":"PSID192"},{"1":"1","2":"0.76799791","3":"24","_rn_":"NSW24"},{"1":"0","2":"0.69347663","3":"24","_rn_":"PSID218"},{"1":"1","2":"0.71931601","3":"25","_rn_":"NSW25"},{"1":"0","2":"0.63575388","3":"25","_rn_":"PSID387"},{"1":"1","2":"0.60916715","3":"26","_rn_":"NSW26"},{"1":"0","2":"0.17753518","3":"26","_rn_":"PSID327"},{"1":"1","2":"0.77079713","3":"27","_rn_":"NSW27"},{"1":"0","2":"0.71611962","3":"27","_rn_":"PSID392"},{"1":"1","2":"0.26920316","3":"28","_rn_":"NSW28"},{"1":"0","2":"0.10526247","3":"28","_rn_":"PSID409"},{"1":"1","2":"0.71611962","3":"29","_rn_":"NSW29"},{"1":"0","2":"0.61143145","3":"29","_rn_":"PSID337"},{"1":"1","2":"0.76799791","3":"30","_rn_":"NSW30"},{"1":"0","2":"0.69239042","3":"30","_rn_":"PSID372"},{"1":"1","2":"0.71611962","3":"31","_rn_":"NSW31"},{"1":"0","2":"0.61099700","3":"31","_rn_":"PSID335"},{"1":"1","2":"0.60981680","3":"32","_rn_":"NSW32"},{"1":"0","2":"0.17812874","3":"32","_rn_":"PSID164"},{"1":"1","2":"0.59404299","3":"33","_rn_":"NSW33"},{"1":"0","2":"0.15749966","3":"33","_rn_":"PSID358"},{"1":"1","2":"0.64289289","3":"34","_rn_":"NSW34"},{"1":"0","2":"0.20376775","3":"34","_rn_":"PSID79"},{"1":"1","2":"0.66079247","3":"35","_rn_":"NSW35"},{"1":"0","2":"0.27919906","3":"35","_rn_":"PSID227"},{"1":"1","2":"0.77862159","3":"36","_rn_":"NSW36"},{"1":"0","2":"0.74661503","3":"36","_rn_":"PSID330"},{"1":"1","2":"0.56093965","3":"37","_rn_":"NSW37"},{"1":"0","2":"0.12280561","3":"37","_rn_":"PSID207"},{"1":"1","2":"0.45094835","3":"38","_rn_":"NSW38"},{"1":"0","2":"0.11242132","3":"38","_rn_":"PSID290"},{"1":"1","2":"0.55677960","3":"39","_rn_":"NSW39"},{"1":"0","2":"0.12067790","3":"39","_rn_":"PSID353"},{"1":"1","2":"0.73802599","3":"40","_rn_":"NSW40"},{"1":"0","2":"0.65696967","3":"40","_rn_":"PSID15"},{"1":"1","2":"0.64650679","3":"41","_rn_":"NSW41"},{"1":"0","2":"0.22407937","3":"41","_rn_":"PSID111"},{"1":"1","2":"0.09365296","3":"42","_rn_":"NSW42"},{"1":"0","2":"0.09389349","3":"42","_rn_":"PSID275"},{"1":"1","2":"0.64626932","3":"43","_rn_":"NSW43"},{"1":"0","2":"0.21619566","3":"43","_rn_":"PSID339"},{"1":"1","2":"0.09150550","3":"44","_rn_":"NSW44"},{"1":"0","2":"0.09185220","3":"44","_rn_":"PSID251"},{"1":"1","2":"0.75656387","3":"45","_rn_":"NSW45"},{"1":"0","2":"0.68531145","3":"45","_rn_":"PSID253"},{"1":"1","2":"0.59404299","3":"46","_rn_":"NSW46"},{"1":"0","2":"0.15472910","3":"46","_rn_":"PSID76"},{"1":"1","2":"0.64626932","3":"47","_rn_":"NSW47"},{"1":"0","2":"0.21287279","3":"47","_rn_":"PSID150"},{"1":"1","2":"0.68221881","3":"48","_rn_":"NSW48"},{"1":"0","2":"0.38896237","3":"48","_rn_":"PSID59"},{"1":"1","2":"0.56093965","3":"49","_rn_":"NSW49"},{"1":"0","2":"0.12212155","3":"49","_rn_":"PSID182"},{"1":"1","2":"0.65368426","3":"50","_rn_":"NSW50"},{"1":"0","2":"0.25458123","3":"50","_rn_":"PSID186"},{"1":"1","2":"0.68486666","3":"51","_rn_":"NSW51"},{"1":"0","2":"0.42160328","3":"51","_rn_":"PSID308"},{"1":"1","2":"0.61665323","3":"52","_rn_":"NSW52"},{"1":"0","2":"0.18367206","3":"52","_rn_":"PSID241"},{"1":"1","2":"0.75070545","3":"53","_rn_":"NSW53"},{"1":"0","2":"0.68244400","3":"53","_rn_":"PSID381"},{"1":"1","2":"0.66079247","3":"54","_rn_":"NSW54"},{"1":"0","2":"0.26991860","3":"54","_rn_":"PSID136"},{"1":"1","2":"0.61291686","3":"55","_rn_":"NSW55"},{"1":"0","2":"0.18100270","3":"55","_rn_":"PSID385"},{"1":"1","2":"0.71611962","3":"56","_rn_":"NSW56"},{"1":"0","2":"0.60521114","3":"56","_rn_":"PSID110"},{"1":"1","2":"0.74640480","3":"57","_rn_":"NSW57"},{"1":"0","2":"0.67258034","3":"57","_rn_":"PSID8"},{"1":"1","2":"0.37847866","3":"58","_rn_":"NSW58"},{"1":"0","2":"0.10603095","3":"58","_rn_":"PSID285"},{"1":"1","2":"0.60480778","3":"59","_rn_":"NSW59"},{"1":"0","2":"0.17001671","3":"59","_rn_":"PSID348"},{"1":"1","2":"0.13012192","3":"60","_rn_":"NSW60"},{"1":"0","2":"0.09700298","3":"60","_rn_":"PSID272"},{"1":"1","2":"0.64626932","3":"61","_rn_":"NSW61"},{"1":"0","2":"0.20857708","3":"61","_rn_":"PSID366"},{"1":"1","2":"0.68826176","3":"62","_rn_":"NSW62"},{"1":"0","2":"0.43566747","3":"62","_rn_":"PSID99"},{"1":"1","2":"0.77017180","3":"63","_rn_":"NSW63"},{"1":"0","2":"0.70931364","3":"63","_rn_":"PSID277"},{"1":"1","2":"0.77632408","3":"64","_rn_":"NSW64"},{"1":"0","2":"0.73516648","3":"64","_rn_":"PSID399"},{"1":"1","2":"0.53662873","3":"65","_rn_":"NSW65"},{"1":"0","2":"0.12067508","3":"65","_rn_":"PSID357"},{"1":"1","2":"0.71860150","3":"66","_rn_":"NSW66"},{"1":"0","2":"0.62101848","3":"66","_rn_":"PSID419"},{"1":"1","2":"0.77632408","3":"67","_rn_":"NSW67"},{"1":"0","2":"0.71931601","3":"67","_rn_":"PSID411"},{"1":"1","2":"0.07382733","3":"68","_rn_":"NSW68"},{"1":"0","2":"0.07344016","3":"68","_rn_":"PSID114"},{"1":"1","2":"0.43251547","3":"69","_rn_":"NSW69"},{"1":"0","2":"0.10874469","3":"69","_rn_":"PSID258"},{"1":"1","2":"0.70914659","3":"70","_rn_":"NSW70"},{"1":"0","2":"0.56160114","3":"70","_rn_":"PSID217"},{"1":"1","2":"0.71540019","3":"71","_rn_":"NSW71"},{"1":"0","2":"0.59473716","3":"71","_rn_":"PSID159"},{"1":"1","2":"0.76123332","3":"72","_rn_":"NSW72"},{"1":"0","2":"0.68831057","3":"72","_rn_":"PSID173"},{"1":"1","2":"0.57342619","3":"73","_rn_":"NSW73"},{"1":"0","2":"0.12972391","3":"73","_rn_":"PSID384"},{"1":"1","2":"0.66079247","3":"74","_rn_":"NSW74"},{"1":"0","2":"0.26551854","3":"74","_rn_":"PSID17"},{"1":"1","2":"0.76818297","3":"75","_rn_":"NSW75"},{"1":"0","2":"0.70508501","3":"75","_rn_":"PSID140"},{"1":"1","2":"0.13557377","3":"76","_rn_":"NSW76"},{"1":"0","2":"0.09861306","3":"76","_rn_":"PSID361"},{"1":"1","2":"0.65010402","3":"77","_rn_":"NSW77"},{"1":"0","2":"0.25374406","3":"77","_rn_":"PSID188"},{"1":"1","2":"0.69574047","3":"78","_rn_":"NSW78"},{"1":"0","2":"0.46159100","3":"78","_rn_":"PSID94"},{"1":"1","2":"0.80991743","3":"79","_rn_":"NSW79"},{"1":"0","2":"0.75364638","3":"79","_rn_":"PSID388"},{"1":"1","2":"0.76232821","3":"80","_rn_":"NSW80"},{"1":"0","2":"0.68970689","3":"80","_rn_":"PSID269"},{"1":"1","2":"0.66079247","3":"81","_rn_":"NSW81"},{"1":"0","2":"0.26158781","3":"81","_rn_":"PSID295"},{"1":"1","2":"0.63561643","3":"82","_rn_":"NSW82"},{"1":"0","2":"0.19543867","3":"82","_rn_":"PSID225"},{"1":"1","2":"0.10034130","3":"83","_rn_":"NSW83"},{"1":"0","2":"0.09479757","3":"83","_rn_":"PSID203"},{"1":"1","2":"0.70259562","3":"84","_rn_":"NSW84"},{"1":"0","2":"0.50868759","3":"84","_rn_":"PSID24"},{"1":"1","2":"0.68145169","3":"85","_rn_":"NSW85"},{"1":"0","2":"0.38303231","3":"85","_rn_":"PSID428"},{"1":"1","2":"0.80501207","3":"86","_rn_":"NSW86"},{"1":"0","2":"0.75186535","3":"86","_rn_":"PSID412"},{"1":"1","2":"0.20030468","3":"87","_rn_":"NSW87"},{"1":"0","2":"0.10280376","3":"87","_rn_":"PSID329"},{"1":"1","2":"0.77357253","3":"88","_rn_":"NSW88"},{"1":"0","2":"0.71931601","3":"88","_rn_":"PSID367"},{"1":"1","2":"0.07859089","3":"89","_rn_":"NSW89"},{"1":"0","2":"0.07792752","3":"89","_rn_":"PSID138"},{"1":"1","2":"0.67456320","3":"90","_rn_":"NSW90"},{"1":"0","2":"0.36518679","3":"90","_rn_":"PSID46"},{"1":"1","2":"0.61665323","3":"91","_rn_":"NSW91"},{"1":"0","2":"0.18335100","3":"91","_rn_":"PSID427"},{"1":"1","2":"0.71611962","3":"92","_rn_":"NSW92"},{"1":"0","2":"0.60516607","3":"92","_rn_":"PSID278"},{"1":"1","2":"0.77079713","3":"93","_rn_":"NSW93"},{"1":"0","2":"0.71467967","3":"93","_rn_":"PSID400"},{"1":"1","2":"0.64650679","3":"94","_rn_":"NSW94"},{"1":"0","2":"0.22259512","3":"94","_rn_":"PSID66"},{"1":"1","2":"0.81944355","3":"95","_rn_":"NSW95"},{"1":"0","2":"0.77891154","3":"95","_rn_":"PSID226"},{"1":"1","2":"0.08328409","3":"96","_rn_":"NSW96"},{"1":"0","2":"0.08238340","3":"96","_rn_":"PSID176"},{"1":"1","2":"0.68562935","3":"97","_rn_":"NSW97"},{"1":"0","2":"0.43343756","3":"97","_rn_":"PSID27"},{"1":"1","2":"0.71809625","3":"98","_rn_":"NSW98"},{"1":"0","2":"0.61961310","3":"98","_rn_":"PSID157"},{"1":"1","2":"0.74106491","3":"99","_rn_":"NSW99"},{"1":"0","2":"0.65755729","3":"99","_rn_":"PSID234"},{"1":"1","2":"0.25032725","3":"100","_rn_":"NSW100"},{"1":"0","2":"0.10473300","3":"100","_rn_":"PSID280"},{"1":"1","2":"0.73802599","3":"101","_rn_":"NSW101"},{"1":"0","2":"0.65176204","3":"101","_rn_":"PSID256"},{"1":"1","2":"0.74408081","3":"102","_rn_":"NSW102"},{"1":"0","2":"0.67084800","3":"102","_rn_":"PSID375"},{"1":"1","2":"0.77079713","3":"103","_rn_":"NSW103"},{"1":"0","2":"0.71290136","3":"103","_rn_":"PSID406"},{"1":"1","2":"0.75070545","3":"104","_rn_":"NSW104"},{"1":"0","2":"0.68201376","3":"104","_rn_":"PSID268"},{"1":"1","2":"0.75364638","3":"105","_rn_":"NSW105"},{"1":"0","2":"0.68308336","3":"105","_rn_":"PSID355"},{"1":"1","2":"0.76390176","3":"106","_rn_":"NSW106"},{"1":"0","2":"0.69160171","3":"106","_rn_":"PSID326"},{"1":"1","2":"0.70259562","3":"107","_rn_":"NSW107"},{"1":"0","2":"0.49417728","3":"107","_rn_":"PSID380"},{"1":"1","2":"0.68221881","3":"108","_rn_":"NSW108"},{"1":"0","2":"0.38516198","3":"108","_rn_":"PSID260"},{"1":"1","2":"0.78443531","3":"109","_rn_":"NSW109"},{"1":"0","2":"0.74949341","3":"109","_rn_":"PSID187"},{"1":"1","2":"0.52238792","3":"110","_rn_":"NSW110"},{"1":"0","2":"0.11542394","3":"110","_rn_":"PSID161"},{"1":"1","2":"0.59257720","3":"111","_rn_":"NSW111"},{"1":"0","2":"0.14337079","3":"111","_rn_":"PSID220"},{"1":"1","2":"0.20656996","3":"112","_rn_":"NSW112"},{"1":"0","2":"0.10287901","3":"112","_rn_":"PSID391"},{"1":"1","2":"0.62849500","3":"113","_rn_":"NSW113"},{"1":"0","2":"0.18879446","3":"113","_rn_":"PSID265"},{"1":"1","2":"0.74120543","3":"114","_rn_":"NSW114"},{"1":"0","2":"0.66289776","3":"114","_rn_":"PSID345"},{"1":"1","2":"0.40628110","3":"115","_rn_":"NSW115"},{"1":"0","2":"0.10710477","3":"115","_rn_":"PSID180"},{"1":"1","2":"0.06254529","3":"116","_rn_":"NSW116"},{"1":"0","2":"0.06259243","3":"116","_rn_":"PSID390"},{"1":"1","2":"0.63730034","3":"117","_rn_":"NSW117"},{"1":"0","2":"0.20130824","3":"117","_rn_":"PSID341"},{"1":"1","2":"0.64751230","3":"118","_rn_":"NSW118"},{"1":"0","2":"0.23788641","3":"118","_rn_":"PSID199"},{"1":"1","2":"0.72659995","3":"119","_rn_":"NSW119"},{"1":"0","2":"0.64626932","3":"119","_rn_":"PSID376"},{"1":"1","2":"0.56631442","3":"120","_rn_":"NSW120"},{"1":"0","2":"0.12338720","3":"120","_rn_":"PSID274"},{"1":"1","2":"0.74816998","3":"121","_rn_":"NSW121"},{"1":"0","2":"0.67878861","3":"121","_rn_":"PSID370"},{"1":"1","2":"0.72785565","3":"122","_rn_":"NSW122"},{"1":"0","2":"0.64626932","3":"122","_rn_":"PSID398"},{"1":"1","2":"0.69809448","3":"123","_rn_":"NSW123"},{"1":"0","2":"0.48292498","3":"123","_rn_":"PSID293"},{"1":"1","2":"0.02495179","3":"124","_rn_":"NSW124"},{"1":"0","2":"0.02489599","3":"124","_rn_":"PSID33"},{"1":"1","2":"0.10175694","3":"125","_rn_":"NSW125"},{"1":"0","2":"0.09494931","3":"125","_rn_":"PSID89"},{"1":"1","2":"0.53484035","3":"126","_rn_":"NSW126"},{"1":"0","2":"0.11665805","3":"126","_rn_":"PSID404"},{"1":"1","2":"0.56639614","3":"127","_rn_":"NSW127"},{"1":"0","2":"0.12381573","3":"127","_rn_":"PSID395"},{"1":"1","2":"0.55919428","3":"128","_rn_":"NSW128"},{"1":"0","2":"0.12156128","3":"128","_rn_":"PSID405"},{"1":"1","2":"0.11300425","3":"129","_rn_":"NSW129"},{"1":"0","2":"0.09610320","3":"129","_rn_":"PSID289"},{"1":"1","2":"0.71871452","3":"130","_rn_":"NSW130"},{"1":"0","2":"0.62676090","3":"130","_rn_":"PSID191"},{"1":"1","2":"0.66990909","3":"131","_rn_":"NSW131"},{"1":"0","2":"0.36192884","3":"131","_rn_":"PSID97"},{"1":"1","2":"0.79063849","3":"132","_rn_":"NSW132"},{"1":"0","2":"0.75070545","3":"132","_rn_":"PSID389"},{"1":"1","2":"0.61560256","3":"133","_rn_":"NSW133"},{"1":"0","2":"0.18319778","3":"133","_rn_":"PSID417"},{"1":"1","2":"0.51049934","3":"134","_rn_":"NSW134"},{"1":"0","2":"0.11468487","3":"134","_rn_":"PSID170"},{"1":"1","2":"0.59743846","3":"135","_rn_":"NSW135"},{"1":"0","2":"0.16007795","3":"135","_rn_":"PSID91"},{"1":"1","2":"0.74567007","3":"136","_rn_":"NSW136"},{"1":"0","2":"0.67084800","3":"136","_rn_":"PSID408"},{"1":"1","2":"0.04275487","3":"137","_rn_":"NSW137"},{"1":"0","2":"0.04304778","3":"137","_rn_":"PSID109"},{"1":"1","2":"0.70735813","3":"138","_rn_":"NSW138"},{"1":"0","2":"0.54271376","3":"138","_rn_":"PSID333"},{"1":"1","2":"0.51149642","3":"139","_rn_":"NSW139"},{"1":"0","2":"0.11515593","3":"139","_rn_":"PSID171"},{"1":"1","2":"0.15215644","3":"140","_rn_":"NSW140"},{"1":"0","2":"0.10186827","3":"140","_rn_":"PSID95"},{"1":"1","2":"0.58410657","3":"141","_rn_":"NSW141"},{"1":"0","2":"0.13508896","3":"141","_rn_":"PSID177"},{"1":"1","2":"0.44030795","3":"142","_rn_":"NSW142"},{"1":"0","2":"0.10916184","3":"142","_rn_":"PSID183"},{"1":"1","2":"0.70268122","3":"143","_rn_":"NSW143"},{"1":"0","2":"0.53948683","3":"143","_rn_":"PSID228"},{"1":"1","2":"0.72545301","3":"144","_rn_":"NSW144"},{"1":"0","2":"0.64289289","3":"144","_rn_":"PSID386"},{"1":"1","2":"0.10300089","3":"145","_rn_":"NSW145"},{"1":"0","2":"0.09503752","3":"145","_rn_":"PSID208"},{"1":"1","2":"0.74884944","3":"146","_rn_":"NSW146"},{"1":"0","2":"0.68135700","3":"146","_rn_":"PSID189"},{"1":"1","2":"0.68487024","3":"147","_rn_":"NSW147"},{"1":"0","2":"0.43290004","3":"147","_rn_":"PSID5"},{"1":"1","2":"0.77355031","3":"148","_rn_":"NSW148"},{"1":"0","2":"0.71611962","3":"148","_rn_":"PSID401"},{"1":"1","2":"0.63267447","3":"149","_rn_":"NSW149"},{"1":"0","2":"0.19513575","3":"149","_rn_":"PSID334"},{"1":"1","2":"0.68173799","3":"150","_rn_":"NSW150"},{"1":"0","2":"0.38418863","3":"150","_rn_":"PSID84"},{"1":"1","2":"0.77737657","3":"151","_rn_":"NSW151"},{"1":"0","2":"0.73900570","3":"151","_rn_":"PSID158"},{"1":"1","2":"0.45386320","3":"152","_rn_":"NSW152"},{"1":"0","2":"0.11303087","3":"152","_rn_":"PSID371"},{"1":"1","2":"0.64611198","3":"153","_rn_":"NSW153"},{"1":"0","2":"0.20761828","3":"153","_rn_":"PSID31"},{"1":"1","2":"0.58607333","3":"154","_rn_":"NSW154"},{"1":"0","2":"0.13737905","3":"154","_rn_":"PSID230"},{"1":"1","2":"0.62005190","3":"155","_rn_":"NSW155"},{"1":"0","2":"0.18375605","3":"155","_rn_":"PSID264"},{"1":"1","2":"0.52646352","3":"156","_rn_":"NSW156"},{"1":"0","2":"0.11568712","3":"156","_rn_":"PSID202"},{"1":"1","2":"0.72221250","3":"157","_rn_":"NSW157"},{"1":"0","2":"0.63855416","3":"157","_rn_":"PSID69"},{"1":"1","2":"0.57863327","3":"158","_rn_":"NSW158"},{"1":"0","2":"0.13495941","3":"158","_rn_":"PSID100"},{"1":"1","2":"0.76869284","3":"159","_rn_":"NSW159"},{"1":"0","2":"0.70659714","3":"159","_rn_":"PSID134"},{"1":"1","2":"0.68832819","3":"160","_rn_":"NSW160"},{"1":"0","2":"0.43739641","3":"160","_rn_":"PSID356"},{"1":"1","2":"0.70900336","3":"161","_rn_":"NSW161"},{"1":"0","2":"0.54600728","3":"161","_rn_":"PSID48"},{"1":"1","2":"0.44571334","3":"162","_rn_":"NSW162"},{"1":"0","2":"0.11145877","3":"162","_rn_":"PSID424"},{"1":"1","2":"0.39689162","3":"163","_rn_":"NSW163"},{"1":"0","2":"0.10709125","3":"163","_rn_":"PSID379"},{"1":"1","2":"0.79408505","3":"164","_rn_":"NSW164"},{"1":"0","2":"0.75122604","3":"164","_rn_":"PSID231"},{"1":"1","2":"0.57223871","3":"165","_rn_":"NSW165"},{"1":"0","2":"0.12773409","3":"165","_rn_":"PSID160"},{"1":"1","2":"0.13895883","3":"166","_rn_":"NSW166"},{"1":"0","2":"0.10061710","3":"166","_rn_":"PSID156"},{"1":"1","2":"0.13090019","3":"167","_rn_":"NSW167"},{"1":"0","2":"0.09796399","3":"167","_rn_":"PSID323"},{"1":"1","2":"0.62493364","3":"168","_rn_":"NSW168"},{"1":"0","2":"0.18465798","3":"168","_rn_":"PSID410"},{"1":"1","2":"0.59033911","3":"169","_rn_":"NSW169"},{"1":"0","2":"0.14300375","3":"169","_rn_":"PSID127"},{"1":"1","2":"0.66235889","3":"170","_rn_":"NSW170"},{"1":"0","2":"0.27975559","3":"170","_rn_":"PSID239"},{"1":"1","2":"0.75809393","3":"171","_rn_":"NSW171"},{"1":"0","2":"0.68565238","3":"171","_rn_":"PSID266"},{"1":"1","2":"0.39094339","3":"172","_rn_":"NSW172"},{"1":"0","2":"0.10613076","3":"172","_rn_":"PSID282"},{"1":"1","2":"0.13747131","3":"173","_rn_":"NSW173"},{"1":"0","2":"0.10027830","3":"173","_rn_":"PSID342"},{"1":"1","2":"0.72803991","3":"174","_rn_":"NSW174"},{"1":"0","2":"0.64803402","3":"174","_rn_":"PSID352"},{"1":"1","2":"0.39388448","3":"175","_rn_":"NSW175"},{"1":"0","2":"0.10618524","3":"175","_rn_":"PSID281"},{"1":"1","2":"0.81592301","3":"176","_rn_":"NSW176"},{"1":"0","2":"0.76413459","3":"176","_rn_":"PSID196"},{"1":"1","2":"0.12427238","3":"177","_rn_":"NSW177"},{"1":"0","2":"0.09668459","3":"177","_rn_":"PSID362"},{"1":"1","2":"0.85315284","3":"178","_rn_":"NSW178"},{"1":"0","2":"0.78917283","3":"178","_rn_":"PSID118"},{"1":"1","2":"0.07733179","3":"179","_rn_":"NSW179"},{"1":"0","2":"0.07738177","3":"179","_rn_":"PSID365"},{"1":"1","2":"0.37897112","3":"180","_rn_":"NSW180"},{"1":"0","2":"0.10611283","3":"180","_rn_":"PSID267"},{"1":"1","2":"0.28701614","3":"181","_rn_":"NSW181"},{"1":"0","2":"0.10584513","3":"181","_rn_":"PSID209"},{"1":"1","2":"0.14916778","3":"182","_rn_":"NSW182"},{"1":"0","2":"0.10097106","3":"182","_rn_":"PSID351"},{"1":"1","2":"0.49468085","3":"183","_rn_":"NSW183"},{"1":"0","2":"0.11307622","3":"183","_rn_":"PSID184"},{"1":"1","2":"0.50741780","3":"184","_rn_":"NSW184"},{"1":"0","2":"0.11460021","3":"184","_rn_":"PSID185"},{"1":"1","2":"0.68962938","3":"185","_rn_":"NSW185"},{"1":"0","2":"0.44870637","3":"185","_rn_":"PSID98"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[6],"max":[6]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2510,15 +2309,15 @@ Discarded       0       0</code></pre>
 </section>
 <section id="감사합니다" class="title-slide slide level1 center">
 <h1>감사합니다</h1>
-<div class="quarto-auto-generated-content">
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="Zarathu Circle Clipping Mask2.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>github.com/jinseob2kim</p>
 </div>
-</div>
-</section>
-    </div>
-  </div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="index_files/libs/revealjs/dist/reveal.js"></script>
@@ -2548,7 +2347,8 @@ Discarded       0       0</code></pre>
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":false},
 'smaller': false,
  
@@ -2703,7 +2503,7 @@ Discarded       0       0</code></pre>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -2846,8 +2646,6 @@ Discarded       0       0</code></pre>
       });
       clipboard.on('success', onCopySuccess);
       if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
         const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
           text: getTextToCopy,
           container: window.document.getElementById('quarto-embedded-source-code-modal')
