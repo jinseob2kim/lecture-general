@@ -278,6 +278,221 @@
 <li>나이, 과거력, 과거 약물, 추적관찰 및 질병 발생</li>
 </ul>
 </section>
+<section id="자체-개발-r-package" class="slide level2">
+<h2>자체 개발 R package</h2>
+<p>CRAN(총 20만회 다운로드)</p>
+<ul>
+<li><a href="https://github.com/jinseob2kim/jskm">jskm</a>: 생존분석 그림</li>
+<li><a href="https://github.com/jinseob2kim/jskm">jstable</a>: 분석결과를 보고서/논문용 테이블로</li>
+<li><a href="https://github.com/jinseob2kim/jskm">jsmodule</a>: Shiny module &amp; 로컬에서 실행하는 분석웹</li>
+</ul>
+<center>
+<a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"></a>
+</center>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<center>
+<a href="https://github.com/jinseob2kim/jskm"><img src="jskm.png" width="100%"></a>
+</center>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-1-2.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-3-1.png"></p>
+</div></div>
+</section>
+<section id="일본-블로그-리뷰" class="slide level2">
+<h2>일본 블로그 리뷰</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="jskm_japan.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="jskm_japan2.png"></p>
+</div></div>
+<p>Landmark, Competing risk analysis support</p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<center>
+<a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"></a>
+</center>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="do">## Gaussian</span></span>
+<span id="cb1-2"><a href=""></a>glm_gaussian <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_gaussian, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="sc">$</span>first.line</span>
+<span id="cb2-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Linear regression predicting mpg</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="sc">$</span>table</span>
+<span id="cb2-5"><a href=""></a>     crude <span class="fu">coeff.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. coeff.(95%</span>CI)    adj. P value</span>
+<span id="cb2-6"><a href=""></a>cyl  <span class="st">"-2.88 (-3.51,-2.24)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-1.59 (-2.98,-0.19)"</span> <span class="st">"0.034"</span></span>
+<span id="cb2-7"><a href=""></a>disp <span class="st">"-0.04 (-0.05,-0.03)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-0.02 (-0.04,0)"</span>     <span class="st">"0.054"</span></span>
+<span id="cb2-8"><a href=""></a></span>
+<span id="cb2-9"><a href=""></a><span class="sc">$</span>last.lines</span>
+<span id="cb2-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">R-squared = 0.7596</span><span class="sc">\n</span><span class="st">AIC value = 167.1456</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="do">## Binomial</span></span>
+<span id="cb3-2"><a href=""></a>glm_binomial <span class="ot">&lt;-</span> <span class="fu">glm</span>(vs<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
+<span id="cb3-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_binomial, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="sc">$</span>first.line</span>
+<span id="cb4-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Logistic regression predicting vs</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb4-3"><a href=""></a> </span>
+<span id="cb4-4"><a href=""></a><span class="sc">$</span>table</span>
+<span id="cb4-5"><a href=""></a>     crude <span class="fu">OR.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. OR.(95%</span>CI)    adj. P value</span>
+<span id="cb4-6"><a href=""></a>cyl  <span class="st">"0.2 (0.08,0.56)"</span>  <span class="st">"0.002"</span>       <span class="st">"0.15 (0.02,1.02)"</span> <span class="st">"0.053"</span>     </span>
+<span id="cb4-7"><a href=""></a>disp <span class="st">"0.98 (0.97,0.99)"</span> <span class="st">"0.002"</span>       <span class="st">"1 (0.98,1.03)"</span>    <span class="st">"0.715"</span>     </span>
+<span id="cb4-8"><a href=""></a></span>
+<span id="cb4-9"><a href=""></a><span class="sc">$</span>last.lines</span>
+<span id="cb4-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">AIC value = 23.8304</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="subgroup-analysis" class="slide level2">
+<h2>Subgroup analysis</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">TableSubgroupMultiGLM</span>(status <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>    Variable Count Percent           OR Lower Upper P value P <span class="cf">for</span> interaction</span>
+<span id="cb6-2"><a href=""></a>sex2  Overall   <span class="dv">228</span>     <span class="dv">100</span>         <span class="fl">3.01</span>  <span class="fl">1.65</span>  <span class="fl">5.47</span>  <span class="sc">&lt;</span><span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb6-3"><a href=""></a><span class="dv">1</span>          kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.476</span></span>
+<span id="cb6-4"><a href=""></a><span class="dv">2</span>           <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>            <span class="dv">7</span>   <span class="fl">0.7</span> <span class="fl">70.03</span>   <span class="fl">0.098</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb6-5"><a href=""></a><span class="dv">3</span>           <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>         <span class="fl">2.94</span>  <span class="fl">1.55</span>  <span class="fl">5.57</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb6-6"><a href=""></a><span class="dv">4</span>         kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.984</span></span>
+<span id="cb6-7"><a href=""></a><span class="dv">5</span>           <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span> <span class="fl">314366015.19</span>     <span class="dv">0</span>   <span class="cn">Inf</span>   <span class="fl">0.997</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb6-8"><a href=""></a><span class="dv">6</span>           <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>         <span class="fl">2.85</span>  <span class="fl">1.55</span>  <span class="fl">5.25</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">TableSubgroupMultiCox</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>    Variable Count Percent Point Estimate Lower Upper sex<span class="ot">=</span><span class="dv">1</span> sex<span class="ot">=</span><span class="dv">2</span> P value P <span class="cf">for</span> interaction</span>
+<span id="cb8-2"><a href=""></a>sex  Overall   <span class="dv">228</span>     <span class="dv">100</span>           <span class="fl">1.91</span>  <span class="fl">1.14</span>   <span class="fl">3.2</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.014</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb8-3"><a href=""></a><span class="dv">1</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb8-4"><a href=""></a><span class="dv">2</span>         kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.525</span></span>
+<span id="cb8-5"><a href=""></a><span class="dv">3</span>          <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>           <span class="fl">2.88</span>  <span class="fl">0.31</span> <span class="fl">26.49</span>    <span class="dv">10</span>   <span class="dv">100</span>    <span class="fl">0.35</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb8-6"><a href=""></a><span class="dv">4</span>          <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>           <span class="fl">1.84</span>  <span class="fl">1.08</span>  <span class="fl">3.14</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.026</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb8-7"><a href=""></a><span class="dv">5</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb8-8"><a href=""></a><span class="dv">6</span>        kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.997</span></span>
+<span id="cb8-9"><a href=""></a><span class="dv">7</span>          <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span>           <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>     <span class="dv">0</span>   <span class="dv">100</span>    <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
+<span id="cb8-10"><a href=""></a><span class="dv">8</span>          <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>           <span class="fl">1.88</span>  <span class="fl">1.12</span>  <span class="fl">3.17</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.018</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="중국-영상블로그-리뷰" class="slide level2">
+<h2>중국 영상/블로그 리뷰</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="jstable_ch.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="jstable_ch2.png"></p>
+</div></div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<center>
+<a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"></a>
+</center>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="https://github.com/jinseob2kim/jsmodule/blob/master/vignettes/figures/ps.png?raw=true"></p>
+</div><div class="column" style="width:50%;">
+<p>1-2줄의 코드만으로 분석웹을 만들 수 있도록 각 분석기능을 모듈화</p>
+<p><img data-src="jsmodule2.png"></p>
+</div></div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="jsmodule3.png" class="r-stretch"></section>
+<section id="무료-통계웹" class="slide level2">
+<h2>무료 통계웹</h2>
+<ul>
+<li>흔한 분석기능들을 무료로 분석할 수 있는 openstat.ai 런칭</li>
+<li>jskm/jstable/jsmodule 분석모듈 적용</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://openstat.ai/"><strong>openstat.ai</strong></a><strong>: free</strong></p>
+<p><img data-src="example-meta.png"></p>
+</div><div class="column" style="width:50%;">
+<p><strong>맞춤형 분석웹은 유료제작</strong></p>
+<p><img data-src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&amp;blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7"></p>
+</div></div>
+</section>
+<section id="오픈소스기여-인턴십" class="slide level2">
+<h2>오픈소스기여: 인턴십</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>정기적 선발</li>
+</ul>
+<p><img data-src="intern.png"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>인턴의 오픈소스 패키지개발 참여</li>
+</ul>
+<p><img data-src="internr.png"></p>
+</div></div>
+</section>
+<section id="교육" class="slide level2">
+<h2>교육</h2>
+<p>성균관대학교 바이오헬스규제과학과 겸임교수 강의</p>
+<ul>
+<li><p>https://github.com/jinseob2kim/r-skku-biohrs</p></li>
+<li><p>R활용 의료데이터분석, 강의록과 강의영상 모두 공개</p></li>
+</ul>
+<center>
+<a href="https://github.com/jinseob2kim/r-skku-biohrs"><img src="biohrs.png" width="60%"></a>
+</center>
+</section>
+<section id="분석결과-공유-연구자와의-소통" class="slide level2">
+<h2>분석결과 공유: 연구자와의 소통</h2>
+<p>SPSS, SAS, R 결과를 그냥 보내줄 수 없음.</p>
+<ul>
+<li>그럼 엑셀/Word 테이블을 직접?</li>
+<li>그림 수정해달라고 한다면?</li>
+</ul>
+<p>몇번만 왔다갔다하면 서로 지침</p>
+</section>
+<section id="solution-1-r로-직접-테이블-ppt-작성" class="slide level2">
+<h2>Solution 1: R로 직접 테이블, PPT 작성</h2>
+<p>R에서 테이블형태로 만들고, 이것들을 모아 하나의 엑셀로 저장</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>openxlsx<span class="sc">::</span><span class="fu">write.xlsx</span>(<span class="fu">list</span>(<span class="at">Baseline =</span> tb1old, <span class="at">Baseline_add =</span> tb1add, <span class="at">OR =</span> res.OR), <span class="st">"new.xlsx"</span>, <span class="at">rowNames =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="openxlsx.png" class="r-stretch"></section>
+<section id="soultion-2-flextable로-word생성" class="slide level2">
+<h2>Soultion 2: Flextable로 Word생성</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="do">## Continuous Exposure, Add Phase/Remove ICU day to covariates</span></span>
+<span id="cb10-2"><a href=""></a>tb2.add <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">"Energy"</span>, <span class="st">"Protein"</span>), <span class="cf">function</span>(v){</span>
+<span id="cb10-3"><a href=""></a>  covs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Phase"</span>, <span class="st">"age"</span>, <span class="st">"sex"</span>, <span class="st">"baseline_SOFA"</span>, <span class="st">"malnutrition"</span>)</span>
+<span id="cb10-4"><a href=""></a>  form <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"death_180days"</span>, <span class="st">"~"</span>, v, <span class="st">"+"</span>, <span class="fu">paste</span>(covs, <span class="at">collapse =</span> <span class="st">"+"</span>), <span class="st">"+ (1|No)"</span>)</span>
+<span id="cb10-5"><a href=""></a>  model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(<span class="fu">as.formula</span>(form), <span class="at">data =</span> along, <span class="at">family =</span> binomial, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
+<span id="cb10-6"><a href=""></a>  <span class="fu">tbl_regression</span>(model, <span class="at">exponentiate =</span> T, <span class="at">estimate_fun =</span> <span class="cf">function</span>(x) <span class="fu">style_number</span>(x, <span class="at">digits =</span> <span class="dv">2</span>),</span>
+<span id="cb10-7"><a href=""></a>                 <span class="at">pvalue_fun =</span> <span class="cf">function</span>(x) <span class="fu">style_number</span>(x, <span class="at">digits =</span> <span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="fu">bold_p</span>(<span class="at">t =</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span> <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb10-8"><a href=""></a>    <span class="fu">as_flex_table</span>()</span>
+<span id="cb10-9"><a href=""></a>})</span>
+<span id="cb10-10"><a href=""></a></span>
+<span id="cb10-11"><a href=""></a><span class="fu">save_as_docx</span>(<span class="at">Energy =</span> tb2.add[[<span class="dv">1</span>]], <span class="at">Protein =</span> tb2.add[[<span class="dv">2</span>]], <span class="at">path =</span> <span class="st">"table2_add.docx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="figure-as-ppt" class="slide level2">
+<h2>Figure as PPT</h2>
+<p>편집가능한 벡터그래픽으로 제공</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(rvg);<span class="fu">library</span>(officer)</span>
+<span id="cb11-2"><a href=""></a>doc <span class="ot">&lt;-</span> <span class="fu">read_pptx</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href=""></a>       <span class="fu">add_slide</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href=""></a>       <span class="fu">ph_with</span>(<span class="fu">dml</span>(<span class="at">ggobj =</span> gg_plot),</span>
+<span id="cb11-5"><a href=""></a>   <span class="at">location =</span> <span class="fu">ph_location_type</span>(<span class="at">type =</span> <span class="st">"body"</span>))</span>
+<span id="cb11-6"><a href=""></a><span class="fu">print</span>(doc, <span class="at">target =</span> <span class="st">"reports/rvg.pptx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<center>
+<a href="https://ardata-fr.github.io/officeverse/static/reports/rvg.pptx"><img src="https://ardata-fr.github.io/officeverse/static/reports/rvg.png" width="40%"></a>
+</center>
+</section>
+<section id="웹-애플리케이션-shiny" class="slide level2">
+<h2>웹 애플리케이션: Shiny</h2>
+<p>분석옵션을 조절하고 그 결과를 다운받을 수 있도록 제작</p>
+
+<img data-src="cox.png" class="r-stretch"></section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+
+<img data-src="km.png" class="r-stretch"></section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+
+<img data-src="forest.png" class="r-stretch"></section>
 <section id="cdw" class="slide level2">
 <h2>CDW</h2>
 
@@ -646,16 +861,16 @@
 <section id="magrittr" class="slide level2">
 <h2><code>%&gt;%</code>: magrittr</h2>
 <p>기존 코딩: Step마다 실행</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">subset</span>(a, Sex <span class="sc">==</span> <span class="st">"M"</span>)</span>
-<span id="cb1-2"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(DM <span class="sc">~</span> Age <span class="sc">+</span> Weight <span class="sc">+</span> BMI, <span class="at">data =</span> b, <span class="at">family =</span> binomial)</span>
-<span id="cb1-3"><a href=""></a>summ.model <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)</span>
-<span id="cb1-4"><a href=""></a>summ.model<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">subset</span>(a, Sex <span class="sc">==</span> <span class="st">"M"</span>)</span>
+<span id="cb12-2"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(DM <span class="sc">~</span> Age <span class="sc">+</span> Weight <span class="sc">+</span> BMI, <span class="at">data =</span> b, <span class="at">family =</span> binomial)</span>
+<span id="cb12-3"><a href=""></a>summ.model <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)</span>
+<span id="cb12-4"><a href=""></a>summ.model<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>%&gt;%</code>: 의식의 흐름대로 한번에 실행</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>a <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href=""></a>  <span class="fu">subset</span>(Sex <span class="sc">==</span> <span class="st">"M"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-3"><a href=""></a>  <span class="fu">glm</span>(DM <span class="sc">~</span> Age <span class="sc">+</span> Weight <span class="sc">+</span> BMI, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4"><a href=""></a>  summary <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5"><a href=""></a>  .<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>a <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">subset</span>(Sex <span class="sc">==</span> <span class="st">"M"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">glm</span>(DM <span class="sc">~</span> Age <span class="sc">+</span> Weight <span class="sc">+</span> BMI, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href=""></a>  summary <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a href=""></a>  .<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>data.table 과 연계 추천</p>
 </section>
 <section id="multicore" class="slide level2">
@@ -666,12 +881,12 @@
 <li>다른 Outcome에 대해 동일한 분석을 반복수행(Cox, Logistic)</li>
 </ul>
 <p><strong>너무 많은 코어쓰면 공단/심평원에서 전화올 수 있음</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>info.cci <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">mclapply</span>(<span class="fu">names</span>(code.cci), <span class="cf">function</span>(x){</span>
-<span id="cb3-2"><a href=""></a>  data.asd[, MDCARE_STRT_DT <span class="sc">:</span><span class="er">=</span> Indexdate]</span>
-<span id="cb3-3"><a href=""></a>  dt <span class="ot">&lt;-</span> m40[<span class="fu">like</span>(MCEX_SICK_SYM, <span class="fu">paste</span>(code.cci[[x]], <span class="at">collapse =</span> <span class="st">"|"</span>))][, MDCARE_STRT_DT <span class="sc">:</span><span class="er">=</span> <span class="fu">as.Date</span>(<span class="fu">as.character</span>(MDCARE_STRT_DT), <span class="at">format =</span> <span class="st">"%Y%m%d"</span>)][, .(RN_INDI, MDCARE_STRT_DT, <span class="at">Incidate =</span> MDCARE_STRT_DT)]  </span>
-<span id="cb3-4"><a href=""></a>  dt[, .SD[<span class="dv">1</span>], keyby <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"RN_INDI"</span>, <span class="st">"MDCARE_STRT_DT"</span>)][data.asd, on <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"RN_INDI"</span>, <span class="st">"MDCARE_STRT_DT"</span>), roll <span class="ot">=</span> <span class="dv">365</span>][, ev <span class="sc">:</span><span class="er">=</span> <span class="fu">as.integer</span>(<span class="sc">!</span><span class="fu">is.na</span>(Incidate))][]<span class="sc">$</span>ev <span class="sc">*</span> cciscore[x]</span>
-<span id="cb3-5"><a href=""></a>}, <span class="at">mc.cores =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span>  <span class="fu">do.call</span>(cbind, .) <span class="sc">%&gt;%</span> <span class="fu">cbind</span>(<span class="fu">rowSums</span>(.))</span>
-<span id="cb3-6"><a href=""></a><span class="fu">colnames</span>(info.cci) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"Prev_"</span>, <span class="fu">names</span>(code.cci)), <span class="st">"CCI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>info.cci <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">mclapply</span>(<span class="fu">names</span>(code.cci), <span class="cf">function</span>(x){</span>
+<span id="cb14-2"><a href=""></a>  data.asd[, MDCARE_STRT_DT <span class="sc">:</span><span class="er">=</span> Indexdate]</span>
+<span id="cb14-3"><a href=""></a>  dt <span class="ot">&lt;-</span> m40[<span class="fu">like</span>(MCEX_SICK_SYM, <span class="fu">paste</span>(code.cci[[x]], <span class="at">collapse =</span> <span class="st">"|"</span>))][, MDCARE_STRT_DT <span class="sc">:</span><span class="er">=</span> <span class="fu">as.Date</span>(<span class="fu">as.character</span>(MDCARE_STRT_DT), <span class="at">format =</span> <span class="st">"%Y%m%d"</span>)][, .(RN_INDI, MDCARE_STRT_DT, <span class="at">Incidate =</span> MDCARE_STRT_DT)]  </span>
+<span id="cb14-4"><a href=""></a>  dt[, .SD[<span class="dv">1</span>], keyby <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"RN_INDI"</span>, <span class="st">"MDCARE_STRT_DT"</span>)][data.asd, on <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"RN_INDI"</span>, <span class="st">"MDCARE_STRT_DT"</span>), roll <span class="ot">=</span> <span class="dv">365</span>][, ev <span class="sc">:</span><span class="er">=</span> <span class="fu">as.integer</span>(<span class="sc">!</span><span class="fu">is.na</span>(Incidate))][]<span class="sc">$</span>ev <span class="sc">*</span> cciscore[x]</span>
+<span id="cb14-5"><a href=""></a>}, <span class="at">mc.cores =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span>  <span class="fu">do.call</span>(cbind, .) <span class="sc">%&gt;%</span> <span class="fu">cbind</span>(<span class="fu">rowSums</span>(.))</span>
+<span id="cb14-6"><a href=""></a><span class="fu">colnames</span>(info.cci) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"Prev_"</span>, <span class="fu">names</span>(code.cci)), <span class="st">"CCI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="통계" class="slide level2">
 <h2>통계</h2>
@@ -1336,11 +1551,11 @@ w_i =
 <li><p>Weighted Kaplan-meier from svycox (<code>survfit</code> weights 옵션 또는 <code>svykm</code>)</p></li>
 </ul>
 </section>
-<section id="section" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>s1 <span class="ot">&lt;-</span> <span class="fu">svykm</span>(<span class="fu">Surv</span>(time, status <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">~</span> sex, <span class="at">design =</span> dpbc)</span>
-<span id="cb4-2"><a href=""></a>jskm<span class="sc">::</span><span class="fu">svyjskm</span>(s1, <span class="at">pval =</span> T, <span class="at">table =</span> T, <span class="at">design =</span> dpbc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>s1 <span class="ot">&lt;-</span> <span class="fu">svykm</span>(<span class="fu">Surv</span>(time, status <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">~</span> sex, <span class="at">design =</span> dpbc)</span>
+<span id="cb15-2"><a href=""></a>jskm<span class="sc">::</span><span class="fu">svyjskm</span>(s1, <span class="at">pval =</span> T, <span class="at">table =</span> T, <span class="at">design =</span> dpbc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p>log-rank test(X), survey rank test(O, <code>survey::svyranktest</code>)</p>
@@ -1352,19 +1567,19 @@ w_i =
 <h2><code>MatchIt</code></h2>
 <p>2그룹 PS/IPTW에서 가장 많이 쓰는 패키지</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(MatchIt)</span>
-<span id="cb5-2"><a href=""></a><span class="fu">data</span>(<span class="st">"lalonde"</span>, <span class="at">package =</span> <span class="st">"MatchIt"</span>)</span>
-<span id="cb5-3"><a href=""></a></span>
-<span id="cb5-4"><a href=""></a><span class="fu">table</span>(lalonde<span class="sc">$</span>treat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb16-2"><a href=""></a><span class="fu">data</span>(<span class="st">"lalonde"</span>, <span class="at">package =</span> <span class="st">"MatchIt"</span>)</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a><span class="fu">table</span>(lalonde<span class="sc">$</span>treat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   0   1 
 429 185 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co">#1:1 NN matching w/ replacement on a logistic regression PS</span></span>
-<span id="cb7-2"><a href=""></a>m.out <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> </span>
-<span id="cb7-3"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">distance =</span> <span class="st">"glm"</span>, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="cn">NULL</span>)</span>
-<span id="cb7-4"><a href=""></a>m.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co">#1:1 NN matching w/ replacement on a logistic regression PS</span></span>
+<span id="cb18-2"><a href=""></a>m.out <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> </span>
+<span id="cb18-3"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">distance =</span> <span class="st">"glm"</span>, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="cn">NULL</span>)</span>
+<span id="cb18-4"><a href=""></a>m.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A `matchit` object
  - method: 1:1 nearest neighbor matching without replacement
@@ -1384,8 +1599,8 @@ w_i =
 <section id="matching-data" class="slide level2">
 <h2>Matching data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>mdata <span class="ot">&lt;-</span> <span class="fu">match.data</span>(m.out)</span>
-<span id="cb9-2"><a href=""></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(mdata[<span class="fu">order</span>(mdata<span class="sc">$</span>subclass), <span class="fu">c</span>(<span class="st">"treat"</span>, <span class="st">"distance"</span>, <span class="st">"subclass"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>mdata <span class="ot">&lt;-</span> <span class="fu">match.data</span>(m.out)</span>
+<span id="cb20-2"><a href=""></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(mdata[<span class="fu">order</span>(mdata<span class="sc">$</span>subclass), <span class="fu">c</span>(<span class="st">"treat"</span>, <span class="st">"distance"</span>, <span class="st">"subclass"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -1398,7 +1613,7 @@ w_i =
 <section id="matching-결과-확인" class="slide level2">
 <h2>Matching 결과 확인</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">summary</span>(m.out) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">summary</span>(m.out) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1467,7 +1682,7 @@ Discarded       0       0</code></pre>
 <h2><code>jstable::CreateTableOneJS</code></h2>
 <div id="section1">
 <style>#section1 table, #section1 th, #section1 td {font-size: 20px;}</style>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top">
 <colgroup>
 <col style="width: 12%">
@@ -1600,7 +1815,7 @@ Discarded       0       0</code></pre>
 <h2>Mathing data</h2>
 <div id="section2">
 <style>#section2 table, #section2 th, #section2 td {font-size: 20px;}</style>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> mdata, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> mdata, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top">
 <colgroup>
 <col style="width: 12%">
@@ -1733,9 +1948,9 @@ Discarded       0       0</code></pre>
 <h2>Caliper</h2>
 <div id="section3">
 <style>#section3 table, #section3 th, #section3 td {font-size: 20px;}</style>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>m.out.caliper <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> </span>
-<span id="cb14-2"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="fl">0.1</span>)</span>
-<span id="cb14-3"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> <span class="fu">match.data</span>(m.out.caliper), <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>m.out.caliper <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> </span>
+<span id="cb25-2"><a href=""></a>                   nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">ratio =</span> <span class="dv">1</span>, <span class="at">caliper =</span> <span class="fl">0.1</span>)</span>
+<span id="cb25-3"><a href=""></a>jstable<span class="sc">::</span><span class="fu">CreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> <span class="fu">match.data</span>(m.out.caliper), <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top">
 <colgroup>
 <col style="width: 12%">
@@ -1868,10 +2083,10 @@ Discarded       0       0</code></pre>
 <h2>IPTW: <code>svyCreateTableOneJS</code></h2>
 <div id="section4">
 <style>#section4 table, #section4 th, #section4 td {font-size: 20px;}</style>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(survey)</span>
-<span id="cb15-2"><a href=""></a>lalonde<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(lalonde<span class="sc">$</span>treat <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>m.out<span class="sc">$</span>distance, <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> m.out<span class="sc">$</span>distance))</span>
-<span id="cb15-3"><a href=""></a>design.lalonde <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">strata=</span><span class="cn">NULL</span>, <span class="at">weights=</span><span class="sc">~</span>wt, <span class="at">data =</span> lalonde)</span>
-<span id="cb15-4"><a href=""></a>jstable<span class="sc">::</span><span class="fu">svyCreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> design.lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">library</span>(survey)</span>
+<span id="cb26-2"><a href=""></a>lalonde<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(lalonde<span class="sc">$</span>treat <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>m.out<span class="sc">$</span>distance, <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> m.out<span class="sc">$</span>distance))</span>
+<span id="cb26-3"><a href=""></a>design.lalonde <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">strata=</span><span class="cn">NULL</span>, <span class="at">weights=</span><span class="sc">~</span>wt, <span class="at">data =</span> lalonde)</span>
+<span id="cb26-4"><a href=""></a>jstable<span class="sc">::</span><span class="fu">svyCreateTableOneJS</span>(<span class="at">vars =</span> <span class="fu">names</span>(m.out<span class="sc">$</span>X), <span class="at">strata =</span> <span class="st">"treat"</span>, <span class="at">data =</span> design.lalonde, <span class="at">smd =</span> T)<span class="sc">$</span>table <span class="sc">%&gt;%</span> kable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top" style="width:100%;">
 <colgroup>
 <col style="width: 12%">
@@ -2026,9 +2241,9 @@ Discarded       0       0</code></pre>
 <h2>Issue 1: Matching 후 pair정보 이용</h2>
 <p>Matching 후 stratified cox를 해야하는가? Yes or No</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata)</span>
-<span id="cb16-2"><a href=""></a></span>
-<span id="cb16-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(subclass), <span class="at">data =</span> mdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata)</span>
+<span id="cb27-2"><a href=""></a></span>
+<span id="cb27-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(subclass), <span class="at">data =</span> mdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p><strong>Pair 마다 baseline hazard가 다르다는 가정</strong></p>
@@ -2043,13 +2258,13 @@ Discarded       0       0</code></pre>
 <h2>번외: baseline hazard 보정방법</h2>
 <p>예) 다기관 RCT에서 hospital, stratified random</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(hospital), <span class="at">data =</span> mdata)</span>
-<span id="cb17-2"><a href=""></a></span>
-<span id="cb17-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> hospital, <span class="at">data =</span> mdata)</span>
-<span id="cb17-4"><a href=""></a></span>
-<span id="cb17-5"><a href=""></a>cox3 <span class="ot">&lt;-</span> coxme<span class="sc">::</span><span class="fu">coxme</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>hospital), <span class="at">data =</span> mdata)</span>
-<span id="cb17-6"><a href=""></a></span>
-<span id="cb17-7"><a href=""></a>cox4 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata, <span class="at">cluster =</span> hospital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>cox1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> <span class="fu">strata</span>(hospital), <span class="at">data =</span> mdata)</span>
+<span id="cb28-2"><a href=""></a></span>
+<span id="cb28-3"><a href=""></a>cox2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> hospital, <span class="at">data =</span> mdata)</span>
+<span id="cb28-4"><a href=""></a></span>
+<span id="cb28-5"><a href=""></a>cox3 <span class="ot">&lt;-</span> coxme<span class="sc">::</span><span class="fu">coxme</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>hospital), <span class="at">data =</span> mdata)</span>
+<span id="cb28-6"><a href=""></a></span>
+<span id="cb28-7"><a href=""></a>cox4 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> treat, <span class="at">data =</span> mdata, <span class="at">cluster =</span> hospital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <ul>
@@ -2073,221 +2288,6 @@ Discarded       0       0</code></pre>
 <li>전체 연구대상자(남자 + 여자) 를 남/여 1:1로 랜덤배정했다는 뜻</li>
 </ul>
 </section>
-<section id="자체-개발-r-package" class="slide level2">
-<h2>자체 개발 R package</h2>
-<p>CRAN(총 20만회 다운로드)</p>
-<ul>
-<li><a href="https://github.com/jinseob2kim/jskm">jskm</a>: 생존분석 그림</li>
-<li><a href="https://github.com/jinseob2kim/jskm">jstable</a>: 분석결과를 보고서/논문용 테이블로</li>
-<li><a href="https://github.com/jinseob2kim/jskm">jsmodule</a>: Shiny module &amp; 로컬에서 실행하는 분석웹</li>
-</ul>
-<center>
-<a href="https://github.com/jinseob2kim/"><img src="Unknown-2.png" width="50%"></a>
-</center>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<center>
-<a href="https://github.com/jinseob2kim/jskm"><img src="jskm.png" width="100%"></a>
-</center>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-1-2.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="https://github.com/jinseob2kim/jskm/raw/master/man/figures/README-unnamed-chunk-3-1.png"></p>
-</div></div>
-</section>
-<section id="일본-블로그-리뷰" class="slide level2">
-<h2>일본 블로그 리뷰</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="jskm_japan.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="jskm_japan2.png"></p>
-</div></div>
-<p>Landmark, Competing risk analysis support</p>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<center>
-<a href="https://github.com/jinseob2kim/jstable"><img src="jstable.png" width="100%"></a>
-</center>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="do">## Gaussian</span></span>
-<span id="cb18-2"><a href=""></a>glm_gaussian <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars)</span>
-<span id="cb18-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_gaussian, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="sc">$</span>first.line</span>
-<span id="cb19-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Linear regression predicting mpg</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb19-3"><a href=""></a></span>
-<span id="cb19-4"><a href=""></a><span class="sc">$</span>table</span>
-<span id="cb19-5"><a href=""></a>     crude <span class="fu">coeff.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. coeff.(95%</span>CI)    adj. P value</span>
-<span id="cb19-6"><a href=""></a>cyl  <span class="st">"-2.88 (-3.51,-2.24)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-1.59 (-2.98,-0.19)"</span> <span class="st">"0.034"</span></span>
-<span id="cb19-7"><a href=""></a>disp <span class="st">"-0.04 (-0.05,-0.03)"</span> <span class="st">"&lt; 0.001"</span>     <span class="st">"-0.02 (-0.04,0)"</span>     <span class="st">"0.054"</span></span>
-<span id="cb19-8"><a href=""></a></span>
-<span id="cb19-9"><a href=""></a><span class="sc">$</span>last.lines</span>
-<span id="cb19-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">R-squared = 0.7596</span><span class="sc">\n</span><span class="st">AIC value = 167.1456</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="do">## Binomial</span></span>
-<span id="cb20-2"><a href=""></a>glm_binomial <span class="ot">&lt;-</span> <span class="fu">glm</span>(vs<span class="sc">~</span>cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
-<span id="cb20-3"><a href=""></a><span class="fu">glmshow.display</span>(glm_binomial, <span class="at">decimal =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="sc">$</span>first.line</span>
-<span id="cb21-2"><a href=""></a>[<span class="dv">1</span>] <span class="st">"Logistic regression predicting vs</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb21-3"><a href=""></a> </span>
-<span id="cb21-4"><a href=""></a><span class="sc">$</span>table</span>
-<span id="cb21-5"><a href=""></a>     crude <span class="fu">OR.</span>(<span class="dv">95</span><span class="sc">%CI)   crude P value adj. OR.(95%</span>CI)    adj. P value</span>
-<span id="cb21-6"><a href=""></a>cyl  <span class="st">"0.2 (0.08,0.56)"</span>  <span class="st">"0.002"</span>       <span class="st">"0.15 (0.02,1.02)"</span> <span class="st">"0.053"</span>     </span>
-<span id="cb21-7"><a href=""></a>disp <span class="st">"0.98 (0.97,0.99)"</span> <span class="st">"0.002"</span>       <span class="st">"1 (0.98,1.03)"</span>    <span class="st">"0.715"</span>     </span>
-<span id="cb21-8"><a href=""></a></span>
-<span id="cb21-9"><a href=""></a><span class="sc">$</span>last.lines</span>
-<span id="cb21-10"><a href=""></a>[<span class="dv">1</span>] <span class="st">"No. of observations = 32</span><span class="sc">\n</span><span class="st">AIC value = 23.8304</span><span class="sc">\n\n</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div>
-</section>
-<section id="subgroup-analysis" class="slide level2">
-<h2>Subgroup analysis</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">TableSubgroupMultiGLM</span>(status <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>    Variable Count Percent           OR Lower Upper P value P <span class="cf">for</span> interaction</span>
-<span id="cb23-2"><a href=""></a>sex2  Overall   <span class="dv">228</span>     <span class="dv">100</span>         <span class="fl">3.01</span>  <span class="fl">1.65</span>  <span class="fl">5.47</span>  <span class="sc">&lt;</span><span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb23-3"><a href=""></a><span class="dv">1</span>          kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.476</span></span>
-<span id="cb23-4"><a href=""></a><span class="dv">2</span>           <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>            <span class="dv">7</span>   <span class="fl">0.7</span> <span class="fl">70.03</span>   <span class="fl">0.098</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb23-5"><a href=""></a><span class="dv">3</span>           <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>         <span class="fl">2.94</span>  <span class="fl">1.55</span>  <span class="fl">5.57</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb23-6"><a href=""></a><span class="dv">4</span>         kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.984</span></span>
-<span id="cb23-7"><a href=""></a><span class="dv">5</span>           <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span> <span class="fl">314366015.19</span>     <span class="dv">0</span>   <span class="cn">Inf</span>   <span class="fl">0.997</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb23-8"><a href=""></a><span class="dv">6</span>           <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>         <span class="fl">2.85</span>  <span class="fl">1.55</span>  <span class="fl">5.25</span>   <span class="fl">0.001</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">TableSubgroupMultiCox</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">var_subgroups =</span> <span class="fu">c</span>(<span class="st">"kk"</span>, <span class="st">"kk1"</span>), <span class="at">data =</span> lung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>    Variable Count Percent Point Estimate Lower Upper sex<span class="ot">=</span><span class="dv">1</span> sex<span class="ot">=</span><span class="dv">2</span> P value P <span class="cf">for</span> interaction</span>
-<span id="cb25-2"><a href=""></a>sex  Overall   <span class="dv">228</span>     <span class="dv">100</span>           <span class="fl">1.91</span>  <span class="fl">1.14</span>   <span class="fl">3.2</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.014</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb25-3"><a href=""></a><span class="dv">1</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb25-4"><a href=""></a><span class="dv">2</span>         kk  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.525</span></span>
-<span id="cb25-5"><a href=""></a><span class="dv">3</span>          <span class="dv">0</span>    <span class="dv">38</span>    <span class="fl">16.9</span>           <span class="fl">2.88</span>  <span class="fl">0.31</span> <span class="fl">26.49</span>    <span class="dv">10</span>   <span class="dv">100</span>    <span class="fl">0.35</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb25-6"><a href=""></a><span class="dv">4</span>          <span class="dv">1</span>   <span class="dv">187</span>    <span class="fl">83.1</span>           <span class="fl">1.84</span>  <span class="fl">1.08</span>  <span class="fl">3.14</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.026</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb25-7"><a href=""></a><span class="dv">5</span>       <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb25-8"><a href=""></a><span class="dv">6</span>        kk1  <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>           <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>    <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>             <span class="fl">0.997</span></span>
-<span id="cb25-9"><a href=""></a><span class="dv">7</span>          <span class="dv">0</span>     <span class="dv">8</span>     <span class="fl">3.6</span>           <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>     <span class="dv">0</span>   <span class="dv">100</span>    <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>              <span class="er">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span>
-<span id="cb25-10"><a href=""></a><span class="dv">8</span>          <span class="dv">1</span>   <span class="dv">217</span>    <span class="fl">96.4</span>           <span class="fl">1.88</span>  <span class="fl">1.12</span>  <span class="fl">3.17</span>   <span class="dv">100</span>   <span class="dv">100</span>   <span class="fl">0.018</span>              <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="중국-영상블로그-리뷰" class="slide level2">
-<h2>중국 영상/블로그 리뷰</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="jstable_ch.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="jstable_ch2.png"></p>
-</div></div>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<center>
-<a href="https://github.com/jinseob2kim/jsmodule"><img src="jsmodule.png" width="100%"></a>
-</center>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="https://github.com/jinseob2kim/jsmodule/blob/master/vignettes/figures/ps.png?raw=true"></p>
-</div><div class="column" style="width:50%;">
-<p>1-2줄의 코드만으로 분석웹을 만들 수 있도록 각 분석기능을 모듈화</p>
-<p><img data-src="jsmodule2.png"></p>
-</div></div>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-
-<img data-src="jsmodule3.png" class="r-stretch"></section>
-<section id="무료-통계웹" class="slide level2">
-<h2>무료 통계웹</h2>
-<ul>
-<li>흔한 분석기능들을 무료로 분석할 수 있는 openstat.ai 런칭</li>
-<li>jskm/jstable/jsmodule 분석모듈 적용</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><a href="https://openstat.ai/"><strong>openstat.ai</strong></a><strong>: free</strong></p>
-<p><img data-src="example-meta.png"></p>
-</div><div class="column" style="width:50%;">
-<p><strong>맞춤형 분석웹은 유료제작</strong></p>
-<p><img data-src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a9631fa-d51e-4701-a2e8-c1087a0f2c3b%2FUntitled.png&amp;blockId=05eff788-7894-4c2e-9cfe-b8056bc0bcd7"></p>
-</div></div>
-</section>
-<section id="오픈소스기여-인턴십" class="slide level2">
-<h2>오픈소스기여: 인턴십</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>정기적 선발</li>
-</ul>
-<p><img data-src="intern.png"></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>인턴의 오픈소스 패키지개발 참여</li>
-</ul>
-<p><img data-src="internr.png"></p>
-</div></div>
-</section>
-<section id="교육" class="slide level2">
-<h2>교육</h2>
-<p>성균관대학교 바이오헬스규제과학과 겸임교수 강의</p>
-<ul>
-<li><p>https://github.com/jinseob2kim/r-skku-biohrs</p></li>
-<li><p>R활용 의료데이터분석, 강의록과 강의영상 모두 공개</p></li>
-</ul>
-<center>
-<a href="https://github.com/jinseob2kim/r-skku-biohrs"><img src="biohrs.png" width="60%"></a>
-</center>
-</section>
-<section id="분석결과-공유-연구자와의-소통" class="slide level2">
-<h2>분석결과 공유: 연구자와의 소통</h2>
-<p>SPSS, SAS, R 결과를 그냥 보내줄 수 없음.</p>
-<ul>
-<li>그럼 엑셀/Word 테이블을 직접?</li>
-<li>그림 수정해달라고 한다면?</li>
-</ul>
-<p>몇번만 왔다갔다하면 서로 지침</p>
-</section>
-<section id="solution-1-r로-직접-테이블-ppt-작성" class="slide level2">
-<h2>Solution 1: R로 직접 테이블, PPT 작성</h2>
-<p>R에서 테이블형태로 만들고, 이것들을 모아 하나의 엑셀로 저장</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>openxlsx<span class="sc">::</span><span class="fu">write.xlsx</span>(<span class="fu">list</span>(<span class="at">Baseline =</span> tb1old, <span class="at">Baseline_add =</span> tb1add, <span class="at">OR =</span> res.OR), <span class="st">"new.xlsx"</span>, <span class="at">rowNames =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-<img data-src="openxlsx.png" class="r-stretch"></section>
-<section id="soultion-2-flextable로-word생성" class="slide level2">
-<h2>Soultion 2: Flextable로 Word생성</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="do">## Continuous Exposure, Add Phase/Remove ICU day to covariates</span></span>
-<span id="cb27-2"><a href=""></a>tb2.add <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">"Energy"</span>, <span class="st">"Protein"</span>), <span class="cf">function</span>(v){</span>
-<span id="cb27-3"><a href=""></a>  covs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Phase"</span>, <span class="st">"age"</span>, <span class="st">"sex"</span>, <span class="st">"baseline_SOFA"</span>, <span class="st">"malnutrition"</span>)</span>
-<span id="cb27-4"><a href=""></a>  form <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"death_180days"</span>, <span class="st">"~"</span>, v, <span class="st">"+"</span>, <span class="fu">paste</span>(covs, <span class="at">collapse =</span> <span class="st">"+"</span>), <span class="st">"+ (1|No)"</span>)</span>
-<span id="cb27-5"><a href=""></a>  model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(<span class="fu">as.formula</span>(form), <span class="at">data =</span> along, <span class="at">family =</span> binomial, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
-<span id="cb27-6"><a href=""></a>  <span class="fu">tbl_regression</span>(model, <span class="at">exponentiate =</span> T, <span class="at">estimate_fun =</span> <span class="cf">function</span>(x) <span class="fu">style_number</span>(x, <span class="at">digits =</span> <span class="dv">2</span>),</span>
-<span id="cb27-7"><a href=""></a>                 <span class="at">pvalue_fun =</span> <span class="cf">function</span>(x) <span class="fu">style_number</span>(x, <span class="at">digits =</span> <span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="fu">bold_p</span>(<span class="at">t =</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span> <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb27-8"><a href=""></a>    <span class="fu">as_flex_table</span>()</span>
-<span id="cb27-9"><a href=""></a>})</span>
-<span id="cb27-10"><a href=""></a></span>
-<span id="cb27-11"><a href=""></a><span class="fu">save_as_docx</span>(<span class="at">Energy =</span> tb2.add[[<span class="dv">1</span>]], <span class="at">Protein =</span> tb2.add[[<span class="dv">2</span>]], <span class="at">path =</span> <span class="st">"table2_add.docx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="figure-as-ppt" class="slide level2">
-<h2>Figure as PPT</h2>
-<p>편집가능한 벡터그래픽으로 제공</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">library</span>(rvg);<span class="fu">library</span>(officer)</span>
-<span id="cb28-2"><a href=""></a>doc <span class="ot">&lt;-</span> <span class="fu">read_pptx</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a href=""></a>       <span class="fu">add_slide</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb28-4"><a href=""></a>       <span class="fu">ph_with</span>(<span class="fu">dml</span>(<span class="at">ggobj =</span> gg_plot),</span>
-<span id="cb28-5"><a href=""></a>   <span class="at">location =</span> <span class="fu">ph_location_type</span>(<span class="at">type =</span> <span class="st">"body"</span>))</span>
-<span id="cb28-6"><a href=""></a><span class="fu">print</span>(doc, <span class="at">target =</span> <span class="st">"reports/rvg.pptx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<center>
-<a href="https://ardata-fr.github.io/officeverse/static/reports/rvg.pptx"><img src="https://ardata-fr.github.io/officeverse/static/reports/rvg.png" width="40%"></a>
-</center>
-</section>
-<section id="웹-애플리케이션-shiny" class="slide level2">
-<h2>웹 애플리케이션: Shiny</h2>
-<p>분석옵션을 조절하고 그 결과를 다운받을 수 있도록 제작</p>
-
-<img data-src="cox.png" class="r-stretch"></section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-
-<img data-src="km.png" class="r-stretch"></section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-
-<img data-src="forest.png" class="r-stretch"></section>
 <section id="executive-summary-1" class="slide level2">
 <h2>Executive summary</h2>
 <p>병원데이터: <strong>(1) 연구위해 정리된 (2) 연구위해 정리해야 할</strong></p>
