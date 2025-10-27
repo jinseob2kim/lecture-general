@@ -22,6 +22,11 @@ editor: visual
 subtitle: "차라투(주)"
 ---
 
+##
+
+<center><img src="start.png" width="100%"/></a></center>
+
+
 ## 자기소개
 
 회사: 차라투 주식회사(Zarathu Co.,Ltd)
@@ -1217,3 +1222,7 @@ IPTW: $ATE$ 니까 OK?
 **분석결과 공유**: 엑셀, PPT, 워드, 웹 애플리케이션: `officer`/`rvg`/`flextable`/`shiny`
 
 # 감사합니다
+
+##
+
+<center><img src="end.png" width="100%"/></a></center>
