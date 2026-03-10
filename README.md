@@ -77,3 +77,5 @@ Lecture: general topic
 * [2025 청람바이오아카데미](): [제약바이오 연구를 위한 병원과의 협업](https://jinseob2kim.github.io/lecture-general/medical_data_analysis2025)
 
 * [2026 한경국립대학교](): [메타분석](https://jinseob2kim.github.io/lecture-general/meta_analysis)
+
+* [2026 병원교수 대상 강의](): [Claude Code로 R 데이터분석](https://jinseob2kim.github.io/lecture-general/claude_code_r)

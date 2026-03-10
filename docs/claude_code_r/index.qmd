@@ -1,0 +1,791 @@
+---
+title: "Claude Code로 R 데이터분석"
+author: "김진섭"
+date: "2026-03-10"
+format:
+  revealjs:
+    theme: zarathu_theme.scss
+    title-slide-attributes:
+      data-background-image: bg.png
+      data-background-size: cover
+      data-background-opacity: "0.3"
+    logo: Zarathu Circle Clipping Mask2.png
+    footer: "openstat.ai"
+    self-contained: false
+    chalkboard:
+      buttons: false
+    preview-links: true
+    show-notes: false
+    slide-number: false
+    width: 1600
+    height: 900
+editor: visual
+subtitle: "Zarathu Co., Ltd"
+---
+
+## 자기소개
+
+회사: 차라투 (Zarathu Co.,Ltd)
+
+-   R 활용 의학연구지원
+-   R 패키지 개발 및 교육
+
+경력
+
+-   의학사, 성균관대학교 (\~2009)
+-   예방의학전문의/박사수료, 서울대보건대학원 (\~2013)
+-   책임, 삼성전자 DMC연구소/무선사업부 (\~2016)
+-   대표, 차라투 (2018\~)
+
+**jinseob2kim\@gmail.com, github.com/jinseob2kim**
+
+## Executive summary
+
+**AI 코딩 에이전트를 활용하여 R 데이터분석을 수행한다**
+
+-   Claude Code: Anthropic의 공식 CLI 기반 AI 코딩 에이전트
+
+-   터미널에서 자연어로 지시하면 코드를 작성/실행/수정
+
+-   **R 분석 전 과정**을 지원: 데이터 전처리, 통계분석, 시각화, 논문 테이블
+
+<br>
+
+**Windows에서 바로 사용 가능**
+
+-   **네이티브 설치**: Git Bash만 있으면 됨 (WSL 불필요)
+-   **WSL 설치**: Linux 환경 선호 시 대안
+-   기존 R, RStudio 환경과 함께 사용
+
+## AI 코딩 에이전트란?
+
+**기존 ChatGPT/Copilot과의 차이**
+
+| 구분     | ChatGPT / Copilot     | Claude Code              |
+|----------|-----------------------|--------------------------|
+| **방식** | 코드 제안/복붙        | 직접 파일 읽기/수정/실행 |
+| **환경** | 웹 브라우저 / IDE     | 터미널 (내 컴퓨터)       |
+| **범위** | 한 번에 한 질문       | 프로젝트 전체 이해       |
+| **실행** | 사용자가 복붙 후 실행 | 에이전트가 직접 실행     |
+
+<br>
+
+> "코드를 알려주는 AI"에서 **"코드를 대신 짜고 실행하는 AI"**로
+
+## Claude Code 데모 영상
+
+**실제 동작 모습**
+
+```         
+$ claude
+
+> colon 데이터로 sex별 생존분석 해줘.
+  Kaplan-Meier plot이랑 Cox regression table 만들어서
+  ppt로 저장해.
+
+✓ R 코드 작성 중...
+✓ survival, jskm, jstable 패키지 로드
+✓ survfit, coxph 모델 적합
+✓ KM plot 생성 → results/km_plot.pptx
+✓ Cox table 생성 → results/cox_table.xlsx
+
+완료! results/ 폴더를 확인하세요.
+```
+
+-   자연어 지시 → 코드 작성 → 실행 → 결과 저장까지 **자동**
+
+## 왜 Claude Code인가?
+
+**의학연구자에게 특히 유용한 이유**
+
+1.  **R 생태계 이해도 높음**: `survival`, `jskm`, `jstable`, `meta` 등 의학통계 패키지 지원
+
+2.  **CLAUDE.md로 분석 스타일 고정**: 한 번 설정하면 매번 동일한 코딩 컨벤션 유지
+
+3.  **반복 작업 자동화**: Table 1, regression table, forest plot 등 패턴화된 작업
+
+4.  **논문 수준 출력**: flextable, officer 패키지로 바로 논문에 쓸 수 있는 결과물
+
+<br>
+
+::: callout-tip
+**핵심**: 통계를 모르는 게 아니라, **코딩에 시간을 쓰기 싫은** 교수님들을 위한 도구
+:::
+
+# 설치: Windows 환경
+
+## 두 가지 설치 방법
+
+| 구분          | 네이티브 (권장)      | WSL                  |
+|---------------|----------------------|----------------------|
+| **난이도**    | 쉬움                 | 보통                 |
+| **필요한 것** | Git for Windows      | WSL2 + Ubuntu        |
+| **R 연동**    | 기존 Windows R 사용  | WSL 안에 R 별도 설치 |
+| **소요시간**  | 5분                  | 15-20분              |
+| **장점**      | 간편, 기존 환경 유지 | Linux 환경, 샌드박싱 |
+
+<br>
+
+::: callout-tip
+**대부분의 경우 네이티브 설치를 추천합니다**
+
+이미 Windows에 R이 설치되어 있으면 그대로 사용 가능
+:::
+
+# 방법 1: 네이티브 설치 (권장)
+
+## 네이티브: 설치 순서
+
+**총 3단계**
+
+```         
+1. Git for Windows 설치   ← Claude Code가 내부적으로 Git Bash 사용
+    ↓
+2. Claude Code 설치       ← PowerShell 한 줄로 끝
+    ↓
+3. R 설치 확인            ← 이미 있으면 skip
+```
+
+<br>
+
+-   **소요시간**: 약 5분
+-   **Windows 10** 이상 또는 **Windows 11**
+
+## 네이티브: Step 1 - Git for Windows
+
+**이미 Git이 설치되어 있으면 건너뛰기**
+
+<br>
+
+1.  [git-scm.com/downloads/win](https://git-scm.com/downloads/win) 에서 다운로드
+
+2.  설치 시 **기본 옵션 그대로** 진행 (Next만 계속 클릭)
+
+3.  확인:
+
+``` powershell
+git --version
+# git version 2.47.x.windows.x
+```
+
+<br>
+
+::: callout-note
+Git for Windows에 **Git Bash**가 포함됨 → Claude Code가 이걸 사용
+:::
+
+## 네이티브: Step 2 - Claude Code 설치
+
+**PowerShell** 열고 한 줄 실행:
+
+``` powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+-   Node.js **별도 설치 불필요** (자체 포함)
+-   `~/.local/bin`에 설치됨
+-   **설치 후 터미널을 닫았다 다시 열기** (PATH 적용)
+
+<br>
+
+**설치 확인**:
+
+``` powershell
+claude --version
+```
+
+<br>
+
+::: callout-warning
+`claude is not recognized` 에러 시 → 터미널 재시작, 또는 PATH에 `%USERPROFILE%\.local\bin` 추가
+:::
+
+## 네이티브: Step 3 - 최초 실행 & 인증
+
+**PowerShell 또는 Git Bash**에서:
+
+``` powershell
+cd C:\Users\본인이름\Documents\my_research
+claude
+```
+
+<br>
+
+-   **최초 실행 시** 브라우저가 열리며 Anthropic 계정 로그인
+-   Claude Pro, Max, Teams, Enterprise 또는 API key로 인증
+
+<br>
+
+| 인증 방법         | 가격     | 특징                  |
+|-------------------|----------|-----------------------|
+| **Claude Max**    | \$100/월 | Code 무제한, 추천     |
+| **Claude Max 5x** | \$200/월 | 더 많은 사용량        |
+| **API key**       | 종량제   | 분석 1건당 약 \$0.5-2 |
+
+## 네이티브: R 환경 확인
+
+**이미 Windows에 R이 설치되어 있으면 그대로 사용!**
+
+``` powershell
+Rscript --version
+# R scripting front-end version 4.x.x
+```
+
+<br>
+
+R이 없다면: [cran.r-project.org](https://cran.r-project.org/) 에서 다운로드
+
+<br>
+
+**R 패키지 설치** (R 콘솔 또는 RStudio에서):
+
+``` r
+install.packages(c("data.table", "magrittr", "survival",
+                    "jskm", "jstable", "flextable",
+                    "officer", "rvg", "ggplot2", "openxlsx2"))
+```
+
+::: callout-tip
+기존 RStudio에서 설치한 패키지를 Claude Code가 **그대로 사용**합니다
+:::
+
+## 네이티브: 문제 해결
+
+``` powershell
+# 설치 상태 자동 진단
+claude doctor
+```
+
+<br>
+
+**자주 발생하는 문제와 해결**
+
+| 문제                       | 해결                          |
+|----------------------------|-------------------------------|
+| `claude is not recognized` | 터미널 재시작 또는 PATH 추가  |
+| Git 없다는 에러            | Git for Windows 설치          |
+| 인증 실패                  | `claude doctor`로 진단        |
+| R 못 찾음                  | Rscript이 PATH에 있는지 확인  |
+| 한글 깨짐                  | 시스템 UTF-8 설정 (아래 참고) |
+
+<br>
+
+**한글 깨짐 해결**: 설정 → 시간 및 언어 → 언어 및 지역 → 관리 언어 설정 → 시스템 로캘 변경 → **Beta: 세계 언어 지원을 위해 Unicode UTF-8 사용** 체크 → 재부팅
+
+# 방법 2: WSL 설치 (대안)
+
+## WSL: 언제 쓰나?
+
+**네이티브보다 WSL이 나은 경우**
+
+-   Linux 기반 R 패키지 사용 시 (시스템 라이브러리 의존성)
+-   보안 샌드박싱이 필요한 경우
+-   Linux 명령어에 익숙한 경우
+
+<br>
+
+**설치 순서**:
+
+```         
+1. WSL2 설치          ← PowerShell에서 한 줄
+    ↓
+2. Node.js 설치       ← WSL Ubuntu에서
+    ↓
+3. Claude Code 설치   ← npm으로 설치
+    ↓
+4. R 설치             ← WSL Ubuntu에서
+```
+
+## WSL: Step 1 - WSL2 설치
+
+**PowerShell을 관리자 권한으로 실행** 후:
+
+``` powershell
+wsl --install
+```
+
+-   Ubuntu가 기본으로 설치됨
+-   **재부팅 필요**
+-   재부팅 후 Ubuntu 앱이 자동 실행 → 사용자명/비밀번호 설정
+
+<br>
+
+::: callout-note
+**확인**: `wsl --version` 으로 WSL2인지 확인
+
+WSL1이면: `wsl --set-default-version 2`
+
+`wsl --install` 실패 시: BIOS에서 가상화(VT-x/AMD-V) 활성화 필요
+:::
+
+## WSL: Step 2 & 3 - Node.js + Claude Code
+
+**WSL Ubuntu 터미널**에서:
+
+``` bash
+# Node.js 22 LTS 설치
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Claude Code 설치
+npm install -g @anthropic-ai/claude-code
+
+# 확인
+claude --version
+```
+
+<br>
+
+**최초 실행**:
+
+``` bash
+claude
+# → 브라우저가 열리며 Anthropic 계정 로그인
+```
+
+## WSL: Step 4 - R 설치
+
+**WSL Ubuntu 터미널**에서:
+
+``` bash
+# R 설치
+sudo apt-get update
+sudo apt-get install -y r-base r-base-dev
+
+# 필수 시스템 라이브러리
+sudo apt-get install -y libcurl4-openssl-dev libssl-dev \
+  libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev \
+  libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+```
+
+<br>
+
+**R 패키지 설치** (R 콘솔에서):
+
+``` r
+install.packages(c("data.table", "magrittr", "survival",
+                    "jskm", "jstable", "flextable",
+                    "officer", "rvg", "ggplot2", "openxlsx2"))
+```
+
+## WSL: 파일 경로
+
+**WSL과 Windows 간 파일 접근**
+
+| WSL 경로                       | Windows 경로               |
+|--------------------------------|----------------------------|
+| `/mnt/c/Users/본인/Documents/` | `C:\Users\본인\Documents\` |
+| `/mnt/d/data/`                 | `D:\data\`                 |
+
+<br>
+
+``` bash
+# WSL에서 Windows 문서 폴더로 이동
+cd /mnt/c/Users/본인이름/Documents/my_research
+claude
+```
+
+<br>
+
+-   Claude Code가 WSL에서 R 코드 작성 + 실행
+-   결과물(pptx, xlsx)은 `/mnt/c/...`에 저장 → Windows에서 바로 열기
+
+::: callout-note
+**한글 설정**: `sudo apt-get install -y language-pack-ko && echo 'export LANG=ko_KR.UTF-8' >> ~/.bashrc`
+:::
+
+## 폴더 구조 세팅
+
+**네이티브든 WSL이든 동일한 프로젝트 구조**
+
+```         
+my_research/
+├── CLAUDE.md          ← 분석 스타일 지시
+├── data/              ← 원본 데이터 (xlsx, csv 등)
+├── global.R           ← 데이터 전처리
+├── analysis.R         ← 분석 코드
+└── results/           ← 결과물 (pptx, xlsx)
+```
+
+<br>
+
+``` powershell
+# 네이티브: PowerShell에서
+cd C:\Users\본인이름\Documents\my_research
+claude
+```
+
+``` bash
+# WSL: Ubuntu 터미널에서
+cd /mnt/c/Users/본인이름/Documents/my_research
+claude
+```
+
+# CLAUDE.md: 분석 스타일 설정
+
+## CLAUDE.md란?
+
+**프로젝트 루트에 두는 AI 지시 파일**
+
+-   Claude Code가 매 대화 시작할 때 자동으로 읽음
+-   코딩 스타일, 사용 패키지, 분석 컨벤션 등을 고정
+-   **한 번 작성하면 매번 동일한 스타일로 분석**
+
+<br>
+
+``` bash
+# 프로젝트 루트에 생성
+my_research/
+├── CLAUDE.md          ← 분석 스타일 지시
+├── data/              ← 원본 데이터
+├── global.R           ← 데이터 전처리
+├── analysis.R         ← 분석 코드
+└── results/           ← 결과물 (pptx, xlsx)
+```
+
+## CLAUDE.md 예시 (1/2)
+
+``` markdown
+# 분석 스타일
+
+## 기본 원칙
+- data.table을 메인 패키지로 사용 (dplyr 사용 안 함)
+- pipe operator(%>%)만 사용 (magrittr)
+- global.R에서 전처리, analysis.R에서 분석 (파일 분리)
+
+## global.R 구조
+1. 데이터 읽기
+2. 전처리 + 파생변수 생성
+3. varlist에 분석 변수 저장
+4. out = 분석용 데이터, out.label = 라벨 정보
+5. **varlist와 out 나오기 전에 파생변수 모두 완료**
+
+## 테이블 저장
+- flextable으로 포맷팅 (논문에 바로 쓸 수 있는 형태)
+- flexlsx + openxlsx2로 Excel 여러 시트에 저장
+```
+
+## CLAUDE.md 예시 (2/2)
+
+``` markdown
+## 그림 저장
+- 기본은 ppt (rvg::dml + officer 패키지)
+- 벡터 그래픽, fullsize
+
+## 주요 패키지
+- jstable: CreateTableOneJS, cox2.display, glmshow.display
+- jskm: Kaplan-Meier plot (jskm, svyjskm)
+- 라벨 적용: LabeljsCox, LabeljsTable 등
+
+## 주의사항
+- survfit/coxph는 eval(substitute()) 패턴 필수
+- 테이블 부등호: >= → ≥, <= → ≤ (유니코드)
+- Table 1 footer는 실제 사용된 검정과 일치시키기
+```
+
+<br>
+
+::: callout-tip
+이 CLAUDE.md를 한 번 만들어두면, "Table 1 만들어줘"라고만 해도 **항상 같은 스타일**로 생성
+:::
+
+# 실전: R 데이터분석
+
+## 예제 1: 데이터 전처리 (global.R)
+
+**자연어로 지시**:
+
+```         
+> data 폴더의 엑셀 파일 읽어서 global.R 만들어줘.
+  성별은 factor, 나이/BMI는 numeric으로.
+  DM은 0/1 코딩이고 label은 No/Yes로.
+```
+
+<br>
+
+**Claude Code가 생성하는 코드**:
+
+``` r
+library(data.table);library(magrittr);library(jstable)
+a <- readxl::read_excel("data/patient_data.xlsx") %>% data.table
+
+a[, DM := factor(DM, levels = c(0, 1), labels = c("No", "Yes"))]
+
+varlist <- list(
+  Base = c("Sex", "Age", "BMI", "DM", "HbA1c")
+)
+
+out <- a[, .SD, .SDcols = c(unlist(varlist))]
+factor_vars <- c("Sex", "DM")
+out[, (factor_vars) := lapply(.SD, factor), .SDcols = factor_vars]
+conti_vars <- setdiff(names(out), factor_vars)
+out[, (conti_vars) := lapply(.SD, as.numeric), .SDcols = conti_vars]
+
+out.label <- jstable::mk.lev(out)
+```
+
+## 예제 2: Table 1
+
+**자연어로 지시**:
+
+```         
+> DM 기준으로 Table 1 만들어줘.
+  nonnormal 변수는 Age, BMI로.
+  Excel로 저장.
+```
+
+<br>
+
+**Claude Code가 실행하는 코드**:
+
+``` r
+source("global.R")
+
+tb1 <- jstable::CreateTableOneJS(
+  vars = names(out), strata = "DM", data = out,
+  nonnormal = c("Age", "BMI"),
+  labeldata = out.label, Labels = TRUE,
+  testNonNormal = wilcox.test
+)
+
+ft <- tb1$table %>%
+  cbind(Variable = rownames(.), .) %>%
+  flextable::flextable() %>%
+  flextable::set_caption("Table 1. Baseline characteristics") %>%
+  flextable::add_footer_lines(
+    "P by Wilcoxon rank-sum test / Chi-squared or Fisher's exact test"
+  )
+```
+
+## 예제 3: 생존분석
+
+**자연어로 지시**:
+
+```         
+> DM 여부에 따른 Kaplan-Meier plot 그려줘.
+  p-value 표시하고, JAMA 스타일로.
+  ppt로 저장.
+```
+
+<br>
+
+**Claude Code가 실행하는 코드**:
+
+``` r
+library(survival);library(jskm);library(officer);library(rvg)
+
+dd <- out  # 분석 데이터
+fmla <- Surv(time, event) ~ DM
+fit <- eval(substitute(survfit(f, data = dd), list(f = fmla)))
+
+p <- jskm(fit, data = dd, pval = TRUE, table = TRUE,
+           marks = FALSE, theme = "jama",
+           ystratalabs = c("No DM", "DM"),
+           ystrataname = "DM status")
+
+# PPT 저장
+doc <- read_pptx() %>%
+  add_slide(layout = "Blank") %>%
+  ph_with(dml(ggobj = p), location = ph_location_fullsize())
+print(doc, target = "results/km_plot.pptx")
+```
+
+## 예제 4: Cox Regression
+
+**자연어로 지시**:
+
+```         
+> DM의 사망 위험을 Cox regression으로 분석해줘.
+  Age, Sex, BMI 보정하고, label 적용해서 Excel로 저장.
+```
+
+<br>
+
+**Claude Code가 실행하는 코드**:
+
+``` r
+fmla <- Surv(time, event) ~ DM + Age + Sex + BMI
+fit <- eval(substitute(coxph(f, data = dd), list(f = fmla)))
+
+cox_result <- jstable::cox2.display(fit)
+cox_labeled <- jstable::LabeljsCox(cox_result, ref = out.label)
+
+ft <- cox_labeled$table %>%
+  flextable::flextable() %>%
+  flextable::set_caption("Table 2. Cox proportional hazards model") %>%
+  flextable::add_footer_lines("HR, hazard ratio; CI, confidence interval")
+
+# Excel 저장
+library(flexlsx);library(openxlsx2)
+wb <- wb_workbook()
+wb$add_worksheet("Cox")
+wb <- wb_add_flextable(wb, "Cox", ft)
+wb$save("results/Tables.xlsx")
+```
+
+## 대화 이어가기
+
+**Claude Code의 강점: 맥락을 기억**
+
+```         
+> 위의 Cox 모델에서 DM 유의하면,
+  subgroup 분석도 해줘. Sex, Age 65세 기준으로.
+  forestploter로 그려서 ppt에 추가.
+
+> Table 1이랑 Cox table을 한 엑셀 파일에
+  각각 다른 시트로 저장해줘.
+
+> 결과 요약해서 professor_reply.md 만들어줘.
+  Statistical Analysis는 영어로.
+```
+
+<br>
+
+-   이전 대화에서 만든 코드/결과를 **기억하고 이어서** 작업
+-   추가 지시만 하면 기존 코드를 수정하거나 확장
+
+# 팁과 주의사항
+
+## 효과적인 지시 방법
+
+**구체적일수록 좋다**
+
+| 나쁜 예       | 좋은 예                                     |
+|---------------|---------------------------------------------|
+| "분석해줘"    | "DM 기준 Table 1 만들어줘, nonnormal은 Age" |
+| "그래프 그려" | "KM plot 그려줘, JAMA 스타일, p-value 표시" |
+| "저장해"      | "ppt로 저장, fullsize, 벡터그래픽"          |
+
+<br>
+
+**단계별 지시가 안전**
+
+1.  먼저: "data 폴더의 엑셀 읽어서 구조 보여줘"
+2.  다음: "global.R 만들어줘"
+3.  그 다음: "Table 1 만들어줘"
+4.  마지막: "결과 Excel로 저장"
+
+## 자주 쓰는 명령어
+
+**Claude Code 기본 명령**
+
+``` bash
+# Claude Code 시작
+claude
+
+# 대화 내 명령어
+/help              # 도움말
+/clear             # 대화 초기화
+/compact           # 대화 요약 (토큰 절약)
+```
+
+<br>
+
+**유용한 자연어 패턴**
+
+```         
+> global.R 읽어보고 어떤 변수가 있는지 알려줘
+> analysis.R의 에러 고쳐줘
+> 이 코드 리뷰해줘
+> 결과를 professor_reply.md로 정리해줘
+```
+
+## 비용과 구독
+
+**Claude Code 사용 비용**
+
+| 플랜                | 가격        | 특징                  |
+|---------------------|-------------|-----------------------|
+| **API (종량제)**    | 사용량 기반 | 분석 1건당 약 \$0.5-2 |
+| **Claude Pro**      | \$20/월     | 웹 + 제한적 Code 사용 |
+| **Claude Max**      | \$100/월    | Code 무제한 사용      |
+| **Claude Max (5x)** | \$200/월    | 더 많은 사용량        |
+
+<br>
+
+::: callout-tip
+**추천**: 처음엔 API key로 시작 → 자주 쓰면 Max로 전환
+
+의학연구 분석 기준, 월 \$100이면 **RA 인건비 대비 압도적**
+:::
+
+## 주의사항
+
+**반드시 확인할 것**
+
+1.  **코드 리뷰**: AI가 만든 코드를 반드시 확인
+
+    -   특히 통계 방법이 맞는지, 변수 코딩이 맞는지
+
+2.  **환자 데이터 보안**: Claude Code는 **로컬에서 실행**
+
+    -   코드만 API로 전송, 데이터 파일은 전송되지 않음
+    -   단, 프롬프트에 환자 정보를 직접 입력하지 말 것
+
+3.  **재현성**: global.R + analysis.R + CLAUDE.md를 함께 보관
+
+    -   동일한 지시로 동일한 결과 재현 가능
+
+<br>
+
+::: callout-warning
+**AI는 도구일 뿐**: 통계적 판단과 결과 해석은 **연구자의 몫**
+:::
+
+## 설치 후 확인: claude doctor
+
+**설치가 잘 됐는지 한 번에 진단**
+
+``` powershell
+claude doctor
+```
+
+-   설치 방식, 버전, PATH, Git 상태 등 자동 체크
+-   문제 발견 시 해결 방법 안내
+
+<br>
+
+**그래도 안 되면?**
+
+| 상황 | 네이티브 | WSL |
+|----|----|----|
+| claude 명령어 안 됨 | PATH에 `~/.local/bin` 추가 | `npm` 재설치 |
+| R 못 찾음 | Rscript PATH 확인 | `sudo apt install r-base` |
+| 한글 깨짐 | Windows 설정에서 UTF-8 활성화 | `LANG=ko_KR.UTF-8` |
+| 패키지 설치 에러 | Rtools 설치 | `apt-get` 시스템 라이브러리 |
+
+## 정리
+
+**Claude Code + R 데이터분석 워크플로우**
+
+```         
+1. CLAUDE.md 작성 (분석 스타일 고정)
+    ↓
+2. 데이터를 프로젝트 폴더에 준비
+    ↓
+3. claude 실행 → 자연어로 지시
+    ↓
+4. global.R → analysis.R → 결과물 자동 생성
+    ↓
+5. 코드 리뷰 후 최종 확인
+```
+
+<br>
+
+**기대 효과**
+
+-   반복적인 코딩 작업 시간 **대폭 단축**
+-   일관된 분석 스타일 유지 (CLAUDE.md)
+-   논문 수준 테이블/그림 **즉시 생성**
+
+# 감사합니다 {background-color="#2A3D21"}
+
+**실습 및 질문**
+
+<br>
+
+jinseob2kim\@gmail.com
+
+github.com/jinseob2kim
+
+openstat.ai
