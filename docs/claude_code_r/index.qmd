@@ -53,8 +53,7 @@ subtitle: "Zarathu Co., Ltd"
 
 **Windows에서 바로 사용 가능**
 
--   **네이티브 설치**: Git Bash만 있으면 됨 (WSL 불필요)
--   **WSL 설치**: Linux 환경 선호 시 대안
+-   Git Bash만 있으면 됨
 -   기존 R, RStudio 환경과 함께 사용
 
 ## AI 코딩 에이전트란?
@@ -114,27 +113,7 @@ $ claude
 
 # 설치: Windows 환경
 
-## 두 가지 설치 방법
-
-| 구분          | 네이티브 (권장)      | WSL                  |
-|---------------|----------------------|----------------------|
-| **난이도**    | 쉬움                 | 보통                 |
-| **필요한 것** | Git for Windows      | WSL2 + Ubuntu        |
-| **R 연동**    | 기존 Windows R 사용  | WSL 안에 R 별도 설치 |
-| **소요시간**  | 5분                  | 15-20분              |
-| **장점**      | 간편, 기존 환경 유지 | Linux 환경, 샌드박싱 |
-
-<br>
-
-::: callout-tip
-**대부분의 경우 네이티브 설치를 추천합니다**
-
-이미 Windows에 R이 설치되어 있으면 그대로 사용 가능
-:::
-
-# 방법 1: 네이티브 설치 (권장)
-
-## 네이티브: 설치 순서
+## 설치 순서
 
 **총 3단계**
 
@@ -151,7 +130,7 @@ $ claude
 -   **소요시간**: 약 5분
 -   **Windows 10** 이상 또는 **Windows 11**
 
-## 네이티브: Step 1 - Git for Windows
+## Step 1 - Git for Windows
 
 **이미 Git이 설치되어 있으면 건너뛰기**
 
@@ -174,17 +153,18 @@ git --version
 Git for Windows에 **Git Bash**가 포함됨 → Claude Code가 이걸 사용
 :::
 
-## 네이티브: Step 2 - Claude Code 설치
+## Step 2 - Claude Code 설치
 
-**PowerShell** 열고 한 줄 실행:
+**CMD** 열고 한 줄 실행:
 
-``` powershell
-irm https://claude.ai/install.ps1 | iex
+``` cmd
+curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
 ```
 
 -   Node.js **별도 설치 불필요** (자체 포함)
 -   `~/.local/bin`에 설치됨
 -   **설치 후 터미널을 닫았다 다시 열기** (PATH 적용)
+-   PATH 적용 안된다면, **시스템 환경변수 편집 → 환경변수 → Path 편집 → 새로만들기** 에 추가
 
 <br>
 
@@ -200,7 +180,7 @@ claude --version
 `claude is not recognized` 에러 시 → 터미널 재시작, 또는 PATH에 `%USERPROFILE%\.local\bin` 추가
 :::
 
-## 네이티브: Step 3 - 최초 실행 & 인증
+## Step 3 - 최초 실행 & 인증
 
 **PowerShell 또는 Git Bash**에서:
 
@@ -222,7 +202,7 @@ claude
 | **Claude Max 5x** | \$200/월 | 더 많은 사용량        |
 | **API key**       | 종량제   | 분석 1건당 약 \$0.5-2 |
 
-## 네이티브: R 환경 확인
+## Step 4 - R 환경 확인
 
 **이미 Windows에 R이 설치되어 있으면 그대로 사용!**
 
@@ -249,7 +229,7 @@ install.packages(c("data.table", "magrittr", "survival",
 기존 RStudio에서 설치한 패키지를 Claude Code가 **그대로 사용**합니다
 :::
 
-## 네이티브: 문제 해결
+## 문제 해결
 
 ``` powershell
 # 설치 상태 자동 진단
@@ -272,131 +252,9 @@ claude doctor
 
 **한글 깨짐 해결**: 설정 → 시간 및 언어 → 언어 및 지역 → 관리 언어 설정 → 시스템 로캘 변경 → **Beta: 세계 언어 지원을 위해 Unicode UTF-8 사용** 체크 → 재부팅
 
-# 방법 2: WSL 설치 (대안)
-
-## WSL: 언제 쓰나?
-
-**네이티브보다 WSL이 나은 경우**
-
--   Linux 기반 R 패키지 사용 시 (시스템 라이브러리 의존성)
--   보안 샌드박싱이 필요한 경우
--   Linux 명령어에 익숙한 경우
-
-<br>
-
-**설치 순서**:
-
-```         
-1. WSL2 설치          ← PowerShell에서 한 줄
-    ↓
-2. Node.js 설치       ← WSL Ubuntu에서
-    ↓
-3. Claude Code 설치   ← npm으로 설치
-    ↓
-4. R 설치             ← WSL Ubuntu에서
-```
-
-## WSL: Step 1 - WSL2 설치
-
-**PowerShell을 관리자 권한으로 실행** 후:
-
-``` powershell
-wsl --install
-```
-
--   Ubuntu가 기본으로 설치됨
--   **재부팅 필요**
--   재부팅 후 Ubuntu 앱이 자동 실행 → 사용자명/비밀번호 설정
-
-<br>
-
-::: callout-note
-**확인**: `wsl --version` 으로 WSL2인지 확인
-
-WSL1이면: `wsl --set-default-version 2`
-
-`wsl --install` 실패 시: BIOS에서 가상화(VT-x/AMD-V) 활성화 필요
-:::
-
-## WSL: Step 2 & 3 - Node.js + Claude Code
-
-**WSL Ubuntu 터미널**에서:
-
-``` bash
-# Node.js 22 LTS 설치
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# Claude Code 설치
-npm install -g @anthropic-ai/claude-code
-
-# 확인
-claude --version
-```
-
-<br>
-
-**최초 실행**:
-
-``` bash
-claude
-# → 브라우저가 열리며 Anthropic 계정 로그인
-```
-
-## WSL: Step 4 - R 설치
-
-**WSL Ubuntu 터미널**에서:
-
-``` bash
-# R 설치
-sudo apt-get update
-sudo apt-get install -y r-base r-base-dev
-
-# 필수 시스템 라이브러리
-sudo apt-get install -y libcurl4-openssl-dev libssl-dev \
-  libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev \
-  libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
-```
-
-<br>
-
-**R 패키지 설치** (R 콘솔에서):
-
-``` r
-install.packages(c("data.table", "magrittr", "survival",
-                    "jskm", "jstable", "flextable",
-                    "officer", "rvg", "ggplot2", "openxlsx2"))
-```
-
-## WSL: 파일 경로
-
-**WSL과 Windows 간 파일 접근**
-
-| WSL 경로                       | Windows 경로               |
-|--------------------------------|----------------------------|
-| `/mnt/c/Users/본인/Documents/` | `C:\Users\본인\Documents\` |
-| `/mnt/d/data/`                 | `D:\data\`                 |
-
-<br>
-
-``` bash
-# WSL에서 Windows 문서 폴더로 이동
-cd /mnt/c/Users/본인이름/Documents/my_research
-claude
-```
-
-<br>
-
--   Claude Code가 WSL에서 R 코드 작성 + 실행
--   결과물(pptx, xlsx)은 `/mnt/c/...`에 저장 → Windows에서 바로 열기
-
-::: callout-note
-**한글 설정**: `sudo apt-get install -y language-pack-ko && echo 'export LANG=ko_KR.UTF-8' >> ~/.bashrc`
-:::
-
 ## 폴더 구조 세팅
 
-**네이티브든 WSL이든 동일한 프로젝트 구조**
+**프로젝트 구조**
 
 ```         
 my_research/
@@ -410,14 +268,7 @@ my_research/
 <br>
 
 ``` powershell
-# 네이티브: PowerShell에서
 cd C:\Users\본인이름\Documents\my_research
-claude
-```
-
-``` bash
-# WSL: Ubuntu 터미널에서
-cd /mnt/c/Users/본인이름/Documents/my_research
 claude
 ```
 
@@ -747,12 +598,12 @@ claude doctor
 
 **그래도 안 되면?**
 
-| 상황 | 네이티브 | WSL |
-|----|----|----|
-| claude 명령어 안 됨 | PATH에 `~/.local/bin` 추가 | `npm` 재설치 |
-| R 못 찾음 | Rscript PATH 확인 | `sudo apt install r-base` |
-| 한글 깨짐 | Windows 설정에서 UTF-8 활성화 | `LANG=ko_KR.UTF-8` |
-| 패키지 설치 에러 | Rtools 설치 | `apt-get` 시스템 라이브러리 |
+| 상황 | 해결 |
+|----|------|
+| claude 명령어 안 됨 | PATH에 `~/.local/bin` 추가 |
+| R 못 찾음 | Rscript PATH 확인 |
+| 한글 깨짐 | Windows 설정에서 UTF-8 활성화 |
+| 패키지 설치 에러 | Rtools 설치 |
 
 ## 정리
 
