@@ -79,3 +79,5 @@ Lecture: general topic
 * [2026 한경국립대학교](): [메타분석](https://jinseob2kim.github.io/lecture-general/meta_analysis)
 
 * [2026 병원교수 대상 강의](): [Claude Code로 R 데이터분석](https://jinseob2kim.github.io/lecture-general/claude_code_r)
+
+* [2026 뇌졸중유전체연구회 워크샵](): [정밀의료 연구에서의 멀티오믹스 분석 전략과 실제 적용](https://jinseob2kim.github.io/lecture-general/multiomics)

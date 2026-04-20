@@ -1,0 +1,72 @@
+<style>
+.slide-master-header {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  pointer-events: none;
+}
+.smh-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72em;
+  font-weight: 800;
+  color: #2A3D21;
+  letter-spacing: 0.1em;
+}
+.smh-logo-row img {
+  height: 40px;
+  width: auto;
+}
+.smh-global-footer {
+  display: block;
+  position: fixed;
+  bottom: 21px;
+  right: 91px;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 0.45em;
+  font-weight: 500;
+  color: #999;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+</style>
+<script>
+Reveal.on('ready', function() {
+  var slides = document.querySelectorAll('.reveal .slides > section');
+  slides.forEach(function(slide, index) {
+    if (index === 0) return;
+    if (slide.getAttribute('data-background-color') === '#2A3D21') return;
+    var header = document.createElement('div');
+    header.className = 'slide-master-header';
+    header.innerHTML = '<div class="smh-logo-row"><img src="Zarathu Circle Clipping Mask2.png" alt="">ZARATHU</div>';
+    slide.insertBefore(header, slide.firstChild);
+  });
+
+  var revealEl = document.querySelector('.reveal');
+  var globalFooter = document.createElement('div');
+  globalFooter.className = 'smh-global-footer';
+  globalFooter.textContent = 'Medical Research Supporters';
+  revealEl.appendChild(globalFooter);
+
+  var footerEl = document.querySelector('.reveal .footer');
+  var slideNumEl = document.querySelector('.reveal .slide-number');
+  function updateFooterVisibility() {
+    var indices = Reveal.getIndices();
+    var totalSlides = Reveal.getTotalSlides();
+    var isFirst = (indices.h === 0 && (indices.v === 0 || indices.v === undefined));
+    var isLast = (indices.h === totalSlides - 1);
+    var hide = isFirst || isLast;
+    if (footerEl) footerEl.style.display = hide ? 'none' : '';
+    if (slideNumEl) slideNumEl.style.display = hide ? 'none' : '';
+    globalFooter.style.display = hide ? 'none' : '';
+  }
+  updateFooterVisibility();
+  Reveal.on('slidechanged', updateFooterVisibility);
+});
+</script>

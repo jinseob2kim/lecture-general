@@ -1,0 +1,477 @@
+/* ===== 폰트 설정 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap');
+
+.reveal, .reveal p, .reveal li, .reveal td, .reveal th, .reveal div {
+  font-family: "Malgun Gothic", "맑은 고딕", "Noto Sans KR", sans-serif !important;
+}
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: "Malgun Gothic", "맑은 고딕", "Noto Sans KR", sans-serif !important;
+}
+
+/* ===== 슬라이드 공통 ===== */
+.reveal .slides section { text-align: left; }
+
+/* 상단 그라데이션 바 제거 */
+.reveal .slides section::before { display: none !important; }
+
+/* h2 제목: 아래에만 그라데이션 줄, 더 진한 초록 */
+.reveal h2 {
+  border-top: none !important;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, #2A3D21 0%, #2E7D32 40%, #43A047 80%, #81C784 100%) 1;
+  padding-bottom: 10px;
+  padding-top: 0;
+  margin-top: 0 !important;
+  margin-bottom: 14px;
+  font-size: 1.45em;
+  font-weight: 700;
+  color: #2A3D21;
+}
+
+/* ===== 슬라이드 번호 ===== */
+.reveal .slide-number {
+  background: transparent !important;
+  color: #333333 !important;
+  border-radius: 0;
+  padding: 5px 12px;
+  font-size: 0.55em;
+  font-weight: 600;
+  right: 16px !important;
+  bottom: 16px !important;
+  top: auto !important;
+  left: auto !important;
+  position: absolute !important;
+}
+.reveal .slide-number a,
+.reveal .slide-number span,
+.reveal .slide-number a span,
+.reveal .slide-number-delimiter {
+  color: #333333 !important;
+}
+
+/* ===== 테이블 공통 ===== */
+.reveal table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.6em;
+  margin: 10px 0;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.reveal table thead th {
+  background-color: #2A3D21;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 12px;
+  text-align: center;
+  border: none;
+}
+.reveal table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: middle;
+}
+.reveal table tbody tr:nth-child(even) { background-color: #fafcf9; }
+.reveal table tbody tr:last-child td { border-bottom: 2.5px solid #2A3D21; }
+
+/* ===== 하이라이트 박스 ===== */
+.highlight-box {
+  background: #f7f9f6;
+  border-left: 4px solid #2E7D32;
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  margin: 12px 0;
+  font-size: 0.75em;
+  line-height: 1.7;
+}
+.highlight-box p { margin: 3px 0; }
+
+/* ===== 액센트 박스 ===== */
+.accent-box {
+  background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 12px 0;
+  font-size: 0.75em;
+  line-height: 1.7;
+  box-shadow: 0 2px 8px rgba(27,94,32,0.25);
+}
+.accent-box strong { color: #C8E6C9; }
+
+/* 에메랄드 액센트 박스 */
+.accent-box-emerald {
+  background: #E8F5E9;
+  color: #1B5E20;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 12px 0;
+  font-size: 0.75em;
+  line-height: 1.7;
+  border-bottom: 4px solid #2E7D32;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.accent-box-emerald strong { color: #2A3D21; }
+
+/* ===== 섹션 헤더 ===== */
+.section-title {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #2A3D21;
+  border-bottom: 2px solid #81C784;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+/* ===== 카드 ===== */
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e8dc;
+  border-left: 4px solid #2E7D32;
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  font-size: 0.72em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 8px 0;
+}
+.card-grid .card {
+  font-size: 0.62em;
+  padding: 10px 14px;
+  margin-bottom: 0;
+}
+
+/* ===== 산출물/요약 그리드 ===== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin: 20px 0;
+}
+.summary-item {
+  text-align: center;
+  padding: 22px 16px;
+  border-radius: 8px;
+  font-size: 0.72em;
+  line-height: 1.7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.si-green { background: #E8F5E9; border-bottom: 4px solid #2E7D32; color: #1B5E20; }
+.si-blue { background: #E3F2FD; border-bottom: 4px solid #1565C0; color: #0D47A1; }
+.si-teal { background: #E0F2F1; border-bottom: 4px solid #00838F; color: #004D40; }
+.si-purple { background: #F3E5F5; border-bottom: 4px solid #7B1FA2; color: #4A148C; }
+.si-gray { background: #ECEFF1; border-bottom: 4px solid #37474F; color: #263238; }
+
+/* ===== blockquote ===== */
+.reveal blockquote {
+  background: #f7f9f6;
+  border-left: 4px solid #43A047;
+  border-radius: 0 6px 6px 0;
+  padding: 14px 20px;
+  margin: 12px 0;
+  font-style: normal;
+  font-size: 0.78em;
+}
+
+/* ===== 리스트 ===== */
+.reveal ul { list-style: none; padding-left: 0; }
+.reveal ul > li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 5px;
+  font-size: 0.78em;
+  line-height: 1.65;
+}
+.reveal ul > li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 9px;
+  width: 8px; height: 8px;
+  background: #43A047;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+.reveal ul ul > li::before {
+  background: #A5D6A7;
+  width: 6px; height: 6px;
+  top: 10px;
+}
+
+/* ===== strong ===== */
+.reveal strong { color: #2A3D21; }
+
+/* ===== 푸터 ===== */
+.reveal .footer { font-size: 0.45em; color: #999; }
+
+/* ===== 스페이서 ===== */
+.spacer-xs { height: 6px; }
+.spacer-sm { height: 12px; }
+.spacer-md { height: 24px; }
+
+/* ===== 감사합니다 ===== */
+section[data-background-color="#2A3D21"] h1 {
+  color: #ffffff !important;
+  border-bottom: none !important;
+  border-image: none !important;
+}
+
+/* ===== 서비스 그리드 ===== */
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+}
+.service-box {
+  background: #ffffff;
+  border: 1px solid #e0e8dc;
+  border-left: 4px solid #2E7D32;
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  font-size: 0.68em;
+  line-height: 1.6;
+}
+.service-box-right {
+  background: #ffffff;
+  border: 1px solid #d8dce6;
+  border-left: 4px solid #1565C0;
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  font-size: 0.68em;
+  line-height: 1.6;
+}
+
+/* ===== 병원 계약 카드 ===== */
+.contract-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.contract-card {
+  background: #ffffff;
+  border: 1px solid #e0e8dc;
+  border-radius: 8px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  font-size: 0.62em;
+  line-height: 1.7;
+}
+.contract-card .cc-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #2A3D21;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #81C784;
+}
+.contract-card .cc-badge {
+  display: inline-block;
+  background: #E8F5E9;
+  color: #1B5E20;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.contract-card .cc-badge-blue {
+  display: inline-block;
+  background: #E3F2FD;
+  color: #0D47A1;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* 한림대 상세 카드 (강조) */
+.contract-card-hallym {
+  background: #f7fbf7;
+  border: 2px solid #43A047;
+  border-radius: 8px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 10px rgba(46,125,50,0.12);
+  font-size: 0.62em;
+  line-height: 1.7;
+}
+.contract-card-hallym .cc-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #1B5E20;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #2E7D32;
+}
+.contract-card-hallym .cc-badge {
+  display: inline-block;
+  background: #2E7D32;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.contract-card-hallym .cc-metric {
+  font-size: 1.3em;
+  font-weight: 800;
+  color: #1B5E20;
+}
+
+/* ===== 시너지 그리드 ===== */
+.synergy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+.synergy-box {
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 0.68em;
+  line-height: 1.7;
+}
+.synergy-rd {
+  background: #f7f9f6;
+  border: 1px solid #e0e8dc;
+  border-top: 4px solid #2E7D32;
+}
+.synergy-hospital {
+  background: #f5f8fd;
+  border: 1px solid #d8dce6;
+  border-top: 4px solid #1565C0;
+}
+.synergy-box .syn-title {
+  font-weight: 800;
+  font-size: 1.15em;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ===== 고객 로고 그리드 ===== */
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+.client-item {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 0.52em;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  line-height: 1.4;
+}
+
+/* ===== 두단 레이아웃 간격 ===== */
+.reveal .columns { column-gap: 30px !important; }
+
+/* ===== 미션 보드 ===== */
+.mission-text {
+  font-size: 0.78em;
+  line-height: 1.8;
+}
+
+/* ===== 팀 역량 통계 그리드 ===== */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.stat-item {
+  background: #f7f9f6;
+  border-left: 4px solid #43A047;
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  font-size: 0.68em;
+  line-height: 1.6;
+}
+.stat-item .stat-number {
+  font-size: 1.6em;
+  font-weight: 800;
+  color: #1B5E20;
+}
+
+/* ===== 기타 병원 리스트 (간단) ===== */
+.hospital-simple {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 10px 0;
+}
+.hospital-simple-item {
+  background: #ffffff;
+  border: 1px solid #e0e8dc;
+  border-left: 3px solid #43A047;
+  border-radius: 0 4px 4px 0;
+  padding: 10px 14px;
+  font-size: 0.65em;
+  line-height: 1.5;
+}
+
+/* ===== 프로세스 플로우 ===== */
+.process-flow {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 10px;
+  margin: 24px 0 28px 0;
+}
+.pstep {
+  flex: 1;
+  border-radius: 8px;
+  padding: 20px 14px 18px 14px;
+  text-align: center;
+  font-size: 0.58em;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.pstep .step-label {
+  font-size: 0.85em;
+  font-weight: 800;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+.pstep .step-title {
+  font-weight: 700;
+  font-size: 1.12em;
+  display: block;
+  margin-bottom: 8px;
+}
+.pstep .step-desc {
+  font-size: 0.92em;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+.pstep-1 { background: #E8F5E9; color: #1B5E20; border-bottom: 4px solid #2E7D32; }
+.pstep-2 { background: #E3F2FD; color: #0D47A1; border-bottom: 4px solid #1565C0; }
+.pstep-3 { background: #E0F2F1; color: #004D40; border-bottom: 4px solid #00838F; }
+.pstep-4 { background: #F3E5F5; color: #4A148C; border-bottom: 4px solid #7B1FA2; }
+.pstep-5 { background: #ECEFF1; color: #263238; border-bottom: 4px solid #37474F; }
+.process-arrow {
+  display: flex;
+  align-items: center;
+  color: #bbb;
+  font-size: 1.2em;
+  font-weight: 900;
+  flex-shrink: 0;
+}

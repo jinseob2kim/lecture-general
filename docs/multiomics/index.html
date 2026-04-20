@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <meta name="author" content="김진섭 (차라투 주식회사)">
+  <meta name="dcterms.date" content="2026-06-13">
+  <title>정밀의료 연구에서의 멀티오믹스 분석 전략과 실제 적용</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-9e84472c89ec876f4c353635c15abe43.css">
+  <link rel="stylesheet" href="custom-style.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="bg.png" data-background-opacity="0.3" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">정밀의료 연구에서의 멀티오믹스 분석 전략과 실제 적용</h1>
+  <p class="subtitle">차라투 분석 사례 및 공단·심평원 데이터 연계 중심</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+김진섭 (차라투 주식회사) 
+</div>
+</div>
+</div>
+
+  <p class="date">2026-06-13</p>
+</section>
+<section id="목차" class="slide level2">
+<h2>목차</h2>
+<div style="padding: 10px 40px;">
+<div class="highlight-box">
+<p><strong>I. 차라투 소개</strong> — 누가, 무엇을 하는 회사인가</p>
+</div>
+<div class="highlight-box-blue">
+<p><strong>II. 차라투가 수행한 멀티오믹스 분석</strong> — 암·정신과·피부·호흡기 7개 사례</p>
+</div>
+<div class="highlight-box-teal">
+<p><strong>III. 공단·심평원 데이터 연계</strong> — 200만명 규모 연구 경험</p>
+</div>
+<div class="highlight-box-purple">
+<p><strong>IV. 뇌졸중 연구 협업 제안</strong> — 바로 적용 가능한 분석 전략</p>
+</div>
+</div>
+</section>
+<section id="차라투-주식회사" class="slide level2">
+<h2>차라투 주식회사</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="accent-box">
+<p>국내 유일 <strong>의학연구지원 전문기업</strong>. 대표 <strong>예방의학 전문의 · 수학올림피아드 특기자</strong> 출신으로 임상·유전체·오믹스 분석 전 영역을 아우릅니다</p>
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="section-title"><strong>수행 범위</strong></span></p>
+<ul>
+<li>연구 설계·샘플수 계산부터 논문 투고까지 <strong>end-to-end</strong></li>
+<li>12시간 내 응답 보장, <strong>200편+ SCI 논문</strong> 지원</li>
+<li>한림대·인제대·삼성서울병원 등 다수 기관 연단위 계약</li>
+</ul>
+<p><span class="section-title"><strong>오믹스 수행 경험</strong></span></p>
+<ul>
+<li>GWAS, PRS (PRScs · PRScsx), scRNA-seq</li>
+<li>Nanostring spatial transcriptomics</li>
+<li>Proteomics · lipidomics · methylation</li>
+<li>xMWAS 기반 다층 네트워크 통합</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="summary-grid">
+<div class="summary-item si-green">
+<p><strong>22만+</strong></p>
+<p>R 패키지 다운로드</p>
+</div>
+<div class="summary-item si-blue">
+<p><strong>200+</strong></p>
+<p>SCI 논문 지원</p>
+</div>
+<div class="summary-item si-teal">
+<p><strong>8건</strong></p>
+<p>국가 R&amp;D 수행</p>
+</div>
+</div>
+<div class="spacer-sm">
+
+</div>
+<div class="accent-box-emerald">
+<p><strong>팀 구성</strong> — 정규직 5명 + 인턴 7명 (의학·통계·개발 전문인력)</p>
+</div>
+</div></div>
+</section>
+<section id="왜-멀티오믹스인가-단일-오믹스의-한계" class="slide level2">
+<h2>왜 멀티오믹스인가 — 단일 오믹스의 한계</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p><span class="section-title"><strong>한계</strong></span></p>
+<ul>
+<li>GWAS는 표현형 변이의 <strong>2~8%만 설명</strong></li>
+<li>단일 유전자(CYP2C19) 변이는 약물 반응의 <strong>~12%만 설명</strong></li>
+<li>정적 ‘상태(state)’ 관찰 → 동적 ‘과정(process)’ 규명 필요</li>
+</ul>
+<p><span class="section-title"><strong>통합이 필요한 이유</strong></span></p>
+<ul>
+<li><strong>인과성</strong> 규명 — MR, pQTL/eQTL</li>
+<li><strong>약물 반응 이질성</strong> — 동일 변이 내 반응성 차이</li>
+<li><strong>치료 표적</strong> 도출 — 단백체·대사체 수준</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="accent-box-emerald">
+<p><strong>오믹스 계층</strong> (DNA → RNA → Protein → Metabolite)</p>
+<ul>
+<li><strong>Genomics / Epigenomics</strong></li>
+<li><strong>Transcriptomics</strong> — scRNA-seq, spatial</li>
+<li><strong>Proteomics</strong> — Olink PEA</li>
+<li><strong>Metabolomics / Lipidomics</strong></li>
+</ul>
+</div>
+<div class="highlight-box-purple">
+<p><strong>통합 기법</strong> — MOFA · xMWAS · Mendelian Randomization · QTL · EWAS</p>
+</div>
+</div></div>
+</section>
+<section id="분석-전략-5단계-프로세스" class="slide level2">
+<h2>분석 전략 5단계 프로세스</h2>
+<div class="spacer-sm">
+
+</div>
+<div class="process-flow">
+<div class="pstep pstep-1">
+<p><span class="step-label">STEP 1</span> <span class="step-title">QC &amp; Imputation</span> <span class="step-desc">Genotyping call, 1000G/KGP imputation, batch effect, normalization</span></p>
+</div>
+<div class="process-arrow">
+▶
+</div>
+<div class="pstep pstep-2">
+<p><span class="step-label">STEP 2</span> <span class="step-title">단일 오믹스 분석</span> <span class="step-desc">GWAS, EWAS, DEG/limma, DE 단백, VIP/OPLS-DA</span></p>
+</div>
+<div class="process-arrow">
+▶
+</div>
+<div class="pstep pstep-3">
+<p><span class="step-label">STEP 3</span> <span class="step-title">PRS / 유전적 부담</span> <span class="step-desc">PRS Catalog, PRScs, PRScsx (다인종), GIGASTROKE iPGS</span></p>
+</div>
+<div class="process-arrow">
+▶
+</div>
+<div class="pstep pstep-4">
+<p><span class="step-label">STEP 4</span> <span class="step-title">다층 통합</span> <span class="step-desc">MOFA, xMWAS network, variant × PGS × imaging interaction</span></p>
+</div>
+<div class="process-arrow">
+▶
+</div>
+<div class="pstep pstep-5">
+<p><span class="step-label">STEP 5</span> <span class="step-title">인과성 &amp; 예후 모델</span> <span class="step-desc">Mendelian randomization, Cox, 웹 기반 Shiny 대시보드</span></p>
+</div>
+</div>
+<div class="spacer-sm">
+
+</div>
+<div class="accent-box">
+<p><strong>차라투 차별점</strong> — 각 단계의 스크립트·데이터·결과물을 <strong>연구자 전용 커뮤니티 게시판</strong>으로 관리하여, 연구 종료 후에도 추가 요청 즉시 대응</p>
+</div>
+</section>
+<section id="case-1.-양극성장애-약물반응-유전체단백체임상-통합" class="slide level2">
+<h2>Case 1. 양극성장애 약물반응 — 유전체·단백체·임상 통합</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>삼성서울병원 정신건강의학과 백지현 교수 (BOMICS)</strong></p>
+<div class="section-title">
+<p>연구 설계</p>
+</div>
+<ul>
+<li>Lithium · Valproate <strong>치료 반응</strong>이 outcome</li>
+<li><strong>KChip 유전체</strong> + 혈청 <strong>단백체 43종</strong> (APOC1, CRP 등) + <strong>임상 표현형</strong> (CSM, PAI, ASRS, WURS)</li>
+<li>T0/T1/T2 <strong>시계열 단백체</strong> → ΔT1, ΔT2 파생변수화</li>
+</ul>
+<div class="section-title">
+<p>분석</p>
+</div>
+<ul>
+<li>SNP annotation + Plink LD → ML 변수 선택</li>
+<li><strong>xMWAS 네트워크</strong> — 유전형·단백체·반응 community</li>
+<li>Shiny 앱으로 환자 개별 조회 지원</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/xmwas_network.png" style="width:100.0%" height="420"></p>
+<figcaption>xMWAS multi-omics network</figcaption>
+</figure>
+</div>
+<div class="highlight-box-purple">
+<p><strong>체감 난이도 상</strong> — 유전형 × 단백체 × 반응의 <strong>삼중 시계열</strong> 구조</p>
+</div>
+</div></div>
+</section>
+<section id="case-2.-prscs-prscsx-조현병우울증-다인종-prs" class="slide level2">
+<h2>Case 2. PRScs / PRScsx — 조현병·우울증 다인종 PRS</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>삼성서울병원 백지현 교수 — PRS_Schizo_MDD, PRS_QOL</strong></p>
+<div class="section-title">
+<p>수행 내용</p>
+</div>
+<ul>
+<li><strong>PGC/GWAS Catalog summary data</strong> 큐레이션</li>
+<li><strong>PRScs</strong> (Bayesian) — single ancestry</li>
+<li><strong>PRScsx</strong> — 다인종(EAS + EUR) 검정력 보정</li>
+<li>1000G EAS imputation → 개인별 PRS</li>
+<li>PRS × 임상 → <strong>치료 순응도·QOL</strong> 연관</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="accent-box-emerald">
+<p><strong>PRS 구축 단계</strong></p>
+<ol type="1">
+<li>GWAS summary curation</li>
+<li>LD reference panel</li>
+<li>PRScs/csx posterior effect size</li>
+<li>Target genotype 적용</li>
+<li>PRS × outcome 모델링</li>
+</ol>
+</div>
+<div class="highlight-box">
+<p>뇌졸중 연구에 바로 이식 — <strong>GIGASTROKE iPGS</strong>, 출혈 위험 PGS, CYP2C19 × PRS <strong>다층 모델</strong></p>
+</div>
+</div></div>
+</section>
+<section id="case-3.-폐암방광암-단백-마커-진단-모델-개발" class="slide level2">
+<h2>Case 3. 폐암·방광암 단백 마커 — 진단 모델 개발</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>시선바이오머티리얼즈 — 방광암/폐암 biomarker panel</strong></p>
+<div class="section-title">
+<p>분석 설계</p>
+</div>
+<ul>
+<li>1차~4차 <strong>혈청 단백 마커 패널</strong> (Normal vs Cancer vs Control)</li>
+<li><code>caret</code> 기반 ML — LASSO, RF, XGBoost, ElasticNet 비교</li>
+<li><strong>AUC + PPV/NPV + F1</strong> 동시 최적화</li>
+<li>1차 개발셋 → 2~4차 <strong>외부 검증</strong></li>
+<li>임상 공변량 보정 + marker-only 비교</li>
+<li>Youden index cutoff, SHAP importance 도출</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/shiny_tb1.png" style="width:100.0%" height="380"></p>
+<figcaption>Shiny ROC / Table 1 dashboard</figcaption>
+</figure>
+</div>
+<div class="highlight-box-blue">
+<p><strong>뇌졸중 Olink 단백체 분석에 이식 가능</strong> — 고차원 변수 선택, CV schema, 외부 검증 설계</p>
+</div>
+</div></div>
+</section>
+<section id="case-4.-직장암-ccrt-반응-spatial-transcriptomics" class="slide level2">
+<h2>Case 4. 직장암 CCRT 반응 — Spatial Transcriptomics</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>동탄성심 신은 교수 — Nanostring spatial gene expression</strong></p>
+<div class="section-title">
+<p>데이터 구조</p>
+</div>
+<ul>
+<li>18,677 유전자 × 136 샘플</li>
+<li><strong>TC</strong> (CK+ 종양) / <strong>IC</strong> (CD45+ 면역) segmentation</li>
+<li>반응군 TR(25) / GR(50) / PR(61) 3단계 층화</li>
+</ul>
+<div class="section-title">
+<p>분석 흐름</p>
+</div>
+<ul>
+<li><code>limma</code> 기반 <strong>DEG</strong> (FDR &lt; 0.05, |log2FC| &gt; 1)</li>
+<li>TC vs IC 종양-면역 상호작용</li>
+<li>KEGG / Reactome / Hallmark enrichment</li>
+<li>RRM2 × PD1 상관, Top50 외부 검증</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="accent-box-emerald">
+<p><strong>scRNA-seq nested design 분석에 이식 가능</strong></p>
+<ul>
+<li>Extreme phenotype 선별</li>
+<li>Cell-type 특이적 DEG</li>
+<li><strong>회복 특이 면역세포 지도</strong></li>
+</ul>
+</div>
+<div class="highlight-box-teal">
+<p><strong>데이터 관리</strong> — 원본·정제·Shiny 앱까지 연구자가 언제든 재분석 가능한 구조로 제공</p>
+</div>
+</div></div>
+</section>
+<section id="case-5.-피부-지질체학전사체-멀티레이어-통합" class="slide level2">
+<h2>Case 5. 피부 지질체학·전사체 — 멀티레이어 통합</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>강남성심 김혜원 교수 · 박진서 교수</strong></p>
+<div class="section-title">
+<p>수행 오믹스</p>
+</div>
+<ul>
+<li><strong>Lipidomics</strong> — PE, PC, Cer, LPC, TG (112종)</li>
+<li><strong>Transcriptomics</strong> — microarray + bulk RNA-seq + single-cell</li>
+<li><strong>microRNA</strong> — miR-423-5p</li>
+<li><strong>Metabolomics</strong> — 포피린, 아토피</li>
+</ul>
+<div class="section-title">
+<p>분석 기법</p>
+</div>
+<ul>
+<li>PCA / <strong>PLS-DA / OPLS-DA</strong></li>
+<li>VIP &gt; 1, PERMANOVA 유의 species</li>
+<li>lipid → KEGG pathway manual curation</li>
+<li>k-means, heatmap, GO/KEGG enrichment</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/lipid_pathway.png" style="width:100.0%" height="420"></p>
+<figcaption>Lipid pathway enrichment</figcaption>
+</figure>
+</div>
+<div class="highlight-box-purple">
+<p><strong>체감 난이도 상</strong> — Multi-omics ID 정렬, 작은 대조군(n=6) 한계, PLS-DA 검정력 명시 등 수작업 이슈 다수</p>
+</div>
+</div></div>
+</section>
+<section id="case-6.-copd-gwas-plink-pipeline-실전" class="slide level2">
+<h2>Case 6. COPD GWAS — Plink Pipeline 실전</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>동탄성심 호흡기내과 송진화 교수 — GWAS_COPD</strong></p>
+<div class="section-title">
+<p>구축한 파이프라인</p>
+</div>
+<ul>
+<li>VCF → Plink bed/bim/fam, <strong>MAF/HWE/call rate</strong> QC</li>
+<li><code>--assoc --logistic</code> + covariate (나이·성·흡연·폐기능)</li>
+<li><strong>λ (GC)</strong> QQ, dbSNP annotation, Manhattan, locus zoom</li>
+<li>사망률(mortality) 연계 후속 분석</li>
+</ul>
+<div class="section-title">
+<p>뇌졸중 GWAS 동일 적용</p>
+</div>
+<ul>
+<li>Illumina ASA v1.0 <strong>star allele 자동 판정</strong></li>
+<li>CYP2C19, CYP2C9, SLCO1B1, ABCG2 (PharmVar)</li>
+<li>1000G EAS + KGP imputation</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="accent-box">
+<p><strong>차라투 보유 GWAS 인프라</strong></p>
+<ul>
+<li>Plink 1.9/2.0, regenie</li>
+<li>1000G · KGP · TOPMed reference</li>
+<li><strong>GIGASTROKE</strong> summary data 큐레이션</li>
+<li>Michigan Imputation Server pipeline</li>
+<li>GWAS summary → PRS <strong>자동화</strong></li>
+</ul>
+</div>
+<div class="highlight-box-gray">
+<p>청장년 뇌졸중 4,108명 + GENESIS-K 5,328명 규모도 <strong>단일 서버 수행 가능</strong></p>
+</div>
+</div></div>
+</section>
+<section id="case-7.-진단검사의학-통합-일산백병원-alucion" class="slide level2">
+<h2>Case 7. 진단검사의학 통합 — 일산백병원 Alucion</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>일산백병원 진단검사의학과 — alucion 프로젝트군</strong></p>
+<div class="section-title">
+<p>통합한 데이터</p>
+</div>
+<ul>
+<li><strong>유전체</strong> (FOXC1, STING1 등 타겟 변이)</li>
+<li><strong>PCA 기반 유전 구조 분석</strong></li>
+<li><strong>검사실 지표</strong> (CBC, 생화학) + <strong>영상</strong> + <strong>임상</strong></li>
+<li>연단위 계약 기반 <strong>연평균 70건+</strong> 분석 처리</li>
+</ul>
+<div class="section-title">
+<p>분석 구조</p>
+</div>
+<ul>
+<li>데이터 정제(global.R) ↔︎ 실제 분석(analysis.R) 분리</li>
+<li><strong>jsmodule</strong> 기반 Shiny로 연구자 직접 탐색</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="accent-box-emerald">
+<p><strong>유전체 + Lab + Imaging 3축 통합</strong> — 선정2 과제(‘유전체-영상-epigenetics’) 구조와 동일한 파이프라인</p>
+</div>
+<div class="highlight-box-teal">
+<p><strong>재현성 3종 세트</strong></p>
+<ol type="1">
+<li>원본 데이터 중앙 관리</li>
+<li>Git 기반 분석 스크립트</li>
+<li>커뮤니티 피드백 이력</li>
+</ol>
+</div>
+</div></div>
+</section>
+<section id="공단심평원-데이터-연계-약-200만명-코호트" class="slide level2">
+<h2>공단·심평원 데이터 연계 — 약 200만명 코호트</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>대사증후군 ↔︎ 조기 발병 치매 (Neurology, 2025.04)</strong></p>
+<div class="section-title">
+<p>연구 개요</p>
+</div>
+<ul>
+<li>국민건강보험공단 국가검진 40~60대 <strong>약 200만 명</strong></li>
+<li>MetS HR <strong>1.24</strong> (95% CI 1.19~1.30)</li>
+<li>Vascular dementia HR 1.21, Alzheimer 1.12</li>
+<li><strong>NEJM Journal Watch 소개</strong>, 주요 언론 보도</li>
+</ul>
+<div class="section-title">
+<p>분석 기술 포인트</p>
+</div>
+<ul>
+<li>수백만 행 <strong>data.table 기반 고속 처리</strong></li>
+<li>Multivariable Cox + subgroup interaction</li>
+<li>구성요소 누적 1~5개 <strong>dose-response</strong> 증명</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="accent-box">
+<p><strong>베타차단제 장기 사용 효과</strong> (J Am Heart Assoc, 2025)</p>
+<ul>
+<li>CRCS-K + 심평원 연계</li>
+<li>ΔHR elevated 환자군 <strong>장기 사망률 감소</strong></li>
+<li>HIRA 기반 <strong>복약 지속도(MPR)</strong> 변수화</li>
+</ul>
+</div>
+<div class="highlight-box-blue">
+<p><strong>뇌졸중 약물유전체 5년 과제에 그대로 적용 가능</strong> — HIRA 처방·순응도·재발·출혈 outcome 추출 경험 보유</p>
+</div>
+</div></div>
+</section>
+<section id="분석-웹앱-제공-jsmodule-기반-shiny" class="slide level2">
+<h2>분석 웹앱 제공 — jsmodule 기반 Shiny</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/shiny_km.png" style="width:100.0%"></p>
+<figcaption>Kaplan-Meier 모듈</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/shiny_tb1.png" style="width:100.0%"></p>
+<figcaption>Table 1 모듈</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="분석-웹앱-계속" class="slide level2">
+<h2>분석 웹앱 (계속)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/shiny_meta.png" style="width:100.0%"></p>
+<figcaption>메타분석 모듈</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/shiny_openstat.png" style="width:100.0%"></p>
+<figcaption>openstat.ai — 무료 통계분석 웹 (특허 등록)</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="accent-box-emerald">
+<p><strong>jsmodule 모듈</strong> — tb1module2, logisticModule2, coxModule, kaplanModule, <strong>subgroupModule</strong>, rocModule, <strong>timerocModule</strong>, ggpairsModule2, jsPropensityGadget. 오믹스 프로젝트마다 <strong>연구자 전용 앱</strong> 동시 제공</p>
+</div>
+</section>
+<section id="뇌졸중-연구에-바로-적용-가능한-분석-전략" class="slide level2">
+<h2>뇌졸중 연구에 바로 적용 가능한 분석 전략</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="highlight-box">
+<p><strong>① Stroke subtype GWAS</strong></p>
+<ul>
+<li>TOAST 아형 × genotyping array QC</li>
+<li>1000G EAS imputation, regenie</li>
+<li>GIGASTROKE · STROMICS 메타분석 연계</li>
+<li>Manhattan / QQ Shiny 탐색</li>
+</ul>
+</div>
+<div class="highlight-box-blue">
+<p><strong>② 약물유전체 (Clopidogrel·Statin·NOAC)</strong></p>
+<ul>
+<li><strong>CYP2C19 star allele</strong> 자동 판정 (PharmVar)</li>
+<li>SLCO1B1 · ABCG2 statin PK</li>
+<li>CPIC level 1A 변이 패널 도출</li>
+<li>변이 × PGS interaction 모델</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="highlight-box-teal">
+<p><strong>③ 다층 통합 (MOFA · MR)</strong></p>
+<ul>
+<li>scRNA-seq × Olink × genotyping MOFA</li>
+<li>Mendelian randomization (IVW, Egger)</li>
+<li>pQTL/eQTL → druggable target 필터</li>
+</ul>
+</div>
+<div class="highlight-box-purple">
+<p><strong>④ HIRA 연계 예후 모델</strong></p>
+<ul>
+<li>처방 지속도 / 재입원 / 출혈 코드 추출</li>
+<li>IPTW · time-varying Cox (tmerge)</li>
+<li>Forestploter 서브그룹 plot</li>
+<li>재발·출혈·사망 통합 예측 모델</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="마무리-차라투가-함께할-수-있는-것" class="slide level2">
+<h2>마무리 — 차라투가 함께할 수 있는 것</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="accent-box">
+<p><strong>멀티오믹스는 “분석 기법의 나열”이 아니라, 임상 질문에서 출발해 재현 가능한 파이프라인·인과 검증·임상 적용까지 잇는 과정입니다. 차라투는 7년간 이 전 과정을 수십 개 프로젝트에서 실행해 왔습니다</strong></p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="section-title"><strong>제안 협력 형태</strong></span></p>
+<ul>
+<li><strong>과제 기반 계약</strong> — 특정 연구 단위 (GWAS, scRNA-seq 등)</li>
+<li><strong>연단위 계약</strong> — 연구실 상시 분석 지원</li>
+<li><strong>기술 자문</strong> — 설계·분석 파이프라인 리뷰</li>
+<li><strong>공동 저자 참여</strong> — 분석가 SCI 공저 포함</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><span class="section-title"><strong>제공 산출물 표준</strong></span></p>
+<ul>
+<li>원본·정제 데이터 중앙 관리</li>
+<li>전체 분석 R 스크립트 (Git)</li>
+<li>연구자 전용 Shiny 앱</li>
+<li>논문용 표·그림(flextable / rvg PPT)</li>
+<li>커뮤니티 상시 피드백</li>
+</ul>
+</div></div>
+<div class="accent-box-emerald">
+<p><strong>연락처</strong> — office@zarathu.com | +82 70-7954-3712 | <a href="https://community.zarathu.com">community.zarathu.com</a> | <a href="https://openstat.ai">openstat.ai</a></p>
+</div>
+</section>
+<section id="section" class="slide level2" data-background-color="#2A3D21">
+<h2></h2>
+<div style="text-align: center; padding-top: 180px;">
+<h1 style="color: #ffffff; font-size: 2.0em; border: none; border-image: none;">
+연구자 옆에는 차라투
+</h1>
+<div style="margin-top: 40px;">
+<p><img src="Zarathu Circle Clipping Mask2.png" style="height: 80px;" alt=""></p>
+</div>
+<div style="color: #C8E6C9; font-size: 0.7em; margin-top: 60px; line-height: 2;">
+<p><strong>Contact</strong><br> office@zarathu.com &nbsp;|&nbsp; +82 70-7954-3712<br> <a href="https://www.zarathu.com" style="color: #C8E6C9;">https://www.zarathu.com</a></p>
+</div>
+</div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Zarathu Co., Ltd.</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <style>
+    .slide-master-header {
+      position: absolute;
+      top: 2px;
+      right: 0px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .smh-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72em;
+      font-weight: 800;
+      color: #2A3D21;
+      letter-spacing: 0.1em;
+    }
+    .smh-logo-row img {
+      height: 40px;
+      width: auto;
+    }
+    .smh-global-footer {
+      display: block;
+      position: fixed;
+      bottom: 21px;
+      right: 91px;
+      z-index: 2;
+      pointer-events: none;
+      font-size: 0.45em;
+      font-weight: 500;
+      color: #999;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    </style>
+    <script>
+    Reveal.on('ready', function() {
+      var slides = document.querySelectorAll('.reveal .slides > section');
+      slides.forEach(function(slide, index) {
+        if (index === 0) return;
+        if (slide.getAttribute('data-background-color') === '#2A3D21') return;
+        var header = document.createElement('div');
+        header.className = 'slide-master-header';
+        header.innerHTML = '<div class="smh-logo-row"><img src="Zarathu Circle Clipping Mask2.png" alt="">ZARATHU</div>';
+        slide.insertBefore(header, slide.firstChild);
+      });
+
+      var revealEl = document.querySelector('.reveal');
+      var globalFooter = document.createElement('div');
+      globalFooter.className = 'smh-global-footer';
+      globalFooter.textContent = 'Medical Research Supporters';
+      revealEl.appendChild(globalFooter);
+
+      var footerEl = document.querySelector('.reveal .footer');
+      var slideNumEl = document.querySelector('.reveal .slide-number');
+      function updateFooterVisibility() {
+        var indices = Reveal.getIndices();
+        var totalSlides = Reveal.getTotalSlides();
+        var isFirst = (indices.h === 0 && (indices.v === 0 || indices.v === undefined));
+        var isLast = (indices.h === totalSlides - 1);
+        var hide = isFirst || isLast;
+        if (footerEl) footerEl.style.display = hide ? 'none' : '';
+        if (slideNumEl) slideNumEl.style.display = hide ? 'none' : '';
+        globalFooter.style.display = hide ? 'none' : '';
+      }
+      updateFooterVisibility();
+      Reveal.on('slidechanged', updateFooterVisibility);
+    });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
