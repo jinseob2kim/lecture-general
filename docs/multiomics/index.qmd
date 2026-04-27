@@ -665,51 +665,55 @@ H. pylori 제균치료의 실제 처방 경향의 전국적 조사
 
 ## Case 9. 공단·심평원 데이터 활용 멀티오믹스 분석 사례
 
-<!-- [][][] 3개의 컬럼으로 구분-->
-
-<!-- 맨 왼쪽 박스는 테두리 굵은 점선으로 처리 -->
-
-::::: {.columns .nhis-overview-slide}
-::: {.column width="33%"}
-![](images/paste-49.png){width="380" .nhis-bordered-image}
+:::::::::::: {.columns .nhis-overview-slide}
+::: {.column width="26%"}
+![](images/paste-55.png){.nhis-bordered-image width="380"}
 :::
 
-::: {.column width="66%"}
-::: nhis-overview-right
+:::::::::: {.column width="73%"}
+::::::::: nhis-overview-right
 **서울대학교병원 영상의학과 김형진 교수님**
 
-:::: nhis-overview-grid
-::: nhis-case-card
-[사례 1]{.nhis-case-card-title}
-
-![](images/paste-43.png)
-
-
-제1형 신경섬유종증 환자의 연령대에 따른 주요 합병증 발생 변화 연구
+:::::::: nhis-overview-grid
+:::: nhis-case-card
+[사례 1]{.nhis-case-card-title} 국가폐암검진에서 발견된 위양성 결과와 사후 관리가 향후 폐암 발생률과 사망률에 미치는 영향 분석
 
 ::: nhis-case-journal
-*Acta Dermato-Venereologica* (IF 4.3) 게재
+*Journal of Internal Medicine* (IF 9.2) 게재
 :::
-:::
 
-:::: nhis-case-stack
-::: nhis-case-card
-[사례 2]{.nhis-case-card-title}
+![](images/paste-54.png){.nhis-case-image-compact}
 
-![](images/paste-45.png)
+![](images/paste-51.png){.nhis-case-image-compact}
 
+[전체 표본 수 [235,753명]{.nhis-sample-size-number} 대상(2019 ~ 2021)]{.nhis-sample-size}
 
-수포성 천포창(Bullous Pemphigoid, BP)의 발생과 연관된 위험 약물 규명
+::::
+
+::::: nhis-case-stack
+:::: nhis-case-card
+[사례 2]{.nhis-case-card-title} 국가폐암검진에서 발견된 간질성 폐 이상(ILA, Intersitial Lung Abnormalities)의 예후적 가치 분석
 
 ::: nhis-case-journal
 *The Journal of Dermatology* (IF 2.7) 게재
 :::
-:::
+
+![](images/paste-52.png){.nhis-case-image-compact}
+
+![](images/paste-53.png){.nhis-case-image-compact}
+
+[전체 표본 수 [125,600명]{.nhis-sample-size-number} 대상(2019 ~ 2020)]{.nhis-sample-size}
+
 ::::
-::::
-:::
-:::
 :::::
+::::::::
+
+:::::::::
+::: {.nhis-inline-badge-row}
+[국가폐암검진 CT 판독 데이터]{.nhis-inline-badge .nhis-inline-badge-blue}와 [건강보험공단 국민 데이터]{.nhis-inline-badge .nhis-inline-badge-orange}을 결합한 [복합적 의료 분석 사례]{.nhis-inline-badge-emphasis} [ (기본 소득, 처방 및 확진, 생존여부 등) ]{.nhis-inline-badge-subtext}
+:::
+::::::::::
+::::::::::::
 
 ## 분석 웹앱 제공 — jsmodule 기반 Shiny
 

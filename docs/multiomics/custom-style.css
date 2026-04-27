@@ -971,6 +971,28 @@ section[data-background-color="#2A3D21"] h1 {
   object-position: center;
   margin: 6px 0 10px 0;
 }
+
+.nhis-case-card img.nhis-case-image-compact {
+  height: 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.nhis-sample-size {
+  display: inline-block;
+  margin: 8px 0 10px 0;
+  font-size: 1.08em;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.45;
+}
+
+.nhis-sample-size-number {
+  display: inline-block;
+  padding: 0 0.18em;
+  font-size: 1.22em;
+  color: #000000;
+  background: linear-gradient(transparent 38%, rgba(255, 235, 59, 0.75) 38%, rgba(255, 235, 59, 0.75) 88%, transparent 88%);
+}
 .nhis-case-card-title {
   display: inline-block;
   margin-bottom: 6px;
@@ -1048,4 +1070,43 @@ section[data-background-color="#2A3D21"] h1 {
 .nhis-case-stack {
   display: grid;
   gap: 12px;
+}
+
+.nhis-inline-badge-row {
+  margin: 8px 0 4px 0;
+  font-size: 0.69em;
+  line-height: 1.55;
+  color: #111111;
+}
+
+.nhis-inline-badge {
+  display: inline-block;
+  padding: 0.18em 0.58em 0.22em 0.58em;
+  border-radius: 999px;
+  font-weight: 800;
+  vertical-align: baseline;
+}
+
+.nhis-inline-badge-blue {
+  background: #e6f0fb;
+  color: #1f5fa8;
+}
+
+.nhis-inline-badge-orange {
+  background: #fff0e3;
+  color: #c96a12;
+}
+
+.nhis-inline-badge-emphasis {
+  font-weight: 900;
+  color: #111111;
+}
+
+.nhis-inline-badge-subtext {
+  display: block;
+  margin: 4px 0 2px 0;
+  font-size: calc(1em - 6pt);
+  font-weight: 400;
+  text-align: center;
+  color: #4a4a4a;
 }

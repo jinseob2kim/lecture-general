@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "[Ayu Mirage Bordered]": {
+            "editorBracketHighlight.foreground4": "#e27c96",
+            "editorBracketHighlight.foreground5": "#77bec7"
+        },
+        "minimap.background": "#00000000",
+        "scrollbar.shadow": "#00000000"
+    }
+}
