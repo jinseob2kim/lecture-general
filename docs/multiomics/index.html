@@ -6,8 +6,8 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.39">
 
   <meta name="author" content="김진섭 (차라투 주식회사)">
   <meta name="dcterms.date" content="2026-06-13">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-9e84472c89ec876f4c353635c15abe43.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-dd39fbbabf720be66b06274ca3d2aacb.css">
   <link rel="stylesheet" href="custom-style.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -144,11 +144,18 @@
 
   <p class="date">2026-06-13</p>
 </section>
+<section class="slide level2">
+
+<!-- case-media-2: 사진 2장, 위아래 2칸 분할
+case-media-3: 사진 3장, 위아래 3칸 분할
+case-media-full: 사진 1장, 오른쪽 사진 공간 전체 사용
+case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
+</section>
 <section id="목차" class="slide level2">
 <h2>목차</h2>
 <div style="padding: 10px 40px;">
 <div class="highlight-box">
-<p><strong>I. 차라투 소개</strong> — 누가, 무엇을 하는 회사인가</p>
+<p><strong>I. 차라투 소개</strong> — 누가, <strong>무엇</strong>을 하는 회사</p>
 </div>
 <div class="highlight-box-blue">
 <p><strong>II. 차라투가 수행한 멀티오믹스 분석</strong> — 암·정신과·피부·호흡기 7개 사례</p>
@@ -170,7 +177,7 @@
 <p>국내 유일 <strong>의학연구지원 전문기업</strong>. 대표 <strong>예방의학 전문의 · 수학올림피아드 특기자</strong> 출신으로 임상·유전체·오믹스 분석 전 영역을 아우릅니다</p>
 </div>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:50%;">
 <p><span class="section-title"><strong>수행 범위</strong></span></p>
 <ul>
 <li>연구 설계·샘플수 계산부터 논문 투고까지 <strong>end-to-end</strong></li>
@@ -192,7 +199,7 @@
 </div>
 <div class="summary-item si-blue">
 <p><strong>200+</strong></p>
-<p>SCI 논문 지원</p>
+<p>SCI 논문 지원!!!</p>
 </div>
 <div class="summary-item si-teal">
 <p><strong>8건</strong></p>
@@ -241,6 +248,85 @@
 </div>
 </div></div>
 </section>
+<section id="예시-단일-오믹스-결과-vs-다층-통합-결과" class="slide level2">
+<h2>예시: 단일 오믹스 결과 vs 다층 통합 결과</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="omics-compare-panel single">
+<div class="omics-panel-top">
+<p><span class="omics-badge single">Single-omics</span> <span class="omics-panel-title">GWAS / DEG / EWAS 결과 예시</span></p>
+</div>
+<div class="mini-volcano">
+<p><span class="volcano-axis-label y">-log10(P)</span> <span class="volcano-axis-label x">Effect size</span> <span class="volcano-gene-label" style="left: 71%; top: 12%;">IL6</span> <span class="volcano-gene-label" style="left: 61%; top: 24%;">CRP</span></p>
+</div>
+<div class="mini-stat-strip">
+<div class="mini-stat-card">
+<p><strong>n = 1,248</strong>Case-control</p>
+</div>
+<div class="mini-stat-card">
+<p><strong>FDR &lt; 0.05</strong>17 hits</p>
+</div>
+<div class="mini-stat-card">
+<p><strong>Top pathway</strong>Inflammation</p>
+</div>
+</div>
+<div class="result-rows">
+<div class="result-row header">
+<p>Feature Effect Adj.P</p>
+</div>
+<div class="result-row">
+<p>IL6 beta = +0.42 0.004</p>
+</div>
+<div class="result-row">
+<p>CRP beta = +0.31 0.011</p>
+</div>
+<div class="result-row">
+<p>CXCL8 beta = -0.27 0.019</p>
+</div>
+</div>
+<div class="panel-note">
+<p>단일 계층 분석은 “무엇이 유의한가”를 선명하게 보여주지만, 오믹스 계층 간 연결 구조와 환자별 이질성은 상대적으로 제한적으로 드러납니다.</p>
+</div>
+</div>
+</div><div class="column" style="width:51%;">
+<div class="omics-compare-panel multi">
+<div class="omics-panel-top">
+<p><span class="omics-badge multi">Integrated</span> <span class="omics-panel-title">선택형 멀티오믹스 통합 뷰 예시</span></p>
+</div>
+<div class="control-rack">
+<p><span class="control-pill geno">Genomics</span> <span class="control-pill tx">Transcriptomics</span> <span class="control-pill prot">Proteomics</span> <span class="control-pill met">Metabolomics</span> <span class="control-pill outcome">Outcome</span></p>
+</div>
+<div class="integration-toolbar">
+<div class="toolbar-box">
+<p><strong>Cohort</strong>BOMICS / Stroke / Validation</p>
+</div>
+<div class="toolbar-box">
+<p><strong>Filter</strong>Responder · FDR &lt; 0.05 · Module 3</p>
+</div>
+</div>
+<div class="integration-frame">
+<p><img data-src="./img/xmwas_network.png" class="omics-network-img" alt="xMWAS multi-omics integration example" width="535"></p>
+</div>
+<div class="omics-output-grid">
+<div class="output-card">
+<p><strong>Community</strong>APOC1-CRP module</p>
+</div>
+<div class="output-card">
+<p><strong>Latent factor</strong>Inflammation axis</p>
+</div>
+<div class="output-card">
+<p><strong>Interactive</strong>Layer-on/off selection</p>
+</div>
+</div>
+<div class="panel-note">
+
+</div>
+</div>
+</div></div>
+</section>
 <section id="분석-전략-5단계-프로세스" class="slide level2">
 <h2>분석 전략 5단계 프로세스</h2>
 <div class="spacer-sm">
@@ -248,333 +334,386 @@
 </div>
 <div class="process-flow">
 <div class="pstep pstep-1">
-<p><span class="step-label">STEP 1</span> <span class="step-title">QC &amp; Imputation</span> <span class="step-desc">Genotyping call, 1000G/KGP imputation, batch effect, normalization</span></p>
+<p><span class="step-label">STEP 1</span> <span class="step-title">연구질문·데이터 정합화</span> <span class="step-desc">임상 질문 정의, 대상자 기준 확정, 결측/이상치/라벨 정리</span></p>
 </div>
 <div class="process-arrow">
-▶
+<p>▶</p>
 </div>
 <div class="pstep pstep-2">
-<p><span class="step-label">STEP 2</span> <span class="step-title">단일 오믹스 분석</span> <span class="step-desc">GWAS, EWAS, DEG/limma, DE 단백, VIP/OPLS-DA</span></p>
+<p><span class="step-label">STEP 2</span> <span class="step-title">코호트 정의·기초 비교</span> <span class="step-desc">군 정의, baseline 비교, 교란 가능성 점검</span></p>
 </div>
 <div class="process-arrow">
-▶
+<p>▶</p>
 </div>
 <div class="pstep pstep-3">
-<p><span class="step-label">STEP 3</span> <span class="step-title">PRS / 유전적 부담</span> <span class="step-desc">PRS Catalog, PRScs, PRScsx (다인종), GIGASTROKE iPGS</span></p>
+<p><span class="step-label">STEP 3</span> <span class="step-title">핵심 통계모형 적용</span> <span class="step-desc">회귀·생존·반복측정·고차원 분석을 질문별로 적용</span></p>
 </div>
 <div class="process-arrow">
-▶
+<p>▶</p>
 </div>
 <div class="pstep pstep-4">
-<p><span class="step-label">STEP 4</span> <span class="step-title">다층 통합</span> <span class="step-desc">MOFA, xMWAS network, variant × PGS × imaging interaction</span></p>
+<p><span class="step-label">STEP 4</span> <span class="step-title">검증·민감도 분석</span> <span class="step-desc">하위군/외부검증/다중검정 보정으로 결과 안정성 확인</span></p>
 </div>
 <div class="process-arrow">
-▶
+<p>▶</p>
 </div>
 <div class="pstep pstep-5">
-<p><span class="step-label">STEP 5</span> <span class="step-title">인과성 &amp; 예후 모델</span> <span class="step-desc">Mendelian randomization, Cox, 웹 기반 Shiny 대시보드</span></p>
+<p><span class="step-label">STEP 5</span> <span class="step-title">해석·산출물 전환</span> <span class="step-desc">임상 해석 중심 결과표/그림/발표자료/웹앱으로 전환</span></p>
 </div>
 </div>
 <div class="spacer-sm">
 
 </div>
 <div class="accent-box">
-<p><strong>차라투 차별점</strong> — 각 단계의 스크립트·데이터·결과물을 <strong>연구자 전용 커뮤니티 게시판</strong>으로 관리하여, 연구 종료 후에도 추가 요청 즉시 대응</p>
+<p><strong>차라투 차별점</strong> — 통계모형 결과를 임상 질문에 맞는 <strong>해석 가능한 근거(효과크기·위험도·분류성능)</strong>로 전환하고, 표·그림·웹앱까지 같은 흐름으로 제공합니다.</p>
 </div>
 </section>
-<section id="case-1.-양극성장애-약물반응-유전체단백체임상-통합" class="slide level2">
-<h2>Case 1. 양극성장애 약물반응 — 유전체·단백체·임상 통합</h2>
-<div class="spacer-xs">
-
-</div>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><strong>삼성서울병원 정신건강의학과 백지현 교수 (BOMICS)</strong></p>
-<div class="section-title">
-<p>연구 설계</p>
-</div>
+<section id="case-1.-양극성장애-환자-약물-치료-반응-예측-및-신호-분석" class="slide level2">
+<h2>Case 1. 양극성장애 환자 약물 치료 반응 예측 및 신호 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:52%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
 <ul>
-<li>Lithium · Valproate <strong>치료 반응</strong>이 outcome</li>
-<li><strong>KChip 유전체</strong> + 혈청 <strong>단백체 43종</strong> (APOC1, CRP 등) + <strong>임상 표현형</strong> (CSM, PAI, ASRS, WURS)</li>
-<li>T0/T1/T2 <strong>시계열 단백체</strong> → ΔT1, ΔT2 파생변수화</li>
+<li>양극성장애 환자의 임상정보, 약물 반응 점수, proteomics, SNP, PRS을 포함한 다각적 멀티오믹스 데이터.</li>
+<li>Lithium과 Valproate 반응을 연속형 점수와 반응군 형태로 정의, 예측 성능 평가와 분자 신호 해석을 동일 프레임 내에 연결.</li>
 </ul>
-<div class="section-title">
-<p>분석</p>
-</div>
+<p><strong>분석 목표 및 통계 분석</strong></p>
 <ul>
-<li>SNP annotation + Plink LD → ML 변수 선택</li>
-<li><strong>xMWAS 네트워크</strong> — 유전형·단백체·반응 community</li>
-<li>Shiny 앱으로 환자 개별 조회 지원</li>
+<li>약물 반응 차이를 설명하는 임상·분자 결합 신호 탐색 후, 반응 예측에 기여하는 feature 축 도출을 위한 분석 설계.</li>
+<li><span class="stat-tech">Table 1</span>, <span class="stat-tech">linear/logistic regression</span>로 기본 차이를 정리한 뒤, <span class="stat-tech">SNP-level GWAS</span>, <span class="stat-tech">network analysis</span>, <span class="stat-tech">LASSO</span>, <span class="stat-tech">Random Forest</span>로 확장 진행.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/xmwas_network.png" style="width:100.0%" height="420"></p>
-<figcaption>xMWAS multi-omics network</figcaption>
-</figure>
-</div>
-<div class="highlight-box-purple">
-<p><strong>체감 난이도 상</strong> — 유전형 × 단백체 × 반응의 <strong>삼중 시계열</strong> 구조</p>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>반응군 비교표, SNP-단백체-임상 통합 네트워크, 변수 중요도 기반 예측 모델 구축, <code>[75% train / 25% test]</code> 분할과 <code>[10-fold CV]</code> 기준의 성능 비교 체계 정리.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: SNP-단백체-임상 통합 네트워크 커뮤니티. 하: 보정 로지스틱 회귀 결과표 예시.">
+<p><img data-src="images/paste-1.png" class="case-img-2"></p>
+<p><img data-src="images/paste-2.png" class="case-img-2"></p>
 </div>
 </div></div>
 </section>
-<section id="case-2.-prscs-prscsx-조현병우울증-다인종-prs" class="slide level2">
-<h2>Case 2. PRScs / PRScsx — 조현병·우울증 다인종 PRS</h2>
-<div class="spacer-xs">
-
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>삼성서울병원 백지현 교수 — PRS_Schizo_MDD, PRS_QOL</strong></p>
-<div class="section-title">
-<p>수행 내용</p>
-</div>
+<section id="case-1.-양극성장애-환자-약물-치료-반응-예측-및-신호-분석-1" class="slide level2">
+<h2>Case 1. 양극성장애 환자 약물 치료 반응 예측 및 신호 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:52%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
 <ul>
-<li><strong>PGC/GWAS Catalog summary data</strong> 큐레이션</li>
-<li><strong>PRScs</strong> (Bayesian) — single ancestry</li>
-<li><strong>PRScsx</strong> — 다인종(EAS + EUR) 검정력 보정</li>
-<li>1000G EAS imputation → 개인별 PRS</li>
-<li>PRS × 임상 → <strong>치료 순응도·QOL</strong> 연관</li>
+<li>한국인 PRS summary statistics, phenotype, eQTL/mQTL, Brain-mMeta를 통합한 멀티오믹스 데이터.</li>
+<li>단순 예측 score 비교를 넘어, lead SNP와 기능 후보 유전자를 다시 해석하기 위한 post-GWAS 구조 중심 데이터셋.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div class="accent-box-emerald">
-<p><strong>PRS 구축 단계</strong></p>
-<ol type="1">
-<li>GWAS summary curation</li>
-<li>LD reference panel</li>
-<li>PRScs/csx posterior effect size</li>
-<li>Target genotype 적용</li>
-<li>PRS × outcome 모델링</li>
-</ol>
-</div>
-<div class="highlight-box">
-<p>뇌졸중 연구에 바로 이식 — <strong>GIGASTROKE iPGS</strong>, 출혈 위험 PGS, CYP2C19 × PRS <strong>다층 모델</strong></p>
+<p><strong>분석 목표 및 통계 분석</strong></p>
+<ul>
+<li>ancestry-informed PRS 재산출을 통한 예측력 재점검 후, 기능적 근거가 더 설득력 있는 SNP-유전자 축 도출을 위한 재해석.</li>
+<li><span class="stat-tech">PRScs</span>, <span class="stat-tech">PRScsx</span>로 trait별 score를 산출하고 <span class="stat-tech">logistic ROC</span>로 성능 비교, 이후 <span class="stat-tech">SMR/HEIDI</span> 기반으로 대안 SNP와 기능 후보 재평가.</li>
+</ul>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>PRS 비교표와 기능 후보 SNP 요약 자료를 정리하고, SLC25A12 gene-based SMR은 <code>p_SMR = 0.381</code>로 강한 지지 근거가 제한적이므로 대안 SNP 비교 중심의 해석.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: PRScsx 분석 파이프라인, 하: network 분석 및 Node statistics를 위한 Interacitve 웹.">
+<p><img data-src="images/paste-40.png"></p>
+<p><img data-src="images/paste-3.png" class="case-img-2"></p>
 </div>
 </div></div>
 </section>
-<section id="case-3.-폐암방광암-단백-마커-진단-모델-개발" class="slide level2">
-<h2>Case 3. 폐암·방광암 단백 마커 — 진단 모델 개발</h2>
-<div class="spacer-xs">
-
+<section id="case-2.-소아-아토피성-염증-피부-지질체-전사체-통합-분석" class="slide level2">
+<h2>Case 2. 소아 아토피성 염증 피부 지질체-전사체 통합 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:48%;">
+<div class="case-media case-media-full" data-caption="PCA, heatmap, volcano, GO/KEGG Enrichment Analysis">
+<p><img data-src="images/paste-4.png" class="case-img-1"></p>
 </div>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><strong>시선바이오머티리얼즈 — 방광암/폐암 biomarker panel</strong></p>
-<div class="section-title">
-<p>분석 설계</p>
-</div>
+</div><div class="column" style="width:52%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
 <ul>
-<li>1차~4차 <strong>혈청 단백 마커 패널</strong> (Normal vs Cancer vs Control)</li>
-<li><code>caret</code> 기반 ML — LASSO, RF, XGBoost, ElasticNet 비교</li>
-<li><strong>AUC + PPV/NPV + F1</strong> 동시 최적화</li>
-<li>1차 개발셋 → 2~4차 <strong>외부 검증</strong></li>
-<li>임상 공변량 보정 + marker-only 비교</li>
-<li>Youden index cutoff, SHAP importance 도출</li>
+<li>소아 아토피 피부 lipidomics, 부위 A/B/C 정보와 임상 중증도 지표가 함께 정리된 site-specific 통합 자료.</li>
+<li>이후 sensitive skin, prurigo 데이터셋으로 확장, 질환별 차이와 공통 lipid 패턴을 비교 가능한 프레임으로 구성.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/shiny_tb1.png" style="width:100.0%" height="380"></p>
-<figcaption>Shiny ROC / Table 1 dashboard</figcaption>
-</figure>
+<p><strong>분석 목표 및 통계 분석</strong></p>
+<ul>
+<li>염증 반응과 연결되는 lipid axis 탐색 후, 부위별 변화와 질환 간 공통 signature 도출을 위한 다층 비교 설계.</li>
+<li><span class="stat-tech">fold-change</span>와 <span class="stat-tech">limma + empirical Bayes</span> 기반 차이 검정을 우선 수행하고, <span class="stat-tech">BH-FDR</span>, <span class="stat-tech">Spearman correlation</span>, <span class="stat-tech">PCA/UMAP</span>로 신호를 단계적으로 정리.</li>
+</ul>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>부위별 lipid fold-change 요약표와 발표용 Figure 세트를 정리하고, 3질환 통합 자료에서는 unique lipid 248개 중 18개 공통 species 확인으로 질환 간 공통 축 제시.</li>
+</ul>
+</div></div>
+</section>
+<section id="case-2.-소아-아토피성-염증-피부-지질체-전사체-통합-분석-1" class="slide level2">
+<h2>Case 2. 소아 아토피성 염증 피부 지질체-전사체 통합 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상:Total samples 분류 및 ADP volcano plot, 하: Lipid-Gene Interaction Network">
+<p><img data-src="images/paste-29.png" class="case-img-2"></p>
+<p><img data-src="images/paste-30.png" class="case-img-2"></p>
 </div>
-<div class="highlight-box-blue">
-<p><strong>뇌졸중 Olink 단백체 분석에 이식 가능</strong> — 고차원 변수 선택, CV schema, 외부 검증 설계</p>
+</div><div class="column" style="width:52%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
+<ul>
+<li>transcriptome 29샘플, lipid-matched subset, 염증·섬유화 후보 유전자 세트를 함께 묶은 multiomics 확장 자료.</li>
+<li>피부 표면 lipid 변화와 전사체 수준 염증 경로를 직접 연결해 볼 수 있도록 구성한 matched analysis 자료.</li>
+</ul>
+<p><strong>분석 목표 및 통계 분석</strong></p>
+<ul>
+<li>lipidomics에서 관찰된 변화축을 transcriptome과 연결한 뒤, 염증·장벽 관련 후보 pathway 재정렬을 통한 multiomics 근거 보강.</li>
+<li><span class="stat-tech">DESeq2</span> 기반 DEG 산출 후 <span class="stat-tech">VST PCA</span>, <span class="stat-tech">GO/KEGG enrichment</span>, <span class="stat-tech">BH-corrected correlation</span>을 통한 lipid-gene 연결축 재평가.</li>
+</ul>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>논문용 Figure 1~5 세트와 multiomics correlation 패널을 정리하고, <code>LAD vs Healthy</code> 비교에서는 <code>[FDR \&lt; 0.05]</code> 유전자 3개 확인 및 후속 검증 후보군 압축.</li>
+</ul>
+</div></div>
+</section>
+<section id="case-3.-sting1-lysosome-발현량-난소암-환자-생존-분석" class="slide level2">
+<h2>Case 3. STING1-lysosome 발현량 난소암 환자 생존 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:52%;">
+<p><span class="case-owner">일산백병원 진단검사의학과 김지예 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
+<ul>
+<li>내부 GeoMx spatial transcriptomics와 외부 TCGA/GTEx 난소암 자료를 함께 사용한 생존·분자 통합 자료.</li>
+<li>단일 유전자 비교를 넘어, STING1-lysosome 관련 245개 유전자 모듈까지 확장 가능한 구조라는 점이 핵심 특징.</li>
+</ul>
+<p><strong>분석 목표 및 통계 분석</strong></p>
+<ul>
+<li>STING1-lysosome 축의 예후 연관성 탐색 후, 모듈 수준 재배선과 외부 코호트 검증을 통한 기능 후보 도출 목적의 분석 설계.</li>
+<li><span class="stat-tech">Kaplan-Meier</span>, <span class="stat-tech">Cox</span>로 예후 신호를 점검한 뒤, <span class="stat-tech">DESeq2</span>, <span class="stat-tech">GO/KEGG/PPI</span>, <span class="stat-tech">eigengene correlation</span>, <span class="stat-tech">paired Wilcoxon</span>으로 모듈 수준 해석을 확장.</li>
+</ul>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>생존곡선, volcano, module network, eigengene correlation 구축, PFS는 event 부족으로 제한하여 OS 중심 해석과 외부 후보유전자 검증 축 명확히 정리.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: 누적발생/KM 곡선 예시. 하: TCGA 기반 volcano와 gene-correlation heatmap.">
+<p><img data-src="images/paste-12.png" class="case-img-2"></p>
+<p><img data-src="images/paste-14.png" class="case-img-2"></p>
 </div>
 </div></div>
 </section>
-<section id="case-4.-직장암-ccrt-반응-spatial-transcriptomics" class="slide level2">
-<h2>Case 4. 직장암 CCRT 반응 — Spatial Transcriptomics</h2>
-<div class="spacer-xs">
-
+<section id="case-4.-copd-환자-사망-연관-snp-탐색을-위한-gwas-분석" class="slide level2">
+<h2>Case 4. COPD 환자 사망 연관 SNP 탐색을 위한 GWAS 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: Manhattan Plot: Pure COPD nocovar, 하: GWAS QQplot, Forest Plot(n=8)">
+<p><img data-src="images/paste-33.png"></p>
+<p><img data-src="images/paste-35.png"></p>
 </div>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><strong>동탄성심 신은 교수 — Nanostring spatial gene expression</strong></p>
-<div class="section-title">
-<p>데이터 구조</p>
-</div>
+</div><div class="column" style="width:52%;">
+<p><span class="case-owner">동탄성심병원 호흡기내과 송진화 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
 <ul>
-<li>18,677 유전자 × 136 샘플</li>
-<li><strong>TC</strong> (CK+ 종양) / <strong>IC</strong> (CD45+ 면역) segmentation</li>
-<li>반응군 TR(25) / GR(50) / PR(61) 3단계 층화</li>
+<li>KOCOSS COPD 코호트 중 SNP 데이터가 있는 환자 대상, 임상 기본정보와 mortality outcome을 통합한 유전연관 분석 자료.</li>
+<li>전체 코호트뿐 아니라 <code>pure_COPD</code>, <code>TB_COPD</code>, <code>Asthma_COPD</code>, <code>BE_COPD</code> phenotype별 하위군을 나눠 subtype-specific signal 탐색.</li>
 </ul>
-<div class="section-title">
-<p>분석 흐름</p>
-</div>
+<p><strong>분석 목표 및 통계 분석</strong></p>
 <ul>
-<li><code>limma</code> 기반 <strong>DEG</strong> (FDR &lt; 0.05, |log2FC| &gt; 1)</li>
-<li>TC vs IC 종양-면역 상호작용</li>
-<li>KEGG / Reactome / Hallmark enrichment</li>
-<li>RRM2 × PD1 상관, Top50 외부 검증</li>
+<li>COPD 환자의 mortality 연관 유전변이를 탐색, 임상 phenotype에 따른 신호 변경 탐색을 위한 subtype-specific GWAS 설계.</li>
+<li><span class="stat-tech">Table 1</span>와 결측률 점검, <span class="stat-tech">PLINK logistic GWAS</span>를 <code>pure_COPD</code>, <code>TB_COPD</code>, <code>Asthma_COPD</code>, <code>BE_COPD</code> 하위군별 반복 수행, <span class="stat-tech">covariate-adjusted model</span>을 통해 age, sex, BMI, baseline FEV1 보정 결과 통합 비교.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<div class="accent-box-emerald">
-<p><strong>scRNA-seq nested design 분석에 이식 가능</strong></p>
+<p><strong>결과 및 산출물</strong></p>
 <ul>
-<li>Extreme phenotype 선별</li>
-<li>Cell-type 특이적 DEG</li>
-<li><strong>회복 특이 면역세포 지도</strong></li>
+<li>phenotype별 baseline 특성표, 보정 전후 GWAS, top SNP 요약표 정리 및 하위군별 signal 비교를 위한 Manhattan plot 도출.</li>
+<li>COPD 아형별 mortality-associated SNP 후보를 분리 후 해석 가능 구조를 확립, 후속 replication 또는 기능 해석을 위한 lead SNP 정리.</li>
 </ul>
-</div>
-<div class="highlight-box-teal">
-<p><strong>데이터 관리</strong> — 원본·정제·Shiny 앱까지 연구자가 언제든 재분석 가능한 구조로 제공</p>
+</div></div>
+</section>
+<section id="case-5.-방광암-및-폐암-진단-바이오마커-모델" class="slide level2">
+<h2>Case 5. 방광암 및 폐암 진단 바이오마커 모델</h2>
+<div class="columns case-slide">
+<div class="column" style="width:52%;">
+<p><span class="case-owner">시선바이오머티리얼즈 연구팀</span></p>
+<p><strong>분석 데이터</strong></p>
+<ul>
+<li>방광암 methylation marker 자료와 폐암 MPR panel, 외부검증용 test set을 함께 사용한 멀티오믹스 데이터.</li>
+<li>원 marker 값뿐 아니라 control 기준 percentile feature를 추가 생성.</li>
+</ul>
+<p><strong>분석 목표 및 통계 분석</strong></p>
+<ul>
+<li>적용 가능한 diagnostic marker 조합 탐색 후, 설명 가능한 기준값과 배포형 예측 도구까지 연결하기 위한 모델링 설계.</li>
+<li><span class="stat-tech">ROC/AUC</span>, <span class="stat-tech">logistic regression</span>으로 기본 성능을 확인 및 <span class="stat-tech">percentile thresholding</span>, <span class="stat-tech">10-fold CV</span>, <span class="stat-tech">LASSO</span>, <span class="stat-tech">Random Forest</span> 결합, 후보 모델 압축.</li>
+</ul>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>ROC 패널, cutoff 기반 모델, 배포형 예측 앱 연결, AUC와 best-threshold, sensitivity/specificity, PPV/NPV, <code>95% sensitivity 기준 specificity</code> 제시.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: 통합 진단모델 ROC와 AUC. 하: marker distribution boxplot과 pairwise p-value.">
+<p><img data-src="images/paste-26.png" class="case-img-2"></p>
+<p><img data-src="images/paste-28.png" class="case-img-2"></p>
 </div>
 </div></div>
 </section>
-<section id="case-5.-피부-지질체학전사체-멀티레이어-통합" class="slide level2">
-<h2>Case 5. 피부 지질체학·전사체 — 멀티레이어 통합</h2>
-<div class="spacer-xs">
-
+<section id="case-6.-직장암-수술전-항암방사선용법-반응-유전자-분석" class="slide level2">
+<h2>Case 6. 직장암 수술전 항암방사선용법 반응 유전자 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: IC_GR_vs_PR 대표 heatmap. 하: DFS Kaplan-Meier와 TC vs IC volcano.">
+<p><img data-src="images/paste-18.png" class="case-img-2" width="796" height="325"></p>
+<p><img data-src="images/paste-22.png" class="case-img-2" width="794"></p>
 </div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>강남성심 김혜원 교수 · 박진서 교수</strong></p>
-<div class="section-title">
-<p>수행 오믹스</p>
-</div>
+</div><div class="column" style="width:52%;">
+<p><span class="case-owner">동탄성심병원 신은 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
 <ul>
-<li><strong>Lipidomics</strong> — PE, PC, Cer, LPC, TG (112종)</li>
-<li><strong>Transcriptomics</strong> — microarray + bulk RNA-seq + single-cell</li>
-<li><strong>microRNA</strong> — miR-423-5p</li>
-<li><strong>Metabolomics</strong> — 포피린, 아토피</li>
+<li>직장암 CCRT 반응군의 TC/IC spatial transcriptomics와 외부 검증 코호트 통합 데이터셋.</li>
+<li>반응군과 생존 변수를 초기 단계에서 함께 정의하여, discovery와 validation 진행.</li>
 </ul>
-<div class="section-title">
-<p>분석 기법</p>
-</div>
+<p><strong>분석 목표 및 통계 분석</strong></p>
 <ul>
-<li>PCA / <strong>PLS-DA / OPLS-DA</strong></li>
-<li>VIP &gt; 1, PERMANOVA 유의 species</li>
-<li>lipid → KEGG pathway manual curation</li>
-<li>k-means, heatmap, GO/KEGG enrichment</li>
+<li>반응군 차이를 설명하는 DEG 선별 후, 생존 및 외부 코호트 예측 가능성까지 이어지는 후보유전자 축 도출 목표의 설계.</li>
+<li>반응군 정의 후 <span class="stat-tech">limma + eBayes</span> 기반 DEG 분석, <span class="stat-tech">heatmap/volcano</span> 시각화, <span class="stat-tech">maxstat + Kaplan-Meier</span>, <span class="stat-tech">ROC/Youden</span> 순 확장.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/lipid_pathway.png" style="width:100.0%" height="420"></p>
-<figcaption>Lipid pathway enrichment</figcaption>
-</figure>
-</div>
-<div class="highlight-box-purple">
-<p><strong>체감 난이도 상</strong> — Multi-omics ID 정렬, 작은 대조군(n=6) 한계, PLS-DA 검정력 명시 등 수작업 이슈 다수</p>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>DEG 통합표와 생존·검증 Figure를 한 세트로 정리하고, 생존 관련 결과는 69행(유니크 61유전자), 외부 binary validation 결과는 타깃별 1,071행 규모로 저장되어 후속 선별.</li>
+</ul>
+</div></div>
+</section>
+<section id="case-7.-피부-장벽-및-혈관-반응과-피부-표면-지질체-상관-분석" class="slide level2">
+<h2>Case 7. 피부 장벽 및 혈관 반응과 피부 표면 지질체 상관 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:52%;">
+<p><span class="case-owner">강남성심병원 피부과 박진서 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
+<ul>
+<li>민감피부 환자군과 대조군의 TEWL, SCH, erythema, porphyrin, SS-10, lipid species를 함께 측정한 통합 자료.</li>
+<li>표본 수 대비 변수 수가 큰 high-dimensional 구조로, 단일 p-value보다 패턴 탐색과 후보 압축이 중요한 데이터셋.</li>
+</ul>
+<p><strong>분석 목표 및 통계 분석</strong></p>
+<ul>
+<li>피부 장벽·혈관 반응 지표와 lipid pattern 사이의 연결 구조 탐색 후, symptom domain별 후보 지질 축 도출을 위한 exploratory 분석 설계.</li>
+<li><span class="stat-tech">Spearman correlation</span>과 <span class="stat-tech">linear regression</span>으로 1차 후보를 점검한 뒤, <span class="stat-tech">PCA</span>, <span class="stat-tech">PLS-DA</span>, <span class="stat-tech">PERMANOVA</span>, <span class="stat-tech">network analysis</span>, <span class="stat-tech">LASSO</span>로 탐색 신호를 압축.</li>
+</ul>
+<p><strong>결과 및 산출물</strong></p>
+<ul>
+<li>correlation heatmap과 symptom-lipid network를 구축하고, SS-10 item 대 112개 lipid 상관에서는 <code>FDR q \&lt; 0.05</code>통과 lipid 부재, patient-control PLS-DA의 <code>PERMANOVA P = 0.753, R² = 0.007</code> exploratory layer 중심 해석 정리.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: erythema·porphyrin vs lipid Spearman heatmap. 하: patient-control PLS-DA와 symptom-lipid network.">
+<p><img data-src="images/paste-6.png" class="case-img-2"></p>
+<p><img data-src="images/paste-23.png" class="case-img-2"></p>
 </div>
 </div></div>
 </section>
-<section id="case-6.-copd-gwas-plink-pipeline-실전" class="slide level2">
-<h2>Case 6. COPD GWAS — Plink Pipeline 실전</h2>
-<div class="spacer-xs">
-
+<section id="case-8.-qpcr-mirna-기반-폐암-진단-모델-연구" class="slide level2">
+<h2>Case 8. qPCR miRNA 기반 폐암 진단 모델 연구</h2>
+<div class="columns case-slide">
+<div class="column" style="width:48%;">
+<div class="case-media case-media-2" data-caption="상: 후보 signal regional plot과 miRNA ROC 비교. 하: stage group별 miRNA fold-change boxplot.">
+<p><img data-src="images/paste-10.png" class="case-img-2"></p>
+<p><img data-src="images/paste-11.png" class="case-img-2"></p>
 </div>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><strong>동탄성심 호흡기내과 송진화 교수 — GWAS_COPD</strong></p>
-<div class="section-title">
-<p>구축한 파이프라인</p>
-</div>
+</div><div class="column" style="width:52%;">
+<p><span class="case-owner">건국대병원 호흡기내과 이계영 교수님</span></p>
+<p><strong>분석 데이터</strong></p>
 <ul>
-<li>VCF → Plink bed/bim/fam, <strong>MAF/HWE/call rate</strong> QC</li>
-<li><code>--assoc --logistic</code> + covariate (나이·성·흡연·폐기능)</li>
-<li><strong>λ (GC)</strong> QQ, dbSNP annotation, Manhattan, locus zoom</li>
-<li>사망률(mortality) 연계 후속 분석</li>
+<li>qPCR miRNA, 연령, 흡연력, 병기, 실험 라운드 정보를 포함한 멀티오믹스 폐암 진단 자료.</li>
+<li>라운드 차이와 샘플 정합화 이력이 함께 남아 있어, marker 성능 비교와 데이터 정제 이슈를 동시에 다룰 필요성.</li>
 </ul>
-<div class="section-title">
-<p>뇌졸중 GWAS 동일 적용</p>
-</div>
+<p><strong>분석 목표 및 통계 분석</strong></p>
 <ul>
-<li>Illumina ASA v1.0 <strong>star allele 자동 판정</strong></li>
-<li>CYP2C19, CYP2C9, SLCO1B1, ABCG2 (PharmVar)</li>
-<li>1000G EAS + KGP imputation</li>
+<li>단일 miRNA 유의성과 다중 marker panel 성능을 분리 평가한 뒤, 임상변수 보정 모델까지 확장하여 screening용 조합 후보 압축 설계.</li>
+<li>qPCR 정규화 후 <span class="stat-tech">Table 1</span>, <span class="stat-tech">boxplot + pairwise test</span>, <span class="stat-tech">logistic ROC/AUC</span>, <span class="stat-tech">UpSet combination search</span>, <span class="stat-tech">LASSO</span>, <span class="stat-tech">Random Forest</span> 순으로 비교 평가 진행.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<div class="accent-box">
-<p><strong>차라투 보유 GWAS 인프라</strong></p>
+<p><strong>결과 및 산출물</strong></p>
 <ul>
-<li>Plink 1.9/2.0, regenie</li>
-<li>1000G · KGP · TOPMed reference</li>
-<li><strong>GIGASTROKE</strong> summary data 큐레이션</li>
-<li>Michigan Imputation Server pipeline</li>
-<li>GWAS summary → PRS <strong>자동화</strong></li>
+<li>8개 후보 miRNA에서 3·4·5-marker 조합까지 비교하는 ROC Figure와 발표용 PPT·웹앱으로 연결하고, 최종 AUC·민감도·특이도는 raw qPCR/pins 자료 기준 재계산.</li>
 </ul>
-</div>
-<div class="highlight-box-gray">
-<p>청장년 뇌졸중 4,108명 + GENESIS-K 5,328명 규모도 <strong>단일 서버 수행 가능</strong></p>
-</div>
 </div></div>
 </section>
-<section id="case-7.-진단검사의학-통합-일산백병원-alucion" class="slide level2">
-<h2>Case 7. 진단검사의학 통합 — 일산백병원 Alucion</h2>
+<section id="case-9.-공단심평원-빅데이터-분석" class="slide level2">
+<h2>Case 9. 공단·심평원 빅데이터 분석</h2>
 <div class="spacer-xs">
 
 </div>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><strong>일산백병원 진단검사의학과 — alucion 프로젝트군</strong></p>
-<div class="section-title">
-<p>통합한 데이터</p>
+<div class="nhis-hira-slide">
+<div class="nhis-intro-box">
+<div class="nhis-intro-layout">
+<div class="nhis-logo-stack">
+<p><img data-src="images/paste-41.png"></p>
+<p><img data-src="images/paste-42.png"></p>
 </div>
-<ul>
-<li><strong>유전체</strong> (FOXC1, STING1 등 타겟 변이)</li>
-<li><strong>PCA 기반 유전 구조 분석</strong></li>
-<li><strong>검사실 지표</strong> (CBC, 생화학) + <strong>영상</strong> + <strong>임상</strong></li>
-<li>연단위 계약 기반 <strong>연평균 70건+</strong> 분석 처리</li>
-</ul>
-<div class="section-title">
-<p>분석 구조</p>
+<div class="nhis-intro-text">
+<p><strong>대한민국 공단(NHIS/NHID)·심평원(HIRA) 빅데이터</strong>는 전 국민 단위의 건강검진, 소득, 사망, 데이터를 포함한 종단형 인프라입니다.<br>
+최근 5년간 <code>Diabetes Care</code>, <code>International Journal of Epidemiology</code>, <code>JAMA Network Open</code>, <code>JAMA Pediatrics</code> 등에 NHIS/HIRA 기반 연구가 지속적으로 게재되고 있으며, <strong>임상코호트와 유전체·오믹스 자료를 결합한 고품질 멀티오믹스 연구</strong>로 확장하기 적합합니다.</p>
 </div>
-<ul>
-<li>데이터 정제(global.R) ↔︎ 실제 분석(analysis.R) 분리</li>
-<li><strong>jsmodule</strong> 기반 Shiny로 연구자 직접 탐색</li>
-</ul>
-</div><div class="column" style="width:45%;">
-<div class="accent-box-emerald">
-<p><strong>유전체 + Lab + Imaging 3축 통합</strong> — 선정2 과제(‘유전체-영상-epigenetics’) 구조와 동일한 파이프라인</p>
 </div>
-<div class="highlight-box-teal">
-<p><strong>재현성 3종 세트</strong></p>
-<ol type="1">
-<li>원본 데이터 중앙 관리</li>
-<li>Git 기반 분석 스크립트</li>
-<li>커뮤니티 피드백 이력</li>
-</ol>
 </div>
-</div></div>
+<p><strong>공단/심평원 데이터 활용 및 분석 사례</strong></p>
+<div class="nhis-case-grid">
+<div class="nhis-case-card">
+<p><span class="nhis-case-card-title">사례 1</span></p>
+<p><img data-src="images/paste-43.png"></p>
+<div class="nhis-case-meta">
+<p>분당서울대병원 피부과 김보리 교수님</p>
+</div>
+<p>제1형 신경섬유종증 환자의 연령대에 따른 주요 합병증 발생 변화 연구</p>
+<div class="nhis-case-journal">
+<p><em>Acta Dermato-Venereologica</em> (IF 4.3) 게재</p>
+</div>
+</div>
+<div class="nhis-case-card">
+<p><span class="nhis-case-card-title">사례 2</span></p>
+<p><img data-src="images/paste-45.png"></p>
+<div class="nhis-case-meta">
+<p>분당서울대병원 피부과 김보리 교수님</p>
+</div>
+<p>수포성 천포창(Bullous Pemphigoid, BP)의 발생과 연관된 위험 약물 규명</p>
+<div class="nhis-case-journal">
+<p><em>The Journal of Dermatology</em> (IF 2.7) 게재</p>
+</div>
+</div>
+<div class="nhis-case-card">
+<p><span class="nhis-case-card-title">사례 3</span></p>
+<p><img data-src="images/paste-48.png"></p>
+<div class="nhis-case-meta">
+<p>강동성심병원 소화기내과 서승인 교수님</p>
+</div>
+<p>H. pylori 제균치료의 실제 처방 경향의 전국적 조사</p>
+<div class="nhis-case-journal">
+<p><em>Gut and Liver</em> (IF 3.2) 게재</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="공단심평원-데이터-연계-약-200만명-코호트" class="slide level2">
-<h2>공단·심평원 데이터 연계 — 약 200만명 코호트</h2>
-<div class="spacer-xs">
-
+<section id="case-9.-공단심평원-데이터-활용-멀티오믹스-분석-사례" class="slide level2">
+<h2>Case 9. 공단·심평원 데이터 활용 멀티오믹스 분석 사례</h2>
+<!-- [][][] 3개의 컬럼으로 구분-->
+<!-- 맨 왼쪽 박스는 테두리 굵은 점선으로 처리 -->
+<div class="columns nhis-overview-slide">
+<div class="column" style="width:33%;">
+<p><img data-src="images/paste-49.png" class="nhis-bordered-image" width="380"></p>
+</div><div class="column" style="width:66%;">
+<div class="nhis-overview-right">
+<p><strong>서울대학교병원 영상의학과 김형진 교수님</strong></p>
+<div class="nhis-overview-grid">
+<div class="nhis-case-card">
+<p><span class="nhis-case-card-title">사례 1</span></p>
+<p><img data-src="images/paste-43.png"></p>
+<p>제1형 신경섬유종증 환자의 연령대에 따른 주요 합병증 발생 변화 연구</p>
+<div class="nhis-case-journal">
+<p><em>Acta Dermato-Venereologica</em> (IF 4.3) 게재</p>
 </div>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><strong>대사증후군 ↔︎ 조기 발병 치매 (Neurology, 2025.04)</strong></p>
-<div class="section-title">
-<p>연구 개요</p>
 </div>
-<ul>
-<li>국민건강보험공단 국가검진 40~60대 <strong>약 200만 명</strong></li>
-<li>MetS HR <strong>1.24</strong> (95% CI 1.19~1.30)</li>
-<li>Vascular dementia HR 1.21, Alzheimer 1.12</li>
-<li><strong>NEJM Journal Watch 소개</strong>, 주요 언론 보도</li>
-</ul>
-<div class="section-title">
-<p>분석 기술 포인트</p>
+<div class="nhis-case-stack">
+<div class="nhis-case-card">
+<p><span class="nhis-case-card-title">사례 2</span></p>
+<p><img data-src="images/paste-45.png"></p>
+<p>수포성 천포창(Bullous Pemphigoid, BP)의 발생과 연관된 위험 약물 규명</p>
+<div class="nhis-case-journal">
+<p><em>The Journal of Dermatology</em> (IF 2.7) 게재</p>
 </div>
-<ul>
-<li>수백만 행 <strong>data.table 기반 고속 처리</strong></li>
-<li>Multivariable Cox + subgroup interaction</li>
-<li>구성요소 누적 1~5개 <strong>dose-response</strong> 증명</li>
-</ul>
-</div><div class="column" style="width:45%;">
-<div class="accent-box">
-<p><strong>베타차단제 장기 사용 효과</strong> (J Am Heart Assoc, 2025)</p>
-<ul>
-<li>CRCS-K + 심평원 연계</li>
-<li>ΔHR elevated 환자군 <strong>장기 사망률 감소</strong></li>
-<li>HIRA 기반 <strong>복약 지속도(MPR)</strong> 변수화</li>
-</ul>
 </div>
-<div class="highlight-box-blue">
-<p><strong>뇌졸중 약물유전체 5년 과제에 그대로 적용 가능</strong> — HIRA 처방·순응도·재발·출혈 outcome 추출 경험 보유</p>
+</div>
+</div>
 </div>
 </div></div>
 </section>
@@ -585,38 +724,18 @@
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/shiny_km.png" style="width:100.0%"></p>
-<figcaption>Kaplan-Meier 모듈</figcaption>
-</figure>
-</div>
+<p><img src="./img/shiny_km.png" alt="Kaplan-Meier 모듈" style="width: 100%; display: block; margin: 0 auto;"></p>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/shiny_tb1.png" style="width:100.0%"></p>
-<figcaption>Table 1 모듈</figcaption>
-</figure>
-</div>
+<p><img src="./img/shiny_tb1.png" alt="Table 1 모듈" style="width: 100%; display: block; margin: 0 auto;"></p>
 </div></div>
 </section>
 <section id="분석-웹앱-계속" class="slide level2">
 <h2>분석 웹앱 (계속)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/shiny_meta.png" style="width:100.0%"></p>
-<figcaption>메타분석 모듈</figcaption>
-</figure>
-</div>
+<p><img src="./img/shiny_meta.png" alt="메타분석 모듈" style="width: 100%; display: block; margin: 0 auto;"></p>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/shiny_openstat.png" style="width:100.0%"></p>
-<figcaption>openstat.ai — 무료 통계분석 웹 (특허 등록)</figcaption>
-</figure>
-</div>
+<p><img src="img/shiny_openstat.png" alt="openstat.ai - 무료 통계분석 웹 (특허 등록)" style="display: block; margin: 0 auto;" width="100%"></p>
 </div></div>
 <div class="accent-box-emerald">
 <p><strong>jsmodule 모듈</strong> — tb1module2, logisticModule2, coxModule, kaplanModule, <strong>subgroupModule</strong>, rocModule, <strong>timerocModule</strong>, ggpairsModule2, jsPropensityGadget. 오믹스 프로젝트마다 <strong>연구자 전용 앱</strong> 동시 제공</p>
@@ -702,10 +821,10 @@
 <h2></h2>
 <div style="text-align: center; padding-top: 180px;">
 <h1 style="color: #ffffff; font-size: 2.0em; border: none; border-image: none;">
-연구자 옆에는 차라투
+<p>연구자 옆에는 차라투</p>
 </h1>
 <div style="margin-top: 40px;">
-<p><img src="Zarathu Circle Clipping Mask2.png" style="height: 80px;" alt=""></p>
+<p><img src="./Zarathu%20Circle%20Clipping%20Mask2.png" alt="Zarathu logo" style="height: 80px;"></p>
 </div>
 <div style="color: #C8E6C9; font-size: 0.7em; margin-top: 60px; line-height: 2;">
 <p><strong>Contact</strong><br> office@zarathu.com &nbsp;|&nbsp; +82 70-7954-3712<br> <a href="https://www.zarathu.com" style="color: #C8E6C9;">https://www.zarathu.com</a></p>
@@ -976,7 +1095,7 @@
         if (slide.getAttribute('data-background-color') === '#2A3D21') return;
         var header = document.createElement('div');
         header.className = 'slide-master-header';
-        header.innerHTML = '<div class="smh-logo-row"><img src="Zarathu Circle Clipping Mask2.png" alt="">ZARATHU</div>';
+        header.innerHTML = '<div class="smh-logo-row"><img src="./Zarathu%20Circle%20Clipping%20Mask2.png" alt="Zarathu logo">ZARATHU</div>';
         slide.insertBefore(header, slide.firstChild);
       });
 
