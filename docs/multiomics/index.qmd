@@ -343,7 +343,7 @@ CXCL8 beta = -0.27 0.019
 
 :::: {.column width="48%"}
 ::: {.case-media .case-media-2 data-caption="상: PRScsx 분석 파이프라인, 하: network 분석 및 Node statistics를 위한 Interacitve 웹."}
-![](images/paste-40.png)
+![](images/paste-47.png){.case-img-2}
 
 ![](images/paste-3.png){.case-img-2}
 :::
@@ -374,7 +374,7 @@ CXCL8 beta = -0.27 0.019
 
 **결과 및 산출물**
 
--   부위별 lipid fold-change 요약표와 발표용 Figure 세트를 정리하고, 3질환 통합 자료에서는 unique lipid 248개 중 18개 공통 species 확인으로 질환 간 공통 축 제시.
+-   부위별 lipid fold-change 요약표와 Figure 세트를 정리하고, 3질환 통합 자료에서는 unique lipid 248개 중 18개 공통 species 확인으로 질환 간 공통 축 제시.
 :::
 ::::::
 
@@ -585,7 +585,7 @@ CXCL8 beta = -0.27 0.019
 
 **결과 및 산출물**
 
--   8개 후보 miRNA에서 3·4·5-marker 조합까지 비교하는 ROC Figure와 발표용 PPT·웹앱으로 연결하고, 최종 AUC·민감도·특이도는 raw qPCR/pins 자료 기준 재계산.
+-   8개 후보 miRNA에서 3·4·5-marker 조합까지 비교하는 ROC Figure와 Interactive 웹앱으로 연결하고, 최종 AUC·민감도·특이도는 raw qPCR/pins 자료 기준 재계산.
 :::
 ::::::
 
@@ -665,12 +665,12 @@ H. pylori 제균치료의 실제 처방 경향의 전국적 조사
 
 ## Case 9. 공단·심평원 데이터 활용 멀티오믹스 분석 사례
 
-:::::::::::: {.columns .nhis-overview-slide}
+::::::::::::: {.columns .nhis-overview-slide}
 ::: {.column width="26%"}
 ![](images/paste-55.png){.nhis-bordered-image width="380"}
 :::
 
-:::::::::: {.column width="73%"}
+::::::::::: {.column width="73%"}
 ::::::::: nhis-overview-right
 **서울대학교병원 영상의학과 김형진 교수님**
 
@@ -686,8 +686,7 @@ H. pylori 제균치료의 실제 처방 경향의 전국적 조사
 
 ![](images/paste-51.png){.nhis-case-image-compact}
 
-[전체 표본 수 [235,753명]{.nhis-sample-size-number} 대상(2019 ~ 2021)]{.nhis-sample-size}
-
+[전체 표본 수]{.nhis-sample-size}[235,753명]{.nhis-sample-size-number} 대상(2019 \~ 2021)
 ::::
 
 ::::: nhis-case-stack
@@ -702,18 +701,17 @@ H. pylori 제균치료의 실제 처방 경향의 전국적 조사
 
 ![](images/paste-53.png){.nhis-case-image-compact}
 
-[전체 표본 수 [125,600명]{.nhis-sample-size-number} 대상(2019 ~ 2020)]{.nhis-sample-size}
-
+[전체 표본 수]{.nhis-sample-size}[125,600명]{.nhis-sample-size-number} 대상(2019 \~ 2020)
 ::::
 :::::
 ::::::::
-
 :::::::::
-::: {.nhis-inline-badge-row}
-[국가폐암검진 CT 판독 데이터]{.nhis-inline-badge .nhis-inline-badge-blue}와 [건강보험공단 국민 데이터]{.nhis-inline-badge .nhis-inline-badge-orange}을 결합한 [복합적 의료 분석 사례]{.nhis-inline-badge-emphasis} [ (기본 소득, 처방 및 확진, 생존여부 등) ]{.nhis-inline-badge-subtext}
+
+::: nhis-inline-badge-row
+[국가폐암검진 CT 판독 데이터]{.nhis-inline-badge .nhis-inline-badge-blue}와 [건강보험공단 국민 데이터]{.nhis-inline-badge .nhis-inline-badge-orange}을 결합한 [복합적 의료 분석 사례]{.nhis-inline-badge-emphasis} [(기본 소득, 처방 및 확진, 생존여부 등)]{.nhis-inline-badge-subtext}
 :::
-::::::::::
-::::::::::::
+:::::::::::
+:::::::::::::
 
 ## 분석 웹앱 제공 — jsmodule 기반 Shiny
 
