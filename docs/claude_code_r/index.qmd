@@ -1,7 +1,6 @@
 ---
 title: "Claude Code로 R 데이터분석"
 author: "김진섭"
-date: "2026-03-10"
 format:
   revealjs:
     theme: zarathu_theme.scss
