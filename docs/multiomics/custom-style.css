@@ -1110,3 +1110,26 @@ section[data-background-color="#2A3D21"] h1 {
   text-align: center;
   color: #4a4a4a;
 }
+
+/* ===== 멀티오믹스 특징 슬라이드: 세로 overflow 방지(텍스트 밀도 축소) ===== */
+.reveal section.feat-tight li {
+  font-size: 0.72em;
+  line-height: 1.32;
+  margin: 2px 0;
+}
+.reveal section.feat-tight .section-title {
+  margin: 8px 0 2px;
+}
+.reveal section.feat-tight .card {
+  font-size: 0.72em;
+  padding: 10px 14px;
+}
+
+/* ===== R 패키지 소개 슬라이드 ===== */
+.body-text {
+  font-size: 0.78em;
+  line-height: 1.65;
+}
+.module-table table { table-layout: fixed; }
+.module-table table thead th:nth-child(1) { width: 22%; }
+.module-table table thead th:nth-child(2) { width: 78%; }

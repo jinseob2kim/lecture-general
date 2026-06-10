@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" font-family="'Malgun Gothic','Noto Sans KR',sans-serif">
+<rect x="218" y="188" width="184" height="84" rx="14" fill="#2E7D32" stroke="#1B5E20" stroke-width="2.5"/>
+<text x="310" y="224" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">통합 분석</text>
+<text x="310" y="252" text-anchor="middle" font-size="13" fill="#C8E6C9">enrichment · MR · imputation · PRS</text>
+<defs><marker id="arg" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 L9 4 L0 8 Z" fill="#66BB6A"/></marker></defs>
+<ellipse cx="118" cy="68.0" rx="66.0" ry="10" fill="#A5D6A7" stroke="#1B5E20" stroke-width="2"/>
+<rect x="52.0" y="68.0" width="132" height="56" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<line x1="52.0" y1="68.0" x2="52.0" y2="124.0" stroke="#1B5E20" stroke-width="2"/>
+<line x1="184.0" y1="68.0" x2="184.0" y2="124.0" stroke="#1B5E20" stroke-width="2"/>
+<ellipse cx="118" cy="124.0" rx="66.0" ry="10" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<text x="118" y="94" text-anchor="middle" font-size="14" font-weight="700" fill="#1B5E20">GWAS Catalog</text>
+<text x="118" y="112" text-anchor="middle" font-size="11" fill="#2E7D32">변이–형질</text>
+<line x1="188" y1="120" x2="214" y2="200" stroke="#66BB6A" stroke-width="2.5" marker-end="url(#arg)"/>
+<ellipse cx="502" cy="68.0" rx="66.0" ry="10" fill="#A5D6A7" stroke="#1B5E20" stroke-width="2"/>
+<rect x="436.0" y="68.0" width="132" height="56" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<line x1="436.0" y1="68.0" x2="436.0" y2="124.0" stroke="#1B5E20" stroke-width="2"/>
+<line x1="568.0" y1="68.0" x2="568.0" y2="124.0" stroke="#1B5E20" stroke-width="2"/>
+<ellipse cx="502" cy="124.0" rx="66.0" ry="10" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<text x="502" y="94" text-anchor="middle" font-size="14" font-weight="700" fill="#1B5E20">GTEx (eQTL)</text>
+<text x="502" y="112" text-anchor="middle" font-size="11" fill="#2E7D32">조절</text>
+<line x1="432" y1="120" x2="406" y2="200" stroke="#66BB6A" stroke-width="2.5" marker-end="url(#arg)"/>
+<ellipse cx="118" cy="336.0" rx="66.0" ry="10" fill="#A5D6A7" stroke="#1B5E20" stroke-width="2"/>
+<rect x="52.0" y="336.0" width="132" height="56" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<line x1="52.0" y1="336.0" x2="52.0" y2="392.0" stroke="#1B5E20" stroke-width="2"/>
+<line x1="184.0" y1="336.0" x2="184.0" y2="392.0" stroke="#1B5E20" stroke-width="2"/>
+<ellipse cx="118" cy="392.0" rx="66.0" ry="10" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<text x="118" y="362" text-anchor="middle" font-size="14" font-weight="700" fill="#1B5E20">KEGG·Reactome</text>
+<text x="118" y="380" text-anchor="middle" font-size="11" fill="#2E7D32">경로·기능</text>
+<line x1="188" y1="340" x2="214" y2="260" stroke="#66BB6A" stroke-width="2.5" marker-end="url(#arg)"/>
+<ellipse cx="502" cy="336.0" rx="66.0" ry="10" fill="#A5D6A7" stroke="#1B5E20" stroke-width="2"/>
+<rect x="436.0" y="336.0" width="132" height="56" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<line x1="436.0" y1="336.0" x2="436.0" y2="392.0" stroke="#1B5E20" stroke-width="2"/>
+<line x1="568.0" y1="336.0" x2="568.0" y2="392.0" stroke="#1B5E20" stroke-width="2"/>
+<ellipse cx="502" cy="392.0" rx="66.0" ry="10" fill="#E8F5E9" stroke="#1B5E20" stroke-width="2"/>
+<text x="502" y="362" text-anchor="middle" font-size="14" font-weight="700" fill="#1B5E20">1000G·TopMed</text>
+<text x="502" y="380" text-anchor="middle" font-size="11" fill="#2E7D32">참조 패널</text>
+<line x1="432" y1="340" x2="406" y2="260" stroke="#66BB6A" stroke-width="2.5" marker-end="url(#arg)"/>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" font-family="'Malgun Gothic','Noto Sans KR',sans-serif">
+<rect x="72.0" y="70" width="80.7" height="260" fill="#E0F2F1" opacity="0.6"/>
+<rect x="233.3" y="70" width="80.7" height="260" fill="#E0F2F1" opacity="0.6"/>
+<rect x="394.7" y="70" width="80.7" height="260" fill="#E0F2F1" opacity="0.6"/>
+<line x1="72" y1="330" x2="556" y2="330" stroke="#37474F" stroke-width="2"/>
+<line x1="72" y1="70" x2="72" y2="330" stroke="#37474F" stroke-width="2"/>
+<line x1="72" y1="140.2" x2="556" y2="140.2" stroke="#C62828" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="552" y="133.2" text-anchor="end" font-size="14" font-weight="700" fill="#C62828">genome-wide P = 5×10⁻⁸</text>
+<circle cx="118.6" cy="304.6" r="3.1" fill="#00838F"/>
+<circle cx="124.7" cy="257.7" r="3.1" fill="#00838F"/>
+<circle cx="143.2" cy="259.2" r="3.1" fill="#00838F"/>
+<circle cx="101.5" cy="301.7" r="3.1" fill="#00838F"/>
+<circle cx="138.5" cy="271.4" r="3.1" fill="#00838F"/>
+<circle cx="80.6" cy="295.5" r="3.1" fill="#00838F"/>
+<circle cx="117.8" cy="309.4" r="3.1" fill="#00838F"/>
+<circle cx="116.4" cy="291.4" r="3.1" fill="#00838F"/>
+<circle cx="108.9" cy="259.5" r="3.1" fill="#00838F"/>
+<circle cx="132.2" cy="293.6" r="3.1" fill="#00838F"/>
+<circle cx="105.5" cy="269.5" r="3.1" fill="#00838F"/>
+<circle cx="134.0" cy="275.1" r="3.1" fill="#00838F"/>
+<circle cx="86.8" cy="278.7" r="3.1" fill="#00838F"/>
+<circle cx="106.8" cy="316.9" r="3.1" fill="#00838F"/>
+<circle cx="111.0" cy="297.1" r="3.1" fill="#00838F"/>
+<circle cx="90.8" cy="317.6" r="3.1" fill="#00838F"/>
+<circle cx="213.4" cy="308.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="199.7" cy="265.5" r="3.1" fill="#4DB6AC"/>
+<circle cx="182.0" cy="323.9" r="3.1" fill="#4DB6AC"/>
+<circle cx="178.2" cy="259.1" r="3.1" fill="#4DB6AC"/>
+<circle cx="202.7" cy="284.4" r="3.1" fill="#4DB6AC"/>
+<circle cx="195.4" cy="297.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="168.6" cy="307.2" r="3.1" fill="#4DB6AC"/>
+<circle cx="210.6" cy="324.7" r="3.1" fill="#4DB6AC"/>
+<circle cx="194.2" cy="307.0" r="3.1" fill="#4DB6AC"/>
+<circle cx="220.0" cy="267.5" r="3.1" fill="#4DB6AC"/>
+<circle cx="175.0" cy="319.5" r="3.1" fill="#4DB6AC"/>
+<circle cx="224.5" cy="248.3" r="3.1" fill="#4DB6AC"/>
+<circle cx="184.9" cy="268.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="165.1" cy="302.5" r="3.1" fill="#4DB6AC"/>
+<circle cx="162.9" cy="253.0" r="3.1" fill="#4DB6AC"/>
+<circle cx="195.9" cy="279.1" r="3.1" fill="#4DB6AC"/>
+<circle cx="182.6" cy="147.9" r="3.4" fill="#006064"/>
+<circle cx="182.4" cy="140.5" r="3.4" fill="#006064"/>
+<circle cx="201.1" cy="137.9" r="3.4" fill="#006064"/>
+<circle cx="186.7" cy="124.2" r="3.4" fill="#006064"/>
+<circle cx="173.9" cy="163.7" r="3.4" fill="#006064"/>
+<circle cx="184.6" cy="128.5" r="3.4" fill="#006064"/>
+<circle cx="211.2" cy="152.3" r="3.4" fill="#006064"/>
+<circle cx="203.6" cy="149.9" r="3.4" fill="#006064"/>
+<circle cx="180.4" cy="153.0" r="3.4" fill="#006064"/>
+<circle cx="300.9" cy="312.7" r="3.1" fill="#00838F"/>
+<circle cx="275.5" cy="291.7" r="3.1" fill="#00838F"/>
+<circle cx="278.1" cy="293.8" r="3.1" fill="#00838F"/>
+<circle cx="268.1" cy="294.2" r="3.1" fill="#00838F"/>
+<circle cx="291.1" cy="292.8" r="3.1" fill="#00838F"/>
+<circle cx="304.6" cy="296.1" r="3.1" fill="#00838F"/>
+<circle cx="256.4" cy="304.6" r="3.1" fill="#00838F"/>
+<circle cx="302.1" cy="302.5" r="3.1" fill="#00838F"/>
+<circle cx="251.4" cy="296.4" r="3.1" fill="#00838F"/>
+<circle cx="271.9" cy="266.5" r="3.1" fill="#00838F"/>
+<circle cx="250.1" cy="314.7" r="3.1" fill="#00838F"/>
+<circle cx="267.4" cy="278.3" r="3.1" fill="#00838F"/>
+<circle cx="266.7" cy="286.7" r="3.1" fill="#00838F"/>
+<circle cx="288.5" cy="284.2" r="3.1" fill="#00838F"/>
+<circle cx="264.5" cy="317.7" r="3.1" fill="#00838F"/>
+<circle cx="260.7" cy="277.9" r="3.1" fill="#00838F"/>
+<circle cx="349.0" cy="259.2" r="3.1" fill="#4DB6AC"/>
+<circle cx="349.9" cy="315.6" r="3.1" fill="#4DB6AC"/>
+<circle cx="337.0" cy="323.3" r="3.1" fill="#4DB6AC"/>
+<circle cx="358.3" cy="313.5" r="3.1" fill="#4DB6AC"/>
+<circle cx="322.3" cy="267.4" r="3.1" fill="#4DB6AC"/>
+<circle cx="331.7" cy="291.0" r="3.1" fill="#4DB6AC"/>
+<circle cx="369.6" cy="314.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="359.3" cy="287.9" r="3.1" fill="#4DB6AC"/>
+<circle cx="363.7" cy="283.9" r="3.1" fill="#4DB6AC"/>
+<circle cx="343.3" cy="264.7" r="3.1" fill="#4DB6AC"/>
+<circle cx="382.6" cy="276.5" r="3.1" fill="#4DB6AC"/>
+<circle cx="356.6" cy="319.2" r="3.1" fill="#4DB6AC"/>
+<circle cx="378.5" cy="307.9" r="3.1" fill="#4DB6AC"/>
+<circle cx="381.2" cy="279.3" r="3.1" fill="#4DB6AC"/>
+<circle cx="367.3" cy="308.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="373.5" cy="282.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="418.9" cy="322.7" r="3.1" fill="#00838F"/>
+<circle cx="466.5" cy="217.3" r="3.1" fill="#00838F"/>
+<circle cx="412.9" cy="258.3" r="3.1" fill="#00838F"/>
+<circle cx="435.7" cy="290.4" r="3.1" fill="#00838F"/>
+<circle cx="408.1" cy="296.1" r="3.1" fill="#00838F"/>
+<circle cx="431.0" cy="270.9" r="3.1" fill="#00838F"/>
+<circle cx="448.4" cy="266.0" r="3.1" fill="#00838F"/>
+<circle cx="435.9" cy="318.8" r="3.1" fill="#00838F"/>
+<circle cx="461.4" cy="320.1" r="3.1" fill="#00838F"/>
+<circle cx="445.4" cy="278.5" r="3.1" fill="#00838F"/>
+<circle cx="438.1" cy="263.4" r="3.1" fill="#00838F"/>
+<circle cx="441.2" cy="288.3" r="3.1" fill="#00838F"/>
+<circle cx="427.9" cy="271.7" r="3.1" fill="#00838F"/>
+<circle cx="409.7" cy="312.6" r="3.1" fill="#00838F"/>
+<circle cx="430.9" cy="303.1" r="3.1" fill="#00838F"/>
+<circle cx="442.8" cy="317.7" r="3.1" fill="#00838F"/>
+<circle cx="418.2" cy="140.9" r="3.4" fill="#006064"/>
+<circle cx="419.7" cy="127.8" r="3.4" fill="#006064"/>
+<circle cx="415.4" cy="143.5" r="3.4" fill="#006064"/>
+<circle cx="428.5" cy="118.9" r="3.4" fill="#006064"/>
+<circle cx="415.3" cy="147.6" r="3.4" fill="#006064"/>
+<circle cx="426.4" cy="113.6" r="3.4" fill="#006064"/>
+<circle cx="451.9" cy="136.5" r="3.4" fill="#006064"/>
+<circle cx="433.9" cy="105.5" r="3.4" fill="#006064"/>
+<circle cx="442.5" cy="114.9" r="3.4" fill="#006064"/>
+<circle cx="519.6" cy="259.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="524.0" cy="321.5" r="3.1" fill="#4DB6AC"/>
+<circle cx="530.3" cy="298.1" r="3.1" fill="#4DB6AC"/>
+<circle cx="486.7" cy="273.9" r="3.1" fill="#4DB6AC"/>
+<circle cx="483.6" cy="274.0" r="3.1" fill="#4DB6AC"/>
+<circle cx="514.4" cy="245.6" r="3.1" fill="#4DB6AC"/>
+<circle cx="546.6" cy="290.0" r="3.1" fill="#4DB6AC"/>
+<circle cx="512.4" cy="314.6" r="3.1" fill="#4DB6AC"/>
+<circle cx="499.8" cy="269.6" r="3.1" fill="#4DB6AC"/>
+<circle cx="505.9" cy="264.9" r="3.1" fill="#4DB6AC"/>
+<circle cx="496.9" cy="308.0" r="3.1" fill="#4DB6AC"/>
+<circle cx="519.6" cy="281.6" r="3.1" fill="#4DB6AC"/>
+<circle cx="517.1" cy="305.8" r="3.1" fill="#4DB6AC"/>
+<circle cx="492.7" cy="301.3" r="3.1" fill="#4DB6AC"/>
+<circle cx="485.1" cy="282.4" r="3.1" fill="#4DB6AC"/>
+<circle cx="488.0" cy="272.0" r="3.1" fill="#4DB6AC"/>
+<text x="34" y="200" text-anchor="middle" font-size="16" font-weight="700" fill="#37474F" transform="rotate(-90 34 200)">−log₁₀(P)</text>
+<text x="314" y="356" text-anchor="middle" font-size="16" fill="#37474F">염색체 위치 (수십만~수백만 변이 동시 검정)</text>
+<text x="314" y="382" text-anchor="middle" font-size="15" fill="#C62828">붉은 선 위 신호만 유의 — 보정 없이는 위양성 폭증</text>
+</svg>

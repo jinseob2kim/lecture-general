@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" font-family="'Malgun Gothic','Noto Sans KR',sans-serif">
+<defs><pattern id="cellG" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#E8F5E9" stroke="#66BB6A" stroke-width="1"/></pattern></defs>
+<rect x="76" y="150" width="468" height="104" fill="url(#cellG)" stroke="#1B5E20" stroke-width="2.5"/>
+<path d="M76 134 L76 126 L544 126 L544 134" fill="none" stroke="#2E7D32" stroke-width="2"/>
+<text x="310" y="116" text-anchor="middle" font-size="21" font-weight="700" fill="#1B5E20">p = 변수(마커) · 수만~수백만</text>
+<path d="M58 150 L50 150 L50 254 L58 254" fill="none" stroke="#2E7D32" stroke-width="2"/>
+<text x="40" y="202" text-anchor="middle" font-size="18" font-weight="700" fill="#1B5E20" transform="rotate(-90 40 202)">n = 표본 · 수십~수백</text>
+<text x="310" y="322" text-anchor="middle" font-size="46" font-weight="800" fill="#2E7D32">p ≫ n</text>
+<text x="310" y="362" text-anchor="middle" font-size="18" fill="#37474F">차원의 저주 · 과적합 · 회귀 해 불안정</text>
+</svg>

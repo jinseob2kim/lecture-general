@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" font-family="'Malgun Gothic','Noto Sans KR',sans-serif">
+<rect x="40" y="58" width="270" height="176" rx="8" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1.6"/>
+<text x="52" y="80" font-size="16" font-weight="700" fill="#4A148C">유전형 SNP</text>
+<text x="298" y="80" text-anchor="end" font-size="12" fill="#7B1FA2">범주 0 / 1 / 2</text>
+<line x1="56" y1="216" x2="294" y2="216" stroke="#9E9E9E" stroke-width="1.4"/>
+<rect x="84.6" y="147.8" width="46.7" height="68.2" fill="#7B1FA2" opacity="0.85"/>
+<text x="107.9" y="231.0" text-anchor="middle" font-size="12" fill="#4A148C">0</text>
+<rect x="156.0" y="98.2" width="46.7" height="117.8" fill="#7B1FA2" opacity="0.85"/>
+<text x="179.3" y="231.0" text-anchor="middle" font-size="12" fill="#4A148C">1</text>
+<rect x="227.4" y="160.2" width="46.7" height="55.8" fill="#7B1FA2" opacity="0.85"/>
+<text x="250.7" y="231.0" text-anchor="middle" font-size="12" fill="#4A148C">2</text>
+<rect x="326" y="58" width="270" height="176" rx="8" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1.6"/>
+<text x="338" y="80" font-size="16" font-weight="700" fill="#4A148C">RNA-seq</text>
+<text x="584" y="80" text-anchor="end" font-size="12" fill="#7B1FA2">count · 과분산</text>
+<line x1="342" y1="216" x2="580" y2="216" stroke="#9E9E9E" stroke-width="1.4"/>
+<rect x="342.0" y="98.2" width="27.8" height="117.8" fill="#7B1FA2" opacity="0.85"/>
+<rect x="371.8" y="119.3" width="27.8" height="96.7" fill="#7B1FA2" opacity="0.85"/>
+<rect x="401.5" y="147.8" width="27.8" height="68.2" fill="#7B1FA2" opacity="0.85"/>
+<rect x="431.2" y="168.9" width="27.8" height="47.1" fill="#7B1FA2" opacity="0.85"/>
+<rect x="461.0" y="183.8" width="27.8" height="32.2" fill="#7B1FA2" opacity="0.85"/>
+<rect x="490.8" y="194.9" width="27.8" height="21.1" fill="#7B1FA2" opacity="0.85"/>
+<rect x="520.5" y="203.6" width="27.8" height="12.4" fill="#7B1FA2" opacity="0.85"/>
+<rect x="550.2" y="208.6" width="27.8" height="7.4" fill="#7B1FA2" opacity="0.85"/>
+<rect x="40" y="248" width="270" height="176" rx="8" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1.6"/>
+<text x="52" y="270" font-size="16" font-weight="700" fill="#4A148C">메틸화 β</text>
+<text x="298" y="270" text-anchor="end" font-size="12" fill="#7B1FA2">0~1 경계 · 양극</text>
+<line x1="56" y1="406" x2="294" y2="406" stroke="#9E9E9E" stroke-width="1.4"/>
+<rect x="56.0" y="291.9" width="24.4" height="114.1" fill="#7B1FA2" opacity="0.85"/>
+<rect x="82.4" y="344.0" width="24.4" height="62.0" fill="#7B1FA2" opacity="0.85"/>
+<rect x="108.9" y="371.3" width="24.4" height="34.7" fill="#7B1FA2" opacity="0.85"/>
+<rect x="135.3" y="383.7" width="24.4" height="22.3" fill="#7B1FA2" opacity="0.85"/>
+<rect x="161.8" y="386.2" width="24.4" height="19.8" fill="#7B1FA2" opacity="0.85"/>
+<rect x="188.2" y="383.7" width="24.4" height="22.3" fill="#7B1FA2" opacity="0.85"/>
+<rect x="214.7" y="368.8" width="24.4" height="37.2" fill="#7B1FA2" opacity="0.85"/>
+<rect x="241.1" y="337.8" width="24.4" height="68.2" fill="#7B1FA2" opacity="0.85"/>
+<rect x="267.6" y="288.2" width="24.4" height="117.8" fill="#7B1FA2" opacity="0.85"/>
+<text x="58" y="421" font-size="11" fill="#4A148C">0</text>
+<text x="292" y="421" text-anchor="end" font-size="11" fill="#4A148C">1</text>
+<rect x="326" y="248" width="270" height="176" rx="8" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1.6"/>
+<text x="338" y="270" font-size="16" font-weight="700" fill="#4A148C">단백·대사체</text>
+<text x="584" y="270" text-anchor="end" font-size="12" fill="#7B1FA2">연속 · log 정규</text>
+<line x1="342" y1="406" x2="580" y2="406" stroke="#9E9E9E" stroke-width="1.4"/>
+<polyline points="342,406 342.0,406.0 348.1,403.3 354.2,385.1 360.3,352.6 366.4,319.8 372.5,296.2 378.6,284.2 384.7,282.0 390.8,286.6 396.9,295.4 403.0,306.2 409.1,317.6 415.2,328.8 421.3,339.2 427.4,348.7 433.5,357.0 439.6,364.2 445.7,370.5 451.8,375.9 457.9,380.4 464.1,384.3 470.2,387.6 476.3,390.4 482.4,392.8 488.5,394.7 494.6,396.4 500.7,397.8 506.8,399.0 512.9,400.0 519.0,400.9 525.1,401.6 531.2,402.3 537.3,402.8 543.4,403.2 549.5,403.6 555.6,403.9 561.7,404.2 567.8,404.5 573.9,404.7 580.0,404.8 580,406" fill="#7B1FA2" fill-opacity="0.3" stroke="#7B1FA2" stroke-width="2"/>
+</svg>

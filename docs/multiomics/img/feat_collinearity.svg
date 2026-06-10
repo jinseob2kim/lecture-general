@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" font-family="'Malgun Gothic','Noto Sans KR',sans-serif">
+<defs><linearGradient id="ldg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0D47A1"/><stop offset="50%" stop-color="#1976D2"/><stop offset="100%" stop-color="#E3F2FD"/></linearGradient><pattern id="ldgrid" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)"><rect width="34" height="34" fill="none" stroke="#90CAF9" stroke-width="1" opacity="0.55"/></pattern></defs>
+<line x1="120" y1="122" x2="500" y2="122" stroke="#0D47A1" stroke-width="2"/>
+<circle cx="120" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="168" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="215" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="262" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="310" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="358" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="405" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="452" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<circle cx="500" cy="122" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<text x="310" y="98" text-anchor="middle" font-size="17" fill="#37474F">SNP (염색체상 인접 변이)</text>
+<polygon points="120,130 500,130 310,360" fill="url(#ldg)" stroke="#0D47A1" stroke-width="2"/>
+<polygon points="120,130 500,130 310,360" fill="url(#ldgrid)"/>
+<text x="310" y="404" text-anchor="middle" font-size="18" font-weight="700" fill="#0D47A1">LD block — 인접 변이끼리 강한 상관 (r² ↑)</text>
+</svg>

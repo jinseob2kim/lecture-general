@@ -6,10 +6,10 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.39">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
-  <meta name="author" content="김진섭 (차라투 주식회사)">
+  <meta name="author" content="김진섭">
   <meta name="dcterms.date" content="2026-06-13">
   <title>정밀의료 연구에서의 멀티오믹스 분석 전략과 실제 적용</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,8 +32,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-dd39fbbabf720be66b06274ca3d2aacb.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-fa2d3e21028720e1b17fb35980df85e0.css">
   <link rel="stylesheet" href="custom-style.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -132,241 +201,742 @@
 
 <section id="title-slide" data-background-image="bg.png" data-background-opacity="0.3" data-background-size="cover" class="quarto-title-block center">
   <h1 class="title">정밀의료 연구에서의 멀티오믹스 분석 전략과 실제 적용</h1>
-  <p class="subtitle">차라투 분석 사례 및 공단·심평원 데이터 연계 중심</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-김진섭 (차라투 주식회사) 
+김진섭 
 </div>
 </div>
 </div>
 
   <p class="date">2026-06-13</p>
 </section>
-<section class="slide level2">
-
-<!-- case-media-2: 사진 2장, 위아래 2칸 분할
-case-media-3: 사진 3장, 위아래 3칸 분할
-case-media-full: 사진 1장, 오른쪽 사진 공간 전체 사용
-case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
-</section>
 <section id="목차" class="slide level2">
 <h2>목차</h2>
-<div style="padding: 10px 40px;">
+<div style="padding: 50px 80px; font-size: 1.5em; line-height: 1.6;">
 <div class="highlight-box">
-<p><strong>I. 차라투 소개</strong> — 누가, <strong>무엇</strong>을 하는 회사</p>
+<p><strong>I. 자기소개 · R 패키지</strong></p>
+</div>
+<div class="spacer-md">
+
 </div>
 <div class="highlight-box-blue">
-<p><strong>II. 차라투가 수행한 멀티오믹스 분석</strong> — 암·정신과·피부·호흡기 7개 사례</p>
+<p><strong>II. 수행했던 멀티오믹스 분석</strong></p>
+</div>
+<div class="spacer-md">
+
 </div>
 <div class="highlight-box-teal">
-<p><strong>III. 공단·심평원 데이터 연계</strong> — 200만명 규모 연구 경험</p>
-</div>
-<div class="highlight-box-purple">
-<p><strong>IV. 뇌졸중 연구 협업 제안</strong> — 바로 적용 가능한 분석 전략</p>
+<p><strong>III. 공단·심평원 데이터 분석</strong></p>
 </div>
 </div>
 </section>
-<section id="차라투-주식회사" class="slide level2">
-<h2>차라투 주식회사</h2>
+<section id="자기소개" class="slide level2">
+<h2>자기소개</h2>
 <div class="spacer-xs">
 
 </div>
-<div class="accent-box">
-<p>국내 유일 <strong>의학연구지원 전문기업</strong>. 대표 <strong>예방의학 전문의 · 수학올림피아드 특기자</strong> 출신으로 임상·유전체·오믹스 분석 전 영역을 아우릅니다</p>
+<div class="columns">
+<div class="column" style="width:56%;">
+<div class="card">
+<p><strong>차라투(주)</strong> — Zarathu Co., Ltd</p>
+<ul>
+<li>의학연구지원</li>
+<li>R 패키지 개발 및 교육</li>
+<li>인턴십 — 연세대 학부생, 의대생·전공의 30명 이상</li>
+</ul>
+</div>
+<div class="spacer-xs">
+
+</div>
+<p><span class="section-title"><strong>약력</strong></span></p>
+<ul>
+<li><strong>2003–2009</strong> 성균관의대 졸업</li>
+<li><strong>2010–2013</strong> 예방의학 전문의 · 서울대 보건대학원</li>
+<li><strong>2010–2018</strong> 보건학 박사수료(유전체역학) · 서울대 보건대학원</li>
+<li><strong>2014–2016</strong> 책임연구원 · 삼성전자 DMC연구소·무선사업부</li>
+<li><strong>2018–현재</strong> 대표 · 차라투(주)</li>
+</ul>
+</div><div class="column" style="width:44%;">
+<p><span class="section-title"><strong>기타 활동</strong></span></p>
+<div class="card-navy">
+<ul>
+<li><strong>2021–2022</strong> 겸임교수 · 성균관대 바이오헬스규제과학과 — R 빅데이터분석 강의</li>
+<li><strong>2023–현재</strong> Statistical Editor · Journal of Cardiovascular Intervention</li>
+<li><strong>2025–현재</strong> 학술이사(임상시험분과) · 신경약물임상시험학회</li>
+<li><strong>2026–현재</strong> 편집위원 · 생물정신의학회</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="직접-개발한-r-패키지-statgarten-오픈소스-생태계" class="slide level2">
+<h2>직접 개발한 R 패키지 — Statgarten 오픈소스 생태계</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/statgarten_ecosystem.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+<div class="footnote">
+<p>Statgarten 통계패키지 생태계</p>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="section-title">
+<p>정부 R&amp;D로 단계적 고도화한 오픈소스 자산</p>
+</div>
+<div class="body-text">
+<p><strong>IITP · NIPA 공개SW R&amp;D</strong>로 의학연구용 분석 패키지 · SaaS · 웹 · 튜토리얼까지 단계적으로 구축</p>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">구분</th>
+<th style="text-align: left;">항목</th>
+<th style="text-align: center;">내역</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>R 패키지</strong></td>
+<td style="text-align: left;">통계 분석 함수</td>
+<td style="text-align: center;"><strong>111종</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>공개 SaaS</strong></td>
+<td style="text-align: left;">openstat.ai</td>
+<td style="text-align: center;">무료 운영</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>R&amp;D 수행</strong></td>
+<td style="text-align: left;">IITP·NIPA 공개SW</td>
+<td style="text-align: center;"><strong>3건</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>지식재산권</strong></td>
+<td style="text-align: left;">특허 등록</td>
+<td style="text-align: center;"><strong>2건</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>지식재산권</strong></td>
+<td style="text-align: left;">SW 저작권</td>
+<td style="text-align: center;"><strong>1건</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>연구 지원</strong></td>
+<td style="text-align: left;">분석 지원 논문</td>
+<td style="text-align: center;"><strong>200편</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>임상시험</strong></td>
+<td style="text-align: left;">데이터 분석 건수</td>
+<td style="text-align: center;"><strong>50건</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="spacer-sm">
+
+</div>
+<div class="highlight-box">
+<p>의학논문에 쓰이는 <strong>거의 모든 분석을 포함</strong>한 R 패키지 — 분석 모듈을 GUI와 통합해 <strong>1~2줄 코드로 분석 웹 구축</strong> 가능</p>
+</div>
+</div></div>
+<aside class="notes">
+<p>직접 개발해 온 Statgarten 오픈소스 생태계입니다. IITP·NIPA 공개SW R&amp;D를 통해 단계적으로 고도화해 왔으며, 의학연구용 R 패키지 111종, 무료 공개 SaaS openstat.ai, 특허 2건과 SW 저작권 1건을 보유합니다. 오늘 보여드릴 분석들이 모두 이 패키지로 수행됩니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="대-대표-패키지-jskm-jstable-jsmodule-splineplot" class="slide level2">
+<h2>4대 대표 패키지 — jskm · jstable · jsmodule · splineplot</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="section-title">
+<p>대표 R 패키지 4종 · CRAN 등록</p>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">패키지</th>
+<th style="text-align: left;">기능</th>
+<th style="text-align: left;">GitHub</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>jskm</strong></td>
+<td style="text-align: left;">KM plot 논문용 그림</td>
+<td style="text-align: left;">jinseob2kim/jskm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>jstable</strong></td>
+<td style="text-align: left;">Regression 논문용 테이블</td>
+<td style="text-align: left;">jinseob2kim/jstable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>jsmodule</strong></td>
+<td style="text-align: left;">분석기능 모듈화 (저코드)</td>
+<td style="text-align: left;">jinseob2kim/jsmodule</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>splineplot</strong></td>
+<td style="text-align: left;">비선형 모델 시각화</td>
+<td style="text-align: left;">jinseob2kim/splineplot</td>
+</tr>
+</tbody>
+</table>
+<div class="section-title">
+<p>누적 다운로드</p>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">지역</th>
+<th style="text-align: center;">다운로드</th>
+<th style="text-align: left;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">글로벌 누적</td>
+<td style="text-align: center;"><strong>30만 회+</strong></td>
+<td style="text-align: left;">CRAN + GitHub</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">일본</td>
+<td style="text-align: center;"><strong>3만 회</strong></td>
+<td style="text-align: left;">블로그 리뷰</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">중국</td>
+<td style="text-align: center;"><strong>7만 회</strong></td>
+<td style="text-align: left;">영상 후기</td>
+</tr>
+</tbody>
+</table>
+<div class="spacer-sm">
+
+</div>
+<div class="highlight-box">
+<p>본 패키지 활용 논문 <strong>200편</strong> (NEJM · Lancet · JAMA 등 최상위 저널 포함), 임상 데이터 분석 <strong>50건</strong></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="section-title">
+<p>패키지 화면 (jskm · jstable)</p>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+<p><img data-src="img/jskm_pkg.png" style="width:100.0%"></p>
+<p><img data-src="img/jstable_pkg.png" style="width:100.0%"></p>
+</div>
+<div class="spacer-xs">
+
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/papers.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>대표 R 패키지 4종입니다. jskm은 Kaplan-Meier plot을 논문용 그림으로, jstable은 회귀분석 결과를 논문용 테이블로, jsmodule은 분석기능을 모듈화해 저코드로 분석 웹을 만들고, splineplot은 비선형 모델을 시각화합니다. 글로벌 누적 30만 다운로드, 이 패키지로 NEJM·Lancet·JAMA 포함 200편의 논문을 지원했습니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="jsmodule-저코드-분석-웹-ai-assistant" class="slide level2">
+<h2>jsmodule — 저코드 분석 웹 · AI Assistant</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div style="height: 560px; overflow: hidden;">
+<p><img data-src="img/jsmodule_ai_assistant.png" style="width:100.0%"></p>
+</div>
+<div class="footnote">
+<p>jsmodule 2.0.0 — AI Assistant 시범 탑재 / openstat.ai 운영 중</p>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="section-title">
+<p>이미 작동하는 AI agent 초기 버전</p>
+</div>
+<div class="body-text">
+<p>jsmodule 저코드 분석모듈 엔진에 <strong>AI Assistant 기능을 시범 탑재</strong> — <em>“R 패키지의 AI agent화”</em> 초기 구현 사례</p>
+</div>
+<div class="module-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">구분</th>
+<th style="text-align: left;">구현 기능</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>LLM 연동</strong></td>
+<td style="text-align: left;">질의 기반 분석 코드·통계 절차·시각화 생성·수정·실행</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>컨텍스트 활용</strong></td>
+<td style="text-align: left;">Data Manager 컨텍스트로 이전 표·그림 참조하는 후속 질의</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>보안 설계</strong></td>
+<td style="text-align: left;">row-level 데이터 미포함 / 샌드박스 / 변수명 일반화</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>출력 포맷</strong></td>
+<td style="text-align: left;">표·그림·flextable · <strong>PPTX · Word · Excel · TXT</strong> 내보내기</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="spacer-sm">
+
+</div>
+<div class="highlight-box">
+<p>코드 생성을 넘어 <strong>분석 설계 · 데이터 검증 · 통계 실행 · 보고서</strong>까지 연결하는 표준화 분석모듈 기반 AI agent</p>
+</div>
+</div></div>
+<aside class="notes">
+<p>jsmodule 2.0.0에는 이미 AI Assistant 기능이 시범 탑재되어 있습니다. 질의를 입력하면 분석 코드·통계 절차·시각화를 생성·수정·실행하고, 이전 표·그림을 참조하는 후속 질의가 가능하며, 결과를 PPTX·Word·Excel로 바로 내보냅니다. openstat.ai에서 약 1,000명의 회원이 사용 중입니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="멀티오믹스-데이터와-분석의-특징" class="slide level2">
+<h2>멀티오믹스 데이터와 분석의 특징</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="accent-box-emerald">
+<p><strong>일반 통계(회귀·t검정)를 그대로 적용할 수 없는 데이터</strong> — 데이터 특성마다 전용 분석 전략 필요</p>
+</div>
+<div class="spacer-xs">
+
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span class="section-title"><strong>수행 범위</strong></span></p>
+<div class="highlight-box">
+<p><strong>① 고차원 (p ≫ n)</strong> — 수만~수백만 마커 vs 수백 표본 → 정규화(Lasso·Elastic Net)·차원축소(PCA·MOFA)</p>
+</div>
+<div class="highlight-box-blue">
+<p><strong>② 다중공선성</strong> — LD·공발현·pathway로 변수 간 강한 상관 → 네트워크·모듈 기반 통합(xMWAS·WGCNA)</p>
+</div>
+<div class="highlight-box-teal">
+<p><strong>③ 다중검정</strong> — 수백만 검정 동시 수행 → genome-wide significance(5 × 10⁻⁸)·FDR 보정</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="highlight-box-purple">
+<p><strong>④ 데이터 이종성</strong> — 계층별 분포·스케일 상이(SNP·count·beta·log-normal) → 정규화 후 단계별 통합</p>
+</div>
+<div class="highlight-box-gray">
+<p><strong>⑤ 기술적 잡음·교란</strong> — batch effect·집단구조가 신호 왜곡 → ComBat·SVA, PC 보정·deconvolution</p>
+</div>
+<div class="highlight-box">
+<p><strong>⑥ 사전지식·공개데이터</strong> — GWAS Catalog·GTEx·KEGG·UK Biobank 활용 → enrichment·MR·imputation</p>
+</div>
+</div></div>
+<div class="footnote">
+<p>※ p ≫ n: 변수(마커) 수가 표본 수를 크게 초과하는 구조 / MR: Mendelian Randomization (인과성 추론)</p>
+</div>
+<aside class="notes">
+<p>멀티오믹스 데이터는 일반 임상 데이터와 근본적으로 다른 6가지 특성을 가집니다. 첫째 고차원(p가 n보다 훨씬 큼), 둘째 변수 간 강한 상관(LD나 공발현), 셋째 수백만 건의 다중검정, 넷째 계층별로 분포와 스케일이 다른 이종성, 다섯째 batch effect와 집단구조 같은 기술적 잡음·교란, 여섯째 GWAS Catalog·GTEx 같은 공개 reference 데이터의 적극적 활용입니다. 각 특성마다 그에 맞는 전용 분석 전략이 필요하며, 이어지는 6개 슬라이드에서 각 특징과 대응 전략을 하나씩 상세히 다룹니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="고차원-변수가-표본을-압도-p-n" class="slide level2 feat-tight">
+<h2>① 고차원 — 변수가 표본을 압도 (p ≫ n)</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><span class="section-title"><strong>현상</strong></span></p>
 <ul>
-<li>연구 설계·샘플수 계산부터 논문 투고까지 <strong>end-to-end</strong></li>
-<li>12시간 내 응답 보장, <strong>200편+ SCI 논문</strong> 지원</li>
-<li>한림대·인제대·삼성서울병원 등 다수 기관 연단위 계약</li>
+<li>측정 변수 p — SNP 50만+ · CpG 85만 · 전사체 2만+ → 수만~수백만</li>
+<li>표본 n — 수십~수백 수준</li>
+<li>p가 n을 압도 → 회귀 해 불안정 · 과적합 필연</li>
 </ul>
-<p><span class="section-title"><strong>오믹스 수행 경험</strong></span></p>
+<p><span class="section-title"><strong>차원의 저주</strong></span></p>
 <ul>
-<li>GWAS, PRS (PRScs · PRScsx), scRNA-seq</li>
-<li>Nanostring spatial transcriptomics</li>
-<li>Proteomics · lipidomics · methylation</li>
-<li>xMWAS 기반 다층 네트워크 통합</li>
+<li>변수↑ → 표본 간 거리 희박, 우연 상관 급증</li>
+<li>최소제곱(OLS) — p &gt; n이면 유일 해 부재</li>
+</ul>
+<p><span class="section-title"><strong>분석 전략</strong></span></p>
+<ul>
+<li>벌점화 회귀 — Lasso·Ridge·Elastic Net: 변수 선택 + 계수 축소</li>
+<li>차원축소 — PCA·PLS·MOFA: 잠재 인자로 압축</li>
+<li>사전 필터링 — 분산·연관 기반 screening</li>
+</ul>
+</div><div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/feat_highdim.svg" class="quarto-figure quarto-figure-center" height="280"></p>
+</figure>
+</div>
+<div class="card">
+<p><span class="section-title">차원축소 — PLS · MOFA</span></p>
+<ul>
+<li><strong>PLS</strong>(부분최소제곱) — 결과변수와 가장 관련 큰 방향으로 변수를 압축하는 지도학습형 차원축소 (PCA는 결과를 보지 않는 비지도)</li>
+<li><strong>MOFA</strong>(Multi-Omics Factor Analysis) — 여러 오믹스를 동시에 설명하는 공통 잠재인자(factor)를 찾는 비지도 통합 기법</li>
+</ul>
+</div>
+</div></div>
+<aside class="notes">
+<p>멀티오믹스의 가장 근본적 특징은 변수 수가 표본 수를 압도하는 고차원 구조입니다. SNP는 50만 개 이상, 메틸화는 85만 부위인데 환자는 수십에서 수백 명에 불과합니다. 이 경우 일반 최소제곱 회귀는 유일한 해를 갖지 못하고 과적합됩니다. 그래서 Lasso 같은 벌점화 회귀로 변수를 선택하거나, PCA·MOFA로 차원을 압축하는 전략이 필수입니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="다중공선성-변수-간-강한-상관-구조" class="slide level2 feat-tight">
+<h2>② 다중공선성 — 변수 간 강한 상관 구조</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><span class="section-title"><strong>상관의 원천</strong></span></p>
+<ul>
+<li>유전 — 연관불균형(LD): 인접 SNP 블록 단위 동시 유전</li>
+<li>전사 — 공발현 모듈: 같은 경로 유전자 동조 변동</li>
+<li>단백·대사 — pathway 내 강한 양/음 상관</li>
+</ul>
+<p><span class="section-title"><strong>문제</strong></span></p>
+<ul>
+<li>회귀계수 분산 폭증(VIF↑) · 부호 역전 · 해석 불가</li>
+<li>인과 변수 식별 불가(non-identifiability)</li>
+</ul>
+<p><span class="section-title"><strong>분석 전략</strong></span></p>
+<ul>
+<li>모듈·네트워크 통합 — WGCNA · xMWAS</li>
+<li>Group Lasso · 주성분 회귀 — 상관 그룹 단위 처리</li>
+<li>LD clumping · fine-mapping — 인과 변이 후보 축소</li>
+</ul>
+</div><div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/feat_collinearity.svg" class="quarto-figure quarto-figure-center" height="270"></p>
+</figure>
+</div>
+<div class="card">
+<p><span class="section-title">Lasso vs Group Lasso</span></p>
+<ul>
+<li><strong>Lasso</strong> — 계수를 <strong>하나씩</strong> 0으로: LD block에서 SNP 하나만 임의 선택(불안정)</li>
+<li><strong>Group Lasso</strong> — 묶은 <strong>그룹(LD block·pathway)을 통째로</strong> in/out: 생물학적 단위 유지로 안정적</li>
+</ul>
+</div>
+</div></div>
+<aside class="notes">
+<p>오믹스 변수들은 서로 독립이 아니라 강하게 상관됩니다. 유전체에서는 인접 SNP가 연관불균형으로 블록 단위로 함께 유전되고, 전사체에서는 같은 경로 유전자가 공발현합니다. 다중공선성이 심하면 회귀계수의 분산이 폭증하고 부호가 뒤집혀 어느 변수가 진짜 원인인지 식별할 수 없습니다. WGCNA나 xMWAS처럼 모듈·네트워크 단위로 다루거나, LD clumping으로 인과 변이를 좁히는 접근이 필요합니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="다중검정-수백만-가설의-동시-검정" class="slide level2 feat-tight">
+<h2>③ 다중검정 — 수백만 가설의 동시 검정</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><span class="section-title"><strong>규모와 위험</strong></span></p>
+<ul>
+<li>GWAS 50만~1,000만 SNP · EWAS·DEG 수만 부위 동시 검정</li>
+<li>100만 검정 × α 0.05 = 5만 우연 양성 → 보정 없이 해석 불가</li>
+</ul>
+<p><span class="section-title"><strong>보정 방법</strong></span></p>
+<ul>
+<li>Bonferroni — α/m: GWAS 표준 5 × 10⁻⁸ (= 0.05 / 10⁶)</li>
+<li>FDR(Benjamini–Hochberg) — 발견 중 거짓 비율 통제, 탐색 단계 적합</li>
+<li>effective test 수 · 순열검정 — LD 상관 반영</li>
+</ul>
+<p><span class="section-title"><strong>진단</strong></span></p>
+<ul>
+<li>QQ plot · genomic inflation(λ) — 체계적 편향 점검</li>
+<li>보정 통과 신호만 후속 통합 분석</li>
+</ul>
+</div><div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/feat_multipletest.svg" class="quarto-figure quarto-figure-center" height="360"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>GWAS는 수백만 개의 SNP를 동시에 검정하기 때문에, 보정 없이 0.05 기준을 쓰면 100만 검정에서 5만 개의 거짓 양성이 나옵니다. 그래서 Bonferroni 보정으로 genome-wide significance 5×10의 마이너스 8승을 표준으로 쓰고, 탐색 단계에서는 FDR을 사용합니다. QQ plot과 genomic inflation으로 체계적 편향을 점검하고, 보정을 통과한 신호만 후속 통합 분석에 넘깁니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="데이터-이종성-계층마다-다른-분포스케일" class="slide level2 feat-tight">
+<h2>④ 데이터 이종성 — 계층마다 다른 분포·스케일</h2>
+<div class="spacer-xs">
+
+</div>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><span class="section-title"><strong>계층별 데이터 성격</strong></span></p>
+<ul>
+<li>유전형 — 0/1/2 범주(이산)</li>
+<li>RNA-seq — count · 과분산 → 음이항</li>
+<li>메틸화 — β값 0~1 경계(bounded)</li>
+<li>단백·대사체 — 연속 · 우편향 → log 정규</li>
+<li>마이크로바이옴 — 합성 데이터, 합 = 1 제약</li>
+</ul>
+<p><span class="section-title"><strong>문제</strong></span></p>
+<ul>
+<li>단위·분산·결측 구조 상이 → 단순 결합 시 큰 스케일 계층이 지배</li>
+</ul>
+<p><span class="section-title"><strong>분석 전략</strong></span></p>
+<ul>
+<li>계층별 변환·정규화 — VST · log · CLR</li>
+<li>통합 시점 — Early(연결) · Intermediate(MOFA 잠재인자) · Late(결과 통합)</li>
+<li>계층별 imputation — 결측 구조 반영</li>
+</ul>
+</div><div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/feat_heterogeneity.svg" class="quarto-figure quarto-figure-center" height="360"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>오믹스 계층마다 데이터의 분포와 스케일이 완전히 다릅니다. 유전형은 0,1,2 범주이고, RNA-seq는 과분산된 count, 메틸화는 0과 1 사이 경계값, 단백·대사체는 우편향된 연속값, 마이크로바이옴은 합이 1인 합성 데이터입니다. 그냥 합치면 스케일 큰 계층이 결과를 지배하므로, 계층별로 적절히 변환·정규화한 뒤 early·intermediate·late 중 적합한 시점에 통합합니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="데이터-이종성-변환정규화-vst-log-clr" class="slide level2 feat-tight">
+<h2>④ 데이터 이종성 — 변환·정규화 (VST · log · CLR)</h2>
+<div class="accent-box-emerald">
+<p><strong>“큰 스케일 계층이 지배”는 lasso만의 문제가 아님</strong> — 거리 기반(PCA·클러스터링·kNN) · 벌점 회귀(lasso·ridge) · 모든 통합 분석에 공통되는 <strong>전처리</strong> 문제</p>
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="section-title">계층별 변환 — 분포가 다르니 각자 맞는 변환</span></p>
+<ul>
+<li><strong>VST</strong> — RNA-seq count: 평균↑ → 분산↑(과분산) 제거, 발현량 무관 분산 일정화 → 고발현 쏠림 방지</li>
+<li><strong>log</strong> — 단백·대사체 우편향 연속값: 대칭(정규)에 가깝게, 큰 값 압축</li>
+<li><strong>CLR</strong> — 마이크로바이옴 합성데이터(합 = 1): log(값 / 기하평균)으로 단순체 제약 해제</li>
+<li><strong>z-score</strong> — 변환 후 계층별 평균 0·분산 1로 스케일 정렬</li>
 </ul>
 </div><div class="column" style="width:45%;">
-<div class="summary-grid">
-<div class="summary-item si-green">
-<p><strong>22만+</strong></p>
-<p>R 패키지 다운로드</p>
-</div>
-<div class="summary-item si-blue">
-<p><strong>200+</strong></p>
-<p>SCI 논문 지원!!!</p>
-</div>
-<div class="summary-item si-teal">
-<p><strong>8건</strong></p>
-<p>국가 R&amp;D 수행</p>
-</div>
-</div>
-<div class="spacer-sm">
-
-</div>
-<div class="accent-box-emerald">
-<p><strong>팀 구성</strong> — 정규직 5명 + 인턴 7명 (의학·통계·개발 전문인력)</p>
+<div class="card">
+<p><span class="section-title">결측 — 메커니즘이 계층마다 다름</span></p>
+<ul>
+<li><strong>LOD 이하</strong>(대사체) — 검출한계보다 농도 낮으면 0이 아니라 “측정 안 됨”으로 빠짐. 값이 작아 빠진 것 = <strong>MNAR</strong> → LOD/2·left-censoring</li>
+<li><strong>dropout</strong>(scRNA-seq) — 발현하는데 기술적으로 0으로 찍힘. 진짜 0과 구분 어려움 → zero-inflated·MAGIC</li>
+<li><strong>플랫폼별</strong> — 칩·패널마다 재는 변수가 달라 특정 변수 통째 결측</li>
+<li>대치 — <strong>KNN · MissForest · MICE</strong> (계층 특성에 맞게)</li>
+</ul>
 </div>
 </div></div>
+<div class="footnote">
+<p>순서 원칙 — 계층별 변환·정규화·대치를 먼저, 통합은 그다음 (반대로 하면 스케일 큰 계층이 지배) / MNAR: 값 자체 때문에 결측되는 구조</p>
+</div>
+<aside class="notes">
+<p>슬라이드 4의 스케일 지배 문제를 자세히 봅니다. 이건 lasso만의 문제가 아니라 거리 기반·벌점 회귀·모든 통합 분석에 공통되는 전처리 문제입니다. RNA-seq count는 VST로 분산을 안정화하고, 단백·대사체 우편향은 log, 마이크로바이옴 합성 데이터는 CLR로 변환한 뒤 z-score로 스케일을 맞춥니다. 결측도 계층마다 메커니즘이 다르므로 합치기 전에 각 계층에 맞게 대치합니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="왜-멀티오믹스인가-단일-오믹스의-한계" class="slide level2">
-<h2>왜 멀티오믹스인가 — 단일 오믹스의 한계</h2>
+<section id="데이터-이종성-통합-시점-early-intermediate-late" class="slide level2 feat-tight">
+<h2>④ 데이터 이종성 — 통합 시점 (Early · Intermediate · Late)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/feat_integration.svg" class="quarto-figure quarto-figure-center" height="380"></p>
+</figure>
+</div>
+</div><div class="column" style="width:55%;">
+<p><span class="section-title">여러 오믹스를 <em>언제</em> 합치나</span></p>
+<div class="highlight-box">
+<p><strong>Early (조기·연결)</strong> — 모든 오믹스 변수를 한 행렬로 이어붙여 단일 모델. 가장 단순하나 p ≫ n·스케일 문제 최악 → 정규화·벌점 필수</p>
+</div>
+<div class="highlight-box-blue">
+<p><strong>Intermediate (중간·잠재인자)</strong> — 각 계층을 공통 잠재공간으로 보내 factor 수준에서 통합 (<strong>MOFA</strong>·SNF·DIABLO). 계층 구조 보존 + 교차신호 포착 → 보통 가장 무난</p>
+</div>
+<div class="highlight-box-teal">
+<p><strong>Late (후기·결과 통합)</strong> — 계층별로 따로 모델 → 예측·결과 결합(앙상블·메타분석). 계층 간 상호작용 놓칠 수 있음</p>
+</div>
+</div></div>
+<aside class="notes">
+<p>오믹스를 언제 합치느냐에 따라 세 전략이 있습니다. Early는 모든 변수를 한 행렬로 이어붙여 단일 모델을 만드는 방식으로 가장 단순하지만 고차원·스케일 문제가 가장 심합니다. Intermediate는 각 계층을 공통 잠재인자로 보내 통합하는 방식으로 MOFA가 대표적이며 보통 가장 무난합니다. Late는 계층별로 따로 모델을 만든 뒤 결과를 합치는 방식으로 강건하지만 계층 간 상호작용은 놓칠 수 있습니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="기술적-잡음교란-신호를-가리는-변동" class="slide level2">
+<h2>⑤ 기술적 잡음·교란 — 신호를 가리는 변동</h2>
 <div class="spacer-xs">
 
 </div>
 <div class="columns">
-<div class="column" style="width:52%;">
-<p><span class="section-title"><strong>한계</strong></span></p>
+<div class="column" style="width:54%;">
+<p><span class="section-title"><strong>기술적 변동 (batch effect)</strong></span></p>
 <ul>
-<li>GWAS는 표현형 변이의 <strong>2~8%만 설명</strong></li>
-<li>단일 유전자(CYP2C19) 변이는 약물 반응의 <strong>~12%만 설명</strong></li>
-<li>정적 ‘상태(state)’ 관찰 → 동적 ‘과정(process)’ 규명 필요</li>
+<li>실험 런·플랫폼·시약 로트·측정일별 체계적 차이</li>
+<li>생물학적 신호와 교락 시 가짜 발견 양산</li>
 </ul>
-<p><span class="section-title"><strong>통합이 필요한 이유</strong></span></p>
+<p><span class="section-title"><strong>생물학적 교란</strong></span></p>
 <ul>
-<li><strong>인과성</strong> 규명 — MR, pQTL/eQTL</li>
-<li><strong>약물 반응 이질성</strong> — 동일 변이 내 반응성 차이</li>
-<li><strong>치료 표적</strong> 도출 — 단백체·대사체 수준</li>
+<li>집단 구조(ancestry) → GWAS 거짓 연관</li>
+<li>조직 세포조성 → 메틸화·전사 신호 왜곡</li>
 </ul>
-</div><div class="column" style="width:48%;">
-<div class="accent-box-emerald">
-<p><strong>오믹스 계층</strong> (DNA → RNA → Protein → Metabolite)</p>
+<p><span class="section-title"><strong>분석 전략</strong></span></p>
 <ul>
-<li><strong>Genomics / Epigenomics</strong></li>
-<li><strong>Transcriptomics</strong> — scRNA-seq, spatial</li>
-<li><strong>Proteomics</strong> — Olink PEA</li>
-<li><strong>Metabolomics / Lipidomics</strong></li>
+<li>Batch 보정 — ComBat · SVA · RUV · removeBatchEffect</li>
+<li>집단구조 — 주성분(PC) 공변량 · 혼합모형(LMM)</li>
+<li>세포조성 — deconvolution 보정</li>
+<li>설계 단계 — randomization · 균형 배치</li>
 </ul>
-</div>
-<div class="highlight-box-purple">
-<p><strong>통합 기법</strong> — MOFA · xMWAS · Mendelian Randomization · QTL · EWAS</p>
+</div><div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/feat_batch.svg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
 </div>
 </div></div>
+<aside class="notes">
+<p>오믹스 데이터에는 생물학적 신호보다 기술적 변동이 더 클 때가 많습니다. 실험 날짜나 플랫폼, 시약 로트에 따라 체계적 차이가 생기는데, 이 batch가 비교 군과 교락되면 가짜 발견이 쏟아집니다. 집단 구조나 세포조성 같은 생물학적 교란도 마찬가지입니다. ComBat·SVA로 batch를 보정하고, 주성분이나 혼합모형으로 집단구조를, deconvolution으로 세포조성을 보정합니다. 가장 좋은 건 설계 단계에서 균형 있게 배치하는 것입니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="예시-단일-오믹스-결과-vs-다층-통합-결과" class="slide level2">
-<h2>예시: 단일 오믹스 결과 vs 다층 통합 결과</h2>
+<section id="사전지식공개데이터-외부-reference-활용" class="slide level2">
+<h2>⑥ 사전지식·공개데이터 — 외부 reference 활용</h2>
 <div class="spacer-xs">
 
 </div>
 <div class="columns">
-<div class="column" style="width:49%;">
-<div class="omics-compare-panel single">
-<div class="omics-panel-top">
-<p><span class="omics-badge single">Single-omics</span> <span class="omics-panel-title">GWAS / DEG / EWAS 결과 예시</span></p>
-</div>
-<div class="mini-volcano">
-<p><span class="volcano-axis-label y">-log10(P)</span> <span class="volcano-axis-label x">Effect size</span> <span class="volcano-gene-label" style="left: 71%; top: 12%;">IL6</span> <span class="volcano-gene-label" style="left: 61%; top: 24%;">CRP</span></p>
-</div>
-<div class="mini-stat-strip">
-<div class="mini-stat-card">
-<p><strong>n = 1,248</strong>Case-control</p>
-</div>
-<div class="mini-stat-card">
-<p><strong>FDR &lt; 0.05</strong>17 hits</p>
-</div>
-<div class="mini-stat-card">
-<p><strong>Top pathway</strong>Inflammation</p>
-</div>
-</div>
-<div class="result-rows">
-<div class="result-row header">
-<p>Feature Effect Adj.P</p>
-</div>
-<div class="result-row">
-<p>IL6 beta = +0.42 0.004</p>
-</div>
-<div class="result-row">
-<p>CRP beta = +0.31 0.011</p>
-</div>
-<div class="result-row">
-<p>CXCL8 beta = -0.27 0.019</p>
-</div>
-</div>
-<div class="panel-note">
-<p>단일 계층 분석은 “무엇이 유의한가”를 선명하게 보여주지만, 오믹스 계층 간 연결 구조와 환자별 이질성은 상대적으로 제한적으로 드러납니다.</p>
-</div>
-</div>
-</div><div class="column" style="width:51%;">
-<div class="omics-compare-panel multi">
-<div class="omics-panel-top">
-<p><span class="omics-badge multi">Integrated</span> <span class="omics-panel-title">선택형 멀티오믹스 통합 뷰 예시</span></p>
-</div>
-<div class="control-rack">
-<p><span class="control-pill geno">Genomics</span> <span class="control-pill tx">Transcriptomics</span> <span class="control-pill prot">Proteomics</span> <span class="control-pill met">Metabolomics</span> <span class="control-pill outcome">Outcome</span></p>
-</div>
-<div class="integration-toolbar">
-<div class="toolbar-box">
-<p><strong>Cohort</strong>BOMICS / Stroke / Validation</p>
-</div>
-<div class="toolbar-box">
-<p><strong>Filter</strong>Responder · FDR &lt; 0.05 · Module 3</p>
-</div>
-</div>
-<div class="integration-frame">
-<p><img data-src="./img/xmwas_network.png" class="omics-network-img" alt="xMWAS multi-omics integration example" width="535"></p>
-</div>
-<div class="omics-output-grid">
-<div class="output-card">
-<p><strong>Community</strong>APOC1-CRP module</p>
-</div>
-<div class="output-card">
-<p><strong>Latent factor</strong>Inflammation axis</p>
-</div>
-<div class="output-card">
-<p><strong>Interactive</strong>Layer-on/off selection</p>
-</div>
-</div>
-<div class="panel-note">
-
-</div>
+<div class="column" style="width:54%;">
+<p><span class="section-title"><strong>공개 데이터·DB</strong></span></p>
+<ul>
+<li>변이–형질 — GWAS Catalog · UK Biobank · FinnGen</li>
+<li>조절 — GTEx(eQTL) · ENCODE</li>
+<li>경로·기능 — KEGG · Reactome · GO · MSigDB</li>
+<li>참조 패널 — 1000 Genomes · TopMed</li>
+</ul>
+<p><span class="section-title"><strong>활용 분석</strong></span></p>
+<ul>
+<li>Enrichment — GSEA·ORA: 개별 마커 → 생물학적 해석</li>
+<li>Mendelian Randomization — 공개 summary 통계로 인과 추론</li>
+<li>Imputation — 참조 패널로 미측정 변이 보강</li>
+<li>PRS — 외부 GWAS 가중치로 개인 위험도 산출</li>
+</ul>
+</div><div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/feat_reference.svg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
 </div>
 </div></div>
-</section>
-<section id="분석-전략-5단계-프로세스" class="slide level2">
-<h2>분석 전략 5단계 프로세스</h2>
-<div class="spacer-sm">
-
-</div>
-<div class="process-flow">
-<div class="pstep pstep-1">
-<p><span class="step-label">STEP 1</span> <span class="step-title">연구질문·데이터 정합화</span> <span class="step-desc">임상 질문 정의, 대상자 기준 확정, 결측/이상치/라벨 정리</span></p>
-</div>
-<div class="process-arrow">
-<p>▶</p>
-</div>
-<div class="pstep pstep-2">
-<p><span class="step-label">STEP 2</span> <span class="step-title">코호트 정의·기초 비교</span> <span class="step-desc">군 정의, baseline 비교, 교란 가능성 점검</span></p>
-</div>
-<div class="process-arrow">
-<p>▶</p>
-</div>
-<div class="pstep pstep-3">
-<p><span class="step-label">STEP 3</span> <span class="step-title">핵심 통계모형 적용</span> <span class="step-desc">회귀·생존·반복측정·고차원 분석을 질문별로 적용</span></p>
-</div>
-<div class="process-arrow">
-<p>▶</p>
-</div>
-<div class="pstep pstep-4">
-<p><span class="step-label">STEP 4</span> <span class="step-title">검증·민감도 분석</span> <span class="step-desc">하위군/외부검증/다중검정 보정으로 결과 안정성 확인</span></p>
-</div>
-<div class="process-arrow">
-<p>▶</p>
-</div>
-<div class="pstep pstep-5">
-<p><span class="step-label">STEP 5</span> <span class="step-title">해석·산출물 전환</span> <span class="step-desc">임상 해석 중심 결과표/그림/발표자료/웹앱으로 전환</span></p>
-</div>
-</div>
-<div class="spacer-sm">
-
-</div>
-<div class="accent-box">
-<p><strong>차라투 차별점</strong> — 통계모형 결과를 임상 질문에 맞는 <strong>해석 가능한 근거(효과크기·위험도·분류성능)</strong>로 전환하고, 표·그림·웹앱까지 같은 흐름으로 제공합니다.</p>
-</div>
+<aside class="notes">
+<p>멀티오믹스 분석의 강력한 무기는 풍부한 공개 데이터입니다. GWAS Catalog와 UK Biobank의 변이-형질 정보, GTEx의 eQTL, KEGG·Reactome의 경로 정보, 1000 Genomes 같은 참조 패널을 적극 활용합니다. 개별 마커를 pathway enrichment로 생물학적으로 해석하고, 공개 summary 통계로 Mendelian Randomization 인과 추론을 하며, 참조 패널로 측정하지 못한 변이를 imputation하고, 외부 GWAS 가중치로 PRS를 만듭니다. 자체 데이터만으로는 불가능한 분석이 외부 reference로 가능해집니다.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="case-1.-양극성장애-환자-약물-치료-반응-예측-및-신호-분석" class="slide level2">
 <h2>Case 1. 양극성장애 환자 약물 치료 반응 예측 및 신호 분석</h2>
@@ -420,6 +990,289 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
 </div>
 </div></div>
 </section>
+<section id="case-1-보충-①.-연구-배경목표와-분석-데이터" class="slide level2">
+<h2>Case 1 보충 ①. 연구 배경·목표와 분석 데이터</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>연구 배경</strong></p>
+<ul>
+<li>양극성장애(bipolar disorder)는 유전 영향이 크고, lithium·valproate 같은 약물의 반응이 환자마다 크게 달라 미리 예측하기 어려움</li>
+<li>유전·단백체·임상 정보를 함께 보면 반응 예측과 발병 기전 이해에 도움이 될 것으로 봄</li>
+</ul>
+<div class="spacer-md">
+
+</div>
+<p><strong>두 갈래로 진행한 연구</strong></p>
+<ul>
+<li>⑴ 약물반응 예측 라인: 임상·단백체·유전 정보를 통합해 lithium·valproate 반응을 예측하는 모델을 구축함</li>
+<li>⑵ 유전 위험도·기전 라인: 한국인 양극성장애 GWAS로 위험점수(PRS)를 만들고 위험 변이의 기능적 기전을 규명함</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="spacer-md">
+
+</div>
+<p><strong>분석 데이터 ⑴ 약물반응 예측 (BOMICS 코호트)</strong></p>
+<ul>
+<li>임상 정보(나이·성별·진단 특성·동반질환 등)를 수집</li>
+<li>단백체(proteomics): 치료 시점(T0·T1·T2)별 혈액 단백질과 그 변화량을 측정</li>
+<li>유전 변이(SNP)와 다유전자 위험점수(PRS)를 함께 산출</li>
+<li>결과 변수로 lithium·valproate 반응(반응 여부로도 구분)을 사용</li>
+</ul>
+<p><strong>분석 데이터 ⑵ 유전 위험도·기전 (한국인 BD GWAS)</strong></p>
+<ul>
+<li><span class="stat-tech">K-CHIP</span>으로 양극성장애 환자·대조군의 유전체를 측정</li>
+<li>대규모 메타 GWAS 요약통계(약 3만 명)를 활용</li>
+<li>외부 공개 QTL 데이터(뇌 <span class="stat-tech">eQTL</span>·<span class="stat-tech">mQTL</span>)를 함께 사용</li>
+</ul>
+<div class="card">
+<p><span class="section-title">용어</span></p>
+<ul>
+<li>proteomics(단백체): 혈액 속 단백질을 한꺼번에 측정한 자료임</li>
+<li>SNP(Single Nucleotide Polymorphism, 단일염기다형성): 사람마다 다른 유전자 한 글자 차이를 뜻함</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="case-1-보충-②.-약물반응-예측-라인-bomics" class="slide level2">
+<h2>Case 1 보충 ②. 약물반응 예측 라인 (BOMICS)</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>방법: 임상·단백체·유전 통합</strong></p>
+<ul>
+<li><span class="stat-tech">Table 1</span>·<span class="stat-tech">logistic regression</span>으로 반응군과 비반응군의 기본 차이를 정리함</li>
+<li><span class="stat-tech">SNP-level GWAS</span>로 반응 연관 변이를, <span class="stat-tech">network analysis</span>로 SNP·단백질·임상의 연결 구조를 탐색함</li>
+<li><span class="stat-tech">LASSO</span>·<span class="stat-tech">Random Forest</span>로 예측 모델을 만들고, 75% 학습 / 25% 검증과 <span class="stat-tech">10-fold 교차검증</span>으로 성능을 평가함</li>
+</ul>
+<p><strong>LASSO</strong></p>
+<ul>
+<li>많은 변수(SNP·단백질·임상) 중 예측에 중요하지 않은 변수의 계수를 0으로 눌러, 의미 있는 소수만 남기는 회귀 기반 머신러닝임</li>
+<li>변수가 표본보다 많을 때 과적합을 막고, 핵심 예측 인자를 자동으로 골라줌</li>
+</ul>
+<p><strong>결과</strong></p>
+<ul>
+<li>SNP·단백체·임상 통합 네트워크, 변수 중요도 기반 <span class="stat-tech">LASSO</span>·<span class="stat-tech">Random Forest</span> 예측 모델, <span class="stat-tech">ROC</span> 탐색 Shiny 앱을 산출함</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div style="height:38px">
+
+</div>
+<div class="case-media case-media-full" data-caption="SNP·단백체·임상 통합 네트워크" style="--case-media-height: 72vh;">
+<p><img data-src="images/paste-1.png" class="case-img-1"></p>
+</div>
+</div></div>
+</section>
+<section id="case-1-보충-③.-유전-위험도기전-라인.-snpgwas" class="slide level2">
+<h2>Case 1 보충 ③. 유전 위험도·기전 라인. SNP·GWAS</h2>
+<div class="card">
+<p><span class="section-title">유전 위험도·기전 라인</span></p>
+<ul>
+<li>GWAS로 위험 변이를 찾고(이 장), PRS로 발병 위험을 점수화하며(보충④·⑤), SMR로 기전을 확인(보충⑥). 결과는 보충⑦에 정리.</li>
+</ul>
+</div>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>SNP(Single Nucleotide Polymorphism, 단일염기다형성)</strong></p>
+<ul>
+<li>유전체의 한 염기 자리(A·T·G·C)에서 사람마다 염기가 달라지는 변이임. 사람 간 유전체는 약 99.9%가 동일하고, 개인 간 차이의 대부분이 SNP임</li>
+<li>집단에서 <span class="stat-tech">minor allele</span>(소수 대립유전자) 빈도가 일정 수준 이상으로 흔한 SNP을 분석에 사용함(거의 모두 같은 염기인 자리는 비교할 변이가 없어 제외)</li>
+<li>과거에는 전장유전체를 다 읽지 못해 알려진 SNP만 칩(<span class="stat-tech">K-CHIP</span> 등)으로 측정했고, 지금은 전장유전체(whole genome) 측정도 가능함</li>
+<li>각 SNP에는 고유 <span class="stat-tech">rs 번호</span>가 붙음(예: rs75776799). 유전형은 minor allele 개수로 0·1·2로 코딩함</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>GWAS(Genome-Wide Association Study, 전장유전체 연관분석)</strong></p>
+<ul>
+<li>수백만 개 SNP을 한꺼번에 훑어, 질병과 통계적으로 연관된 위치를 찾는 분석임</li>
+<li>수백만 번 검정하므로, 우연한 양성을 막기 위해 매우 엄격한 기준(<span class="math inline">\(p &lt; 5\times10^{-8}\)</span>)을 넘어야 유의하다고 봄</li>
+</ul>
+<div class="highlight-box">
+<p><strong>연관은 곧 인과가 아님</strong></p>
+<ul>
+<li>설령 어떤 SNP이 질병과 연관되더라도 그 유전자가 원인이라는 보장은 없음</li>
+<li>바로 옆에 붙어(LD, 연관불평형) 함께 움직인 다른 유전자가 진짜 원인일 수 있음</li>
+<li>이를 가려내기 위해 뒤의 SMR 분석이 필요함</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="case-1-보충-④.-prs-다유전자-위험점수" class="slide level2">
+<h2>Case 1 보충 ④. PRS (다유전자 위험점수)</h2>
+<div class="columns case-slide">
+<div class="column" style="width:52%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>PRS: 수천 개 변이의 효과를 더한 위험 점수</strong></p>
+<ul>
+<li>양극성장애는 한두 유전자가 아니라 수천 개 변이가 조금씩 위험을 더하는 질환임</li>
+<li>대규모 GWAS에서 각 변이의 효과크기(<span class="stat-tech">β</span>, 보통 로그 오즈비)가 이미 추정되어 있음</li>
+<li>한 사람의 유전형을 변이마다 0·1·2(위험 대립유전자 개수)로 읽어, β를 곱해 모두 더하면 위험 점수가 됨</li>
+</ul>
+<p><span class="math display">\[\text{PRS}=\sum_{i}\beta_i \, x_i \qquad (x_i = 0,1,2)\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_i\)</span>는 변이 <span class="math inline">\(i\)</span>의 효과크기, <span class="math inline">\(x_i\)</span>는 위험 대립유전자 개수임. 가중치 보정 없이 단순 합산하는 방식이 가장 기본형(classical) PRS이며, 뒤의 PRS-CS가 이를 개선함</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>예시: 변이 3개로 본 계산 (개념용)</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">변이</th>
+<th style="text-align: center;">β (로그 오즈비)</th>
+<th style="text-align: center;">유전형</th>
+<th style="text-align: center;">기여 (β×개수)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">변이 1</td>
+<td style="text-align: center;">+0.30</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">+0.60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">변이 2</td>
+<td style="text-align: center;">+0.10</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+0.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">변이 3</td>
+<td style="text-align: center;">−0.20</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>합계 (PRS)</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>+0.70</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>실제로는 변이 수천 개에서 수만 개를 같은 방식으로 더함</li>
+<li>점수가 높을수록 그 질환의 유전적 소인이 크다고 해석함</li>
+</ul>
+</div></div>
+</section>
+<section id="case-1-보충-⑤.-prs-정확도를-높이는-prs-csprs-csx" class="slide level2">
+<h2>Case 1 보충 ⑤. PRS 정확도를 높이는 PRS-CS·PRS-CSx</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>단순 합산의 한계와 보정</strong></p>
+<ul>
+<li>가까이 있는 SNP들은 서로 비슷한 정보를 담음(<span class="stat-tech">LD</span>, Linkage Disequilibrium, 연관불평형). 단순 합산은 이 중복을 과다 반영함</li>
+<li>표준 참조 유전체(reference panel)로 LD 구조를 보정해야 점수가 정확해짐</li>
+</ul>
+<p><strong>PRS-CS · PRS-CSx (Python 도구)</strong></p>
+<ul>
+<li><span class="stat-tech">PRS-CS</span>(Continuous Shrinkage): 베이지안(Bayesian) 회귀로 각 SNP 효과에 연속 축소 사전분포(continuous shrinkage prior)를 적용해 LD 참조패널 기반으로 효과크기를 다시 추정함. 효과가 약한 변이는 0에 가깝게 강하게 줄이고 뚜렷한 변이는 덜 줄여 잡음을 억제함</li>
+<li><span class="stat-tech">PRS-CSx</span>: PRS-CS를 여러 인종(동아시아·유럽) GWAS에 동시에 적용하도록 확장함. 인종별 효과는 따로 추정하되 축소 사전분포를 공유해, 유럽처럼 큰 GWAS 정보를 한국인 등 작은 집단에 전달해 비유럽 예측력을 높임</li>
+<li>조현병 GWAS 대조군과 양극성장애 표본이 겹친 문제를 확인해, 겹친 한국인 표본(약 1,180명)을 빼고 재계산함. 성능은 <span class="stat-tech">ROC-AUC</span>로 평가(1에 가까울수록 잘 구분)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="case-media case-media-full" data-caption="PRS-CSx 분석 파이프라인 (여러 인종 GWAS 통합)" style="--case-media-height: 408px;">
+<p><img data-src="images/paste-47.png" class="case-img-1"></p>
+</div>
+<div class="card" style="line-height: 1.45; font-size: 0.685em;">
+<p><span class="section-title">연속 축소 사전분포 (continuous shrinkage prior)</span></p>
+<p>각 SNP 효과 <span class="math inline">\(\beta_j\)</span>에 0 중심 사전분포를 두고, SNP마다 축소 강도를 데이터로 정함</p>
+<p><span class="math display">\[\beta_j \sim \mathcal{N}(0,\ \phi\,\psi_j)\]</span></p>
+<p><span class="math inline">\(\phi\)</span>는 전체 축소 정도, <span class="math inline">\(\psi_j\)</span>는 SNP별 축소 정도임. 효과가 약한 SNP은 <span class="math inline">\(\psi_j\)</span>가 작아 0에 가깝게 강하게 줄이고, 뚜렷한 SNP은 덜 줄임</p>
+</div>
+</div></div>
+</section>
+<section id="case-1-보충-⑥.-기전-규명-smrheidi" class="slide level2">
+<h2>Case 1 보충 ⑥. 기전 규명: SMR·HEIDI</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>SMR: 변이로 유전자·질병의 인과를 추정</strong></p>
+<ul>
+<li><span class="stat-tech">SMR</span>(Summary-data-based Mendelian Randomization)은 위험 변이가 유전자 발현(<span class="stat-tech">eQTL</span>)·메틸화(<span class="stat-tech">mQTL</span>)에 주는 영향을 매개로 하여, 어떤 유전자가 질병의 원인 쪽인지 추정함</li>
+<li>유전 변이는 태어날 때 정해져, 질병에 걸린 뒤에 변이가 바뀌지는 않음. 그래서 변이를 출발점으로 삼으면 질병이 거꾸로 변이를 바꿨을 가능성이 없어, 변이가 질병의 원인인지를 한 방향으로만 따질 수 있음</li>
+</ul>
+<p><strong>HEIDI: 진짜 표적인지 거르는 검정</strong></p>
+<ul>
+<li><span class="stat-tech">HEIDI</span>는 그 연관이 단지 옆에 붙어(LD) 우연히 같이 움직인 것인지 가려냄. 즉 “이 유전자가 진짜냐, 근처 유전자가 진짜냐”를 판정함</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="card">
+<p><span class="section-title">필요한 외부 데이터</span></p>
+<ul>
+<li><span class="stat-tech">eQTL</span>(expression Quantitative Trait Locus, 발현 양적형질 유전자좌): 변이가 유전자 발현량에 주는 영향(뇌 BrainMeta 등)</li>
+<li><span class="stat-tech">mQTL</span>(methylation Quantitative Trait Locus, 메틸화 양적형질 유전자좌): 변이가 DNA 메틸화에 주는 영향(동아시아 mQTL 메타분석)</li>
+</ul>
+</div>
+<div class="highlight-box">
+<p>GWAS에서 연관이 나타난 유전자가 실제 기능 표적과 다를 수 있어, SMR로 표적을 다시 확인하는 것이 중요함</p>
+</div>
+</div></div>
+</section>
+<section id="case-1-보충-⑦.-결과-유전-위험도기전-라인" class="slide level2">
+<h2>Case 1 보충 ⑦. 결과: 유전 위험도·기전 라인</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">삼성서울병원 정신건강의학과 백지현 교수님</span></p>
+<p><strong>PRS 위험점수 성능 (GWAS 인종별)</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">위험점수</th>
+<th style="text-align: left;">인종</th>
+<th style="text-align: center;">OR</th>
+<th style="text-align: center;">R²</th>
+<th style="text-align: center;">AUROC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">양극성</td>
+<td style="text-align: left;">동아시아</td>
+<td style="text-align: center;">1.21</td>
+<td style="text-align: center;">0.011</td>
+<td style="text-align: center;">0.552</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">양극성</td>
+<td style="text-align: left;">유럽</td>
+<td style="text-align: center;">1.58</td>
+<td style="text-align: center;">0.061</td>
+<td style="text-align: center;">0.627</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">양극성</td>
+<td style="text-align: left;">다인종</td>
+<td style="text-align: center;">1.63</td>
+<td style="text-align: center;">0.070</td>
+<td style="text-align: center;">0.632</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>OR은 위험점수가 1 표준편차 높아질 때 발병 위험(오즈)이 몇 배로 커지는지를 나타냄</li>
+<li>R²(Nagelkerke)은 위험점수가 발병 여부의 변동을 설명한 비율임</li>
+<li>AUROC은 환자와 대조군을 한 명씩 뽑았을 때 환자의 점수가 더 높을 확률임(0.5는 무작위, 1은 완벽)</li>
+<li>유럽·다인종 GWAS 기반 점수가 동아시아 단독보다 한국인 위험을 더 잘 설명했음. 동아시아 점수의 설명력이 낮은 것은 인종 간 유전구조가 달라서가 아니라 주로 동아시아 GWAS 표본이 유럽의 약 1/4로 작기 때문임</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>GWAS 핵심 발견: 새 위험 변이 1곳</strong></p>
+<ul>
+<li>전장유전체 유의 변이 <span class="stat-tech">rs75776799</span> 1곳을 발견함(<span class="stat-tech">SLC25A12</span> 인트론, P = 2.45×10⁻⁹, OR = 2.65). 기존 양극성장애 연구에서 보고된 적 없는 새 위치임</li>
+<li><span class="stat-tech">SLC25A12</span>는 미토콘드리아 칼슘 운반 단백질을 만드는 유전자로, 미토콘드리아 기능이 발병에 관여할 가능성을 시사함</li>
+</ul>
+<p><strong>SMR·HEIDI 기전 분석: 인과 유전자 미확정</strong></p>
+<ul>
+<li>뇌 eQTL·동아시아 mQTL 기반 SMR에서 다중검정 보정 후 유의한 인과 유전자는 없었음(eQTL 7개 유전자 모두 <span class="stat-tech">p_SMR</span> &gt; 0.05)</li>
+<li>mQTL에서는 <span class="stat-tech">DLX2-AS1</span>·<span class="stat-tech">ITGA6</span> 부근 일부 프로브(probe, 메틸화를 측정하는 DNA 지점)만 약한 연관(p &lt; 0.05, 엄격 보정은 미통과). 인과 유전자는 더 큰 자료로 규명이 필요함</li>
+</ul>
+<div class="highlight-box">
+<p><strong>정리</strong>: 한국인 양극성장애에서 새 위험 변이(<span class="stat-tech">SLC25A12</span>)를 발견함. 다만 이 변이가 어느 유전자를 통해 작동하는지는 SMR·HEIDI로는 확정되지 않아, 더 큰 자료로 후속 규명이 필요함</p>
+</div>
+</div></div>
+</section>
 <section id="case-2.-소아-아토피성-염증-피부-지질체-전사체-통합-분석" class="slide level2">
 <h2>Case 2. 소아 아토피성 염증 피부 지질체-전사체 통합 분석</h2>
 <div class="columns case-slide">
@@ -468,6 +1321,356 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
 <p><strong>결과 및 산출물</strong></p>
 <ul>
 <li>논문용 Figure 1~5 세트와 multiomics correlation 패널을 정리하고, <code>LAD vs Healthy</code> 비교에서는 <code>[FDR \&lt; 0.05]</code> 유전자 3개 확인 및 후속 검증 후보군 압축.</li>
+</ul>
+</div></div>
+</section>
+<section id="case-2-보충-①.-연구-배경목표와-분석-데이터" class="slide level2">
+<h2>Case 2 보충 ①. 연구 배경·목표와 분석 데이터</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>연구 배경과 목표</strong></p>
+<ul>
+<li>소아 아토피·민감피부·결절성 양진은 겉모습은 달라도 만성 가려움과 아토피성 염증을 공통으로 가짐</li>
+<li>세 질환에 공통된 피부 지질(lipid) 변화가 있는지, 그것이 어느 대사 경로 및 가려움과 연결되는지 규명이 목표</li>
+</ul>
+<p><strong>분석 데이터 (세 질환, 자체 측정)</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">질환</th>
+<th style="text-align: center;">검체 수</th>
+<th style="text-align: left;">환자 / 대조 구성</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">소아 아토피</td>
+<td style="text-align: center;">120</td>
+<td style="text-align: left;">환자 20명 × 부위 3곳</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">결절성 양진</td>
+<td style="text-align: center;">93</td>
+<td style="text-align: left;">병변 38 / 정상 26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">민감피부</td>
+<td style="text-align: center;">76</td>
+<td style="text-align: left;">환자 70(4 유형) / 정상 6</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box">
+<p><strong>분석은 두 갈래로 진행</strong>: ⑴ 피부 표면 지질체(lipidomics) 라인, ⑵ 양진 전사체(transcriptome) 라인</p>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>사용한 분석 도구 (R package)</strong></p>
+<ul>
+<li><span class="stat-tech">limma</span>: 원래 유전자 발현 분석용으로 개발된 통계 도구로, 지질 수백 개의 환자·정상 차이를 한 번에 안정적으로 검정</li>
+<li><span class="stat-tech">DESeq2</span>: RNA 시퀀싱(전사체) 데이터에서 환자·정상 간 발현이 다른 유전자를 찾는 표준 통계 도구</li>
+<li><span class="stat-tech">data.table</span> · <span class="stat-tech">ggplot2</span>: 데이터 정리와 그림 작성</li>
+</ul>
+<p><strong>함께 사용한 외부 공개 데이터</strong></p>
+<ul>
+<li><span class="stat-tech">KEGG</span>(Kyoto Encyclopedia of Genes and Genomes, 교토 유전자·유전체 백과사전): 어떤 지질·유전자가 몸속 어느 대사 경로에서 일하는지 정리해 둔 무료 공개 데이터베이스</li>
+<li>변한 지질을 이 지도에 대입하면 낱개가 아니라 “어느 대사 경로 전체가 움직였는지”로 해석 가능</li>
+<li>변한 유전자는 <span class="stat-tech">GO/KEGG enrichment</span>(기능·경로 농축분석)로 분석. 변한 유전자들이 특정 기능(GO)이나 대사경로(KEGG)에 우연 이상으로 몰려 있는지 통계로 확인해, 어떤 생물학적 과정이 달라졌는지 파악</li>
+</ul>
+</div></div>
+</section>
+<section id="case-2-보충-②.-분석-방법-1-fold-change와-원자료" class="slide level2">
+<h2>Case 2 보충 ②. 분석 방법 (1): fold-change와 원자료</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>fold-change(FC, 배수변화)란</strong></p>
+<ul>
+<li>환자군이 정상 대비 어떤 분자가 몇 배 늘거나 줄었는지를 나타낸 값</li>
+<li>log2로 표기: +1이면 2배, +2이면 4배, −1이면 절반</li>
+</ul>
+<p><span class="math display">\[\text{log2FC}=\log_2\!\frac{\text{환자군 평균}}{\text{정상군 평균}}\]</span></p>
+<p><strong>원자료는 “개수(count)” 데이터</strong></p>
+<ul>
+<li>유전자 발현(전사체)의 원자료는 각 유전자가 몇 번 읽혔는지를 센 개수(count)</li>
+<li>개수 자료에는 표본마다 측정된 양과 표본 수(N) 정보가 함께 담겨 있음</li>
+<li>보통 log 변환 후 두 군의 평균을 비교해 배수변화를 계산</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>예시: 개수 자료에서 배수변화 계산</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">유전자</th>
+<th style="text-align: center;">환자군</th>
+<th style="text-align: center;">정상군</th>
+<th style="text-align: center;">배수변화</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">유전자 X</td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">3배 (log2 +1.6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">유전자 Y</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">0.5배 (log2 −1)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>환자군에서 X는 늘고(증가), Y는 줄어든(감소) 것으로 읽음</li>
+</ul>
+</div></div>
+</section>
+<section id="case-2-보충-③.-분석-방법-2-limma와-empirical-bayes" class="slide level2">
+<h2>Case 2 보충 ③. 분석 방법 (2): limma와 empirical Bayes</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>적은 표본, 많은 분자에서 생기는 검정력 문제</strong></p>
+<ul>
+<li>표본(환자 수)은 적은데 측정 분자(유전자·지질)는 수백~수천 개</li>
+<li>개수 자료를 단순 표준화(normalization)만 하면 표본 수(N) 정보가 옅어져, 통계 검정의 힘(power)이 떨어짐</li>
+<li>분자 하나하나 따로 분산을 추정하면 결과가 불안정</li>
+</ul>
+<p><strong>limma의 해결</strong></p>
+<ul>
+<li><span class="stat-tech">limma</span>: 수백~수천 개 분자의 분산 정보를 서로 빌려 와 분산을 안정적으로 추정해, 적은 표본에서도 검정력을 회복</li>
+<li>원래 유전자 발현용으로 개발됐고 지질 분석에도 널리 사용</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">구분</th>
+<th style="text-align: left;">단순 t검정</th>
+<th style="text-align: left;">limma</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">분산 추정</td>
+<td style="text-align: left;">분자마다 따로</td>
+<td style="text-align: left;">전체에서 빌려 안정화</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">적은 표본 검정력</td>
+<td style="text-align: left;">낮음</td>
+<td style="text-align: left;">회복</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<p><strong>empirical Bayes는 함께 따라옴</strong></p>
+<ul>
+<li><span class="stat-tech">empirical Bayes(경험적 베이즈)</span>: “정보를 서로 빌려오는” 핵심 기법으로, limma를 쓰면 자동으로 함께 적용됨</li>
+</ul>
+<p><span class="math display">\[\tilde{s}_g^{2}=\frac{d_0\,s_0^{2}+d_g\,s_g^{2}}{d_0+d_g}\]</span></p>
+<p>개별 분산을 그 분자 하나로만 추정하면 불안정. limma는 개별 분산 <span class="math inline">\(s_g^2\)</span> 를 전체 분자의 공통 분산 <span class="math inline">\(s_0^2\)</span> 와 가중평균으로 섞어 더 안정적인 분산 <span class="math inline">\(\tilde{s}_g^2\)</span> 를 산출(<span class="math inline">\(d_0\)</span>·<span class="math inline">\(d_g\)</span> 는 두 정보의 가중치). 표본이 적을수록 공통 분산에 더 의존</p>
+<div class="spacer-sm">
+
+</div>
+<p><strong>그 외 단계 (요약)</strong></p>
+<ul>
+<li><span class="stat-tech">BH-FDR(거짓발견율)</span>: 수백 개 동시 검정의 우연 양성을 보정. q &lt; 0.05면 신뢰</li>
+<li><span class="stat-tech">PCA(주성분분석)</span>: 수백 개 분자를 2~3개 축으로 압축해 환자군·정상군이 갈라지는지 확인</li>
+</ul>
+</div></div>
+</section>
+<section id="case-2-보충-④.-분석-방법-3-kegg-pathway-분석" class="slide level2">
+<h2>Case 2 보충 ④. 분석 방법 (3): KEGG pathway 분석</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>KEGG란</strong></p>
+<ul>
+<li><span class="stat-tech">KEGG</span>(Kyoto Encyclopedia of Genes and Genomes): 유전자·대사물질이 몸속에서 어떤 대사 경로로 연결되는지 그림 지도로 정리한 무료 공개 데이터베이스</li>
+<li>예: ceramide는 sphingolipid metabolism(스핑고지질 대사) 경로에 속함</li>
+</ul>
+<p><strong>경로 단위 해석에 사용</strong></p>
+<ul>
+<li>변한 유전자·지질을 낱개로 보지 않고 “어느 경로가 통째로 움직였나”로 해석</li>
+<li>enrichment(농축분석): 변한 목록이 특정 경로에 우연 이상으로 몰려 있는지 통계로 검정</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">KEGG 경로</th>
+<th style="text-align: left;">이 연구의 변화</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sphingolipid metabolism</td>
+<td style="text-align: left;">Cer·DHCer 증가</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Glycerolipid metabolism</td>
+<td style="text-align: left;">TG 감소</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fatty acid metabolism</td>
+<td style="text-align: left;">FFA 변화(아토피)</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<p><strong>R 패키지로 분석 가능</strong></p>
+<ul>
+<li><span class="stat-tech">clusterProfiler</span>: <code>enrichKEGG</code>·<code>enrichGO</code>로 경로 농축분석, <code>gseKEGG</code>로 순위기반 분석</li>
+<li><span class="stat-tech">KEGGREST</span>: KEGG 경로·유전자 정보를 내려받아 조회</li>
+<li><span class="stat-tech">pathview</span>: KEGG 경로 그림 위에 결과(증가·감소)를 색으로 표시</li>
+<li>이 연구에서는 변한 지질을 sphingolipid·glycerolipid 등 KEGG 경로에 매핑해 경로 단위로 해석</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(clusterProfiler)</span>
+<span id="cb1-2"><a href=""></a>ek <span class="ot">&lt;-</span> <span class="fu">enrichKEGG</span>(<span class="at">gene =</span> deg, <span class="at">organism =</span> <span class="st">"hsa"</span>)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">dotplot</span>(ek)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="case-2-보충-⑤.-결과-⑴-지질체lipidomics-라인" class="slide level2">
+<h2>Case 2 보충 ⑤. 결과 ⑴ 지질체(lipidomics) 라인</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>핵심 결과: Ceramide(세라마이드) 증가</strong></p>
+<ul>
+<li>Ceramide(세라마이드): 피부 장벽을 이루는 대표 지질로, 피부 방어막의 핵심 성분</li>
+<li>보통 아토피는 장벽 ceramide가 줄어 건조한데, 표면 지질에선 오히려 증가(새로 만드는 작용인 신생합성이 활발해졌다는 뜻)</li>
+<li>특히 <span class="stat-tech">Cer 34:1</span>이 아토피·양진에서 확실히 증가</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">질환</th>
+<th style="text-align: center;">유의 지질 수</th>
+<th style="text-align: left;">대표 변화 (log2FC)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">소아 아토피</td>
+<td style="text-align: center;">11종</td>
+<td style="text-align: left;">Cer 34:1 +0.94 · FFA 증가</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">결절성 양진</td>
+<td style="text-align: center;">47종</td>
+<td style="text-align: left;">Cer 34:1 +3.08 · TG 감소</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">민감피부</td>
+<td style="text-align: center;">2종</td>
+<td style="text-align: left;">TG 62:4·64:4 감소</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>FFA(유리지방산), TG(중성지방), Cer(세라마이드)</li>
+<li>log2FC가 +1이면 2배, +3.08이면 약 8.5배 증가</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="case-media case-media-full" data-caption="질환별 PCA · heatmap · volcano plot · GO/KEGG enrichment (지질체 결과)">
+<p><img data-src="images/paste-4.png" class="case-img-1"></p>
+</div>
+</div></div>
+</section>
+<section id="case-2-보충-⑥.-결과-⑵-전사체transcriptome-라인" class="slide level2">
+<h2>Case 2 보충 ⑥. 결과 ⑵ 전사체(transcriptome) 라인</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>전사체 차등발현 분석</strong></p>
+<ul>
+<li>양진 환자 29명(정상 11·아토피양진 7·비아토피양진 11)의 유전자 발현(전사체) 분석</li>
+<li><span class="stat-tech">DESeq2</span>: RNA 발현이 환자·정상 간 다른 유전자(DEG)를 찾는 표준 통계 도구. 이어 <span class="stat-tech">GO/KEGG enrichment</span>로 염증·장벽 경로 확인</li>
+</ul>
+<p><strong>지질–유전자 연결 (multiomics)</strong></p>
+<ul>
+<li>표면 ceramide 변화를, 그 지질을 만들고 분해하는 핵심 유전자와 연결</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">핵심 유전자</th>
+<th style="text-align: left;">역할</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CERS6</td>
+<td style="text-align: left;">ceramide 합성</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ASAH1</td>
+<td style="text-align: left;">ceramide 분해</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ELOVL3</td>
+<td style="text-align: left;">지방산 사슬 연장</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>지질·유전자가 대부분 다른 환자라 개인 연결이 아니라 변화 방향의 일치로 해석</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="case-media case-media-full" data-caption="Lipid-Gene Interaction Network (지질–유전자 연결, 전사체 결과)">
+<p><img data-src="images/paste-30.png" class="case-img-1"></p>
+</div>
+</div></div>
+</section>
+<section id="case-2-보충-⑦.-종간-검증과-통합-모델" class="slide level2">
+<h2>Case 2 보충 ⑦. 종간 검증과 통합 모델</h2>
+<div class="columns case-slide">
+<div class="column" style="width:52%;">
+<p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
+<p><strong>마우스에서도 같은 변화 (cross-species 검증)</strong></p>
+<ul>
+<li>사람뿐 아니라 아토피 마우스 피부에서도 Cer 34:1 증가</li>
+<li>사람·마우스에서 같은 방향으로 재현돼, 우연이 아니라 종을 넘어 보존된 변화일 가능성</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Cer 34:1</th>
+<th style="text-align: center;">변화</th>
+<th style="text-align: left;">유의성</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">마우스 아토피</td>
+<td style="text-align: center;">3.6배</td>
+<td style="text-align: left;">p = 0.002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">사람 소아 아토피</td>
+<td style="text-align: center;">1.9배</td>
+<td style="text-align: left;">FDR 0.004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">사람 결절성 양진</td>
+<td style="text-align: center;">8.5배</td>
+<td style="text-align: left;">FDR 0.001 미만</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:48%;">
+<div class="highlight-box">
+<p><strong>통합 모델: Neuroimmune–Lipid Crosstalk(신경–면역–지질 상호작용)</strong></p>
+<p>ceramide 상승이 면역세포와 가려움을 전달하는 감각신경을 자극해 만성 가려움을 일으킨다는 통합 가설</p>
+</div>
+<div class="spacer-md">
+
+</div>
+<p><strong>연구의 의의</strong></p>
+<ul>
+<li>세 질환을 관통하는 공통 지질 축(ceramide)을 제시</li>
+<li>가려움 조절을 위한 치료 표적 후보로 연결 가능</li>
 </ul>
 </div></div>
 </section>
@@ -602,6 +1805,137 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
 </div>
 </div></div>
 </section>
+<section id="case-7-보충-①.-연구-배경목표와-분석-데이터" class="slide level2">
+<h2>Case 7 보충 ①. 연구 배경·목표와 분석 데이터</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 박진서 교수님</span></p>
+<p><strong>연구 배경과 목표</strong></p>
+<ul>
+<li>민감피부(sensitive skin)는 자극에 따가움·화끈거림 같은 불편한 감각이 나타나지만, 겉으로 보이는 병변이 없어 객관적으로 진단하기 어려운 질환임</li>
+<li>진단이 환자의 주관적 호소에만 의존하므로, 증상을 뒷받침할 객관적 지표가 필요함</li>
+<li>피부 표면 지질이 증상·피부장벽·홍조·포피린 같은 임상 지표와 연관되는지 탐색하고, 증상을 설명할 지질(biomarker, 생체표지자)을 찾는 것이 목표임</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>분석 데이터 (자체 측정)</strong></p>
+<ul>
+<li>민감피부 환자 69명, 대조군 6명 (대조군은 임상 점수가 없어 연관 분석에는 환자만 사용함)</li>
+<li>피부 표면 지질 112종 (tape stripping으로 채취 후 LC-MS/MS로 정량)</li>
+<li><span class="stat-tech">LC-MS/MS</span>(액체크로마토그래피-질량분석): 섞여 있는 지질을 종류별로 분리(LC)한 뒤 질량으로 정확히 식별·정량(MS)하는 표준 측정 방법</li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">임상 지표</th>
+<th style="text-align: left;">의미</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TEWL · SCH</td>
+<td style="text-align: left;">TEWL(경피수분손실, 높을수록 장벽 약함)·SCH(각질층 수분도, 높을수록 촉촉)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SS-10</td>
+<td style="text-align: left;">민감피부 증상 설문(10항목)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">홍조(erythema)</td>
+<td style="text-align: left;">얼굴 사진 분석(전체·부위별)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">porphyrin(포피린)</td>
+<td style="text-align: left;">산화된 피지량(UV 사진)</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="case-7-보충-②.-분석-방법-1-기본-연관과-군집-탐색" class="slide level2">
+<h2>Case 7 보충 ②. 분석 방법 (1): 기본 연관과 군집 탐색</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 박진서 교수님</span></p>
+<p>기본 분석부터 시작해, 결과가 약하면 더 정교한 방법으로 단계적으로 넘어감.</p>
+<p><strong>① 지질–임상 상관: Spearman correlation(스피어만 상관분석)</strong></p>
+<ul>
+<li><span class="stat-tech">Spearman correlation</span>은 두 값의 순위(크기 순서)가 함께 오르내리는 정도를 −1에서 +1 사이로 나타내는 분석임. +1이면 같은 방향, −1이면 반대 방향, 0이면 관계 없음. 순위만 쓰므로 극단값에 덜 민감함</li>
+<li>각 지질과 각 임상 지표의 상관을 구하고, 그 값을 색으로 칠한 heatmap(열지도)으로 한눈에 표시함</li>
+<li>결과: 다중비교 보정 후 FDR을 통과하는 지질이 없었음</li>
+</ul>
+<p><strong>② 군집 탐색: PCA(Principal Component Analysis, 주성분분석)</strong></p>
+<ul>
+<li>지질 112종 전체를 2~3개 축으로 압축해, 환자들이 지질 패턴으로 무리 지어지는지 확인함</li>
+<li>결과: 뚜렷한 그룹 분리가 나타나지 않았음</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="case-media case-media-full" data-caption="임상지표 × 지질 Spearman correlation heatmap">
+<p><img data-src="images/paste-6.png" class="case-img-1"></p>
+</div>
+</div></div>
+</section>
+<section id="case-7-보충-③.-분석-방법-2-그룹-비교와-biomarker-탐색" class="slide level2">
+<h2>Case 7 보충 ③. 분석 방법 (2): 그룹 비교와 biomarker 탐색</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 박진서 교수님</span></p>
+<p><strong>③ 그룹 차이 강조: PLS-DA + PERMANOVA</strong></p>
+<ul>
+<li><span class="stat-tech">PLS-DA(부분최소제곱 판별분석)</span>: 두 그룹(예: 증상 높은 군·낮은 군)을 미리 정해 주고, 그 둘을 가장 잘 구분하는 지질 조합을 찾아 주는 방법임. 차이를 도드라지게 보여주는 대신, 실제로 없는 차이도 있어 보이게 만들 위험이 있음</li>
+<li><span class="stat-tech">PERMANOVA(순열 분산분석)</span>: 두 그룹의 지질 조성 전체가 통계적으로 정말 다른지를 검정하는 방법임. 자료를 무작위로 여러 번 섞어 비교해, PLS-DA가 강조한 차이가 진짜인지 확인함(기여 지질은 VIP 점수로 추림)</li>
+<li>결과: 어느 임상 지표로 나눠도 두 군의 지질 조성에 유의한 차이가 없었음</li>
+</ul>
+<p><strong>④ 연결 구조 시각화: network analysis(네트워크 분석)</strong></p>
+<ul>
+<li><span class="stat-tech">network analysis</span>로 증상과 지질을 점·선으로 이어, 어떤 증상이 어떤 지질과 묶이는지 보여줌</li>
+<li>결과: 보정 전 기준에서 증상끼리 비슷한 것이 묶이고 중성지방(TG)이 자주 등장함(탐색적 참고)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>⑤ biomarker 후보 압축: LASSO(라쏘 회귀)</strong></p>
+<ul>
+<li><span class="stat-tech">LASSO(라쏘 회귀)</span>는 영향력 없는 지질을 0으로 눌러 소수만 남기는 머신러닝으로, 변수가 표본보다 많을 때 유용함</li>
+<li>결과: 자극감·따가움·화끈거림 등 일부 증상에서만 1~8개 후보가 선택되고, 나머지 증상에서는 없었음</li>
+</ul>
+<p><strong>⑥ 교차 확인: 환자 대 대조, 정규화 대 원자료</strong></p>
+<ul>
+<li>환자·대조 비교와 정규화·원자료 분석으로 결과가 전처리 방식 때문은 아닌지 점검함</li>
+<li>결과: 원자료에서도 분리되지 않아, 분리가 안 되는 것이 전처리 탓이 아님을 확인함</li>
+</ul>
+</div></div>
+</section>
+<section id="case-7-보충-④.-결과와-분석-전략상의-교훈" class="slide level2">
+<h2>Case 7 보충 ④. 결과와 분석 전략상의 교훈</h2>
+<div class="columns case-slide">
+<div class="column" style="width:50%;">
+<p><span class="case-owner">강남성심병원 피부과 박진서 교수님</span></p>
+<p><strong>통계적으로 확정된 연관은 없음</strong></p>
+<ul>
+<li>어떤 지질도 <span class="stat-tech">FDR q &lt; 0.05</span>를 통과하지 못했음</li>
+<li>환자와 대조군의 지질 조성도 차이가 없었음</li>
+</ul>
+<p><strong>탐색적으로 관찰된 경향</strong></p>
+<ul>
+<li><span class="stat-tech">LASSO</span>에서는 자극감·따가움·화끈거림 등 일부 증상에서 1~8개 지질이 후보로 선택됨</li>
+<li>증상끼리는 비슷한 것들이 묶였고(예: 화끈거림·열감), 중성지방(TG)이 반복해서 나타남</li>
+</ul>
+<p><strong>표본보다 변수가 많은 문제(n &lt; p)</strong></p>
+<ul>
+<li>표본은 적은데 지질은 112종으로 많아(특히 대조군 6명), 다중비교 보정 후 유의성 확보가 어려움</li>
+<li>기본 상관·회귀에서 유의한 연관이 없으면 더 복잡한 방법으로도 유의한 결과를 못 만듦</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="case-media case-media-full" data-caption="환자–대조 PLS-DA와 증상–지질 network" style="--case-media-height: 48vh;">
+<p><img data-src="images/paste-23.png" class="case-img-1"></p>
+</div>
+<div class="highlight-box">
+<p><strong>유의한 결과가 없을 때의 원칙</strong>: 한계(표본 수, 다중비교)를 함께 제시하고, 무리한 추가 분석으로 없는 결과를 만들지 않음</p>
+</div>
+</div></div>
+</section>
 <section id="case-8.-qpcr-mirna-기반-폐암-진단-모델-연구" class="slide level2">
 <h2>Case 8. qPCR miRNA 기반 폐암 진단 모델 연구</h2>
 <div class="columns case-slide">
@@ -641,8 +1975,8 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
 <p><img data-src="images/paste-42.png"></p>
 </div>
 <div class="nhis-intro-text">
-<p><strong>대한민국 공단(NHIS/NHID)·심평원(HIRA) 빅데이터</strong>는 전 국민 단위의 건강검진, 소득, 사망, 데이터를 포함한 종단형 인프라입니다.<br>
-최근 5년간 <code>Diabetes Care</code>, <code>International Journal of Epidemiology</code>, <code>JAMA Network Open</code>, <code>JAMA Pediatrics</code> 등에 NHIS/HIRA 기반 연구가 지속적으로 게재되고 있으며, <strong>임상코호트와 유전체·오믹스 자료를 결합한 고품질 멀티오믹스 연구</strong>로 확장하기 적합합니다.</p>
+<p><strong>대한민국 공단(KNHIS)·심평원(HIRA) 빅데이터</strong>는 전 국민 단위의 건강검진, 소득, 사망, 데이터를 포함.<br>
+최근 5년간 <code>Diabetes Care</code>, <code>International Journal of Epidemiology</code>, <code>JAMA Network Open</code>, <code>JAMA Pediatrics</code> 등에 NHIS/HIRA 기반 연구가 지속적으로 게재</p>
 </div>
 </div>
 </div>
@@ -684,8 +2018,8 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
 </div>
 </div>
 </section>
-<section id="case-9.-공단심평원-데이터-활용-멀티오믹스-분석-사례" class="slide level2">
-<h2>Case 9. 공단·심평원 데이터 활용 멀티오믹스 분석 사례</h2>
+<section id="case-9.-공단데이터-결합데이터-분석-사례" class="slide level2">
+<h2>Case 9. 공단데이터 결합데이터 분석 사례</h2>
 <div class="columns nhis-overview-slide">
 <div class="column" style="width:26%;">
 <p><img data-src="images/paste-55.png" class="nhis-bordered-image" width="380"></p>
@@ -720,106 +2054,6 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
 </div>
 </div></div>
 </section>
-<section id="분석-웹앱-제공-jsmodule-기반-shiny" class="slide level2">
-<h2>분석 웹앱 제공 — jsmodule 기반 Shiny</h2>
-<div class="spacer-xs">
-
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img src="./img/shiny_km.png" alt="Kaplan-Meier 모듈" style="width: 100%; display: block; margin: 0 auto;"></p>
-</div><div class="column" style="width:50%;">
-<p><img src="./img/shiny_tb1.png" alt="Table 1 모듈" style="width: 100%; display: block; margin: 0 auto;"></p>
-</div></div>
-</section>
-<section id="분석-웹앱-계속" class="slide level2">
-<h2>분석 웹앱 (계속)</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img src="./img/shiny_meta.png" alt="메타분석 모듈" style="width: 100%; display: block; margin: 0 auto;"></p>
-</div><div class="column" style="width:50%;">
-<p><img src="img/shiny_openstat.png" alt="openstat.ai - 무료 통계분석 웹 (특허 등록)" style="display: block; margin: 0 auto;" width="100%"></p>
-</div></div>
-<div class="accent-box-emerald">
-<p><strong>jsmodule 모듈</strong> — tb1module2, logisticModule2, coxModule, kaplanModule, <strong>subgroupModule</strong>, rocModule, <strong>timerocModule</strong>, ggpairsModule2, jsPropensityGadget. 오믹스 프로젝트마다 <strong>연구자 전용 앱</strong> 동시 제공</p>
-</div>
-</section>
-<section id="뇌졸중-연구에-바로-적용-가능한-분석-전략" class="slide level2">
-<h2>뇌졸중 연구에 바로 적용 가능한 분석 전략</h2>
-<div class="spacer-xs">
-
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="highlight-box">
-<p><strong>① Stroke subtype GWAS</strong></p>
-<ul>
-<li>TOAST 아형 × genotyping array QC</li>
-<li>1000G EAS imputation, regenie</li>
-<li>GIGASTROKE · STROMICS 메타분석 연계</li>
-<li>Manhattan / QQ Shiny 탐색</li>
-</ul>
-</div>
-<div class="highlight-box-blue">
-<p><strong>② 약물유전체 (Clopidogrel·Statin·NOAC)</strong></p>
-<ul>
-<li><strong>CYP2C19 star allele</strong> 자동 판정 (PharmVar)</li>
-<li>SLCO1B1 · ABCG2 statin PK</li>
-<li>CPIC level 1A 변이 패널 도출</li>
-<li>변이 × PGS interaction 모델</li>
-</ul>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="highlight-box-teal">
-<p><strong>③ 다층 통합 (MOFA · MR)</strong></p>
-<ul>
-<li>scRNA-seq × Olink × genotyping MOFA</li>
-<li>Mendelian randomization (IVW, Egger)</li>
-<li>pQTL/eQTL → druggable target 필터</li>
-</ul>
-</div>
-<div class="highlight-box-purple">
-<p><strong>④ HIRA 연계 예후 모델</strong></p>
-<ul>
-<li>처방 지속도 / 재입원 / 출혈 코드 추출</li>
-<li>IPTW · time-varying Cox (tmerge)</li>
-<li>Forestploter 서브그룹 plot</li>
-<li>재발·출혈·사망 통합 예측 모델</li>
-</ul>
-</div>
-</div></div>
-</section>
-<section id="마무리-차라투가-함께할-수-있는-것" class="slide level2">
-<h2>마무리 — 차라투가 함께할 수 있는 것</h2>
-<div class="spacer-xs">
-
-</div>
-<div class="accent-box">
-<p><strong>멀티오믹스는 “분석 기법의 나열”이 아니라, 임상 질문에서 출발해 재현 가능한 파이프라인·인과 검증·임상 적용까지 잇는 과정입니다. 차라투는 7년간 이 전 과정을 수십 개 프로젝트에서 실행해 왔습니다</strong></p>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="section-title"><strong>제안 협력 형태</strong></span></p>
-<ul>
-<li><strong>과제 기반 계약</strong> — 특정 연구 단위 (GWAS, scRNA-seq 등)</li>
-<li><strong>연단위 계약</strong> — 연구실 상시 분석 지원</li>
-<li><strong>기술 자문</strong> — 설계·분석 파이프라인 리뷰</li>
-<li><strong>공동 저자 참여</strong> — 분석가 SCI 공저 포함</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><span class="section-title"><strong>제공 산출물 표준</strong></span></p>
-<ul>
-<li>원본·정제 데이터 중앙 관리</li>
-<li>전체 분석 R 스크립트 (Git)</li>
-<li>연구자 전용 Shiny 앱</li>
-<li>논문용 표·그림(flextable / rvg PPT)</li>
-<li>커뮤니티 상시 피드백</li>
-</ul>
-</div></div>
-<div class="accent-box-emerald">
-<p><strong>연락처</strong> — office@zarathu.com | +82 70-7954-3712 | <a href="https://community.zarathu.com">community.zarathu.com</a> | <a href="https://openstat.ai">openstat.ai</a></p>
-</div>
-</section>
 <section id="section" class="slide level2" data-background-color="#2A3D21">
 <h2></h2>
 <div style="text-align: center; padding-top: 180px;">
@@ -830,7 +2064,7 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
 <p><img src="./Zarathu%20Circle%20Clipping%20Mask2.png" alt="Zarathu logo" style="height: 80px;"></p>
 </div>
 <div style="color: #C8E6C9; font-size: 0.7em; margin-top: 60px; line-height: 2;">
-<p><strong>Contact</strong><br> office@zarathu.com &nbsp;|&nbsp; +82 70-7954-3712<br> <a href="https://www.zarathu.com" style="color: #C8E6C9;">https://www.zarathu.com</a></p>
+<p><strong>Contact</strong><br> office@zarathu.com &nbsp;|&nbsp; +82 70-7954-3712<br> <a href="https://www.zarathu.com" style="color: #C8E6C9;">www.zarathu.com</a> | <a href="https://community.zarathu.com" style="color: #C8E6C9;">community.zarathu.com</a> | <a href="https://openstat.ai" style="color: #C8E6C9;">openstat.ai</a></p>
 </div>
 </div>
 
@@ -1026,7 +2260,7 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1125,190 +2359,173 @@ case-media-top: 사진 1장, 위쪽 칸만 사용하고 아래는 비워둠 -->
     });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>
