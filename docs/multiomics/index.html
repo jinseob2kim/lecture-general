@@ -471,11 +471,8 @@
 <p>jsmodule 2.0.0 — AI Assistant 시범 탑재 / openstat.ai 운영 중</p>
 </div>
 </div><div class="column" style="width:45%;">
-<div class="section-title">
-<p>이미 작동하는 AI agent 초기 버전</p>
-</div>
 <div class="body-text">
-<p>jsmodule 저코드 분석모듈 엔진에 <strong>AI Assistant 기능을 시범 탑재</strong> — <em>“R 패키지의 AI agent화”</em> 초기 구현 사례</p>
+<p>jsmodule 저코드 분석모듈 엔진에 <strong>AI Assistant 기능을 시범 탑재</strong></p>
 </div>
 <div class="module-table">
 <table class="caption-top">
@@ -512,23 +509,7 @@
 <div class="spacer-sm">
 
 </div>
-<div class="highlight-box">
-<p>코드 생성을 넘어 <strong>분석 설계 · 데이터 검증 · 통계 실행 · 보고서</strong>까지 연결하는 표준화 분석모듈 기반 AI agent</p>
-</div>
 </div></div>
-<aside class="notes">
-<p>jsmodule 2.0.0에는 이미 AI Assistant 기능이 시범 탑재되어 있습니다. 질의를 입력하면 분석 코드·통계 절차·시각화를 생성·수정·실행하고, 이전 표·그림을 참조하는 후속 질의가 가능하며, 결과를 PPTX·Word·Excel로 바로 내보냅니다. openstat.ai에서 약 1,000명의 회원이 사용 중입니다.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="멀티오믹스-데이터와-분석의-특징" class="slide level2">
 <h2>멀티오믹스 데이터와 분석의 특징</h2>
@@ -563,9 +544,6 @@
 <p><strong>⑥ 사전지식·공개데이터</strong> — GWAS Catalog·GTEx·KEGG·UK Biobank 활용 → enrichment·MR·imputation</p>
 </div>
 </div></div>
-<div class="footnote">
-<p>※ p ≫ n: 변수(마커) 수가 표본 수를 크게 초과하는 구조 / MR: Mendelian Randomization (인과성 추론)</p>
-</div>
 <aside class="notes">
 <p>멀티오믹스 데이터는 일반 임상 데이터와 근본적으로 다른 6가지 특성을 가집니다. 첫째 고차원(p가 n보다 훨씬 큼), 둘째 변수 간 강한 상관(LD나 공발현), 셋째 수백만 건의 다중검정, 넷째 계층별로 분포와 스케일이 다른 이종성, 다섯째 batch effect와 집단구조 같은 기술적 잡음·교란, 여섯째 GWAS Catalog·GTEx 같은 공개 reference 데이터의 적극적 활용입니다. 각 특성마다 그에 맞는 전용 분석 전략이 필요하며, 이어지는 6개 슬라이드에서 각 특징과 대응 전략을 하나씩 상세히 다룹니다.</p>
 <style type="text/css">
@@ -981,7 +959,7 @@
 </ul>
 <p><strong>결과 및 산출물</strong></p>
 <ul>
-<li>PRS 비교표와 기능 후보 SNP 요약 자료를 정리하고, SLC25A12 gene-based SMR은 <code>p_SMR = 0.381</code>로 강한 지지 근거가 제한적이므로 대안 SNP 비교 중심의 해석.</li>
+<li>PRS 비교표와 기능 후보 SNP 요약 자료를 정리하고, 후보 유전자의 gene-based SMR에서 강한 지지 근거가 제한적이어서 대안 SNP 비교 중심으로 해석.</li>
 </ul>
 </div><div class="column" style="width:48%;">
 <div class="case-media case-media-2" data-caption="상: PRScsx 분석 파이프라인, 하: network 분석 및 Node statistics를 위한 Interacitve 웹.">
@@ -1006,7 +984,7 @@
 <p><strong>두 갈래로 진행한 연구</strong></p>
 <ul>
 <li>⑴ 약물반응 예측 라인: 임상·단백체·유전 정보를 통합해 lithium·valproate 반응을 예측하는 모델을 구축함</li>
-<li>⑵ 유전 위험도·기전 라인: 한국인 양극성장애 GWAS로 위험점수(PRS)를 만들고 위험 변이의 기능적 기전을 규명함</li>
+<li>⑵ 유전 위험도·기전 라인: 한국인 GWAS로 위험 변이를 찾고, 공개 GWAS(유럽·동아시아) 요약통계로 위험점수(PRS)를 산출해 발병 위험을 평가하며, 위험 변이의 기능적 기전을 규명함</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="spacer-md">
@@ -1079,7 +1057,7 @@
 <li>유전체의 한 염기 자리(A·T·G·C)에서 사람마다 염기가 달라지는 변이임. 사람 간 유전체는 약 99.9%가 동일하고, 개인 간 차이의 대부분이 SNP임</li>
 <li>집단에서 <span class="stat-tech">minor allele</span>(소수 대립유전자) 빈도가 일정 수준 이상으로 흔한 SNP을 분석에 사용함(거의 모두 같은 염기인 자리는 비교할 변이가 없어 제외)</li>
 <li>과거에는 전장유전체를 다 읽지 못해 알려진 SNP만 칩(<span class="stat-tech">K-CHIP</span> 등)으로 측정했고, 지금은 전장유전체(whole genome) 측정도 가능함</li>
-<li>각 SNP에는 고유 <span class="stat-tech">rs 번호</span>가 붙음(예: rs75776799). 유전형은 minor allele 개수로 0·1·2로 코딩함</li>
+<li>각 SNP에는 고유 <span class="stat-tech">rs 번호</span>가 붙음(예: rs1234567 형식). 유전형은 minor allele 개수로 0·1·2로 코딩함</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>GWAS(Genome-Wide Association Study, 전장유전체 연관분석)</strong></p>
@@ -1169,8 +1147,7 @@
 <p><strong>PRS-CS · PRS-CSx (Python 도구)</strong></p>
 <ul>
 <li><span class="stat-tech">PRS-CS</span>(Continuous Shrinkage): 베이지안(Bayesian) 회귀로 각 SNP 효과에 연속 축소 사전분포(continuous shrinkage prior)를 적용해 LD 참조패널 기반으로 효과크기를 다시 추정함. 효과가 약한 변이는 0에 가깝게 강하게 줄이고 뚜렷한 변이는 덜 줄여 잡음을 억제함</li>
-<li><span class="stat-tech">PRS-CSx</span>: PRS-CS를 여러 인종(동아시아·유럽) GWAS에 동시에 적용하도록 확장함. 인종별 효과는 따로 추정하되 축소 사전분포를 공유해, 유럽처럼 큰 GWAS 정보를 한국인 등 작은 집단에 전달해 비유럽 예측력을 높임</li>
-<li>조현병 GWAS 대조군과 양극성장애 표본이 겹친 문제를 확인해, 겹친 한국인 표본(약 1,180명)을 빼고 재계산함. 성능은 <span class="stat-tech">ROC-AUC</span>로 평가(1에 가까울수록 잘 구분)</li>
+<li><span class="stat-tech">PRS-CSx</span>: <strong>인종별 GWAS·LD 패널을 한꺼번에</strong> 넣는 확장판. <strong>효과는 인종별 따로 · “믿을 SNP(축소)”는 인종끼리 공유</strong> → 큰 유럽 GWAS가 표본 작은 한국인 점수를 끌어올림</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="case-media case-media-full" data-caption="PRS-CSx 분석 파이프라인 (여러 인종 GWAS 통합)" style="--case-media-height: 408px;">
@@ -1199,15 +1176,17 @@
 <li><span class="stat-tech">HEIDI</span>는 그 연관이 단지 옆에 붙어(LD) 우연히 같이 움직인 것인지 가려냄. 즉 “이 유전자가 진짜냐, 근처 유전자가 진짜냐”를 판정함</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="card">
+<div class="card" style="font-size: 0.66em;">
 <p><span class="section-title">필요한 외부 데이터</span></p>
 <ul>
-<li><span class="stat-tech">eQTL</span>(expression Quantitative Trait Locus, 발현 양적형질 유전자좌): 변이가 유전자 발현량에 주는 영향(뇌 BrainMeta 등)</li>
-<li><span class="stat-tech">mQTL</span>(methylation Quantitative Trait Locus, 메틸화 양적형질 유전자좌): 변이가 DNA 메틸화에 주는 영향(동아시아 mQTL 메타분석)</li>
+<li><span class="stat-tech">eQTL</span>(발현 양적형질 유전자좌): 변이가 유전자 발현량에 주는 영향 (뇌 BrainMeta 등)</li>
+<li><span class="stat-tech">mQTL</span>(메틸화 양적형질 유전자좌): 변이가 DNA 메틸화에 주는 영향 (동아시아 mQTL 메타)</li>
 </ul>
 </div>
-<div class="highlight-box">
-<p>GWAS에서 연관이 나타난 유전자가 실제 기능 표적과 다를 수 있어, SMR로 표적을 다시 확인하는 것이 중요함</p>
+<div class="card" style="font-size: 0.64em; line-height: 1.55;">
+<p><span class="section-title">SMR · HEIDI 핵심 식</span></p>
+<p><strong>SMR</strong> — 변이를 도구로 한 Wald 비 → χ²: <span class="math display">\[\hat b_{xy}=\frac{\hat b_{zy}}{\hat b_{zx}},\qquad T_{\text{SMR}}=\frac{z_{zx}^{2}\,z_{zy}^{2}}{z_{zx}^{2}+z_{zy}^{2}}\sim\chi^{2}_{1}\]</span> 작은 <span class="math inline">\(z^{2}\)</span>에 지배 → eQTL·GWAS 둘 다 강해야 검정력 (약하면 null)</p>
+<p><strong>HEIDI</strong> — 유전자 근처 변이들 간 <span class="math inline">\(\hat b_{xy}\)</span> 일관성(이질성) 검정: <span class="math display">\[d_i=\hat b_{xy}(i)-\hat b_{xy}(\text{top}),\qquad H_0:\ d_i=0\]</span> 판정: <strong>SMR 유의 + HEIDI <span class="math inline">\(p\ge0.05\)</span></strong> → 단일 인과변이 후보 ( <span class="math inline">\(p&lt;0.05\)</span> 면 linkage로 제외 )</p>
 </div>
 </div></div>
 </section>
@@ -1258,18 +1237,18 @@
 <li>유럽·다인종 GWAS 기반 점수가 동아시아 단독보다 한국인 위험을 더 잘 설명했음. 동아시아 점수의 설명력이 낮은 것은 인종 간 유전구조가 달라서가 아니라 주로 동아시아 GWAS 표본이 유럽의 약 1/4로 작기 때문임</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<p><strong>GWAS 핵심 발견: 새 위험 변이 1곳</strong></p>
+<p><strong>GWAS 핵심 발견: 새 위험 변이 후보</strong></p>
 <ul>
-<li>전장유전체 유의 변이 <span class="stat-tech">rs75776799</span> 1곳을 발견함(<span class="stat-tech">SLC25A12</span> 인트론, P = 2.45×10⁻⁹, OR = 2.65). 기존 양극성장애 연구에서 보고된 적 없는 새 위치임</li>
-<li><span class="stat-tech">SLC25A12</span>는 미토콘드리아 칼슘 운반 단백질을 만드는 유전자로, 미토콘드리아 기능이 발병에 관여할 가능성을 시사함</li>
+<li>전장유전체 유의 수준을 넘는 <strong>새로운 위험 변이 후보 1곳</strong>을 발견함 — 기존 양극성장애 연구에서 보고된 적 없는 위치 <em>(구체 변이·통계치는 논문 발표 후 공개)</em></li>
+<li>후보 유전자의 생물학적 기능을 토대로 발병 기전 가설을 제시함</li>
 </ul>
 <p><strong>SMR·HEIDI 기전 분석: 인과 유전자 미확정</strong></p>
 <ul>
-<li>뇌 eQTL·동아시아 mQTL 기반 SMR에서 다중검정 보정 후 유의한 인과 유전자는 없었음(eQTL 7개 유전자 모두 <span class="stat-tech">p_SMR</span> &gt; 0.05)</li>
-<li>mQTL에서는 <span class="stat-tech">DLX2-AS1</span>·<span class="stat-tech">ITGA6</span> 부근 일부 프로브(probe, 메틸화를 측정하는 DNA 지점)만 약한 연관(p &lt; 0.05, 엄격 보정은 미통과). 인과 유전자는 더 큰 자료로 규명이 필요함</li>
+<li>뇌 eQTL·동아시아 mQTL 기반 SMR에서 다중검정 보정 후 <strong>유의한 인과 유전자는 없었음</strong></li>
+<li>일부 메틸화 프로브(probe, 메틸화를 측정하는 DNA 지점)에서만 약한 연관(엄격 보정 미통과) — 인과 유전자는 더 큰 자료로 규명이 필요함</li>
 </ul>
 <div class="highlight-box">
-<p><strong>정리</strong>: 한국인 양극성장애에서 새 위험 변이(<span class="stat-tech">SLC25A12</span>)를 발견함. 다만 이 변이가 어느 유전자를 통해 작동하는지는 SMR·HEIDI로는 확정되지 않아, 더 큰 자료로 후속 규명이 필요함</p>
+<p><strong>정리</strong>: 한국인 양극성장애에서 새 위험 변이 후보를 발견함. 다만 이 변이가 어느 유전자를 통해 작동하는지는 SMR·HEIDI로는 확정되지 않아, 더 큰 자료로 후속 규명이 필요함</p>
 </div>
 </div></div>
 </section>
@@ -1320,7 +1299,7 @@
 </ul>
 <p><strong>결과 및 산출물</strong></p>
 <ul>
-<li>논문용 Figure 1~5 세트와 multiomics correlation 패널을 정리하고, <code>LAD vs Healthy</code> 비교에서는 <code>[FDR \&lt; 0.05]</code> 유전자 3개 확인 및 후속 검증 후보군 압축.</li>
+<li>논문용 Figure 1~5 세트와 multiomics correlation 패널을 정리하고, 군 비교에서 <code>[FDR \&lt; 0.05]</code> 유의 유전자 후보를 도출 및 후속 검증 후보군 압축.</li>
 </ul>
 </div></div>
 </section>
@@ -1435,13 +1414,12 @@
 <p><strong>적은 표본, 많은 분자에서 생기는 검정력 문제</strong></p>
 <ul>
 <li>표본(환자 수)은 적은데 측정 분자(유전자·지질)는 수백~수천 개</li>
-<li>개수 자료를 단순 표준화(normalization)만 하면 표본 수(N) 정보가 옅어져, 통계 검정의 힘(power)이 떨어짐</li>
-<li>분자 하나하나 따로 분산을 추정하면 결과가 불안정</li>
+<li>표본이 적으면 <strong>분자마다 분산을 따로 추정한 값이 불안정</strong> — 우연히 분산이 작게 나온 분자가 <strong>위양성(거짓 양성)</strong>으로 튐</li>
 </ul>
 <p><strong>limma의 해결</strong></p>
 <ul>
 <li><span class="stat-tech">limma</span>: 수백~수천 개 분자의 분산 정보를 서로 빌려 와 분산을 안정적으로 추정해, 적은 표본에서도 검정력을 회복</li>
-<li>원래 유전자 발현용으로 개발됐고 지질 분석에도 널리 사용</li>
+<li><strong>연속형(로그-정규) 데이터</strong>용 — 마이크로어레이·단백체·<strong>지질체</strong>에 적합. RNA-seq <strong>count</strong>는 voom(log-CPM) 변환 후 쓰거나 <strong>DESeq2</strong>(음이항)로 별도 처리</li>
 </ul>
 <table class="caption-top">
 <thead>
@@ -1540,37 +1518,33 @@
 <ul>
 <li>Ceramide(세라마이드): 피부 장벽을 이루는 대표 지질로, 피부 방어막의 핵심 성분</li>
 <li>보통 아토피는 장벽 ceramide가 줄어 건조한데, 표면 지질에선 오히려 증가(새로 만드는 작용인 신생합성이 활발해졌다는 뜻)</li>
-<li>특히 <span class="stat-tech">Cer 34:1</span>이 아토피·양진에서 확실히 증가</li>
+<li>특히 특정 ceramide 종이 아토피·양진에서 뚜렷이 증가</li>
 </ul>
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;">질환</th>
-<th style="text-align: center;">유의 지질 수</th>
-<th style="text-align: left;">대표 변화 (log2FC)</th>
+<th style="text-align: left;">대표 변화 방향</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">소아 아토피</td>
-<td style="text-align: center;">11종</td>
-<td style="text-align: left;">Cer 34:1 +0.94 · FFA 증가</td>
+<td style="text-align: left;">ceramide 증가 · FFA 증가</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">결절성 양진</td>
-<td style="text-align: center;">47종</td>
-<td style="text-align: left;">Cer 34:1 +3.08 · TG 감소</td>
+<td style="text-align: left;">ceramide 증가(뚜렷) · TG 감소</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">민감피부</td>
-<td style="text-align: center;">2종</td>
-<td style="text-align: left;">TG 62:4·64:4 감소</td>
+<td style="text-align: left;">TG 감소</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li>FFA(유리지방산), TG(중성지방), Cer(세라마이드)</li>
-<li>log2FC가 +1이면 2배, +3.08이면 약 8.5배 증가</li>
+<li>log2FC는 로그2 배수변화 — +1이면 2배, +3이면 약 8배</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="case-media case-media-full" data-caption="질환별 PCA · heatmap · volcano plot · GO/KEGG enrichment (지질체 결과)">
@@ -1595,21 +1569,21 @@
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">핵심 유전자</th>
+<th style="text-align: left;">유전자 기능군</th>
 <th style="text-align: left;">역할</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">CERS6</td>
+<td style="text-align: left;">합성 효소</td>
 <td style="text-align: left;">ceramide 합성</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ASAH1</td>
+<td style="text-align: left;">분해 효소</td>
 <td style="text-align: left;">ceramide 분해</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ELOVL3</td>
+<td style="text-align: left;">사슬연장 효소</td>
 <td style="text-align: left;">지방산 사슬 연장</td>
 </tr>
 </tbody>
@@ -1630,32 +1604,28 @@
 <p><span class="case-owner">강남성심병원 피부과 김혜원 교수님</span></p>
 <p><strong>마우스에서도 같은 변화 (cross-species 검증)</strong></p>
 <ul>
-<li>사람뿐 아니라 아토피 마우스 피부에서도 Cer 34:1 증가</li>
+<li>사람뿐 아니라 아토피 마우스 피부에서도 같은 ceramide 종이 증가</li>
 <li>사람·마우스에서 같은 방향으로 재현돼, 우연이 아니라 종을 넘어 보존된 변화일 가능성</li>
 </ul>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Cer 34:1</th>
-<th style="text-align: center;">변화</th>
-<th style="text-align: left;">유의성</th>
+<th style="text-align: left;">핵심 ceramide 종</th>
+<th style="text-align: left;">변화 방향</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">마우스 아토피</td>
-<td style="text-align: center;">3.6배</td>
-<td style="text-align: left;">p = 0.002</td>
+<td style="text-align: left;">유의 증가</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">사람 소아 아토피</td>
-<td style="text-align: center;">1.9배</td>
-<td style="text-align: left;">FDR 0.004</td>
+<td style="text-align: left;">유의 증가</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">사람 결절성 양진</td>
-<td style="text-align: center;">8.5배</td>
-<td style="text-align: left;">FDR 0.001 미만</td>
+<td style="text-align: left;">유의 증가(뚜렷)</td>
 </tr>
 </tbody>
 </table>
@@ -1719,11 +1689,6 @@
 <ul>
 <li>COPD 환자의 mortality 연관 유전변이를 탐색, 임상 phenotype에 따른 신호 변경 탐색을 위한 subtype-specific GWAS 설계.</li>
 <li><span class="stat-tech">Table 1</span>와 결측률 점검, <span class="stat-tech">PLINK logistic GWAS</span>를 <code>pure_COPD</code>, <code>TB_COPD</code>, <code>Asthma_COPD</code>, <code>BE_COPD</code> 하위군별 반복 수행, <span class="stat-tech">covariate-adjusted model</span>을 통해 age, sex, BMI, baseline FEV1 보정 결과 통합 비교.</li>
-</ul>
-<p><strong>결과 및 산출물</strong></p>
-<ul>
-<li>phenotype별 baseline 특성표, 보정 전후 GWAS, top SNP 요약표 정리 및 하위군별 signal 비교를 위한 Manhattan plot 도출.</li>
-<li>COPD 아형별 mortality-associated SNP 후보를 분리 후 해석 가능 구조를 확립, 후속 replication 또는 기능 해석을 위한 lead SNP 정리.</li>
 </ul>
 </div></div>
 </section>
