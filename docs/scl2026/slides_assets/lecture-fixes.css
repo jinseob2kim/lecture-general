@@ -1,0 +1,26 @@
+/* Small layout refinements after the first rendered pass. */
+.reveal .fraction-card .big-number {
+  display: block;
+  margin-top: 14px;
+  color: #2a3d21;
+  font-size: 1.18em;
+  line-height: 1.08;
+  font-weight: 950;
+}
+
+.reveal .column .comparison-arrow {
+  grid-template-columns: 1fr 46px 1fr;
+  gap: 8px;
+}
+
+.reveal .column .analysis-chain {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.reveal .column .analysis-chain .flow-step {
+  min-height: 124px;
+}
+
+.reveal .column .analysis-chain .flow-step:nth-child(2)::after {
+  content: none;
+}
