@@ -34,6 +34,7 @@ execute:
 editor: visual
 ---
 
+
 ## 오늘의 출발점 {.module-overview}
 
 <div class="question-banner" markdown="1">**연구 질문 → 분석 단위 → 통계 방법**
@@ -58,7 +59,7 @@ editor: visual
 </div></div>
 <div class="key-message" markdown="1">**개념 → 논문 Figure/Table → 해석**
 </div>
-## 5편의 논문, 5개의 통계 질문 {.module-overview}
+## 오늘 볼 5편의 논문 {.module-overview}
 
 <div class="stat-map" markdown="1"><div class="map-card" markdown="1"><span class="map-no">01 · RANGE</span>
 
@@ -66,7 +67,9 @@ editor: visual
 
 **PTH reference interval**
 
-<div class="map-method">Percentile · MAD · Bootstrap · Survey weighting</div>
+<div class="map-method">KNHANES 2024 · 4,502명 → 155명<br>Percentile · Bootstrap · Survey weighting</div>
+
+<div class="map-source">BMC Endocr Disord 2026;26:176<br>GC Labs</div>
 </div>
 <div class="map-card" markdown="1"><span class="map-no">02 · AGREEMENT</span>
 
@@ -74,7 +77,9 @@ editor: visual
 
 **Triglyceride harmonization**
 
-<div class="map-method">Passing–Bablok · Bland–Altman · Bias</div>
+<div class="map-method">동일 혈청 98쌍<br>Passing–Bablok · Bland–Altman · Bias</div>
+
+<div class="map-source">Ann Lab Med 2025;45:291-299<br>GC Labs</div>
 </div>
 <div class="map-card" markdown="1"><span class="map-no">03 · PROPORTION</span>
 
@@ -82,7 +87,9 @@ editor: visual
 
 **GBS colonization**
 
-<div class="map-method">Proportion · Chi-square · Fisher’s exact</div>
+<div class="map-method">질 면봉 배양 33,721건<br>Proportion · Chi-square · Fisher’s exact</div>
+
+<div class="map-source">Yonsei Med J 2022;63:717-723<br><span class="map-scl">서울의과학연구소</span></div>
 </div>
 <div class="map-card" markdown="1"><span class="map-no">04 · MULTIPLICITY</span>
 
@@ -90,7 +97,9 @@ editor: visual
 
 **CRC tissue microbiome**
 
-<div class="map-method">qPCR · Diversity · Relative abundance · FDR</div>
+<div class="map-method">환자 38명 · 조직 39개<br>qPCR · Diversity · Relative abundance · FDR</div>
+
+<div class="map-source">Sci Rep 2020;10:19915<br>연세대학교</div>
 </div>
 <div class="map-card" markdown="1"><span class="map-no">05 · PROFILE</span>
 
@@ -98,53 +107,55 @@ editor: visual
 
 **GBS WGS**
 
-<div class="map-method">ST/CC · ARG · AMR profile · Categorical tests</div>
+<div class="map-method">과거 37 vs 최근 209 균주<br>ST/CC · ARG · AMR profile</div>
+
+<div class="map-source">Ann Lab Med 2025 (alm.2025.0439)<br><span class="map-scl">서울의과학연구소</span></div>
 </div></div>
 ## 분석 단위 먼저 {.module-overview}
 
-<div class="unit-flow" markdown="1"><div class="flow-step" markdown="1">**개인**
+<div class="unit-flow" markdown="1"><div class="flow-step" markdown="1">**개인** · 논문 1
 
-PTH 검사값
+PTH 검사값 · 155명
 </div>
-<div class="flow-step" markdown="1">**동일 혈청 검체**
+<div class="flow-step" markdown="1">**동일 혈청 검체** · 논문 2
 
-두 검사법의 측정값
+두 검사법의 측정값 · 98쌍
 </div>
-<div class="flow-step" markdown="1">**조직 검체**
+<div class="flow-step" markdown="1">**배양 검체** · 논문 3
 
-qPCR·16S 결과
+질 면봉 33,721건
 </div>
-<div class="flow-step" markdown="1">**배양 검체**
+<div class="flow-step" markdown="1">**조직 검체** · 논문 4
 
-GBS 양성·음성
+환자 38명 · 조직 39개
 </div>
-<div class="flow-step" markdown="1">**GBS 분리 균주**
+<div class="flow-step" markdown="1">**분리 균주** · 논문 5
 
-감수성·유전자·계통
+37 vs 209 균주
 </div></div>
-<div class="key-message" markdown="1">**사람 ≠ 검체 ≠ 균주** · 분모 + 독립성 확인
+<div class="key-message" markdown="1">**사람 ≠ 검체 ≠ 균주** · 논문 4는 환자 38명에서 조직 39개 (한 환자에 병변 2개)
 </div>
 ## 연구 질문 → 통계 방법 {.module-overview}
 
-<div class="card-grid-2" markdown="1"><div class="big-card" markdown="1"><span class="method-name">분포의 범위를 추정</span>
+<div class="card-grid-2" markdown="1"><div class="big-card" markdown="1"><span class="method-name">분포의 범위를 추정 · 논문 1</span>
 
 **결과:** 하한–상한
 
 Percentile → 이상치 → Bootstrap CI → Survey weighting
 </div>
-<div class="big-card blue" markdown="1"><span class="method-name">동일 검체의 두 값을 비교</span>
+<div class="big-card blue" markdown="1"><span class="method-name">동일 검체의 두 값을 비교 · 논문 2</span>
 
 **결과:** 회귀식 + 차이 + 기준값 대비 bias
 
 Passing–Bablok → Bland–Altman → Harmonization
 </div>
-<div class="big-card purple" markdown="1"><span class="method-name">빈도와 비율을 비교</span>
+<div class="big-card purple" markdown="1"><span class="method-name">빈도와 비율을 비교 · 논문 3 · 5</span>
 
 **결과:** n/N (%) + P value
 
 Chi-square 또는 Fisher’s exact test
 </div>
-<div class="big-card orange" markdown="1"><span class="method-name">고차원 결과를 해석</span>
+<div class="big-card orange" markdown="1"><span class="method-name">고차원 결과를 해석 · 논문 4 · 5</span>
 
 **결과:** 전체 군집 + 개별 feature + profile
 
@@ -160,7 +171,7 @@ Diversity → FDR → WGS/ARG 연결
 </div>
 ## Reference interval ≠ Confidence interval {.module-reference}
 
-<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">REFERENCE INTERVAL</span>
+<div class="columns" markdown="1"><div class="column" style="width:56%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">REFERENCE INTERVAL</span>
 
 <span class="metric">2.5th–97.5th</span>
 
@@ -189,28 +200,38 @@ MAD 기반 극단값 평가
 <div class="flow-step" markdown="1">**불확실성 평가**
 
 Bootstrap CI
+</div></div></div>
+<div class="column" style="width:44%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/confidence-interval-95.jpg){fig-alt="분포의 중앙 95%와 양쪽 2.5% 꼬리" height="330"}
+
+<div class="small-source" markdown="1">참고구간은 분포의 양쪽 2.5%를 잘라낸 중앙 95% 구간
 </div></div>
+<div class="key-message" markdown="1">**중앙 95%를 자르는 위치** ≠ **그 위치를 얼마나 정확히 아는가**
+</div></div></div>
 ## 논문 1 · PTH 참고집단: 4,502명 → 155명 {.module-reference}
 
-<div class="columns" markdown="1"><div class="column" style="width:45%;" markdown="1"><span class="paper-label">PAPER 1 · PTH</span>
+<div class="columns" markdown="1"><div class="column" style="width:45%;" markdown="1"><span class="paper-label">PAPER 1 · PTH · BMC Endocr Disord 2026</span>
 
-<div class="question-banner" markdown="1">**한국 성인 PTH 참고구간** · KNHANES 2024
+<div class="question-banner" markdown="1">**40세 이상 한국 성인의 PTH 참고구간** · KNHANES 2024
 </div>
 <div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">PTH 측정 대상자</span>
 
 <span class="metric">4,502명</span>
+
+40세 이상만 측정
 </div>
 <div class="arrow">→</div>
 
-<div class="metric-block" markdown="1"><span class="muted">대표 참고집단</span>
+<div class="metric-block" markdown="1"><span class="muted">최종 참고집단</span>
 
 <span class="metric">155명</span>
+
+질환·보충제·임신·eGFR 제외 후
 </div></div>
 <div class="key-message" markdown="1">**참고집단 선정이 핵심** · 4,502명 → 155명
 </div></div>
 <div class="column" style="width:55%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/pth-paper-figure1.png){fig-alt="PTH 참고집단의 단계적 포함·제외 과정" height="500"}
 
-<div class="small-source" markdown="1">Figure 1. PTH 참고집단의 단계적 포함·제외 과정
+<div class="small-source" markdown="1">Figure 1. PTH 참고집단의 단계적 포함·제외 과정 · Choi R, et al. BMC Endocr Disord 2026;26:176
 </div></div></div></div>
 ## 논문 1 · 네 가지 추정 {.module-reference}
 
@@ -220,7 +241,7 @@ Bootstrap CI
 </div>
 <div class="big-card blue" markdown="1"><span class="method-name">Robust method</span>
 
-표본이 120명 미만인 하위집단의 **비가중 참고한계**를 안정적으로 추정
+표본이 120명 미만인 하위집단의 **비가중 참고한계**를 안정적으로 추정 (CLSI EP28-A3c)
 </div>
 <div class="big-card purple" markdown="1"><span class="method-name">Bootstrap 90% CI</span>
 
@@ -228,15 +249,17 @@ Bootstrap CI
 </div>
 <div class="big-card orange" markdown="1"><span class="method-name">Survey-weighted analysis</span>
 
-PSU·층화·조사 가중치를 반영해 **한국 성인 모집단**을 추정
+PSU·층화·조사 가중치를 반영해 **40세 이상 한국 성인**을 추정
 </div></div>
 <div class="key-message" markdown="1">**21.8–65.0 vs 20.5–67.7 pg/mL** · 선정 기준 + 표본 설계
+</div>
+<div class="small-source" markdown="1">비타민 D·칼슘·마그네슘·인을 추가로 제한한 단계에서는 n &lt; 120이 되어, 저자들도 확정적 참고구간이 아니라 추가 연구가 필요하다고 결론
 </div>
 ## 논문 1 · Table 1: 참고집단 {.module-reference}
 
 <div class="columns" markdown="1"><div class="column" style="width:62%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/pth-paper-table1.png){fig-alt="KNHANES 2024 PTH 분석 대상자의 특성" height="505"}
 
-<div class="small-source" markdown="1">Table 1. KNHANES 2024 PTH 분석 대상자의 특성
+<div class="small-source" markdown="1">Table 1. KNHANES 2024 PTH 분석 대상자의 특성 · Choi R, et al. BMC Endocr Disord 2026;26:176
 </div></div></div>
 <div class="column" style="width:38%;" markdown="1"><div class="check-list" markdown="1"><div class="check-item" markdown="1"><span class="check-no">1</span>
 
@@ -262,7 +285,7 @@ PSU·층화·조사 가중치를 반영해 **한국 성인 모집단**을 추정
 </div>
 ## 논문 2 · 동일 혈청 98개 {.module-method}
 
-<div class="columns" markdown="1"><div class="column" style="width:43%;" markdown="1"><span class="paper-label">PAPER 2 · TRIGLYCERIDE</span>
+<div class="columns" markdown="1"><div class="column" style="width:43%;" markdown="1"><span class="paper-label">PAPER 2 · TRIGLYCERIDE · Ann Lab Med 2025</span>
 
 <div class="question-banner" markdown="1">**검사법 변경 전후 자료 연결** · Triglyceride harmonization
 </div>
@@ -274,13 +297,13 @@ PSU·층화·조사 가중치를 반영해 **한국 성인 모집단**을 추정
 </div></div>
 <div class="column" style="width:57%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure1.png){fig-alt="중성지방 검사법 변경 전후의 자료 연결" height="500"}
 
-<div class="small-source" markdown="1">Figure 1. 동일 검체 비교와 KNHANES 자료의 harmonization 흐름
+<div class="small-source" markdown="1">Figure 1. 동일 검체 비교와 KNHANES 자료의 harmonization 흐름 · Choi R, et al. Ann Lab Med 2025;45:291-299
 </div></div></div></div>
 ## Correlation ≠ Agreement {.module-method}
 
 <div class="card-grid-2" markdown="1"><div class="big-card blue" markdown="1"><span class="eyebrow">CORRELATION</span>
 
-<span class="big-number">R = 0.997</span>
+<span class="big-number">r = 0.997</span>
 
 두 측정값이 **함께 증가**하는 정도
 </div>
@@ -298,11 +321,17 @@ Non-blanking이 평균적으로 더 높음
 </div></div>
 <div class="key-message" markdown="1">**Correlation = 관계** · **Bland–Altman = 차이**
 </div>
+## Passing–Bablok 회귀분석 개념도 {.module-method .image-only}
+
+<div class="paper-frame" markdown="1">![](slides_assets/passing-bablok-concept.png){fig-alt="Passing–Bablok 회귀분석 개념도" height="620"}
+</div>
+<div class="key-message" markdown="1">**절편 = constant bias** · **기울기 = proportional bias**
+</div>
 ## 논문 2 · Passing–Bablok + Bland–Altman {.module-method}
 
 <div class="columns" markdown="1"><div class="column" style="width:63%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure2.png){fig-alt="Passing–Bablok 회귀와 Bland–Altman 분석" height="505"}
 
-<div class="small-source" markdown="1">Figure 2. Passing–Bablok 회귀와 Bland–Altman 분석
+<div class="small-source" markdown="1">Figure 2. Passing–Bablok 회귀와 Bland–Altman 분석 · Choi R, et al. Ann Lab Med 2025;45:291-299
 </div></div></div>
 <div class="column" style="width:37%;" markdown="1"><div class="big-card" markdown="1"><span class="method-name">변환식</span>
 
@@ -323,7 +352,7 @@ Y: non-blanking 기준 변환값
 
 <div class="columns" markdown="1"><div class="column" style="width:59%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure3.png){fig-alt="중성지방 변환 전후 분포 변화" height="510"}
 
-<div class="small-source" markdown="1">Figure 3. KNHANES 2019–2021 중성지방 분포의 변환 전후 변화
+<div class="small-source" markdown="1">Figure 3. KNHANES 2019–2021 중성지방 분포의 변환 전후 변화 · Choi R, et al. Ann Lab Med 2025;45:291-299
 </div></div></div>
 <div class="column" style="width:41%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">평균</span>
 
@@ -339,23 +368,33 @@ mg/dL
 
 mg/dL
 </div></div>
-<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">유병률</span>
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">고중성지방혈증</span>
 
 <span class="metric">11.9%</span>
+
+≥200 mg/dL
 </div>
 <div class="arrow">→</div>
 
 <div class="metric-block" markdown="1"><span class="muted">변환 후</span>
 
 <span class="metric">13.8%</span>
+
+비가중 · N = 16,015
 </div></div>
-<div class="key-message" markdown="1">**평균 + 유병률 변화** · 123.7 → 134.3 mg/dL · 11.9% → 13.8%
+<div class="key-message" markdown="1">**검사법 보정이 유병률 통계를 바꾼다** · 11.9% → 13.8%
 </div></div></div>
+## Difference · Bias · Percent bias {.module-method .image-only}
+
+<div class="paper-frame" markdown="1">![](slides_assets/bias.png){fig-alt="Difference, bias, percent bias의 구분" height="620"}
+</div>
+<div class="key-message" markdown="1">**Bland–Altman = 두 검사법 사이의 차이** · **Bias = 기준값에서 벗어난 정도**
+</div>
 ## 논문 2 · 외부 기준값 대비 Bias {.module-method}
 
 <div class="columns" markdown="1"><div class="column" style="width:58%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure4.png){fig-alt="CDC LSP 기준값 대비 검사법별 bias" height="510"}
 
-<div class="small-source" markdown="1">Figure 4. CDC LSP target value 대비 검사법별 bias
+<div class="small-source" markdown="1">Figure 4. CDC LSP target value 대비 검사법별 bias · Choi R, et al. Ann Lab Med 2025;45:291-299
 </div></div></div>
 <div class="column" style="width:42%;" markdown="1"><div class="big-card orange" markdown="1"><span class="method-name">2018–2021 · Blanking</span>
 
@@ -373,7 +412,9 @@ Bias가 **±5% 이내**로 CDC LSP 기준에서 수용 가능
 
 <div class="section-sub" markdown="1">집락률 / 내성률 / MDR · **분모 각각 확인**
 </div>
-## 논문 4 · 집락률 ≠ 내성률 {.module-amr}
+## 논문 3 · 집락률 ≠ 내성률 {.module-amr}
+
+<span class="paper-label">PAPER 3 · GBS COLONIZATION · Yonsei Med J 2022</span>
 
 <div class="card-grid-2" markdown="1"><div class="fraction-card" markdown="1"><div class="numerator">GBS 양성 배양 검체 수</div>
 <div class="denominator">전체 질 면봉 배양 검체 수</div>
@@ -385,23 +426,26 @@ Bias가 **±5% 이내**로 CDC LSP 기준에서 수용 가능
 
 <span class="big-number">내성률</span>
 </div></div>
-<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">전체 배양 검체</span>
+<div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**전체 배양 검체**
 
-<span class="metric">33,721건</span>
-</div>
-<div class="arrow">→</div>
+33,721건
+</div><div class="flow-step" markdown="1">**GBS 양성**
 
-<div class="metric-block" markdown="1"><span class="muted">GBS 양성</span>
+3,578건 · 10.6%
+</div><div class="flow-step" markdown="1">**감수성 검사 시행**
 
-<span class="metric">3,578건 · 10.6%</span>
+1,672균주 · 46.7%
+</div><div class="flow-step" markdown="1">**MDR**
+
+538균주 · 32.2%
 </div></div>
-<div class="key-message" markdown="1">**내성률 분모** · 항균제별 감수성 검사 균주 수
+<div class="key-message" markdown="1">**분모가 한 슬라이드 안에서 세 번 바뀐다** · 33,721 → 3,578 → 1,672
 </div>
-## 논문 4 · 연도별 집락률 {.module-amr}
+## 논문 3 · 연도별 집락률 {.module-amr}
 
 <div class="columns" markdown="1"><div class="column" style="width:58%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper4-figure1.png){fig-alt="연도별 GBS 집락률" height="500"}
 
-<div class="small-source" markdown="1">Figure 1. 2018–2020년 GBS 집락률
+<div class="small-source" markdown="1">Figure 1. 2018–2020년 GBS 집락률 · Bae HG, et al. Yonsei Med J 2022;63:717-723
 </div></div></div>
 <div class="column" style="width:42%;" markdown="1"><div class="card-grid-3" markdown="1"><div class="big-card" markdown="1"><span class="eyebrow">2018</span>
 <span class="big-number">10.8%</span>
@@ -410,82 +454,17 @@ Bias가 **±5% 이내**로 CDC LSP 기준에서 수용 가능
 </div><div class="big-card purple" markdown="1"><span class="eyebrow">2020</span>
 <span class="big-number">10.5%</span>
 </div></div>
-<div class="key-message" markdown="1">**연도별 비율 비교** · Chi-square test
+<div class="key-message" markdown="1">**연도별·지역별 비율 비교** · Chi-square test
 </div>
 <div class="big-card orange" markdown="1">**지역별 집락률 · 9.6%–13.2%**
+
+경상도 9.6% ~ 전라도 13.2%
 </div></div></div>
-## Fisher’s exact = Exact · Chi-square = Approximation {.module-amr}
-
-<div class="question-banner" markdown="1">**Fisher는 무조건 옳다**
-</div>
-<div class="card-grid-2" markdown="1"><div class="big-card purple" markdown="1"><span class="method-name">Fisher’s exact test</span>
-
-**Exact probability**
-
-고정된 주변합에서 가능한 2×2 표를 직접 계산
-
-표본 크기·기대 빈도와 무관한 정확검정
-</div>
-<div class="big-card orange" markdown="1"><span class="method-name">Pearson Chi-square test</span>
-
-**Asymptotic approximation**
-
-X² 통계량을 카이제곱분포로 근사
-
-희소 셀·작은 기대 빈도 → 근사 오차
-</div></div>
-<div class="key-message" markdown="1">**정확성: Fisher** · **계산 편의: Chi-square**
-</div>
-
-## Chi-square가 관행이 된 이유 {.module-amr}
-
-<div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**컴퓨터 이전**
-
-가능한 표의 완전 열거
-
-계산 부담 큼
-</div>
-<div class="flow-step" markdown="1">**X² 수기 계산**
-
-관찰 빈도·기대 빈도
-
-간단한 산술
-</div>
-<div class="flow-step" markdown="1">**통계표 조회**
-
-X²가 χ² 분포를 따르기를 기대
-
-임계값으로 판정
-</div>
-<div class="flow-step" markdown="1">**관행 고착**
-
-기대 빈도 규칙
-
-Chi-square 우선 교육
-</div></div>
-<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">과거</span>
-
-<span class="metric">계산 가능성 우선</span>
-
-Chi-square + 인쇄 통계표
-</div>
-<div class="arrow">→</div>
-<div class="metric-block" markdown="1"><span class="muted">현재</span>
-
-<span class="metric">정확성 우선</span>
-
-2×2 표 · Fisher 기본
-</div></div>
-<div class="key-message" markdown="1">**Fisher는 무조건 옳다** · Exact conditional test · Type I error ≤ α
-</div>
-<div class="small-source" markdown="1">정확성 ≠ 효율성 · 이산형 조건부 검정 특성상 보수적일 수 있음 · Agresti (1992), Upton (1992)
-</div>
-
-## 논문 4 · 항균제별 내성률 {.module-amr}
+## 논문 3 · 항균제별 내성률 {.module-amr}
 
 <div class="columns" markdown="1"><div class="column" style="width:59%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper4-table2.png){fig-alt="GBS 균주의 항균제 감수성 결과" height="510"}
 
-<div class="small-source" markdown="1">Table 2. GBS 균주의 항균제별 감수성 결과
+<div class="small-source" markdown="1">Table 2. GBS 균주의 항균제별 감수성 결과 · Bae HG, et al. Yonsei Med J 2022;63:717-723
 </div></div></div>
 <div class="column" style="width:41%;" markdown="1"><div class="big-card" markdown="1"><span class="method-name">β-lactam·Vancomycin</span>
 
@@ -498,17 +477,52 @@ Clindamycin **33.4%–35.7%**
 Erythromycin **35.6%–36.8%**  
 Tetracycline **50.0%–53.3%**
 </div>
-<div class="key-message" markdown="1">**MDR 538/1,672 · 32.2%** · 정의 + 검사 패널
+<div class="key-message" markdown="1">**MDR 538/1,672 · 32.2%** · 분모는 chloramphenicol 감수성 검사가 시행된 균주
 </div></div></div>
+## 2×2 표 · Chi-square와 Fisher’s exact {.module-amr}
+
+<div class="card-grid-2" markdown="1"><div class="big-card orange" markdown="1"><span class="method-name">Pearson Chi-square test</span>
+
+**Asymptotic approximation**
+
+X² 통계량을 카이제곱분포로 근사
+
+표본이 크면 정확검정과 사실상 같은 결과
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">Fisher’s exact test</span>
+
+**Exact probability**
+
+고정된 주변합에서 가능한 2×2 표를 직접 계산
+
+기대 빈도가 작아도 Type I error가 α를 넘지 않음
+</div></div>
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">논문 3</span>
+
+<span class="metric">N = 33,721</span>
+
+근사가 충분 → Chi-square
+</div>
+<div class="arrow">vs</div>
+<div class="metric-block" markdown="1"><span class="muted">논문 5</span>
+
+<span class="metric">37 vs 209</span>
+
+희소 셀 → Fisher’s exact
+</div></div>
+<div class="key-message" markdown="1">**표본이 크면 두 결과는 같다** · 기대 빈도가 작을 때만 차이가 난다
+</div>
+<div class="small-source" markdown="1">계산 부담이 없는 지금은 2×2에서 정확검정을 기본으로 두면 기대 빈도 규칙을 따로 외울 필요가 없음 · 다만 Fisher는 주변합을 고정하는 조건부 검정이라 다소 보수적 · Agresti (1992), Upton (1992)
+</div>
 ## 미생물 다중결과 · 분석 층 + FDR {.section-break .module-microbiome}
 
 <span class="section-no">04 · MULTIPLICITY</span>
 
 <div class="section-sub" markdown="1">양성/음성 · Ct value · 상대 풍부도 · Alpha/Beta diversity
 </div>
-## 논문 3 · qPCR + 16S {.module-microbiome}
+## 논문 4 · qPCR + 16S {.module-microbiome}
 
-<div class="columns" markdown="1"><div class="column" style="width:43%;" markdown="1"><span class="paper-label">PAPER 3 · CRC MICROBIOME</span>
+<div class="columns" markdown="1"><div class="column" style="width:43%;" markdown="1"><span class="paper-label">PAPER 4 · CRC MICROBIOME · Sci Rep 2020</span>
 
 <div class="big-card" markdown="1"><span class="method-name">qPCR</span>
 
@@ -521,12 +535,14 @@ Fisher’s exact test · Mann–Whitney U test
 전체 군집의 **상대 풍부도**와 **다양성**
 
 Alpha/Beta diversity · OTU 비교 · FDR
+</div>
+<div class="key-message" markdown="1">**환자 38명 · 조직 39개** · 한 환자에 병변 2개
 </div></div>
 <div class="column" style="width:57%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper3-figure1.png){fig-alt="조직 유형별 F. nucleatum qPCR 결과" height="500"}
 
-<div class="small-source" markdown="1">Figure 1. 조직 유형별 F. nucleatum qPCR 결과
+<div class="small-source" markdown="1">Figure 1. 조직 유형별 F. nucleatum qPCR 결과 · Kim M, et al. Sci Rep 2020;10:19915
 </div></div></div></div>
-## 논문 3 · 양성률 ≠ Ct value {.module-microbiome}
+## 논문 4 · 양성률 ≠ Ct value {.module-microbiome}
 
 <div class="card-grid-2" markdown="1"><div class="big-card" markdown="1"><span class="eyebrow">DETECTION RATE</span>
 
@@ -540,28 +556,18 @@ Alpha/Beta diversity · OTU 비교 · FDR
 
 대조군 정상 조직의 양성
 </div></div>
-<div class="method-strip" markdown="1"><div><strong>양성률</strong><br>Fisher’s exact test<br>P &lt; 0.001</div>
+<div class="method-strip" markdown="1"><div><strong>양성률</strong><br>Fisher’s exact test<br>P &lt; 0.0001</div>
 <div><strong>Ct value</strong><br>Mann–Whitney U test<br>P &lt; 0.001</div>
 <div><strong>조직 위치</strong><br>종양 82.1%<br>인접 38.9% · 원거리 33.3%</div>
 </div>
 <div class="key-message" markdown="1">**양성률 = 범주형** · **Ct value = 연속형**
 </div>
-## 논문 3 · 전체 군집 vs 개별 OTU {.module-microbiome}
+## Beta diversity 그림을 읽는 법 {.module-microbiome .image-only}
 
-<div class="columns" markdown="1"><div class="column" style="width:61%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper3-figure3.png){fig-alt="16S rRNA 군집 분석과 FDR 보정 결과" height="510"}
-
-<div class="small-source" markdown="1">Figure 3. 16S rRNA 군집 분석과 FDR 보정 결과
-</div></div></div>
-<div class="column" style="width:39%;" markdown="1"><div class="big-card blue" markdown="1"><span class="method-name">전체 군집</span>
-
-Alpha diversity와 Beta diversity 모두 **유의한 차이 없음**
+<div class="paper-frame" markdown="1">![](slides_assets/dimension-reduction-plot.png){fig-alt="차원축소 플롯의 개념" height="620"}
 </div>
-<div class="big-card purple" markdown="1"><span class="method-name">개별 OTU</span>
-
-FDR 보정 후 **6개 OTU**에서 차이 확인
+<div class="key-message" markdown="1">**점 하나 = 검체 하나** · 두 집단이 분리되면 군집 구성이 다를 가능성
 </div>
-<div class="key-message" markdown="1">**전체 군집 차이 없음 ≠ 개별 OTU 차이 없음**
-</div></div></div>
 ## 다중검정 → FDR {.module-microbiome}
 
 <div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">검정을 1번 시행</span>
@@ -572,7 +578,7 @@ FDR 보정 후 **6개 OTU**에서 차이 확인
 </div>
 <div class="arrow">→</div>
 
-<div class="metric-block" markdown="1"><span class="muted">수백 개 OTU를 각각 검정</span>
+<div class="metric-block" markdown="1"><span class="muted">698개 OTU를 각각 검정</span>
 
 <span class="metric">거짓 양성 누적</span>
 
@@ -593,23 +599,43 @@ q value 또는 adjusted P
 </div></div>
 <div class="key-message" markdown="1">**FDR 보정 후 유의성** · 고차원 자료의 핵심
 </div>
-## 논문 3 · 관련성 ≠ 인과성 {.module-microbiome}
+## 논문 4 · 전체 군집 vs 개별 OTU {.module-microbiome}
+
+<div class="columns" markdown="1"><div class="column" style="width:61%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper3-figure3.png){fig-alt="16S rRNA 군집 분석과 FDR 보정 결과" height="510"}
+
+<div class="small-source" markdown="1">Figure 3. 16S rRNA 군집 분석과 FDR 보정 결과 · Kim M, et al. Sci Rep 2020;10:19915
+</div></div></div>
+<div class="column" style="width:39%;" markdown="1"><div class="big-card blue" markdown="1"><span class="method-name">전체 군집</span>
+
+Alpha diversity와 Beta diversity 모두 **유의한 차이 없음**
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">개별 OTU</span>
+
+698개 중 FDR 보정 후 **6개 OTU**에서 차이 확인
+</div>
+<div class="key-message" markdown="1">**전체 군집 차이 없음 ≠ 개별 OTU 차이 없음**
+</div></div></div>
+## 논문 4 · 관련성 ≠ 인과성 {.module-microbiome}
 
 <div class="columns" markdown="1"><div class="column" style="width:60%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper3-figure4.png){fig-alt="음주 여부와 Fusobacterium relative abundance" height="510"}
 
-<div class="small-source" markdown="1">Figure 4. 음주 여부와 Fusobacterium relative abundance
+<div class="small-source" markdown="1">Figure 4. 음주 여부와 Fusobacterium relative abundance · Kim M, et al. Sci Rep 2020;10:19915
 </div></div></div>
 <div class="column" style="width:40%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">Heavy drinker</span>
 <span class="metric">14/15 · 93.3%</span>
+
+*Fusobacterium* 검출
 </div><div class="arrow">vs</div>
 <div class="metric-block" markdown="1"><span class="muted">Non/light drinker</span>
-<span class="metric">11/17 · 64.7%</span>
+<span class="metric">6/17 · 35.3%</span>
+
+11/17은 비검출
 </div></div>
 <div class="big-card orange" markdown="1">**P = 0.003**
 
-Heavy drinker · *Fusobacterium* relative abundance 증가
+Heavy drinker에서 *Fusobacterium* relative abundance 증가
 </div>
-<div class="key-message" markdown="1">**관련성 ≠ 인과성** · 인과 결론 불가
+<div class="key-message" markdown="1">**관련성 ≠ 인과성** · 15명 vs 17명 · 인과 결론 불가
 </div></div></div>
 ## WGS · 계통 + 내성 조합 {.section-break .module-amr}
 
@@ -617,13 +643,21 @@ Heavy drinker · *Fusobacterium* relative abundance 증가
 
 <div class="section-sub" markdown="1">표현형 · ST/CC · cps · ARG · AMR profile · 시간 변화
 </div>
+## WGS 결과를 범주형 변수로 정리 {.module-amr .image-only}
+
+<div class="paper-frame" markdown="1">![](slides_assets/wgs-results.png){fig-alt="WGS 결과를 범주형 변수로 정리하는 흐름" height="600"}
+</div>
+<div class="key-message" markdown="1">**유전체 정보도 결국 n (%) 로 비교** · 분석 단위는 균주 하나
+</div>
 ## 논문 5 · AST → WGS → ARG → Profile {.module-amr}
 
 <div class="columns" markdown="1"><div class="column" style="width:58%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-analysis-flow.png){fig-alt="GBS 계통과 항균제 내성 분석 흐름도" height="505"}
 
-<div class="small-source" markdown="1">분석 흐름도. GBS 감수성 검사와 WGS 기반 계통·내성 분석
+<div class="small-source" markdown="1">분석 흐름도. GBS 감수성 검사와 WGS 기반 계통·내성 분석 · Ahn K, et al. Ann Lab Med 2025 기반
 </div></div></div>
-<div class="column" style="width:42%;" markdown="1"><div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**AST**
+<div class="column" style="width:42%;" markdown="1"><span class="paper-label">PAPER 5 · GBS WGS · Ann Lab Med 2025</span>
+
+<div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**AST**
 
 표현형 내성
 </div><div class="flow-step" markdown="1">**WGS**
@@ -636,31 +670,31 @@ ST · CC · cps
 
 내성 조합
 </div></div>
-<div class="key-message" markdown="1">**37 vs 209균주** · 백분율 + 실제 빈도
+<div class="key-message" markdown="1">**37 vs 209균주** · 백분율 + 실제 빈도를 함께 확인
 </div></div></div>
 ## 논문 5 · 희소 범주 → Fisher’s exact {.module-amr}
 
 <div class="columns" markdown="1"><div class="column" style="width:62%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-table1.png){fig-alt="시기별 GBS 계통과 cps genotype 분포" height="515"}
 
-<div class="small-source" markdown="1">Table 1. 1994–2000년과 2017–2022년의 ST·CC·cps genotype 분포
+<div class="small-source" markdown="1">Table 1. 1994–2000년과 2017–2022년의 ST·CC·cps genotype 분포 · Ahn K, et al. Ann Lab Med 2025
 </div></div></div>
 <div class="column" style="width:38%;" markdown="1"><div class="big-card" markdown="1"><span class="method-name">가장 흔한 CC</span>
 
-과거 **CC19 · 35.1%**  
-최근 **CC1 · 35.4%**
+과거 **CC19 · 35.1%** (13/37)  
+최근 **CC1 · 35.4%** (74/209)
 </div>
 <div class="big-card purple" markdown="1"><span class="method-name">cps genotype VIII</span>
 
 과거 1균주 → 최근 32균주  
 **P = 0.037**
 </div>
-<div class="key-message" markdown="1">**희소 ST·genotype** · 기대 빈도 → 정확 검정
+<div class="key-message" markdown="1">**앞의 그 상황** · 기대 빈도가 작은 칸 → 정확 검정
 </div></div></div>
 ## 논문 5 · 표현형 내성 ≠ ARG {.module-amr}
 
 <div class="columns" markdown="1"><div class="column" style="width:55%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-figure1.png){fig-alt="표현형 내성률과 내성 유전자 보유율 변화" height="500"}
 
-<div class="small-source" markdown="1">Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화
+<div class="small-source" markdown="1">Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K, et al. Ann Lab Med 2025
 </div></div></div>
 <div class="column" style="width:45%;" markdown="1"><div class="card-grid-2" markdown="1"><div class="big-card orange" markdown="1"><span class="eyebrow">TETRACYCLINE R</span>
 <span class="big-number">97.3% → 60.8%</span>
@@ -675,13 +709,38 @@ P = 0.001
 <span class="big-number">91.7% → 72.4%</span>
 P &lt; 0.001
 </div></div>
-<div class="key-message" markdown="1">**ARG 보유 ≠ 표현형 내성** · 공식 일치도 분석 없음
+<div class="key-message" markdown="1">**표현형과 유전자를 각각 시기 비교** · 둘의 일치도는 별개 질문
 </div></div></div>
+## Genotype–phenotype 일치도는 어떻게 보는가 {.module-amr}
+
+<div class="card-grid-2" markdown="1"><div class="big-card orange" markdown="1"><span class="method-name">시기별 비율 비교</span>
+
+표현형 내성률의 변화, ARG 보유율의 변화를 **각각** 검정
+
+두 곡선이 반대로 움직여도 균주별로 어떻게 대응하는지는 알 수 없음
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">균주 단위 일치도</span>
+
+같은 균주에서 **ARG 보유 × 표현형 내성** 2×2 표를 만든 뒤
+
+Sensitivity · Specificity · PPV · NPV · Cohen’s kappa를 95% CI와 함께 제시
+</div></div>
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">유전자를 가지고 있다</span>
+
+<span class="metric">열쇠 보유</span>
+</div>
+<div class="arrow">≠</div>
+<div class="metric-block" markdown="1"><span class="muted">실제로 내성을 보인다</span>
+
+<span class="metric">문이 열린다</span>
+</div></div>
+<div class="key-message" markdown="1">**발현·기능 변이·breakpoint·다른 내성 기전**이 사이에 있다 · 이 논문은 일치도 분석을 별도로 하지 않음
+</div>
 ## 논문 5 · AMR profile = 내성 조합 {.module-amr}
 
 <div class="columns" markdown="1"><div class="column" style="width:61%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-table2.png){fig-alt="시기별 AMR profile 분포" height="515"}
 
-<div class="small-source" markdown="1">Table 2. 1994–2000년과 2017–2022년의 AMR profile 분포
+<div class="small-source" markdown="1">Table 2. 1994–2000년과 2017–2022년의 AMR profile 분포 · Ahn K, et al. Ann Lab Med 2025
 </div></div></div>
 <div class="column" style="width:39%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">과거</span>
 <span class="metric">6종</span>
@@ -695,7 +754,7 @@ Levofloxacin 내성 균주의 **81.8%**가 신규 profile에 포함
 </div>
 <div class="key-message" markdown="1">**개별 내성률 ≠ 내성 조합 다양성**
 </div></div></div>
-## 논문 통계 체크리스트 · 6문항 {.module-overview}
+## 다음 논문을 읽을 때 · 7문항 {.module-overview}
 
 <div class="card-grid-3" markdown="1"><div class="big-card" markdown="1"><span class="big-number">01</span>
 **핵심 추정값** · 범위 / 차이 / 비율 / 군집
@@ -706,30 +765,32 @@ Levofloxacin 내성 균주의 **81.8%**가 신규 profile에 포함
 </div><div class="big-card orange" markdown="1"><span class="big-number">04</span>
 **자료 구조** · 독립 / Paired
 </div><div class="big-card gray" markdown="1"><span class="big-number">05</span>
-**다중검정** · FDR 보정
+**표본 수와 95% CI** · P value만 보지 않기
 </div><div class="big-card" markdown="1"><span class="big-number">06</span>
-**해석 범위** · 관련성 / 인과성
+**다중검정** · FDR 보정
+</div><div class="big-card blue" style="grid-column: 1 / -1;" markdown="1"><span class="big-number">07</span>
+**해석 범위** · 관련성 / 인과성 · 참고집단과 검사 패널이 결론의 적용 범위를 정한다
 </div></div>
 ## Take-home messages {.module-overview}
 
 <div class="takehome-grid" markdown="1"><div class="takehome" markdown="1">**01**
 
-참고구간 · 집단 차이 검정 X · **검사값 분포 범위**
+PTH 참고구간 · 집단 차이 검정 X · **검사값 분포 범위**
 </div><div class="takehome" markdown="1">**02**
 
-검사법 비교 · **Correlation ≠ Agreement** · Bias 별도
+TG 검사법 비교 · **Correlation ≠ Agreement**
 </div><div class="takehome" markdown="1">**03**
 
-비율 · **분모 + 분석 단위 먼저**
+GBS 집락률 · **분모 + 분석 단위 먼저**
 </div><div class="takehome" markdown="1">**04**
 
-미생물 고차원 자료 · **전체 군집 / 개별 feature / FDR**
+CRC 미생물 · **전체 군집 / 개별 feature / FDR**
 </div><div class="takehome" markdown="1">**05**
 
-WGS · **계통 / ARG / 표현형 / profile**
+GBS WGS · **계통 / ARG / 표현형 / profile**
 </div><div class="takehome" markdown="1">**06**
 
-논문 통계 · **연구 질문 → 분석 단위 → 결과변수 → 방법**
+논문 통계 · **연구 질문 → 분석 단위 → 방법**
 </div></div>
 <div class="key-message" markdown="1">**연구 질문 → 분석 단위 → 결과변수 → Figure/Table**
 </div>
