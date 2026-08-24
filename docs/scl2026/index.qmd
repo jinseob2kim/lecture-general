@@ -518,7 +518,53 @@ X² 통계량을 카이제곱분포로 근사
 
 <span class="section-no">04 · MULTIPLICITY</span>
 
-<div class="section-sub" markdown="1">양성/음성 · Ct value · 상대 풍부도 · Alpha/Beta diversity
+<div class="section-sub" markdown="1">양성/음성 · Ct value · 상대 풍부도 · Alpha/Beta diversity · 개별 OTU
+</div>
+## 한 검체에서 나오는 6가지 결과 {.module-microbiome}
+
+<div class="card-grid-3" markdown="1"><div class="big-card" markdown="1"><span class="eyebrow">qPCR</span>
+<span class="method-name">양성 / 음성</span>
+
+정한 균이 **검출되었는가**
+
+범주형 · n (%) · Fisher’s exact
+</div>
+<div class="big-card blue" markdown="1"><span class="eyebrow">qPCR</span>
+<span class="method-name">Ct value</span>
+
+**몇 번째 cycle**에서 신호가 잡혔는가 · 낮을수록 target DNA가 많음
+
+연속형 · Mann–Whitney U
+</div>
+<div class="big-card purple" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">Relative abundance</span>
+
+그 검체의 전체 read 중 해당 분류군의 **비율**
+
+합이 100%인 조성 자료 · 하나가 늘면 다른 것이 줄어듦
+</div>
+<div class="big-card orange" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">Alpha diversity</span>
+
+**검체 하나 안**의 다양성 · Chao1은 종의 수, Shannon은 종 수와 균등도
+
+검체당 값 하나
+</div>
+<div class="big-card gray" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">Beta diversity</span>
+
+**검체 사이** 군집 구성의 거리 · 검체 쌍마다 거리를 계산
+
+PCoA로 시각화 · PERMANOVA
+</div>
+<div class="big-card" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">개별 OTU 비교</span>
+
+수백 개 분류군을 **각각** 검정 · 이 논문은 698개
+
+다중검정 → FDR 보정
+</div></div>
+<div class="key-message" markdown="1">**같은 검체에서 나온 결과지만 답하는 질문이 다르다** · 하나로 요약할 수 없음
 </div>
 ## 논문 4 · qPCR + 16S {.module-microbiome}
 

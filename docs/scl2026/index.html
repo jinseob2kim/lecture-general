@@ -787,7 +787,45 @@ vs
 <h2>미생물 다중결과 · 분석 층 + FDR</h2>
 <p><span class="section-no">04 · MULTIPLICITY</span></p>
 <div class="section-sub" data-markdown="1">
-<p>양성/음성 · Ct value · 상대 풍부도 · Alpha/Beta diversity</p>
+<p>양성/음성 · Ct value · 상대 풍부도 · Alpha/Beta diversity · 개별 OTU</p>
+</div>
+</section>
+<section id="한-검체에서-나오는-6가지-결과" class="slide level2 module-microbiome">
+<h2>한 검체에서 나오는 6가지 결과</h2>
+<div class="card-grid-3" data-markdown="1">
+<div class="big-card" data-markdown="1">
+<p><span class="eyebrow">qPCR</span> <span class="method-name">양성 / 음성</span></p>
+<p>정한 균이 <strong>검출되었는가</strong></p>
+<p>범주형 · n (%) · Fisher’s exact</p>
+</div>
+<div class="big-card blue" data-markdown="1">
+<p><span class="eyebrow">qPCR</span> <span class="method-name">Ct value</span></p>
+<p><strong>몇 번째 cycle</strong>에서 신호가 잡혔는가 · 낮을수록 target DNA가 많음</p>
+<p>연속형 · Mann–Whitney U</p>
+</div>
+<div class="big-card purple" data-markdown="1">
+<p><span class="eyebrow">16S rRNA</span> <span class="method-name">Relative abundance</span></p>
+<p>그 검체의 전체 read 중 해당 분류군의 <strong>비율</strong></p>
+<p>합이 100%인 조성 자료 · 하나가 늘면 다른 것이 줄어듦</p>
+</div>
+<div class="big-card orange" data-markdown="1">
+<p><span class="eyebrow">16S rRNA</span> <span class="method-name">Alpha diversity</span></p>
+<p><strong>검체 하나 안</strong>의 다양성 · Chao1은 종의 수, Shannon은 종 수와 균등도</p>
+<p>검체당 값 하나</p>
+</div>
+<div class="big-card gray" data-markdown="1">
+<p><span class="eyebrow">16S rRNA</span> <span class="method-name">Beta diversity</span></p>
+<p><strong>검체 사이</strong> 군집 구성의 거리 · 검체 쌍마다 거리를 계산</p>
+<p>PCoA로 시각화 · PERMANOVA</p>
+</div>
+<div class="big-card" data-markdown="1">
+<p><span class="eyebrow">16S rRNA</span> <span class="method-name">개별 OTU 비교</span></p>
+<p>수백 개 분류군을 <strong>각각</strong> 검정 · 이 논문은 698개</p>
+<p>다중검정 → FDR 보정</p>
+</div>
+</div>
+<div class="key-message" data-markdown="1">
+<p><strong>같은 검체에서 나온 결과지만 답하는 질문이 다르다</strong> · 하나로 요약할 수 없음</p>
 </div>
 </section>
 <section id="논문-4-qpcr-16s" class="slide level2 module-microbiome">

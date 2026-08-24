@@ -53,7 +53,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="서울의과학연구소-의학통계-강의대본" class="level1">
 <h1>서울의과학연구소 의학통계 강의대본</h1>
 <ul>
-<li>기준 슬라이드: <code>index.qmd</code> (38장)</li>
+<li>기준 슬라이드: <code>index.qmd</code> (39장)</li>
 <li>권장 강의 시간: 80–90분 + 질의응답 10분</li>
 <li>압축 강의: 각 슬라이드의 <code>선택 예시</code>를 생략하면 약 60분</li>
 <li>대본 원칙: 슬라이드 문구를 그대로 읽지 않고, <strong>질문 → 예시 → 논문 결과 → 해석</strong> 순서로 설명</li>
@@ -97,19 +97,19 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>4부</td>
 <td>qPCR·16S·FDR 논문</td>
-<td style="text-align: right;">23–29</td>
-<td style="text-align: right;">17분</td>
+<td style="text-align: right;">23–30</td>
+<td style="text-align: right;">18분</td>
 </tr>
 <tr class="even">
 <td>5부</td>
 <td>WGS·ARG·AMR profile 논문</td>
-<td style="text-align: right;">30–36</td>
+<td style="text-align: right;">31–37</td>
 <td style="text-align: right;">15분</td>
 </tr>
 <tr class="odd">
 <td>마무리</td>
 <td>체크리스트와 take-home</td>
-<td style="text-align: right;">37–38</td>
+<td style="text-align: right;">38–39</td>
 <td style="text-align: right;">4분</td>
 </tr>
 </tbody>
@@ -709,34 +709,50 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="슬라이드-23-미생물-다중결과-분석-층-fdr">슬라이드 23 · 미생물 다중결과 · 분석 층 + FDR</h2>
 <section id="강의대본-23" class="level3">
 <h3 class="anchored" data-anchor-id="강의대본-23">강의대본</h3>
-<p>미생물 연구에서는 한 검체에서 여러 종류의 결과가 나옵니다.</p>
-<ul>
-<li>특정 균의 양성·음성</li>
-<li>qPCR Ct value</li>
-<li>특정 균의 relative abundance</li>
-<li>검체 내부의 alpha diversity</li>
-<li>검체 사이의 beta diversity</li>
-<li>수백 개 OTU의 개별 비교</li>
-</ul>
-<p>이 결과들은 서로 대체할 수 없습니다. 각각 다른 질문에 답합니다.</p>
+<p>지금까지는 결과변수가 하나였습니다. 참고구간은 PTH 값 하나, 검사법 비교는 중성지방 값 하나, 집락률은 양성·음성 하나였습니다.</p>
+<p>미생물 연구는 다릅니다. <strong>한 검체에서 여섯 종류의 결과가 동시에 나옵니다.</strong> 그리고 이 결과들은 서로 대체할 수 없습니다. 각각 다른 질문에 답합니다.</p>
+<p>다음 장에서 여섯 가지를 하나씩 정리하고 논문으로 들어가겠습니다.</p>
+<hr>
 </section>
-<section id="비유-2" class="level3">
-<h3 class="anchored" data-anchor-id="비유-2">비유</h3>
-<p>숲을 조사한다고 생각해 보겠습니다.</p>
+</section>
+<section id="슬라이드-24-한-검체에서-나오는-6가지-결과" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-24-한-검체에서-나오는-6가지-결과">슬라이드 24 · 한 검체에서 나오는 6가지 결과</h2>
+<section id="강의대본-24" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-24">강의대본</h3>
+<p>왼쪽 위부터 순서대로 보겠습니다. 앞의 두 개가 qPCR에서 나오고, 나머지 네 개가 16S rRNA 분석에서 나옵니다.</p>
+<p><strong>첫째, 양성·음성입니다.</strong> 미리 정한 균이 검출되었는지만 봅니다. 범주형이므로 n (%)로 쓰고 Fisher’s exact test로 비교합니다.</p>
+<p><strong>둘째, Ct value입니다.</strong> 몇 번째 증폭 cycle에서 신호가 잡혔는지를 나타냅니다. Ct가 낮으면 적은 cycle에서 이미 신호가 나왔다는 뜻이므로 처음부터 target DNA가 많았다는 의미입니다. 연속형이고 분포가 치우치는 경우가 많아 Mann-Whitney U test를 씁니다.</p>
+<p><strong>셋째, relative abundance입니다.</strong> 그 검체에서 읽힌 전체 read 중 해당 분류군이 차지하는 비율입니다. 여기서 중요한 성질이 하나 있습니다. 모든 분류군을 더하면 100%가 되는 <strong>조성 자료</strong>라는 것입니다. 그래서 한 균이 늘면 실제 균 수가 그대로여도 다른 균의 비율은 자동으로 줄어듭니다. 절대량이 아니라 비율이라는 점을 기억해야 합니다.</p>
+<p><strong>넷째, alpha diversity입니다.</strong> 검체 <strong>하나 안</strong>의 다양성입니다. 검체마다 값이 하나씩 나옵니다. Chao1은 종이 몇 가지나 있는지를 보고, Shannon은 종의 수와 함께 얼마나 고르게 분포하는지까지 반영합니다. 종 수가 같아도 한 균이 90%를 차지하면 Shannon은 낮아집니다.</p>
+<p><strong>다섯째, beta diversity입니다.</strong> 이건 검체 <strong>사이</strong>의 거리입니다. 검체 하나의 값이 아니라 검체 쌍마다 계산됩니다. 이 거리들을 2차원으로 눌러 그린 것이 잠시 뒤에 볼 PCoA 그림이고, 통계 검정은 PERMANOVA로 합니다.</p>
+<p><strong>여섯째, 개별 OTU 비교입니다.</strong> 분류군을 하나씩 다 검정합니다. 이 논문은 OTU가 698개였습니다. 그래서 다중검정 문제가 생기고 FDR 보정이 필요합니다.</p>
+</section>
+<section id="비유-숲-조사" class="level3">
+<h3 class="anchored" data-anchor-id="비유-숲-조사">비유 · 숲 조사</h3>
+<p>숲을 조사한다고 생각하면 정리가 쉽습니다.</p>
 <ul>
 <li>특정 나무가 있는가? → 양성·음성</li>
-<li>특정 나무가 얼마나 많은가? → abundance</li>
+<li>그 나무가 얼마나 많은가? → Ct value, relative abundance</li>
 <li>한 구역에 나무 종류가 얼마나 다양한가? → alpha diversity</li>
 <li>두 숲의 전체 구성이 얼마나 다른가? → beta diversity</li>
 <li>어떤 나무 종이 특히 다른가? → 개별 OTU 비교</li>
 </ul>
+</section>
+<section id="강조-멘트-4" class="level3">
+<h3 class="anchored" data-anchor-id="강조-멘트-4">강조 멘트</h3>
+<p>“이 여섯 개는 층이 다릅니다. Alpha diversity에 차이가 없다고 해서 개별 균에 차이가 없다는 뜻이 아니고, 개별 균 하나가 다르다고 해서 전체 군집이 다르다는 뜻도 아닙니다. 잠시 뒤 논문에서 정확히 그 상황이 나옵니다.”</p>
+</section>
+<section id="청중-질문-4" class="level3">
+<h3 class="anchored" data-anchor-id="청중-질문-4">청중 질문</h3>
+<p>“어떤 균의 relative abundance가 5%에서 10%로 늘었습니다. 이 균이 두 배로 늘어난 것일까요?”</p>
+<p>단정할 수 없습니다. 그 균은 그대로인데 다른 균이 줄어서 비율만 올라갔을 수도 있습니다. 조성 자료의 특징입니다.</p>
 <hr>
 </section>
 </section>
-<section id="슬라이드-24-논문-4-qpcr-16s" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-24-논문-4-qpcr-16s">슬라이드 24 · 논문 4 · qPCR + 16S</h2>
-<section id="강의대본-24" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-24">강의대본</h3>
+<section id="슬라이드-25-논문-4-qpcr-16s" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-25-논문-4-qpcr-16s">슬라이드 25 · 논문 4 · qPCR + 16S</h2>
+<section id="강의대본-25" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-25">강의대본</h3>
 <p>논문 4입니다. 앞에서 짚은 것부터 다시 확인하겠습니다. 대장암 환자는 38명, 분석한 조직은 39개입니다. 한 환자에서 원발 병변이 두 군데 나왔기 때문입니다. 대조군은 21명입니다.</p>
 <p>qPCR은 미리 정한 특정 세균을 민감하게 검출합니다. 결과는 양성·음성과 Ct value로 볼 수 있습니다.</p>
 <p>16S rRNA 분석은 전체 세균 군집을 넓게 봅니다. OTU 또는 유사한 feature를 만들고 상대 풍부도와 다양성을 분석합니다. 이 논문에서는 OTU가 698개 만들어졌습니다.</p>
@@ -757,10 +773,10 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="슬라이드-25-논문-4-양성률-ct-value" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-25-논문-4-양성률-ct-value">슬라이드 25 · 논문 4 · 양성률 ≠ Ct value</h2>
-<section id="강의대본-25" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-25">강의대본</h3>
+<section id="슬라이드-26-논문-4-양성률-ct-value" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-26-논문-4-양성률-ct-value">슬라이드 26 · 논문 4 · 양성률 ≠ Ct value</h2>
+<section id="강의대본-26" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-26">강의대본</h3>
 <p>대장암 조직에서는 <em>F. nucleatum</em>이 32/39, 82.1% 양성이었고 대조군 정상 조직에서는 0/21, 0%였습니다. 양성·음성은 범주형 결과이므로 Fisher’s exact test로 비교했고 P &lt; 0.0001이었습니다.</p>
 <p>같은 환자 안에서도 조직 위치에 따라 달랐습니다. 종양 82.1%, 인접 정상 38.9%, 원거리 정상 33.3%입니다.</p>
 <p>Ct value는 연속형 결과입니다. Ct가 낮을수록 더 적은 증폭 cycle에서 신호가 검출되므로 일반적으로 target DNA가 더 많다는 뜻입니다.</p>
@@ -779,11 +795,11 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="슬라이드-26-beta-diversity-그림을-읽는-법" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-26-beta-diversity-그림을-읽는-법">슬라이드 26 · Beta diversity 그림을 읽는 법</h2>
-<section id="강의대본-26" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-26">강의대본</h3>
-<p>다음 논문 그림에 PCoA 같은 차원축소 플롯이 나옵니다. 처음 보면 무엇을 읽어야 할지 막막하니 여기서 한 번 정리하겠습니다.</p>
+<section id="슬라이드-27-beta-diversity-그림을-읽는-법" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-27-beta-diversity-그림을-읽는-법">슬라이드 27 · Beta diversity 그림을 읽는 법</h2>
+<section id="강의대본-27" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-27">강의대본</h3>
+<p>잠시 뒤 논문 그림에 PCoA 같은 차원축소 플롯이 나옵니다. 처음 보면 무엇을 읽어야 할지 막막하니 여기서 한 번 정리하겠습니다.</p>
 <p>왼쪽처럼 검체마다 수백 개 OTU 값이 있는 표가 원자료입니다. 변수가 너무 많아 그대로는 볼 수 없습니다. PCA, PCoA, t-SNE, UMAP 같은 방법으로 이 고차원 구조를 2차원으로 눌러서 그린 것이 오른쪽 그림입니다.</p>
 <p>읽는 규칙은 두 개면 충분합니다.</p>
 <ul>
@@ -798,10 +814,10 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="슬라이드-27-다중검정-fdr" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-27-다중검정-fdr">슬라이드 27 · 다중검정 → FDR</h2>
-<section id="강의대본-27" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-27">강의대본</h3>
+<section id="슬라이드-28-다중검정-fdr" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-28-다중검정-fdr">슬라이드 28 · 다중검정 → FDR</h2>
+<section id="강의대본-28" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-28">강의대본</h3>
 <p>논문 결과를 보기 전에 FDR을 먼저 정리하겠습니다. 이걸 알아야 다음 그림이 읽힙니다.</p>
 <p>P &lt; 0.05를 사용해 서로 독립적인 검정을 1,000번 하고 실제 차이가 하나도 없다고 가정해 보겠습니다. 평균적으로 약 50개는 우연히 P &lt; 0.05가 될 수 있습니다.</p>
 <p>이 논문은 OTU가 698개입니다. 각각을 비교하면서 원 P value만 보고 유의한 균을 고르면 거짓 양성이 쌓입니다.</p>
@@ -819,21 +835,21 @@ ul.task-list li input[type="checkbox"] {
 <li>탐색적 omics 연구: FDR이 자주 사용됨</li>
 </ul>
 </section>
-<section id="강조-멘트-4" class="level3">
-<h3 class="anchored" data-anchor-id="강조-멘트-4">강조 멘트</h3>
+<section id="강조-멘트-5" class="level3">
+<h3 class="anchored" data-anchor-id="강조-멘트-5">강조 멘트</h3>
 <p>“고차원 자료에서는 가장 작은 P value보다 보정 후에도 남는 결과가 중요합니다.”</p>
 <hr>
 </section>
 </section>
-<section id="슬라이드-28-논문-4-전체-군집-vs-개별-otu" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-28-논문-4-전체-군집-vs-개별-otu">슬라이드 28 · 논문 4 · 전체 군집 vs 개별 OTU</h2>
-<section id="강의대본-28" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-28">강의대본</h3>
+<section id="슬라이드-29-논문-4-전체-군집-vs-개별-otu" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-29-논문-4-전체-군집-vs-개별-otu">슬라이드 29 · 논문 4 · 전체 군집 vs 개별 OTU</h2>
+<section id="강의대본-29" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-29">강의대본</h3>
 <p>이 논문에서는 alpha diversity와 beta diversity에 유의한 차이가 없었습니다. 그러나 698개 OTU 중 FDR 보정 후 6개 OTU에서 차이가 확인되었습니다. Peptostreptococcus, Collinsella, Prevotella, Parvimonas, Fusobacterium, Gemella입니다.</p>
 <p>두 결과는 모순이 아닙니다.</p>
 </section>
-<section id="비유-3" class="level3">
-<h3 class="anchored" data-anchor-id="비유-3">비유</h3>
+<section id="비유-2" class="level3">
+<h3 class="anchored" data-anchor-id="비유-2">비유</h3>
 <p>두 도시의 전체 직업 분포가 비슷하다고 합시다. 의료인, 교사, 기술자의 전체 구성은 유사하지만 특정 세부 직종 하나는 차이가 날 수 있습니다.</p>
 <p>마찬가지로 전체 군집 구조는 비슷해도 Fusobacterium 같은 일부 feature의 상대 풍부도는 다를 수 있습니다.</p>
 </section>
@@ -847,10 +863,10 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="슬라이드-29-논문-4-관련성-인과성" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-29-논문-4-관련성-인과성">슬라이드 29 · 논문 4 · 관련성 ≠ 인과성</h2>
-<section id="강의대본-29" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-29">강의대본</h3>
+<section id="슬라이드-30-논문-4-관련성-인과성" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-30-논문-4-관련성-인과성">슬라이드 30 · 논문 4 · 관련성 ≠ 인과성</h2>
+<section id="강의대본-30" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-30">강의대본</h3>
 <p>여기서 숫자를 정확히 읽는 연습을 하겠습니다. 논문 문장이 조금 헷갈리게 쓰여 있습니다.</p>
 <p>대장암 환자 중 heavy drinker 15명에서는 <em>Fusobacterium</em>이 14명, 93.3%에서 검출되었습니다. Non/light drinker는 17명 중 11명에서 <strong>검출되지 않았습니다.</strong> 즉 검출된 사람은 6명, 35.3%입니다. 논문에 나오는 64.7%는 검출률이 아니라 비검출률입니다.</p>
 <p>상대 풍부도로 비교했을 때 heavy drinker에서 더 높았고 P = 0.003이었습니다.</p>
@@ -880,10 +896,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="부-wgs-arg와-amr-profile" class="level1">
 <h1>5부 · WGS, ARG와 AMR profile</h1>
-<section id="슬라이드-30-wgs-계통-내성-조합" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-30-wgs-계통-내성-조합">슬라이드 30 · WGS · 계통 + 내성 조합</h2>
-<section id="강의대본-30" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-30">강의대본</h3>
+<section id="슬라이드-31-wgs-계통-내성-조합" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-31-wgs-계통-내성-조합">슬라이드 31 · WGS · 계통 + 내성 조합</h2>
+<section id="강의대본-31" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-31">강의대본</h3>
 <p>WGS 연구에서는 하나의 결과만 보지 않습니다.</p>
 <p>표현형 감수성 검사로 실제 내성 여부를 보고, WGS로 ST와 CC 같은 계통을 분류하고, cps genotype과 ARG를 확인하며, 마지막으로 균주별 AMR profile을 구성합니다.</p>
 </section>
@@ -900,24 +916,24 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="슬라이드-31-wgs-결과를-범주형-변수로-정리" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-31-wgs-결과를-범주형-변수로-정리">슬라이드 31 · WGS 결과를 범주형 변수로 정리</h2>
-<section id="강의대본-31" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-31">강의대본</h3>
+<section id="슬라이드-32-wgs-결과를-범주형-변수로-정리" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-32-wgs-결과를-범주형-변수로-정리">슬라이드 32 · WGS 결과를 범주형 변수로 정리</h2>
+<section id="강의대본-32" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-32">강의대본</h3>
 <p>유전체 분석이라고 하면 통계가 완전히 다를 것 같지만, 실제로는 앞의 3부에서 한 것과 같은 작업으로 돌아옵니다.</p>
 <p>흐름은 이렇습니다. 분리 균주에서 WGS를 하고, 그 결과에서 ST, CC, cps genotype을 뽑습니다. 여기까지가 유전체 분석입니다. 그다음은 이 값들을 <strong>범주형 변수</strong>로 정리하고, 시기를 1994–2000과 2017–2022로 나눈 뒤, 각 범주의 n과 %를 계산해서 두 시기를 비교합니다.</p>
 <p>즉 유전체 정보라도 결국 분할표와 n (%)로 들어옵니다. 분석 단위는 균주 하나입니다.</p>
 </section>
-<section id="강조-멘트-5" class="level3">
-<h3 class="anchored" data-anchor-id="강조-멘트-5">강조 멘트</h3>
+<section id="강조-멘트-6" class="level3">
+<h3 class="anchored" data-anchor-id="강조-멘트-6">강조 멘트</h3>
 <p>“WGS 결과 표를 볼 때도 질문은 같습니다. 분모가 무엇이고, 한 줄이 무엇인가.”</p>
 <hr>
 </section>
 </section>
-<section id="슬라이드-32-논문-5-ast-wgs-arg-profile" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-32-논문-5-ast-wgs-arg-profile">슬라이드 32 · 논문 5 · AST → WGS → ARG → Profile</h2>
-<section id="강의대본-32" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-32">강의대본</h3>
+<section id="슬라이드-33-논문-5-ast-wgs-arg-profile" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-33-논문-5-ast-wgs-arg-profile">슬라이드 33 · 논문 5 · AST → WGS → ARG → Profile</h2>
+<section id="강의대본-33" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-33">강의대본</h3>
 <p>논문 5는 과거 37균주와 최근 209균주, 총 246균주를 비교했습니다. 이것도 여러분 기관 논문입니다.</p>
 <p>먼저 감수성 검사로 표현형을 확인합니다. WGS로 계통과 유전형을 분류합니다. 내성 유전자를 탐색합니다. 마지막으로 각 균주의 내성 항균제 조합을 profile로 만듭니다.</p>
 </section>
@@ -930,17 +946,17 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>같은 2.7%라도 정보량과 불확실성이 다릅니다.</p>
 </section>
-<section id="청중-질문-4" class="level3">
-<h3 class="anchored" data-anchor-id="청중-질문-4">청중 질문</h3>
+<section id="청중-질문-5" class="level3">
+<h3 class="anchored" data-anchor-id="청중-질문-5">청중 질문</h3>
 <p>“과거 0%, 최근 2%이면 중요한 증가일까요?”</p>
 <p>최근 표본이 50이면 1균주이고, 5,000이면 100균주입니다. n/N을 함께 봐야 합니다.</p>
 <hr>
 </section>
 </section>
-<section id="슬라이드-33-논문-5-희소-범주-fishers-exact" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-33-논문-5-희소-범주-fishers-exact">슬라이드 33 · 논문 5 · 희소 범주 → Fisher’s exact</h2>
-<section id="강의대본-33" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-33">강의대본</h3>
+<section id="슬라이드-34-논문-5-희소-범주-fishers-exact" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-34-논문-5-희소-범주-fishers-exact">슬라이드 34 · 논문 5 · 희소 범주 → Fisher’s exact</h2>
+<section id="강의대본-34" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-34">강의대본</h3>
 <p>과거에는 CC19가 13/37, 35.1%로 가장 흔했고 최근에는 CC1이 74/209, 35.4%로 가장 흔했습니다.</p>
 <p>cps genotype VIII는 과거 1균주에서 최근 32균주로 증가했고 P = 0.037이었습니다.</p>
 <p>ST, CC, cps genotype처럼 범주가 많으면 일부 셀은 0, 1, 2처럼 매우 작아집니다. 3부에서 말씀드린 그 상황이 여기서 나옵니다. 이런 표에서 카이제곱 근사는 불안정하므로 정확검정을 씁니다. 이 논문도 기대 빈도가 5 미만인 칸이 25%를 넘으면 Fisher로 바꾼다고 방법에 명시했습니다.</p>
@@ -951,20 +967,20 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="슬라이드-34-논문-5-표현형-내성-arg" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-34-논문-5-표현형-내성-arg">슬라이드 34 · 논문 5 · 표현형 내성 ≠ ARG</h2>
-<section id="강의대본-34" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-34">강의대본</h3>
+<section id="슬라이드-35-논문-5-표현형-내성-arg" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-35-논문-5-표현형-내성-arg">슬라이드 35 · 논문 5 · 표현형 내성 ≠ ARG</h2>
+<section id="강의대본-35" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-35">강의대본</h3>
 <p>Tetracycline 표현형 내성률은 97.3%에서 60.8%로 감소했습니다. tetM 보유율은 91.7%에서 72.4%로 감소했고 tetO는 2.8%에서 29.9%로 증가했습니다.</p>
 <p>Levofloxacin 내성은 0%에서 23.4%로 증가했습니다.</p>
 <p>여기서 그림을 읽는 방법을 짚겠습니다. 이 그래프는 표현형 내성률의 시기 변화와 유전자 보유율의 시기 변화를 <strong>각각</strong> 그린 것입니다. 두 곡선이 나란히 있어도, 같은 균주 안에서 유전자와 표현형이 어떻게 대응하는지를 보여주는 그림은 아닙니다.</p>
 <hr>
 </section>
 </section>
-<section id="슬라이드-35-genotypephenotype-일치도는-어떻게-보는가" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-35-genotypephenotype-일치도는-어떻게-보는가">슬라이드 35 · Genotype–phenotype 일치도는 어떻게 보는가</h2>
-<section id="강의대본-35" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-35">강의대본</h3>
+<section id="슬라이드-36-genotypephenotype-일치도는-어떻게-보는가" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-36-genotypephenotype-일치도는-어떻게-보는가">슬라이드 36 · Genotype–phenotype 일치도는 어떻게 보는가</h2>
+<section id="강의대본-36" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-36">강의대본</h3>
 <p>방금 이야기를 이어가겠습니다. “유전자 보유율이 30%이고 내성률도 30%이니 잘 맞는다”는 말은 성립하지 않습니다. 서로 다른 균주에서 30%씩일 수도 있기 때문입니다.</p>
 <p>일치도를 보려면 균주 단위로 짝을 지어야 합니다. 같은 균주에서 ARG 보유 여부와 표현형 내성 여부로 2×2 표를 만들고, sensitivity, specificity, PPV, NPV를 계산합니다. 전체 일치도는 Cohen’s kappa로 봅니다. 모두 95% 신뢰구간을 함께 제시합니다.</p>
 </section>
@@ -983,16 +999,16 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="문-열쇠-비유">문 열쇠 비유</h3>
 <p>ARG 보유는 열쇠를 가지고 있는 것과 비슷합니다. 열쇠가 있어도 녹이 슬었거나 문이 다르면 작동하지 않을 수 있습니다. 반대로 우리가 모르는 다른 열쇠로 문을 열 수도 있습니다. 실제 문이 열렸는지는 표현형 검사로 확인합니다.</p>
 </section>
-<section id="강조-멘트-6" class="level3">
-<h3 class="anchored" data-anchor-id="강조-멘트-6">강조 멘트</h3>
+<section id="강조-멘트-7" class="level3">
+<h3 class="anchored" data-anchor-id="강조-멘트-7">강조 멘트</h3>
 <p>“이 논문은 시기별 비율 비교까지만 했고 균주 단위 일치도 분석은 하지 않았습니다. 그래서 결론도 거기까지만 쓰는 것이 맞습니다.”</p>
 <hr>
 </section>
 </section>
-<section id="슬라이드-36-논문-5-amr-profile-내성-조합" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-36-논문-5-amr-profile-내성-조합">슬라이드 36 · 논문 5 · AMR profile = 내성 조합</h2>
-<section id="강의대본-36" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-36">강의대본</h3>
+<section id="슬라이드-37-논문-5-amr-profile-내성-조합" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-37-논문-5-amr-profile-내성-조합">슬라이드 37 · 논문 5 · AMR profile = 내성 조합</h2>
+<section id="강의대본-37" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-37">강의대본</h3>
 <p>AMR profile은 한 항균제의 내성 여부가 아니라 한 균주가 가진 내성의 조합입니다.</p>
 <p>과거에는 6종의 profile이 있었고 최근에는 16종이 관찰되었습니다. 최근 새롭게 확인된 profile은 11종입니다. Levofloxacin 내성 균주의 81.8%가 신규 profile에 포함되었습니다.</p>
 </section>
@@ -1020,10 +1036,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="마무리" class="level1">
 <h1>마무리</h1>
-<section id="슬라이드-37-다음-논문을-읽을-때-7문항" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-37-다음-논문을-읽을-때-7문항">슬라이드 37 · 다음 논문을 읽을 때 · 7문항</h2>
-<section id="강의대본-37" class="level3">
-<h3 class="anchored" data-anchor-id="강의대본-37">강의대본</h3>
+<section id="슬라이드-38-다음-논문을-읽을-때-7문항" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-38-다음-논문을-읽을-때-7문항">슬라이드 38 · 다음 논문을 읽을 때 · 7문항</h2>
+<section id="강의대본-38" class="level3">
+<h3 class="anchored" data-anchor-id="강의대본-38">강의대본</h3>
 <p>앞으로 논문을 읽을 때 다음 일곱 가지만 먼저 확인해도 통계 해석이 훨씬 쉬워집니다.</p>
 <ol type="1">
 <li>핵심 추정값은 무엇인가? 범위, 차이, 비율, 군집 중 무엇인가?</li>
@@ -1047,8 +1063,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="슬라이드-38-take-home-messages" class="level2">
-<h2 class="anchored" data-anchor-id="슬라이드-38-take-home-messages">슬라이드 38 · Take-home messages</h2>
+<section id="슬라이드-39-take-home-messages" class="level2">
+<h2 class="anchored" data-anchor-id="슬라이드-39-take-home-messages">슬라이드 39 · Take-home messages</h2>
 <section id="마무리-대본" class="level3">
 <h3 class="anchored" data-anchor-id="마무리-대본">마무리 대본</h3>
 <p>오늘 내용을 여섯 문장으로 마무리하겠습니다.</p>
