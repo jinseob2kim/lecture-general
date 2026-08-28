@@ -1,0 +1,62 @@
+/* 자동 생성 (scale.py): 슬라이드별 화면 채우기(zoom), 공통 소형 글자 보정, 제목 크기 예외 */
+.reveal .small-source { font-size: 0.44em; }
+.reveal .paper-label { font-size: 0.46em; }
+.reveal .key-message { font-size: 0.70em; }
+#강의-흐름 > :not(h2) { zoom: 1.5; }
+#개-논문 > :not(h2) { zoom: 1.45; }
+#분석-단위-관찰-단위의-정의 > :not(h2) { zoom: 1.85; }
+#연구-질문-통계-방법 > :not(h2) { zoom: 1.35; }
+#ri-ci-code > :not(h2) { zoom: 1.06; }
+.reveal #논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-result-card { padding: 10px 16px; }
+.reveal #논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-result-number { font-size: 1.2em; margin: 2px 0 3px; }
+.reveal #논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-reference-interval { margin: 4px 0 2px; }
+.reveal #논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-warning-badge { margin: 4px 0 3px; }
+.reveal #논문-1-참고집단은-4502명에서-어떻게-줄었나 .key-message { margin-top: 6px; padding: 10px 16px; }
+.reveal #논문-1-참고집단은-4502명에서-어떻게-줄었나 > .small-source:last-child { display: none; }
+.reveal #논문-1-table-2-이상치-가중 > .small-source:last-child { display: none; }
+#correlation-agreement > :not(h2) { zoom: 1.5; }
+#bias-기준값-대비-측정-차이-평가 > :not(h2) { zoom: 1.2; }
+#논문-3-집락률-내성률-mdr-분모 > :not(h2) { zoom: 1.2; }
+#미생물-분석-주요-결과변수-6종 > :not(h2) { zoom: 1.06; }
+#beta-diversity-검체-간-미생물-군집-차이 > :not(h2) { zoom: 1.1; }
+#다중검정-698개-otu의-fdr-보정 > :not(h2) { zoom: 1.12; }
+.reveal #논문-4-figure-2-crc에서-차이를-보인-6개-otu > h2 { font-size: 1.36em; }
+#논문-4-연관성-해석과-연구의-한계 > :not(h2) { zoom: 1.08; }
+.reveal #논문-5-wgs-비교-구조-과거-37-vs-최근-209-균주 > h2 { font-size: 1.36em; }
+#논문-5-ast와-wgs의-통합-분석-흐름 > :not(h2) { zoom: 1.1; }
+#논문-5-표현형-내성-arg > :not(h2) { zoom: 1.06; }
+#genotypephenotype-비율-변화와-일치도-분석의-차이 > :not(h2) { zoom: 1.08; }
+#논문을-읽을-때-확인할-7가지 > :not(h2) { zoom: 1.15; }
+#핵심-요약 > :not(h2) { zoom: 1.4; }
+/* Figure 1 슬라이드: 우측 카드가 고정 행 높이를 넘쳐 겹치던 문제 → 행 auto + 카드 글자 축소 */
+.reveal #논문-1-figure-1-참고하한-참고상한 .pth-fig1-side { grid-template-rows: auto auto auto auto; align-content: start; }
+.reveal #논문-1-figure-1-참고하한-참고상한 .pth-fig1-card { font-size: 0.78em; padding: 6px 11px; }
+.reveal #논문-1-figure-1-참고하한-참고상한 .pth-fig1-image { height: 452px; }
+.reveal #논문-1-figure-1-참고하한-참고상한 > .small-source:last-child { display: none; }
+/* 30p 기준값 위계, 31p CDC target 정의 */
+.reveal #bias-기준값-대비-측정-차이-평가 .bias-lower { height: 250px; }
+.reveal #bias-기준값-대비-측정-차이-평가 .bias-hier { margin: 8px 0 0; padding-top: 8px; border-top: 1px dashed #c9d3ce; font-size: 0.534em; line-height: 1.35; color: #3f4a52; }
+.reveal #bias-기준값-대비-측정-차이-평가 .bias-hier strong { color: #315f6a; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-crop { height: 278px; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-image { width: 61%; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-target-note { margin: 6px 0 0; color: #3f4a52; font-size: 0.5em; line-height: 1.32; text-align: left; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-target-note strong { color: #5e4966; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow { display: grid; grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1.35fr) 22px minmax(0, 1fr); grid-template-rows: auto auto; gap: 6px 4px; margin-top: 8px; font-size: 0.44em; line-height: 1.28; text-align: left; color: #2f3f38; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box { box-sizing: border-box; padding: 6px 9px; border-radius: 8px; border: 1px solid #d8e1dc; background: #ffffff; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box b { display: block; margin-bottom: 2px; font-size: 1.05em; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box.src { grid-row: 1 / 3; background: #f7f9f8; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box.ref { background: #faf7fb; border-color: rgba(128,104,136,.45); } .reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box.ref b { color: #5e4966; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box.lab { background: #f7fafc; border-color: rgba(102,132,146,.45); } .reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box.lab b { color: #3d5c6b; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box.out { grid-row: 1 / 3; background: #fff1e0; border-color: rgba(189,135,77,.5); } .reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-box.out b { color: #8a5522; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-arrow { grid-row: 1 / 3; display: flex; align-items: center; justify-content: center; color: #718078; font-size: 1.6em; font-weight: 900; }
+.reveal #논문-2-figure-4-cdc-bias .tg-f4-flow-svg { display: block; width: 100%; height: auto; margin-top: 8px; }
+.reveal .f4f-box { fill: #ffffff; stroke: #d8e1dc; stroke-width: 1.5; }
+.reveal .f4f-box.src { fill: #f7f9f8; } .reveal .f4f-box.ref { fill: #faf7fb; stroke: rgba(128,104,136,.5); } .reveal .f4f-box.lab { fill: #f7fafc; stroke: rgba(102,132,146,.5); } .reveal .f4f-box.out { fill: #fff1e0; stroke: rgba(189,135,77,.55); }
+.reveal .f4f-text { fill: #2f3f38; font-size: 15px; font-weight: 700; }
+.reveal .f4f-title-src { fill: #2f4a3f; font-size: 16px; font-weight: 900; } .reveal .f4f-title-ref { fill: #5e4966; font-size: 16px; font-weight: 900; }
+.reveal .f4f-title-lab { fill: #3d5c6b; font-size: 16px; font-weight: 900; } .reveal .f4f-title-out { fill: #8a5522; font-size: 16px; font-weight: 900; }
+.reveal .f4f-arrow { fill: #718078; font-size: 30px; font-weight: 900; }
+.reveal #논문-3-집락률-내성률-mdr-분모 .gbs-den-subset-arrow span b { display: block; color: #a55e1b; }
+.reveal #논문-3-집락률-내성률-mdr-분모 .gbs-den-step.s4 .gbs-den-step-percent { color: #a55e1b; line-height: 1.15; }
+.reveal #논문-3-집락률-내성률-mdr-분모 .gbs-den-flow { grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr) 215px minmax(0,1fr) 30px minmax(0,1fr); }
+.reveal #논문-3-집락률-내성률-mdr-분모 .gbs-den-subset-arrow span { font-size: 0.42em; line-height: 1.2; }
