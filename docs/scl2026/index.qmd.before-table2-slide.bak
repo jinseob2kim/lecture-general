@@ -1,0 +1,1565 @@
+---
+title: "검사실 연구 논문의 통계와 연구 방법론"
+subtitle: "서울의과학연구소 의학통계 강의"
+author: "김진섭"
+date: "2026.09.01"
+format:
+  revealjs:
+    theme: slides_assets/zarathu_theme.scss
+    css:
+      - slides_assets/custom-style.css
+      - slides_assets/lecture-style.css
+      - slides_assets/lecture-fixes.css
+      - slides_assets/custom-style-fullbg.css
+      - slides_assets/custom-xaringan-compat.css
+    title-slide-attributes:
+      data-background-image: slides_assets/bg.png
+      data-background-size: cover
+      data-background-opacity: "0.3"
+    footer: "Zarathu Co., Ltd."
+    self-contained: false
+    include-after-body: slides_assets/header-inject-fullbg.html
+    chalkboard:
+      buttons: false
+    preview-links: true
+    show-notes: false
+    slide-number: c/t
+    width: 1600
+    height: 900
+execute:
+  echo: false
+  warning: false
+  message: false
+  eval: false
+editor: visual
+---
+
+
+## 오늘의 출발점 {.module-overview}
+
+<div class="question-banner" markdown="1">**연구 질문 → 분석 단위 → 통계 방법**
+</div>
+<div class="card-grid-3" markdown="1"><div class="big-card" markdown="1"><span class="eyebrow">QUESTION</span>
+
+**핵심 질문**
+
+범위 · 차이 · 비율 · 군집 · 변화
+</div>
+<div class="big-card blue" markdown="1"><span class="eyebrow">UNIT</span>
+
+**분석 단위**
+
+사람 · 검체 · 조직 · 분리 균주
+</div>
+<div class="big-card purple" markdown="1"><span class="eyebrow">EVIDENCE</span>
+
+**결과 표현**
+
+분포 · 회귀 · 차이 · 비율 · 프로파일
+</div></div>
+<div class="key-message" markdown="1">**개념 → 논문 Figure/Table → 해석**
+</div>
+## 오늘 볼 5편의 논문 {.module-overview}
+
+<div class="stat-map" markdown="1"><div class="map-card" markdown="1"><span class="map-no">01 · RANGE</span>
+
+<div class="map-title">검사값의 정상 범위</div>
+
+**PTH reference interval**
+
+<div class="map-method">KNHANES 2024 · PTH 측정 4,502명<br>주요 분석 155명 · Step 11 82명<br>Percentile · Bootstrap · Survey weighting</div>
+
+<div class="map-source">BMC Endocr Disord 2026;26:176<br>GC Labs</div>
+</div>
+<div class="map-card" markdown="1"><span class="map-no">02 · AGREEMENT</span>
+
+<div class="map-title">두 검사법의 일치도</div>
+
+**Triglyceride harmonization**
+
+<div class="map-method">동일 혈청 98쌍<br>Passing–Bablok · Bland–Altman · Bias</div>
+
+<div class="map-source">Ann Lab Med 2025;45:291-299<br>GC Labs</div>
+</div>
+<div class="map-card" markdown="1"><span class="map-no">03 · PROPORTION</span>
+
+<div class="map-title">집락률·내성률 차이</div>
+
+**GBS colonization**
+
+<div class="map-method">질 면봉 배양 33,721건<br>Proportion · Chi-square · Fisher’s exact</div>
+
+<div class="map-source">Yonsei Med J 2022;63:717-723<br><span class="map-scl">서울의과학연구소</span></div>
+</div>
+<div class="map-card" markdown="1"><span class="map-no">04 · MULTIPLICITY</span>
+
+<div class="map-title">여러 미생물 동시 비교</div>
+
+**CRC tissue microbiome**
+
+<div class="map-method">환자 38명 · 조직 39개<br>qPCR · Diversity · Relative abundance · FDR</div>
+
+<div class="map-source">Sci Rep 2020;10:19915<br>연세대학교</div>
+</div>
+<div class="map-card" markdown="1"><span class="map-no">05 · PROFILE</span>
+
+<div class="map-title">계통·내성 조합의 시간 변화</div>
+
+**GBS WGS**
+
+<div class="map-method">과거 37 vs 최근 209 균주<br>ST/CC · ARG · AMR profile</div>
+
+<div class="map-source">Ann Lab Med 2025 (alm.2025.0439)<br><span class="map-scl">서울의과학연구소</span></div>
+</div></div>
+## 분석 단위 먼저 {.module-overview}
+
+<div class="unit-flow" markdown="1"><div class="flow-step" markdown="1">**개인** · 논문 1
+
+PTH 검사값 · 주요 155명 / Step 11 82명
+</div>
+<div class="flow-step" markdown="1">**동일 혈청 검체** · 논문 2
+
+두 검사법의 측정값 · 98쌍
+</div>
+<div class="flow-step" markdown="1">**배양 검체** · 논문 3
+
+질 면봉 33,721건
+</div>
+<div class="flow-step" markdown="1">**조직 검체** · 논문 4
+
+환자 38명 · 조직 39개
+</div>
+<div class="flow-step" markdown="1">**분리 균주** · 논문 5
+
+37 vs 209 균주
+</div></div>
+<div class="key-message" markdown="1">**사람 ≠ 검체 ≠ 균주** · 논문 4는 환자 38명에서 조직 39개 (한 환자에 병변 2개)
+</div>
+## 연구 질문 → 통계 방법 {.module-overview}
+
+<div class="card-grid-2" markdown="1"><div class="big-card" markdown="1"><span class="method-name">분포의 범위를 추정 · 논문 1</span>
+
+**결과:** 하한–상한
+
+Percentile → 이상치 → Bootstrap CI → Survey weighting
+</div>
+<div class="big-card blue" markdown="1"><span class="method-name">동일 검체의 두 값을 비교 · 논문 2</span>
+
+**결과:** 회귀식 + 차이 + 기준값 대비 bias
+
+Passing–Bablok → Bland–Altman → Harmonization
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">빈도와 비율을 비교 · 논문 3 · 5</span>
+
+**결과:** n/N (%) + P value
+
+Chi-square 또는 Fisher’s exact test
+</div>
+<div class="big-card orange" markdown="1"><span class="method-name">고차원 결과를 해석 · 논문 4 · 5</span>
+
+**결과:** 전체 군집 + 개별 feature + profile
+
+Diversity → FDR → WGS/ARG 연결
+</div></div>
+<div class="key-message" markdown="1">**추정 대상 + 분모 확인** · P value는 그다음
+</div>
+## 참고구간 · 검사값의 중앙 95% {.section-break .module-reference}
+
+<span class="section-no">01 · RANGE</span>
+
+<div class="section-sub" markdown="1">개인 검사값의 분포 범위 · **2.5th–97.5th percentiles**
+</div>
+## Reference interval ≠ Confidence interval {.module-reference}
+
+<div class="columns" markdown="1"><div class="column" style="width:56%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">REFERENCE INTERVAL</span>
+
+<span class="metric">2.5th–97.5th</span>
+
+개인 검사값의 중앙 95% 범위
+</div>
+<div class="arrow">≠</div>
+
+<div class="metric-block" markdown="1"><span class="muted">CONFIDENCE INTERVAL</span>
+
+<span class="metric">추정치의 불확실성</span>
+
+하한·상한 추정의 불확실성
+</div></div>
+<div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**참고집단 선정**
+
+검사값에 영향을 주는 조건 제외
+</div>
+<div class="flow-step" markdown="1">**이상치 확인**
+
+MAD 기반 극단값 평가
+</div>
+<div class="flow-step" markdown="1">**범위 추정**
+
+2.5th–97.5th percentiles
+</div>
+<div class="flow-step" markdown="1">**불확실성 평가**
+
+Bootstrap CI
+</div></div></div>
+<div class="column" style="width:44%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/confidence-interval-95.jpg){fig-alt="분포의 중앙 95%와 양쪽 2.5% 꼬리" height="330"}
+
+<div class="small-source" markdown="1">참고구간은 분포의 양쪽 2.5%를 잘라낸 중앙 95% 구간
+</div></div>
+<div class="key-message" markdown="1">**중앙 95%를 자르는 위치** ≠ **그 위치를 얼마나 정확히 아는가**
+</div></div></div>
+## 논문 1 · 참고집단은 4,502명에서 어떻게 줄었나? {.module-reference}
+
+<style>
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-funnel-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.94fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 10px;
+  align-items: stretch;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-funnel-panel {
+  position: relative;
+  padding: 10px 14px 8px;
+  border: 1px solid rgba(30, 86, 68, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 20px rgba(35, 71, 60, 0.08);
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-funnel-guide {
+  position: absolute;
+  top: -19px;
+  right: 14px;
+  color: #7a837f;
+  font-size: 0.43em;
+  line-height: 1.25;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-funnel-svg {
+  display: block;
+  width: 100%;
+  height: 546px;
+  font-family: inherit;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-funnel-caption {
+  margin-top: 2px;
+  color: #6b746f;
+  font-size: 0.42em;
+  line-height: 1.2;
+  text-align: center;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-result-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-result-card {
+  min-height: 0;
+  margin: 0;
+  padding: 22px 22px;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-card-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.52em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-result-number {
+  margin: 2px 0 5px;
+  color: #174c3c;
+  font-size: 1.58em;
+  font-weight: 900;
+  line-height: 1;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-result-detail {
+  margin: 0;
+  font-size: 0.76em;
+  line-height: 1.32;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-reference-interval {
+  margin: 7px 0 2px;
+  color: #174c3c;
+  font-size: 0.93em;
+  font-weight: 900;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-card-small {
+  margin: 0;
+  color: #53625d;
+  font-size: 0.60em;
+  line-height: 1.3;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-warning-badge {
+  display: inline-block;
+  margin: 7px 0 5px;
+  padding: 3px 10px;
+  border: 1px solid #c47c24;
+  border-radius: 999px;
+  background: #fff4df;
+  color: #96580d;
+  font-size: 0.62em;
+  font-weight: 900;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .pth-card-note {
+  margin: 0;
+  color: #6f4a1d;
+  font-size: 0.60em;
+  font-weight: 700;
+  line-height: 1.3;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .key-message {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+#논문-1-참고집단은-4502명에서-어떻게-줄었나 .small-source {
+  margin-top: 3px;
+}
+</style>
+
+<span class="paper-label">PAPER 1 · PTH · BMC Endocr Disord 2026</span>
+
+<div class="pth-funnel-layout">
+<div class="pth-funnel-panel">
+<div class="pth-funnel-guide">남은 PTH 측정자 수 · 주요 milestone만 표시</div>
+```{=html}
+<svg class="pth-funnel-svg" viewBox="0 0 960 500" role="img" aria-labelledby="pth-funnel-title pth-funnel-desc">
+  <title id="pth-funnel-title">PTH 참고집단 단계별 selection funnel</title>
+  <desc id="pth-funnel-desc">PTH 측정자 4,502명에서 만성질환, 건강보조제, 비만, eGFR, Vitamin D, ALP 기준을 적용해 82명까지 줄어드는 흐름</desc>
+
+  <rect x="20" y="4" width="920" height="48" rx="14" fill="#174c3c"/>
+  <text x="48" y="36" fill="#ffffff" font-size="29" font-weight="900">4,502</text>
+  <text x="262" y="34" fill="#ffffff" font-size="20" font-weight="700">PTH 측정자</text>
+  <path d="M480 54 L480 61 M472 58 L480 66 L488 58" fill="none" stroke="#54776b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="112" y="64" width="736" height="48" rx="14" fill="#286954"/>
+  <text x="140" y="96" fill="#ffffff" font-size="29" font-weight="900">861</text>
+  <text x="330" y="94" fill="#ffffff" font-size="20" font-weight="700">만성질환 제외</text>
+  <path d="M480 114 L480 121 M472 118 L480 126 L488 118" fill="none" stroke="#54776b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="194" y="124" width="572" height="48" rx="14" fill="#3d806b"/>
+  <text x="222" y="156" fill="#ffffff" font-size="29" font-weight="900">288</text>
+  <text x="374" y="154" fill="#ffffff" font-size="20" font-weight="700">보충제 제외</text>
+  <path d="M480 175 L480 184" fill="none" stroke="#a0a8a4" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"/>
+  <text x="480" y="201" fill="#626b67" font-size="16" font-weight="700" text-anchor="middle">⋯ Step 3–5 · 임신 · 부정맥 · 고혈압 제외 ⋯</text>
+
+  <rect x="248" y="216" width="464" height="48" rx="14" fill="#599184"/>
+  <text x="276" y="248" fill="#ffffff" font-size="29" font-weight="900">165</text>
+  <text x="382" y="246" fill="#ffffff" font-size="18" font-weight="700">Step 6 · 비만까지 제외</text>
+  <path d="M480 267 L480 276" fill="none" stroke="#a0a8a4" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"/>
+  <text x="480" y="293" fill="#626b67" font-size="16" font-weight="700" text-anchor="middle">⋯ Step 7 · 당뇨 제외 ⋯</text>
+
+  <rect x="255" y="308" width="450" height="48" rx="14" fill="#6d88a1"/>
+  <text x="283" y="340" fill="#ffffff" font-size="29" font-weight="900">159</text>
+  <text x="376" y="338" fill="#ffffff" font-size="17" font-weight="700">Step 8 · eGFR ≥60 적용</text>
+  <path d="M480 358 L480 365 M472 362 L480 370 L488 362" fill="none" stroke="#6a6e86" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="322" y="364" width="316" height="48" rx="14" fill="#82749c"/>
+  <text x="348" y="396" fill="#ffffff" font-size="29" font-weight="900">84</text>
+  <text x="396" y="394" fill="#ffffff" font-size="15" font-weight="700">Step 9 · Vitamin D ≥20 ng/mL</text>
+  <text x="480" y="429" fill="#626b67" font-size="13" font-weight="700" text-anchor="middle">Step 10 · Ca/Mg/P 정상 → 83명</text>
+
+  <rect x="331" y="433" width="298" height="48" rx="14" fill="#d3a05e"/>
+  <text x="357" y="465" fill="#3e2b13" font-size="29" font-weight="900">82</text>
+  <text x="435" y="463" fill="#3e2b13" font-size="18" font-weight="800">Step 11 · ALP 정상</text>
+</svg>
+```
+<div class="pth-funnel-caption">분석 흐름도 · 원 논문 Table 1의 단계별 PTH 측정자 수를 재구성</div>
+</div>
+
+<div class="pth-result-stack">
+<div class="big-card blue pth-result-card">
+<span class="pth-card-label">MAIN REFERENCE POPULATION</span>
+<div class="pth-result-number">N = 155</div>
+<p class="pth-result-detail">Step 8 집단에서<br>이상치 제거 후 복합표본 분석에 포함</p>
+<div class="pth-reference-interval">20.5–67.7 pg/mL</div>
+<p class="pth-card-small">논문 초록·본문의 주요 가중 참고구간</p>
+</div>
+
+<div class="big-card orange pth-result-card">
+<span class="pth-card-label">STRICTEST STEP</span>
+<div class="pth-result-number">82명</div>
+<p class="pth-result-detail">Vitamin D·Ca/Mg/P·ALP까지 적용</p>
+<p class="pth-card-small">가중·이상치 제거 후 N=80</p>
+<span class="pth-warning-badge">N &lt; 120</span>
+<p class="pth-card-note">생물학적으로 가장 엄격하지만 참고한계 추정의 정밀도는 낮음</p>
+</div>
+</div>
+</div>
+
+<div class="key-message" markdown="1">**건강인 기준을 엄격하게 할수록 생물학적 타당성은 높아지지만,**<br>표본 수와 참고한계의 통계적 안정성은 낮아진다.
+</div>
+<div class="small-source">Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1–2</div>
+## 논문 1 · PTH 참고구간은 어떤 순서로 계산했나? {.module-reference}
+
+<style>
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) 54px minmax(0, 0.92fr) 88px minmax(0, 1.72fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 0;
+  align-items: center;
+  height: 500px;
+  margin-top: 12px;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-common-step-1 {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-common-step-2 {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 342px;
+  padding: 16px 17px 14px;
+  overflow: hidden;
+  border: 1px solid rgba(30, 86, 68, 0.16);
+  border-top: 7px solid var(--step-color);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 20px rgba(35, 71, 60, 0.10);
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-step-1 { --step-color: #22634f; --step-tint: #e9f3ee; }
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-step-2 { --step-color: #397f91; --step-tint: #e8f3f6; }
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-step-3 { --step-color: #756494; --step-tint: #f0edf6; }
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-step-4 { --step-color: #c17a2e; --step-tint: #fff2e4; }
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-label {
+  color: var(--step-color);
+  font-size: 0.43em;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 8px 0 7px;
+  border-radius: 16px;
+  background: var(--step-tint);
+  color: var(--step-color);
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-icon svg {
+  width: 42px;
+  height: 42px;
+  stroke: currentColor;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-title {
+  margin: 0;
+  color: #193f34;
+  font-size: 0.76em;
+  font-weight: 900;
+  line-height: 1.12;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-subtitle {
+  margin: 3px 0 9px;
+  color: var(--step-color);
+  font-size: 0.47em;
+  font-weight: 800;
+  line-height: 1.2;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-desc {
+  margin: 0;
+  color: #344c44;
+  font-size: 0.55em;
+  font-weight: 650;
+  line-height: 1.4;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-extra {
+  margin: 5px 0 0;
+  color: #64706c;
+  font-size: 0.43em;
+  line-height: 1.2;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-summary {
+  margin-top: auto;
+  padding-top: 9px;
+  border-top: 1px solid color-mix(in srgb, var(--step-color) 28%, transparent);
+  color: var(--step-color);
+  font-size: 0.48em;
+  font-weight: 900;
+  line-height: 1.25;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-arrow {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  height: 28px;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-arrow::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 7px;
+  width: 30px;
+  height: 6px;
+  border-radius: 999px;
+  background: #56776c;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-arrow::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 13px solid #56776c;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-connector {
+  grid-column: 4;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  min-width: 0;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-connector svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-lane {
+  display: grid;
+  grid-template-rows: 182px 78px;
+  gap: 8px;
+  align-self: stretch;
+  min-width: 0;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-main-lane {
+  grid-column: 5;
+  grid-row: 1;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-small-lane {
+  grid-column: 5;
+  grid-row: 2;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  grid-template-rows: auto auto auto 1fr auto;
+  column-gap: 12px;
+  box-sizing: border-box;
+  height: 182px;
+  padding: 10px 14px 8px;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-process-label {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  font-size: 0.41em;
+  line-height: 1.1;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-process-icon {
+  grid-column: 1;
+  grid-row: 2 / 5;
+  width: 54px;
+  height: 54px;
+  margin: 4px 0 0;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-process-icon svg {
+  width: 39px;
+  height: 39px;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-process-title {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 0.66em;
+  line-height: 1.05;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-process-subtitle {
+  grid-column: 2;
+  grid-row: 3;
+  margin: 1px 0 3px;
+  font-size: 0.42em;
+  line-height: 1.1;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-process-desc {
+  grid-column: 2;
+  grid-row: 4;
+  font-size: 0.44em;
+  line-height: 1.18;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-bootstrap-note {
+  display: block;
+  margin-top: 2px;
+  color: #5f4a2f;
+  font-size: 0.92em;
+  font-weight: 750;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-card .pth-process-summary {
+  grid-column: 1 / 3;
+  grid-row: 5;
+  margin-top: 2px;
+  padding-top: 3px;
+  font-size: 0.42em;
+  line-height: 1.1;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-result {
+  position: relative;
+  display: grid;
+  grid-template-columns: 164px 1fr;
+  align-items: center;
+  min-height: 88px;
+  margin: 0;
+  padding: 11px 17px 10px 20px;
+  border: 1px solid rgba(30, 86, 68, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 6px 16px rgba(35, 71, 60, 0.08);
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-lane .pth-process-result {
+  grid-template-columns: 205px minmax(0, 1fr);
+  box-sizing: border-box;
+  min-height: 0;
+  height: 78px;
+  padding: 5px 14px 5px 18px;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-lane .pth-result-label {
+  font-size: 0.37em;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-lane .pth-result-main {
+  font-size: 0.58em;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-branch-lane .pth-result-desc {
+  font-size: 0.43em;
+  line-height: 1.2;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-result::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 0;
+  width: 7px;
+  border-radius: 0 7px 7px 0;
+  background: #2b6d58;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-process-result.warning::before { background: #c17a2e; }
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-result-label {
+  display: block;
+  color: #5f6d68;
+  font-size: 0.39em;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-result-main {
+  display: block;
+  margin-top: 2px;
+  color: #174c3c;
+  font-size: 0.68em;
+  font-weight: 900;
+  line-height: 1.15;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .warning .pth-result-main { color: #9a5d18; }
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .pth-result-desc {
+  margin: 0;
+  color: #42554e;
+  font-size: 0.47em;
+  font-weight: 650;
+  line-height: 1.3;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .key-message {
+  margin-top: 46px;
+  margin-bottom: 0;
+}
+#논문-1-pth-참고구간은-어떤-순서로-계산했나 .small-source {
+  margin-top: 3px;
+}
+</style>
+
+<span class="paper-label">PAPER 1 · PTH · BMC Endocr Disord 2026</span>
+
+```{=html}
+<div class="pth-process-flow" role="img" aria-label="참고집단 선정과 MAD 이상치 제거 후 주 분석과 소표본 보완 분석으로 분기되는 PTH 참고구간 분석 절차">
+  <article class="pth-process-card pth-step-1 pth-common-step-1">
+    <span class="pth-process-label">STEP 1</span>
+    <span class="pth-process-icon" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 9h34L29 24v11l-10 5V24L7 9Z"/>
+        <circle cx="14" cy="6" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="6" r="2.2" fill="currentColor" stroke="none"/><circle cx="34" cy="6" r="2.2" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h3 class="pth-process-title">참고집단 선정</h3>
+    <p class="pth-process-subtitle">Stepwise reference population selection</p>
+    <p class="pth-process-desc">질환, 보충제 사용,<br>비만, 당뇨, 신기능, Vitamin D 등<br>PTH 영향 조건을 순서대로 적용</p>
+    <div class="pth-process-summary">누구를 참고집단에 넣을지 정함</div>
+  </article>
+
+  <div class="pth-process-arrow" aria-hidden="true"></div>
+
+  <article class="pth-process-card pth-step-2 pth-common-step-2">
+    <span class="pth-process-label">STEP 2</span>
+    <span class="pth-process-icon" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round">
+        <path d="M7 39V9M7 39h34"/><circle cx="15" cy="31" r="2.6" fill="currentColor" stroke="none"/><circle cx="22" cy="27" r="2.6" fill="currentColor" stroke="none"/><circle cx="29" cy="23" r="2.6" fill="currentColor" stroke="none"/><circle cx="38" cy="10" r="3"/><path d="m34 6 8 8m0-8-8 8"/>
+      </svg>
+    </span>
+    <h3 class="pth-process-title">이상치 제거</h3>
+    <p class="pth-process-subtitle">MAD outlier detection</p>
+    <p class="pth-process-desc">PTH 분포에서 중앙값을 기준으로<br>너무 멀리 떨어진 값을 제거</p>
+    <p class="pth-process-extra">Median absolute deviation (MAD)</p>
+    <div class="pth-process-summary">튀는 값을 빼서 상한 왜곡을 줄임</div>
+  </article>
+
+  <div class="pth-branch-connector" aria-hidden="true">
+    <svg viewBox="0 0 100 500" preserveAspectRatio="none">
+      <defs>
+        <marker id="pth-branch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10Z" fill="#56776c"/>
+        </marker>
+      </defs>
+      <path d="M0 250 H18 C40 250 38 84 88 84" fill="none" stroke="#56776c" stroke-width="5" stroke-linecap="round" marker-end="url(#pth-branch-arrow)"/>
+      <path d="M18 250 C40 250 38 339 88 339" fill="none" stroke="#8b7358" stroke-width="5" stroke-linecap="round" marker-end="url(#pth-branch-arrow)"/>
+      <circle cx="18" cy="250" r="7" fill="#ffffff" stroke="#56776c" stroke-width="4"/>
+    </svg>
+  </div>
+
+  <div class="pth-branch-lane pth-main-lane">
+    <article class="pth-process-card pth-step-3 pth-branch-card">
+      <span class="pth-process-label">STEP 3 · MAIN ANALYSIS</span>
+      <span class="pth-process-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="16" r="5"/><circle cx="29" cy="13" r="4"/><path d="M5 35c1-8 5-12 10-12s9 4 10 12M23 31c1-7 4-11 8-11 5 0 8 4 9 11"/><path d="M34 36h10M39 31v10"/>
+        </svg>
+      </span>
+      <h3 class="pth-process-title">복합표본 가중 반영</h3>
+      <p class="pth-process-subtitle">Complex survey weighting</p>
+      <p class="pth-process-desc">층화·집락·검진 가중치를 반영해 40세 이상 한국 성인의<br>2.5th–97.5th percentile 추정</p>
+      <div class="pth-process-summary">표본을 40세 이상 한국 성인에 맞춰 반영</div>
+    </article>
+    <div class="pth-process-result">
+      <div><span class="pth-result-label">MAIN RESULT</span><span class="pth-result-main">주요 참고구간<br>20.5–67.7 pg/mL</span></div>
+      <p class="pth-result-desc">Step 8 주요 분석집단 · 40세 이상 한국 성인<br>가중 percentile 추정</p>
+    </div>
+  </div>
+
+  <div class="pth-branch-lane pth-small-lane">
+    <article class="pth-process-card pth-step-4 pth-branch-card">
+      <span class="pth-process-label">IF N &lt; 120</span>
+      <span class="pth-process-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 14h24M8 24h32M8 34h27"/><path d="M13 10v8M27 20v8M20 30v8"/><path d="M35 8a9 9 0 0 1 6 14M41 22l-1-6-5 3"/>
+        </svg>
+      </span>
+      <h3 class="pth-process-title">소표본 보완 분석</h3>
+      <p class="pth-process-subtitle">CLSI robust method + bootstrap</p>
+      <p class="pth-process-desc">n&lt;120 하위집단: 이상치 제거 후 비가중 PTH에<br>CLSI EP28-A3c 기반 robust method 적용<span class="pth-bootstrap-note">Bootstrap으로 참고하한·참고상한의 90% CI 추정</span></p>
+      <div class="pth-process-summary">작은 표본의 불확실성까지 함께 보고</div>
+    </article>
+    <div class="pth-process-result warning">
+      <div><span class="pth-result-label">SMALL SUBGROUP</span><span class="pth-result-main">Step 9–11은 N&lt;120</span></div>
+      <p class="pth-result-desc">소표본 보완 분석을 사용했지만<br>참고한계의 정밀도는 낮음</p>
+    </div>
+  </div>
+</div>
+```
+
+<div class="key-message" markdown="1">**참고집단 선정과 MAD는 공통 전처리이고,** 이후 주 분석은 survey-weighted percentile,<br>n&lt;120 집단은 robust method와 bootstrap으로 보완했다.
+</div>
+<div class="small-source">Choi R, et al. BMC Endocr Disord. 2026;26:176 · Methods / Table 1–3</div>
+## 논문 1 · Table 1: 표본을 가장 많이 줄인 단계는 어디인가? {.module-reference}
+
+<style>
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 > h2 {
+  font-size: 1.55em;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-table1-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 22px;
+  margin-top: 11px;
+  align-items: stretch;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-table1-image-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 10px 14px 8px;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-table1-image {
+  display: block;
+  width: auto;
+  height: 500px;
+  max-width: 100%;
+  object-fit: contain;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-table1-caption {
+  margin-top: 5px;
+  color: #3f514b;
+  font-size: 0.43em;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-table1-source {
+  margin-top: 2px;
+  color: #6b746f;
+  font-size: 0.35em;
+  line-height: 1.15;
+  text-align: center;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-table1-side {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  min-width: 0;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-column-card {
+  margin: 0;
+  padding: 13px 16px;
+  border: 1px solid rgba(48, 112, 126, 0.20);
+  border-radius: 17px;
+  background: rgba(232, 246, 248, 0.94);
+  box-shadow: 0 7px 18px rgba(35, 71, 60, 0.08);
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-column-label {
+  display: block;
+  color: #397f91;
+  font-size: 0.40em;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-column-title {
+  margin: 2px 0 3px;
+  color: #174c3c;
+  font-size: 0.72em;
+  font-weight: 900;
+  line-height: 1.05;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-column-name {
+  margin: 0 0 5px;
+  color: #2d6573;
+  font-size: 0.55em;
+  font-weight: 850;
+  line-height: 1.18;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-column-note {
+  margin: 0;
+  color: #40534c;
+  font-size: 0.46em;
+  font-weight: 650;
+  line-height: 1.25;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-drop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-drop-card {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 10px 9px 51px;
+  border: 1px solid rgba(193, 122, 46, 0.22);
+  border-radius: 15px;
+  background: rgba(255, 250, 243, 0.95);
+  box-shadow: 0 6px 15px rgba(91, 63, 34, 0.07);
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-drop-no {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #d88635;
+  color: #ffffff;
+  font-size: 0.58em;
+  font-weight: 900;
+  line-height: 1;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-drop-title {
+  margin: 0 0 3px;
+  color: #3e3428;
+  font-size: 0.46em;
+  font-weight: 900;
+  line-height: 1.15;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-drop-transition {
+  margin: 0;
+  color: #174c3c;
+  font-size: 0.60em;
+  font-weight: 900;
+  line-height: 1.1;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-drop-delta {
+  display: block;
+  margin-top: 2px;
+  color: #b36620;
+  font-size: 0.50em;
+  font-weight: 900;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-drop-note {
+  display: block;
+  margin-top: 3px;
+  color: #6f6b65;
+  font-size: 0.35em;
+  font-weight: 750;
+  line-height: 1.15;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-small-warning {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 58px;
+  padding: 9px 13px;
+  border: 1px solid rgba(193, 122, 46, 0.28);
+  border-radius: 15px;
+  background: #fff3df;
+  color: #784c18;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-warning-badge-small {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #d88635;
+  color: #ffffff;
+  font-size: 0.43em;
+  font-weight: 900;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .pth-warning-steps {
+  font-size: 0.48em;
+  font-weight: 850;
+  line-height: 1.2;
+}
+#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .key-message {
+  margin-top: 9px;
+  margin-bottom: 0;
+  padding: 8px 20px;
+  line-height: 1.3;
+}
+</style>
+
+<span class="paper-label">PAPER 1 · PTH · BMC Endocr Disord 2026</span>
+
+```{=html}
+<div class="pth-table1-layout">
+  <figure class="paper-frame pth-table1-image-frame">
+    <img class="pth-table1-image" src="slides_assets/pth-table1-key-steps.png" alt="Table 1 발췌·강조: 단계별 선정 기준과 PTH 측정자 수, Step 0과 Step 11, 표본 감소가 큰 Step 1, Step 2, Step 6, Step 9를 표시한 표">
+    <figcaption class="pth-table1-caption">Table 1 발췌·강조 · 단계별 선정 기준과 PTH 측정자 수</figcaption>
+    <div class="pth-table1-source">Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1</div>
+  </figure>
+
+  <div class="pth-table1-side">
+    <div class="pth-column-card">
+      <span class="pth-column-label">READ THIS COLUMN FIRST</span>
+      <div class="pth-column-title">먼저 볼 열</div>
+      <p class="pth-column-name">N of subjects with<br>PTH measurement</p>
+      <p class="pth-column-note">Residual subjects ≠ 실제 PTH 분석 N<br>참고구간은 PTH measurement 열을 기준으로 읽는다.</p>
+    </div>
+
+    <div class="pth-drop-grid">
+      <div class="pth-drop-card">
+        <span class="pth-drop-no">1</span>
+        <div class="pth-drop-title">만성질환 제외</div>
+        <p class="pth-drop-transition">4,502 → 861</p>
+        <span class="pth-drop-delta">−3,641명</span>
+        <span class="pth-drop-note">가장 큰 감소</span>
+      </div>
+      <div class="pth-drop-card">
+        <span class="pth-drop-no">2</span>
+        <div class="pth-drop-title">보충제 사용 제외</div>
+        <p class="pth-drop-transition">861 → 288</p>
+        <span class="pth-drop-delta">−573명</span>
+        <span class="pth-drop-note">두 번째로 큰 감소</span>
+      </div>
+      <div class="pth-drop-card">
+        <span class="pth-drop-no">3</span>
+        <div class="pth-drop-title">비만 제외</div>
+        <p class="pth-drop-transition">235 → 165</p>
+        <span class="pth-drop-delta">−70명</span>
+        <span class="pth-drop-note">Step 6</span>
+      </div>
+      <div class="pth-drop-card">
+        <span class="pth-drop-no">4</span>
+        <div class="pth-drop-title">Vitamin D ≥20 ng/mL</div>
+        <p class="pth-drop-transition">159 → 84</p>
+        <span class="pth-drop-delta">−75명</span>
+        <span class="pth-drop-note">여기서 N&lt;120</span>
+      </div>
+    </div>
+
+    <div class="pth-small-warning">
+      <span class="pth-warning-badge-small">N &lt; 120 시작</span>
+      <span class="pth-warning-steps">Step 9–11 · 84 → 83 → 82명</span>
+    </div>
+  </div>
+</div>
+```
+
+<div class="key-message" markdown="1">**질환·보충제 단계에서 가장 크게 줄고,**<br>Vitamin D 기준부터 n&lt;120이 되어 통계적 정밀도가 낮아졌다.
+</div>
+## 검사법 비교 · Correlation ≠ Agreement {.section-break .module-method}
+
+<span class="section-no">02 · AGREEMENT</span>
+
+<div class="section-sub" markdown="1">Paired data · **관계 / 차이 / 변환 가능성**
+</div>
+## 논문 2 · 동일 혈청 98개 {.module-method}
+
+<div class="columns" markdown="1"><div class="column" style="width:43%;" markdown="1"><span class="paper-label">PAPER 2 · TRIGLYCERIDE · Ann Lab Med 2025</span>
+
+<div class="question-banner" markdown="1">**검사법 변경 전후 자료 연결** · Triglyceride harmonization
+</div>
+<div class="method-strip" markdown="1"><div><strong>관계</strong><br>Correlation</div>
+<div><strong>변환</strong><br>Passing–Bablok</div>
+<div><strong>차이</strong><br>Bland–Altman</div>
+</div>
+<div class="key-message" markdown="1">**동일 혈청 98개** · Paired method-comparison
+</div></div>
+<div class="column" style="width:57%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure1.png){fig-alt="중성지방 검사법 변경 전후의 자료 연결" height="500"}
+
+<div class="small-source" markdown="1">Figure 1. 동일 검체 비교와 KNHANES 자료의 harmonization 흐름 · Choi R, et al. Ann Lab Med 2025;45:291-299
+</div></div></div></div>
+## Correlation ≠ Agreement {.module-method}
+
+<div class="card-grid-2" markdown="1"><div class="big-card blue" markdown="1"><span class="eyebrow">CORRELATION</span>
+
+<span class="big-number">r = 0.997</span>
+
+두 측정값이 **함께 증가**하는 정도
+</div>
+<div class="big-card orange" markdown="1"><span class="eyebrow">AVERAGE DIFFERENCE</span>
+
+<span class="big-number">+10.7 mg/dL</span>
+
+Non-blanking이 평균적으로 더 높음
+</div></div>
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1">두 값이 완벽하게 같은 방향으로 움직여도
+</div>
+<div class="arrow">→</div>
+
+<div class="metric-block" markdown="1">항상 +10 mg/dL → **불일치**
+</div></div>
+<div class="key-message" markdown="1">**Correlation = 관계** · **Bland–Altman = 차이**
+</div>
+## Passing–Bablok 회귀분석 개념도 {.module-method .image-only}
+
+<div class="paper-frame" markdown="1">![](slides_assets/passing-bablok-concept.png){fig-alt="Passing–Bablok 회귀분석 개념도" height="620"}
+</div>
+<div class="key-message" markdown="1">**절편 = constant bias** · **기울기 = proportional bias**
+</div>
+## 논문 2 · Passing–Bablok + Bland–Altman {.module-method}
+
+<div class="columns" markdown="1"><div class="column" style="width:63%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure2.png){fig-alt="Passing–Bablok 회귀와 Bland–Altman 분석" height="505"}
+
+<div class="small-source" markdown="1">Figure 2. Passing–Bablok 회귀와 Bland–Altman 분석 · Choi R, et al. Ann Lab Med 2025;45:291-299
+</div></div></div>
+<div class="column" style="width:37%;" markdown="1"><div class="big-card" markdown="1"><span class="method-name">변환식</span>
+
+<span class="big-number">Y = 11.94 + 0.99X</span>
+
+X: blanking 측정값  
+Y: non-blanking 기준 변환값
+</div>
+<div class="big-card blue" markdown="1">**기울기 95% CI**  
+0.977–1.013 → 1 포함
+
+**절편 95% CI**  
+9.50–14.76 → 0 불포함
+</div>
+<div class="key-message" markdown="1">Slope CI: 1 포함 · Intercept CI: 0 불포함 → **constant bias**
+</div></div></div>
+## 논문 2 · 변환 후 평균 + 유병률 {.module-method}
+
+<div class="columns" markdown="1"><div class="column" style="width:59%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure3.png){fig-alt="중성지방 변환 전후 분포 변화" height="510"}
+
+<div class="small-source" markdown="1">Figure 3. KNHANES 2019–2021 중성지방 분포의 변환 전후 변화 · Choi R, et al. Ann Lab Med 2025;45:291-299
+</div></div></div>
+<div class="column" style="width:41%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">평균</span>
+
+<span class="metric">123.7</span>
+
+mg/dL
+</div>
+<div class="arrow">→</div>
+
+<div class="metric-block" markdown="1"><span class="muted">변환 후</span>
+
+<span class="metric">134.3</span>
+
+mg/dL
+</div></div>
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">고중성지방혈증</span>
+
+<span class="metric">11.9%</span>
+
+≥200 mg/dL
+</div>
+<div class="arrow">→</div>
+
+<div class="metric-block" markdown="1"><span class="muted">변환 후</span>
+
+<span class="metric">13.8%</span>
+
+비가중 · N = 16,015
+</div></div>
+<div class="key-message" markdown="1">**검사법 보정이 유병률 통계를 바꾼다** · 11.9% → 13.8%
+</div></div></div>
+## Difference · Bias · Percent bias {.module-method .image-only}
+
+<div class="paper-frame" markdown="1">![](slides_assets/bias.png){fig-alt="Difference, bias, percent bias의 구분" height="620"}
+</div>
+<div class="key-message" markdown="1">**Bland–Altman = 두 검사법 사이의 차이** · **Bias = 기준값에서 벗어난 정도**
+</div>
+## 논문 2 · 외부 기준값 대비 Bias {.module-method}
+
+<div class="columns" markdown="1"><div class="column" style="width:58%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper2-figure4.png){fig-alt="CDC LSP 기준값 대비 검사법별 bias" height="510"}
+
+<div class="small-source" markdown="1">Figure 4. CDC LSP target value 대비 검사법별 bias · Choi R, et al. Ann Lab Med 2025;45:291-299
+</div></div></div>
+<div class="column" style="width:42%;" markdown="1"><div class="big-card orange" markdown="1"><span class="method-name">2018–2021 · Blanking</span>
+
+기준값보다 전반적으로 낮고, bias가 주로 **−5% 기준을 초과**
+</div>
+<div class="big-card" markdown="1"><span class="method-name">2022 · Non-blanking</span>
+
+Bias가 **±5% 이내**로 CDC LSP 기준에서 수용 가능
+</div>
+<div class="key-message" markdown="1">**방법 간 관계 ≠ 외부 기준값 대비 정확도**
+</div></div></div>
+## 비율 비교 · 분모 먼저 {.section-break .module-amr}
+
+<span class="section-no">03 · PROPORTION</span>
+
+<div class="section-sub" markdown="1">집락률 / 내성률 / MDR · **분모 각각 확인**
+</div>
+## 논문 3 · 집락률 ≠ 내성률 {.module-amr}
+
+<span class="paper-label">PAPER 3 · GBS COLONIZATION · Yonsei Med J 2022</span>
+
+<div class="card-grid-2" markdown="1"><div class="fraction-card" markdown="1"><div class="numerator">GBS 양성 배양 검체 수</div>
+<div class="denominator">전체 질 면봉 배양 검체 수</div>
+
+<span class="big-number">집락률</span>
+</div>
+<div class="fraction-card" markdown="1"><div class="numerator">특정 항균제 내성 균주 수</div>
+<div class="denominator">해당 항균제 감수성 검사 균주 수</div>
+
+<span class="big-number">내성률</span>
+</div></div>
+<div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**전체 배양 검체**
+
+33,721건
+</div><div class="flow-step" markdown="1">**GBS 양성**
+
+3,578건 · 10.6%
+</div><div class="flow-step" markdown="1">**감수성 검사 시행**
+
+3,512균주
+</div><div class="flow-step" markdown="1">**MDR 분석**
+
+538/1,672 · 32.2%
+</div></div>
+<div class="key-message" markdown="1">**집락률 3,578/33,721 · 감수성검사 3,512균주 · MDR 538/1,672**
+</div>
+## 논문 3 · 연도별 집락률 {.module-amr}
+
+<div class="columns" markdown="1"><div class="column" style="width:58%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper4-figure1.png){fig-alt="연도별 GBS 집락률" height="500"}
+
+<div class="small-source" markdown="1">Figure 1. 2018–2020년 GBS 집락률 · Bae HG, et al. Yonsei Med J 2022;63:717-723
+</div></div></div>
+<div class="column" style="width:42%;" markdown="1"><div class="card-grid-3" markdown="1"><div class="big-card" markdown="1"><span class="eyebrow">2018</span>
+<span class="big-number">10.8%</span>
+</div><div class="big-card blue" markdown="1"><span class="eyebrow">2019</span>
+<span class="big-number">10.5%</span>
+</div><div class="big-card purple" markdown="1"><span class="eyebrow">2020</span>
+<span class="big-number">10.5%</span>
+</div></div>
+<div class="key-message" markdown="1">**연도별·지역별 비율 비교** · Chi-square test
+</div>
+<div class="big-card orange" markdown="1">**지역별 집락률 · 9.6%–13.2%**
+
+경상도 9.6% ~ 전라도 13.2%
+</div></div></div>
+## 논문 3 · 항균제별 내성률 {.module-amr}
+
+<div class="columns" markdown="1"><div class="column" style="width:59%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper4-table2.png){fig-alt="Table 3. 2018–2020년 지역·연도별 GBS 항균제 내성률" height="510"}
+
+<div class="small-source" markdown="1">Table 3. 2018–2020년 지역·연도별 GBS 항균제 내성률 · Bae HG, et al. Yonsei Med J 2022;63:717-723
+</div></div></div>
+<div class="column" style="width:41%;" markdown="1"><div class="big-card" markdown="1"><span class="method-name">β-lactam·Vancomycin</span>
+
+연구 기간 동안 감수성 유지
+</div>
+<div class="big-card orange" markdown="1"><span class="method-name">비β-lactam 내성</span>
+
+Levofloxacin **18.2%–19.6%**  
+Clindamycin **33.4%–35.7%**  
+Erythromycin **35.6%–36.8%**  
+Tetracycline **50.0%–53.3%**
+</div>
+<div class="key-message" markdown="1">**MDR 538/1,672 · 32.2%**<br>Chloramphenicol 결과까지 있는 하위집단에서 계산
+</div></div></div>
+## 2×2 표 · Chi-square와 Fisher’s exact {.module-amr}
+
+<div class="card-grid-2" markdown="1"><div class="big-card orange" markdown="1"><span class="method-name">Pearson Chi-square test</span>
+
+**Asymptotic approximation**
+
+X² 통계량을 카이제곱분포로 근사
+
+표본과 기대빈도가 충분히 크면 정확검정과 매우 비슷한 결과가 나올 수 있음
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">Fisher’s exact test</span>
+
+**Exact probability**
+
+고정된 주변합에서 가능한 2×2 표를 직접 계산
+
+기대 빈도가 작아도 Type I error가 α를 넘지 않음
+</div></div>
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">논문 3</span>
+
+<span class="metric">N = 33,721</span>
+
+근사가 충분 → Chi-square
+</div>
+<div class="arrow">vs</div>
+<div class="metric-block" markdown="1"><span class="muted">논문 5</span>
+
+<span class="metric">37 vs 209</span>
+
+희소 셀 → Fisher’s exact
+</div></div>
+<div class="key-message" markdown="1">**표본과 기대빈도가 충분히 크면 두 결과가 매우 비슷해질 수 있다**
+</div>
+<div class="small-source" markdown="1">이 논문은 비율 비교에 chi-square test를 우선 적용하고, 기대빈도가 작은 경우 Fisher’s exact test를 사용했다. Fisher’s exact test는 희소한 2×2 표에 적합하지만 조건부 검정이어서 다소 보수적일 수 있다. · Agresti (1992), Upton (1992)
+</div>
+## 미생물 다중결과 · 분석 층 + FDR {.section-break .module-microbiome}
+
+<span class="section-no">04 · MULTIPLICITY</span>
+
+<div class="section-sub" markdown="1">양성/음성 · Ct value · 상대 풍부도 · Alpha/Beta diversity · 개별 OTU
+</div>
+## 한 검체에서 나오는 6가지 결과 {.module-microbiome}
+
+<div class="card-grid-3" markdown="1"><div class="big-card" markdown="1"><span class="eyebrow">qPCR</span>
+<span class="method-name">양성 / 음성</span>
+
+정한 균이 **검출되었는가**
+
+범주형 · n (%) · Fisher’s exact
+</div>
+<div class="big-card blue" markdown="1"><span class="eyebrow">qPCR</span>
+<span class="method-name">Ct value</span>
+
+**몇 번째 cycle**에서 신호가 잡혔는가 · 낮을수록 target DNA가 많음
+
+연속형 · Mann–Whitney U
+</div>
+<div class="big-card purple" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">Relative abundance</span>
+
+그 검체의 전체 read 중 해당 분류군의 **비율**
+
+합이 100%인 조성 자료 · 하나가 늘면 다른 것이 줄어듦
+</div>
+<div class="big-card orange" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">Alpha diversity</span>
+
+**검체 하나 안**의 다양성 · Chao1은 종의 수, Shannon은 종 수와 균등도
+
+검체당 값 하나
+</div>
+<div class="big-card gray" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">Beta diversity</span>
+
+**검체 사이** 군집 구성의 거리 · 검체 쌍마다 거리를 계산
+
+Principal components 기반 차원축소로 시각화<br>이 논문에서는 CRC군과 대조군 사이 유의한 차이 없음
+</div>
+<div class="big-card" markdown="1"><span class="eyebrow">16S rRNA</span>
+<span class="method-name">개별 OTU 비교</span>
+
+수백 개 분류군을 **각각** 검정 · 이 논문은 698개
+
+다중검정 → FDR 보정
+</div></div>
+<div class="key-message" markdown="1">**같은 검체에서 나온 결과지만 답하는 질문이 다르다** · 하나로 요약할 수 없음
+</div>
+## 논문 4 · qPCR + 16S {.module-microbiome}
+
+<div class="columns" markdown="1"><div class="column" style="width:43%;" markdown="1"><span class="paper-label">PAPER 4 · CRC MICROBIOME · Sci Rep 2020</span>
+
+<div class="big-card" markdown="1"><span class="method-name">qPCR</span>
+
+특정 세균의 **양성/음성**과 **Ct value**
+
+Fisher’s exact test · Mann–Whitney U test
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">16S rRNA</span>
+
+전체 군집의 **상대 풍부도**와 **다양성**
+
+Alpha/Beta diversity · OTU 비교 · FDR
+</div>
+<div class="key-message" markdown="1">**환자 38명 · 조직 39개** · 한 환자에 병변 2개
+</div></div>
+<div class="column" style="width:57%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper3-figure1.png){fig-alt="조직 유형별 F. nucleatum qPCR 결과" height="500"}
+
+<div class="small-source" markdown="1">Figure 1. 조직 유형별 F. nucleatum qPCR 결과 · Kim M, et al. Sci Rep 2020;10:19915
+</div></div></div></div>
+## 논문 4 · 양성률 ≠ Ct value {.module-microbiome}
+
+<div class="card-grid-2" markdown="1"><div class="big-card" markdown="1"><span class="eyebrow">DETECTION RATE</span>
+
+<span class="big-number">32/39 · 82.1%</span>
+
+대장암 조직의 *F. nucleatum* 양성
+</div>
+<div class="big-card blue" markdown="1"><span class="eyebrow">CONTROL</span>
+
+<span class="big-number">0/21 · 0%</span>
+
+대조군 정상 조직의 양성
+</div></div>
+<div class="method-strip" markdown="1"><div><strong>양성률</strong><br>Fisher’s exact test<br>P &lt; 0.0001</div>
+<div><strong>Ct value</strong><br>Mann–Whitney U test<br>P &lt; 0.0001</div>
+<div><strong>조직 위치</strong><br>종양 82.1%<br>인접 38.9% · 원거리 33.3%</div>
+</div>
+<div class="key-message" markdown="1">**양성률 = 범주형** · **Ct value = 연속형**
+</div>
+## Beta diversity 그림을 읽는 법 {.module-microbiome .image-only}
+
+<div class="paper-frame" markdown="1">![](slides_assets/dimension-reduction-plot.png){fig-alt="차원축소 플롯의 개념" height="620"}
+</div>
+<div class="key-message" markdown="1">**점 하나 = 검체 하나** · 두 집단이 분리되면 군집 구성이 다를 가능성
+</div>
+## 다중검정 → FDR {.module-microbiome}
+
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">검정을 1번 시행</span>
+
+<span class="metric">P &lt; 0.05</span>
+
+우연한 양성 위험 5%
+</div>
+<div class="arrow">→</div>
+
+<div class="metric-block" markdown="1"><span class="muted">698개 OTU를 각각 검정</span>
+
+<span class="metric">거짓 양성 누적</span>
+
+작은 P value가 우연히 늘어남
+</div></div>
+<div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**원 P value**
+
+OTU별 검정
+</div><div class="flow-step" markdown="1">**순위화**
+
+작은 P부터 정렬
+</div><div class="flow-step" markdown="1">**FDR 보정**
+
+기대 거짓 발견 비율 통제
+</div><div class="flow-step" markdown="1">**보정 결과 보고**
+
+q value 또는 adjusted P
+</div></div>
+<div class="key-message" markdown="1">**FDR 보정 후 유의성** · 고차원 자료의 핵심
+</div>
+## 논문 4 · 전체 군집 vs 개별 OTU {.module-microbiome}
+
+<div class="columns" markdown="1"><div class="column" style="width:61%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper3-figure3.png){fig-alt="Figure 2. CRC군과 대조군에서 차이가 확인된 6개 genus의 relative abundance" height="510"}
+
+<div class="small-source" markdown="1">Figure 2. CRC군과 대조군에서 차이가 확인된 6개 genus의 relative abundance · Kim M, et al. Sci Rep 2020;10:19915
+</div></div></div>
+<div class="column" style="width:39%;" markdown="1"><div class="big-card blue" markdown="1"><span class="method-name">전체 군집</span>
+
+Alpha diversity와 Beta diversity 모두 **유의한 차이 없음**
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">개별 OTU</span>
+
+698개 중 FDR 보정 후 **6개 OTU**에서 차이 확인
+</div>
+<div class="key-message" markdown="1">**전체 군집 차이 없음 ≠ 개별 OTU 차이 없음**
+</div></div></div>
+## 논문 4 · 관련성 ≠ 인과성 {.module-microbiome}
+
+<div class="columns" markdown="1"><div class="column" style="width:60%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper3-figure4.png){fig-alt="Figure 3. Heavy drinker와 non/light drinker의 Fusobacterium relative abundance 비교" height="510"}
+
+<div class="small-source" markdown="1">Figure 3. Heavy drinker와 non/light drinker의 Fusobacterium relative abundance 비교 · Kim M, et al. Sci Rep 2020;10:19915
+</div></div></div>
+<div class="column" style="width:40%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">Heavy drinker</span>
+<span class="metric">14/15 · 93.3%</span>
+
+*Fusobacterium* 검출
+</div><div class="arrow">vs</div>
+<div class="metric-block" markdown="1"><span class="muted">Non/light drinker</span>
+<span class="metric">11/17 · 64.7%</span>
+
+6/17은 비검출
+</div></div>
+<div class="big-card orange" markdown="1">**양성 여부** · 93.3% vs 64.7%<br>Fisher P = 0.088 · 일반적인 0.05 기준에서는 유의하지 않음
+
+**상대풍부도** · Heavy drinker에서 증가 · P = 0.003
+</div>
+<div class="key-message" markdown="1">**관련성 ≠ 인과성** · 15명 vs 17명 · 인과 결론 불가
+</div></div></div>
+## WGS · 계통 + 내성 조합 {.section-break .module-amr}
+
+<span class="section-no">05 · PROFILE</span>
+
+<div class="section-sub" markdown="1">표현형 · ST/CC · cps · ARG · AMR profile · 시간 변화
+</div>
+## WGS 결과를 범주형 변수로 정리 {.module-amr .image-only}
+
+<div class="paper-frame" markdown="1">![](slides_assets/wgs-results.png){fig-alt="WGS 결과를 범주형 변수로 정리하는 흐름" height="600"}
+</div>
+<div class="key-message" markdown="1">**유전체 정보도 결국 n (%) 로 비교** · 분석 단위는 균주 하나
+</div>
+## 논문 5 · AST → WGS → ARG → Profile {.module-amr}
+
+<div class="columns" markdown="1"><div class="column" style="width:58%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-analysis-flow.png){fig-alt="GBS 계통과 항균제 내성 분석 흐름도" height="505"}
+
+<div class="small-source" markdown="1">분석 흐름도. GBS 감수성 검사와 WGS 기반 계통·내성 분석 · Ahn K, et al. Ann Lab Med 2025 기반
+</div></div></div>
+<div class="column" style="width:42%;" markdown="1"><span class="paper-label">PAPER 5 · GBS WGS · Ann Lab Med 2025</span>
+
+<div class="analysis-chain" markdown="1"><div class="flow-step" markdown="1">**AST**
+
+표현형 내성
+</div><div class="flow-step" markdown="1">**WGS**
+
+ST · CC · cps
+</div><div class="flow-step" markdown="1">**ARG**
+
+내성 유전자
+</div><div class="flow-step" markdown="1">**Profile**
+
+내성 조합
+</div></div>
+<div class="key-message" markdown="1">**37 vs 209균주** · 백분율 + 실제 빈도를 함께 확인
+</div></div></div>
+## 논문 5 · 희소 범주 → Fisher’s exact {.module-amr}
+
+<div class="columns" markdown="1"><div class="column" style="width:62%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-table1.png){fig-alt="시기별 GBS 계통과 cps genotype 분포" height="515"}
+
+<div class="small-source" markdown="1">Table 1. 1994–2000년과 2017–2022년의 ST·CC·cps genotype 분포 · Ahn K, et al. Ann Lab Med 2025<br>수치 주의: 원문 본문·초록은 CC19 13/37(35.1%)로 보고하나, Table 1 세부행 합계는 14로 읽힘
+</div></div></div>
+<div class="column" style="width:38%;" markdown="1"><div class="big-card" markdown="1"><span class="method-name">가장 흔한 CC</span>
+
+과거 **CC19 · 35.1%** (13/37)  
+최근 **CC1 · 35.4%** (74/209)
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">cps genotype VIII</span>
+
+과거 1균주 → 최근 32균주  
+**P = 0.037**
+</div>
+<div class="key-message" markdown="1">**앞의 그 상황** · 기대 빈도가 작은 칸 → 정확 검정
+</div></div></div>
+## 논문 5 · 표현형 내성 ≠ ARG {.module-amr}
+
+<div class="columns" markdown="1"><div class="column" style="width:55%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-figure1.png){fig-alt="표현형 내성률과 내성 유전자 보유율 변화" height="500"}
+
+<div class="small-source" markdown="1">Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K, et al. Ann Lab Med 2025
+</div></div></div>
+<div class="column" style="width:45%;" markdown="1"><div class="card-grid-2" markdown="1"><div class="big-card orange" markdown="1"><span class="eyebrow">TETRACYCLINE R</span>
+<span class="big-number">97.3% → 60.8%</span>
+P &lt; 0.001
+</div><div class="big-card purple" markdown="1"><span class="eyebrow">tetO</span>
+<span class="big-number">2.8% → 29.9%</span>
+P = 0.017
+</div><div class="big-card blue" markdown="1"><span class="eyebrow">LEVOFLOXACIN R</span>
+<span class="big-number">0% → 23.4%</span>
+P = 0.001
+</div><div class="big-card" markdown="1"><span class="eyebrow">tetM</span>
+<span class="big-number">91.7% → 72.4%</span>
+P &lt; 0.001
+</div></div>
+<div class="key-message" markdown="1">**표현형과 유전자를 각각 시기 비교** · 둘의 일치도는 별개 질문
+</div></div></div>
+## Genotype–phenotype 일치도는 어떻게 보는가 {.module-amr}
+
+<div class="card-grid-2" markdown="1"><div class="big-card orange" markdown="1"><span class="method-name">시기별 비율 비교</span>
+
+표현형 내성률의 변화, ARG 보유율의 변화를 **각각** 검정
+
+두 곡선이 반대로 움직여도 균주별로 어떻게 대응하는지는 알 수 없음
+</div>
+<div class="big-card purple" markdown="1"><span class="method-name">균주 단위 일치도</span>
+
+같은 균주에서 **ARG 보유 × 표현형 내성** 2×2 표를 만든 뒤
+
+Sensitivity · Specificity · PPV · NPV · Cohen’s kappa를 95% CI와 함께 제시
+</div></div>
+<div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">유전자를 가지고 있다</span>
+
+<span class="metric">열쇠 보유</span>
+</div>
+<div class="arrow">≠</div>
+<div class="metric-block" markdown="1"><span class="muted">실제로 내성을 보인다</span>
+
+<span class="metric">문이 열린다</span>
+</div></div>
+<div class="key-message" markdown="1">**발현·기능 변이·breakpoint·다른 내성 기전**이 사이에 있다 · 이 논문은 일치도 분석을 별도로 하지 않음
+</div>
+## 논문 5 · AMR profile = 내성 조합 {.module-amr}
+
+<div class="columns" markdown="1"><div class="column" style="width:61%;" markdown="1"><div class="paper-frame" markdown="1">![](slides_assets/paper5-table2.png){fig-alt="시기별 AMR profile 분포" height="515"}
+
+<div class="small-source" markdown="1">Table 2. 1994–2000년과 2017–2022년의 AMR profile 분포 · Ahn K, et al. Ann Lab Med 2025
+</div></div></div>
+<div class="column" style="width:39%;" markdown="1"><div class="comparison-arrow" markdown="1"><div class="metric-block" markdown="1"><span class="muted">과거</span>
+<span class="metric">6종</span>
+</div><div class="arrow">→</div>
+<div class="metric-block" markdown="1"><span class="muted">최근</span>
+<span class="metric">16종</span>
+</div></div>
+<div class="big-card purple" markdown="1">최근 새롭게 확인된 profile **11종**
+
+Levofloxacin 내성 균주의 **81.8%**가 신규 profile에 포함
+</div>
+<div class="key-message" markdown="1">**개별 내성률 ≠ 내성 조합 다양성**
+</div></div></div>
+## 다음 논문을 읽을 때 · 7문항 {.module-overview}
+
+<div class="card-grid-3" markdown="1"><div class="big-card" markdown="1"><span class="big-number">01</span>
+**핵심 추정값** · 범위 / 차이 / 비율 / 군집
+</div><div class="big-card blue" markdown="1"><span class="big-number">02</span>
+**분석 단위** · 사람 / 검체 / 균주
+</div><div class="big-card purple" markdown="1"><span class="big-number">03</span>
+**비율** · 분자 / 분모
+</div><div class="big-card orange" markdown="1"><span class="big-number">04</span>
+**자료 구조** · 독립 / Paired
+</div><div class="big-card gray" markdown="1"><span class="big-number">05</span>
+**표본 수와 95% CI** · P value만 보지 않기
+</div><div class="big-card" markdown="1"><span class="big-number">06</span>
+**다중검정** · FDR 보정
+</div><div class="big-card blue" style="grid-column: 1 / -1;" markdown="1"><span class="big-number">07</span>
+**해석 범위** · 관련성 / 인과성 · 참고집단과 검사 패널이 결론의 적용 범위를 정한다
+</div></div>
+## Take-home messages {.module-overview}
+
+<div class="takehome-grid" markdown="1"><div class="takehome" markdown="1">**01**
+
+PTH 참고구간 · 집단 차이 검정 X · **검사값 분포 범위**
+</div><div class="takehome" markdown="1">**02**
+
+TG 검사법 비교 · **Correlation ≠ Agreement**
+</div><div class="takehome" markdown="1">**03**
+
+GBS 집락률 · **분모 + 분석 단위 먼저**
+</div><div class="takehome" markdown="1">**04**
+
+CRC 미생물 · **전체 군집 / 개별 feature / FDR**
+</div><div class="takehome" markdown="1">**05**
+
+GBS WGS · **계통 / ARG / 표현형 / profile**
+</div><div class="takehome" markdown="1">**06**
+
+논문 통계 · **연구 질문 → 분석 단위 → 방법**
+</div></div>
+<div class="key-message" markdown="1">**연구 질문 → 분석 단위 → 결과변수 → Figure/Table**
+</div>
