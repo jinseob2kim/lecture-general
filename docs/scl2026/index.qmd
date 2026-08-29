@@ -4750,7 +4750,7 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
 </div>
 ```
 
-## 조성 자료와 CLR · PCoA vs PCA {#clr-pcoa .module-microbiome}
+## 조성 자료와 CLR · 비율 대신 로그비 {#clr-pcoa .module-microbiome}
 
 ```{=html}
 <div class="rc-grid" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); margin-top: 6px;">
@@ -4773,21 +4773,79 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
       <li><strong>CLR</strong> = log(x<sub>i</sub> / 검체의 기하평균) · 로그비라 총 read 수가 약분(depth 10배여도 동일) → 균끼리의 <strong>비율만</strong> 남음: clr₂ − clr₃ = log(30/10) = 1.10으로 A·B 동일</li>
       <li>CLR 후는 유클리드 공간 → PCA 가능 = <strong>Aitchison 거리</strong> · 0 count는 pseudocount(+0.5) 또는 zCompositions::cmultRepl · 같은 논리의 차등풍부도: ALDEx2, ANCOM-BC</li>
     </ul>
-<pre class="ri-code po-code ab-code" style="margin-top: 6px;"><code><span class="c"># CLR: 검체별 기하평균으로 중심화 → 그 위의 PCA = Aitchison</span>
-clr &lt;- log(otu + 0.5) - rowMeans(log(otu + 0.5))
-prcomp(clr)</code></pre>
   </article>
   <article class="rc-card rc-blue">
-    <span class="rc-step">PCoA vs PCA</span>
-    <h3>PCA는 PCoA의 특수한 경우</h3>
+    <span class="rc-step">CLR 후에는 어떻게 되나</span>
+    <h3>Aitchison 거리 = CLR 벡터 사이의 유클리드 거리</h3>
+    <span class="rc-f">d<sub>A</sub>(x, y) = ‖ clr(x) − clr(y) ‖<sub>2</sub></span>
     <ul>
-      <li><strong>PCA</strong>: 검체 × 변수 자료행렬 → 분산이 큰 방향 · 거리는 항상 <strong>유클리드</strong></li>
-      <li><strong>PCoA</strong>(classical MDS): <strong>거리행렬</strong> 입력 → 점 사이 유클리드 거리가 원래 거리(Bray–Curtis · UniFrac · Aitchison)에 최대한 맞는 좌표</li>
-      <li>유클리드 거리로 PCoA = PCA → "CLR 후 PCA" = "Aitchison 거리로 PCoA"</li>
-      <li>Bray–Curtis 같은 거리는 유클리드로 완전히 안 펼쳐짐 → <strong>음의 고유값</strong> → 설명 비율은 양의 고유값 합으로 (작으면 무시, 크면 Cailliez·Lingoes 보정)</li>
-      <li><strong>NMDS</strong>: 거리의 크기가 아니라 <strong>순위</strong>만 맞춤</li>
+      <li>CLR로 옮긴 뒤에는 보통의 유클리드 기하 → PCA를 그대로 쓸 수 있음</li>
+      <li>같은 자료·같은 0 처리(pseudocount) 조건이면 <strong>CLR → PCA ≡ Aitchison 거리 → PCoA</strong> (검체 배치 동일, 축 부호만 다를 수 있음)</li>
+      <li>0 count는 log가 안 됨 → pseudocount(+0.5) 또는 zCompositions::cmultRepl · 같은 논리의 차등풍부도: ALDEx2, ANCOM-BC</li>
     </ul>
-    <p class="rc-note">논문 4: "principal components … for β-diversity"라고만 써서 OTU 비율의 PCA인지, QIIME의 거리 기반 PCoA인지 불분명</p>
+<pre class="ri-code po-code ab-code" style="margin-top: 6px;"><code>clr &lt;- log(otu + 0.5) - rowMeans(log(otu + 0.5))
+prcomp(clr)                <span class="c"># CLR-PCA</span>
+cmdscale(dist(clr), k = 2) <span class="c"># Aitchison PCoA (동등)</span></code></pre>
+    <p class="rc-note">다음 장: PCA · PCoA · NMDS가 무엇을 입력받아 무엇을 보존하는지 다이어그램으로</p>
+  </article>
+</div>
+```
+
+## PCA · PCoA · NMDS · 무엇을 입력받아 무엇을 보존하나 {#pca-pcoa-nmds .module-microbiome}
+
+```{=html}
+<div class="rc-fig" style="margin-top: 4px; padding: 6px 10px 2px;"><svg viewBox="0 0 1400 540" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><marker id="pd-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5f6f68"/></marker></defs>
+  <rect class="pd-box data" x="540" y="14" width="320" height="74" rx="12"/><text class="pd-title" x="700.0" y="44" text-anchor="middle">DATA MATRIX</text><text class="pd-sub" x="700.0" y="70" text-anchor="middle">검체 × 분류군 (count · 비율 · CLR)</text>
+  <rect class="pd-box pca" x="150" y="150" width="330" height="92" rx="12"/><text class="pd-title" x="315.0" y="180" text-anchor="middle">PCA</text><text class="pd-sub" x="315.0" y="206" text-anchor="middle">X를 중심화 → 공분산/SVD 분해</text><text class="pd-sub" x="315.0" y="228" text-anchor="middle">분산 큰 직교축 · 유클리드 기하</text>
+  <rect class="pd-box dist" x="760" y="150" width="440" height="92" rx="12"/><text class="pd-title" x="980.0" y="180" text-anchor="middle">DISTANCE MATRIX (n × n)</text><text class="pd-sub" x="980.0" y="206" text-anchor="middle">Bray–Curtis · Jaccard · UniFrac · Aitchison</text><text class="pd-sub" x="980.0" y="228" text-anchor="middle">임의의 dissimilarity</text>
+  <rect class="pd-box pcoa" x="600" y="330" width="360" height="92" rx="12"/><text class="pd-title" x="780.0" y="360" text-anchor="middle">PCoA (classical MDS)</text><text class="pd-sub" x="780.0" y="386" text-anchor="middle">거리행렬의 고유분해 → 좌표</text><text class="pd-sub" x="780.0" y="408" text-anchor="middle">metric geometry 재현</text>
+  <rect class="pd-box nmds" x="1010" y="330" width="330" height="92" rx="12"/><text class="pd-title" x="1175.0" y="360" text-anchor="middle">NMDS</text><text class="pd-sub" x="1175.0" y="386" text-anchor="middle">거리의 rank order 보존</text><text class="pd-sub" x="1175.0" y="408" text-anchor="middle">적합도 = stress</text>
+  <line class="pd-arrow" x1="620" y1="88" x2="400" y2="150" marker-end="url(#pd-head)"/> <line class="pd-arrow" x1="780" y1="88" x2="920" y2="150" marker-end="url(#pd-head)"/> <line class="pd-arrow" x1="900" y1="242" x2="810" y2="330" marker-end="url(#pd-head)"/> <line class="pd-arrow" x1="1060" y1="242" x2="1150" y2="330" marker-end="url(#pd-head)"/>
+  <line class="pd-equiv" x1="480" y1="215" x2="600" y2="352"/>
+  <text class="pd-equiv-t" x="430" y="292" text-anchor="middle">같은 자료의 Euclidean distance로</text>
+  <text class="pd-equiv-t" x="430" y="314" text-anchor="middle">PCoA ≡ PCA (축 부호·회전만 차이)</text>
+  <rect class="pd-box clr" x="150" y="452" width="330" height="70" rx="12"/><text class="pd-title" x="315.0" y="482" text-anchor="middle">CLR data</text><text class="pd-sub" x="315.0" y="508" text-anchor="middle">clr(x) = log(x / 기하평균)</text>
+  <rect class="pd-box ait" x="760" y="452" width="440" height="70" rx="12"/><text class="pd-title" x="980.0" y="482" text-anchor="middle">Aitchison distance</text><text class="pd-sub" x="980.0" y="508" text-anchor="middle">= ‖ clr(x) − clr(y) ‖₂ (CLR의 Euclidean distance)</text>
+  <line class="pd-arrow" x1="480" y1="487" x2="760" y2="487" marker-end="url(#pd-head)"/>
+  <text class="pd-sub" x="620" y="478" text-anchor="middle">Euclidean distance</text>
+  <line class="pd-equiv" x1="315" y1="452" x2="315" y2="242"/>
+  <line class="pd-equiv" x1="980" y1="452" x2="900" y2="422"/>
+  <text class="pd-equiv-t" x="1120" y="440" text-anchor="middle">CLR → PCA ≡ Aitchison → PCoA</text>
+</svg></div>
+```
+
+::: {.key-message markdown="1"}
+**PCA = 자료행렬의 유클리드 기하 · PCoA = 거리행렬의 기하 · NMDS = 거리의 순위** · 같은 자료의 Euclidean distance면 PCoA ≡ PCA, CLR → PCA ≡ Aitchison → PCoA
+:::
+
+## PCA · PCoA · NMDS · 정확히 말하면 {#pca-pcoa-notes .module-microbiome}
+
+```{=html}
+<div class="rc-grid rc-grid-3" style="margin-top: 12px;">
+  <article class="rc-card">
+    <span class="rc-step">① 정의와 동등 조건</span>
+    <ul>
+      <li><strong>PCA</strong>: 자료행렬 X → 분산이 큰 직교축 · 원자료의 유클리드 기하</li>
+      <li><strong>PCoA</strong>: 거리행렬 D → 거리 구조를 좌표로 · 어떤 dissimilarity든 입력 가능</li>
+      <li>같은 X(같은 표준화)의 Euclidean distance로 PCoA ≡ PCA → <strong>PCA = Euclidean PCoA의 특수한 경우</strong></li>
+    </ul>
+  </article>
+  <article class="rc-card rc-blue">
+    <span class="rc-step">② 거리 재현과 음의 고유값</span>
+    <ul>
+      <li>원래 거리가 Euclidean이면 전체 차원 PCoA는 거리를 <strong>정확히 재현</strong> · PCoA1–2만 그리면 저차원 투영(근사)</li>
+      <li>Bray–Curtis 등 non-Euclidean → <strong>음의 고유값</strong> = 오류가 아니라 "유클리드 공간에 완전히 못 넣는다"는 흔적</li>
+      <li>축 설명 %는 convention에 따라 다름(vegan wcmdscale: Σλ<sub>retained</sub> / Σ|λ| 또는 / Σλ<sub>&gt;0</sub>) → 음의 고유값 <strong>크기 확인</strong> · 작으면 대개 무시, 크면 Lingoes(d′ = √(d² + 2c), vegan이 우선 제시) · Cailliez(d′ = d + c) 보정</li>
+    </ul>
+  </article>
+  <article class="rc-card rc-orange">
+    <span class="rc-step">③ NMDS · 논문 4</span>
+    <ul>
+      <li><strong>NMDS</strong>: 거리 값이 아니라 rank order(d<sub>AB</sub> &lt; d<sub>AC</sub> &lt; d<sub>AD</sub>) 보존 · 적합도는 stress, metaMDS는 반복 실행으로 최소 stress 해</li>
+      <li><strong>논문 4</strong>: "principal components … for β-diversity"라고만 씀 → 풍부도 행렬의 PCA인지, 거리행렬의 PCoA인지 불명확 (QIIME 표준은 거리행렬 → PCoA)</li>
+      <li class="pd-quote">Methodological ambiguity: "principal components" were reported for β-diversity, but the manuscript does not specify whether this refers to PCA of the abundance matrix or PCoA of a β-diversity distance matrix.</li>
+    </ul>
   </article>
 </div>
 ```
@@ -5632,7 +5690,7 @@ Ahn K, et al. Ann Lab Med. 2025 · Methods
     <figcaption class="wgs-t1-caption">Table 1 · 1994–2000년과 2017–2022년의 ST·CC·cps genotype 분포</figcaption>
   </figure>
   <div class="wgs-t1-side">
-    <div class="wgs-t1-dominant"><span class="wgs-t1-label">DOMINANT CC</span><h3>우세 CC의 변화</h3><div class="wgs-t1-dom-grid"><div class="wgs-t1-dom-era"><span>PAST · 1994–2000</span><b>CC19</b><small>13 / 37 · 35.1%</small></div><div class="wgs-t1-arrow">→</div><div class="wgs-t1-dom-era"><span>RECENT · 2017–2022</span><b>CC1</b><small>74 / 209 · 35.4%</small></div></div></div>
+    <div class="wgs-t1-dominant"><span class="wgs-t1-label">DOMINANT CC</span><h3>우세 CC의 변화</h3><div class="wgs-t1-dom-grid"><div class="wgs-t1-dom-era"><span>PAST · 1994–2000</span><b>CC19</b><small>14 / 37 · 37.8% <em class="wgs-t1-flag">본문은 13/37 · 35.1% (불일치)</em></small></div><div class="wgs-t1-arrow">→</div><div class="wgs-t1-dom-era"><span>RECENT · 2017–2022</span><b>CC1</b><small>74 / 209 · 35.4%</small></div></div></div>
     <div class="wgs-t1-changes">
       <div class="wgs-t1-change wgs-t1-increase"><span class="wgs-t1-label">INCREASE</span><h3>CC1 · cps VIII</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>1 / 37 · 2.7%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>32 / 209 · 15.3%</b></div></div><span class="wgs-t1-p">P = 0.037</span><p>과거 ST1 1균주 → 최근 32균주는 모두 ST2</p></div>
       <div class="wgs-t1-change wgs-t1-decrease"><span class="wgs-t1-label">DECREASE</span><h3>CC19 · cps III</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>14 / 37 · 37.8%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>36 / 209 · 17.2%</b></div></div><span class="wgs-t1-p">P = 0.004</span><p>비율 감소</p></div>
@@ -5641,7 +5699,7 @@ Ahn K, et al. Ann Lab Med. 2025 · Methods
     </div>
   </div>
 </div>
-<div class="wgs-t1-notes"><div class="wgs-t1-read"><strong>TABLE 읽는 법 · 기본 분모는 시대별 전체 isolate 수</strong><span>PAST <b>37</b> · RECENT <b>209</b> · 1/37=2.7% · 32/209=15.3%<br>CC 내부 비율이 아니라 각 시대 전체 isolate 중 비율</span></div><div class="wgs-t1-caution"><b>※ 원문 내부 수치 주의</b> · CC19은 본문·초록에서 13/37(35.1%)로 보고되나 Table 1 세부행 합계는 14로 읽힘.<br>CC12–Ib는 본문 27/209(12.9%), P=.027; Table 1은 28/209(13.4%), P=.034. <b>본 슬라이드는 CC12–Ib에 원표 값을 사용함.</b> <span class="wgs-t1-method">희소 cell 비교 · Fisher’s exact</span></div></div>
+<div class="wgs-t1-notes"><div class="wgs-t1-read"><strong>TABLE 읽는 법 · 기본 분모는 시대별 전체 isolate 수</strong><span>PAST <b>37</b> · RECENT <b>209</b> · 1/37=2.7% · 32/209=15.3%<br>CC 내부 비율이 아니라 각 시대 전체 isolate 중 비율</span></div><div class="wgs-t1-caution"><b>※ 원문 내부 수치 주의</b> · CC19은 본문·초록에서 13/37(35.1%)이나 Table 1 세부행 합계(cps III 14 + V 0 + Ib 0)는 14/37(37.8%). <b>본 슬라이드는 CC19에도 Table 1 값을 사용함.</b><br>CC12–Ib는 본문 27/209(12.9%), P=.027; Table 1은 28/209(13.4%), P=.034. <b>본 슬라이드는 CC12–Ib에 원표 값을 사용함.</b> <span class="wgs-t1-method">희소 cell 비교 · Fisher’s exact</span></div></div>
 ```
 
 ::: {.key-message .wgs-t1-key markdown="1"}

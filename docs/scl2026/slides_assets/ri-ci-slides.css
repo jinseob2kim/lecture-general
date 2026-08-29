@@ -229,3 +229,18 @@
 .reveal .clr-table tr.clr-pct td { background: #fff7ec; }
 .reveal #clr-pcoa pre.ab-code { font-size: 0.86em; }
 #clr-pcoa > :not(h2) { zoom: 1.18; }
+
+/* PCA/PCoA/NMDS diagram */
+.reveal #pca-pcoa-nmds .rc-fig svg { display: block; width: 100%; height: auto; }
+.reveal .pd-box { fill: #ffffff; stroke: #c9d3ce; stroke-width: 2; }
+.reveal .pd-box.data { fill: #f3f4f6; stroke: #7a8a92; } .reveal .pd-box.pca { fill: #faf7fb; stroke: #806888; } .reveal .pd-box.dist { fill: #f7fafc; stroke: #668492; }
+.reveal .pd-box.pcoa { fill: #e5f2ea; stroke: #527b6d; } .reveal .pd-box.nmds { fill: #fff1e0; stroke: #bd874d; } .reveal .pd-box.clr { fill: #faf7fb; stroke: #806888; } .reveal .pd-box.ait { fill: #e5f2ea; stroke: #527b6d; }
+.reveal .pd-title { fill: #1f2d27; font-size: 21px; font-weight: 900; } .reveal .pd-sub { fill: #3f4a52; font-size: 16px; font-weight: 700; }
+.reveal .pd-arrow { stroke: #5f6f68; stroke-width: 3; }
+.reveal .pd-equiv { stroke: #c0392b; stroke-width: 3; stroke-dasharray: 9 7; }
+.reveal .pd-equiv-t { fill: #c0392b; font-size: 17px; font-weight: 900; }
+.reveal #pca-pcoa-notes .rc-card { font-size: 0.6em; }
+.reveal #pca-pcoa-notes .rc-card li { margin: 0 0 8px; }
+#pca-pcoa-notes > :not(h2) { zoom: 1.32; }
+.reveal #pca-pcoa-nmds .key-message { margin-top: 12px; font-size: 0.62em; }
+.reveal .pd-quote { color: #8a5522; font-style: italic; }

@@ -60,3 +60,5 @@
 .reveal #논문-3-집락률-내성률-mdr-분모 .gbs-den-step.s4 .gbs-den-step-percent { color: #a55e1b; line-height: 1.15; }
 .reveal #논문-3-집락률-내성률-mdr-분모 .gbs-den-flow { grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr) 215px minmax(0,1fr) 30px minmax(0,1fr); }
 .reveal #논문-3-집락률-내성률-mdr-분모 .gbs-den-subset-arrow span { font-size: 0.42em; line-height: 1.2; }
+.reveal #논문-5-table-1-gbs-계통-구성의-시간-변화 .wgs-t1-flag { display: block; color: #b03a2e; font-style: normal; font-weight: 800; font-size: 0.9em; }
+.reveal #논문-5-table-1-gbs-계통-구성의-시간-변화 .wgs-t1-flagline { display: block; margin-top: 4px; color: #b03a2e; font-weight: 800; }
