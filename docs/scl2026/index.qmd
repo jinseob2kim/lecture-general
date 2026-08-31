@@ -212,7 +212,9 @@ PTH 검사값 · 주요 155명 / Step 11 82명
 
 **결과:** 하한–상한
 
-Percentile → 이상치 → Bootstrap CI → Survey weighting
+참고집단 선정 → 이상치 제거 → reference limits 추정 → reference limits의 CI
+
+<span class="method-subline">주 분석: survey-weighted quantile<br>N&lt;120: robust method + bootstrap CI</span>
 :::
 
 ::: {.big-card .blue markdown="1"}
@@ -308,14 +310,14 @@ Chi-square 또는 Fisher’s exact test
       <span class="rc-step">② 이항분포</span>
       <h3>"L보다 작은 사람이 몇 명인가?"는 이항분포</h3>
       <p>K = 표본 n명 중 진짜 하한 L보다 작은 사람 수</p>
-      <span class="rc-f">K ~ Binomial(n, 0.025)</span>
-      <p>사람마다 "X &lt; L? Yes / No" 확률 0.025의 시행을 n번 · n = 120이면 <strong>E(K) = 120 × 0.025 = 3</strong> → 진짜 L은 표본의 아래쪽 약 3번째 값 근처</p>
+      <div class="ri-focus-pair"><strong>120 × 0.025 = 3</strong><span>K ~ Binomial(120, 0.025)</span></div>
+      <p>각 관측치는 P(X &lt; L) = 0.025인 시행이다. 따라서 진짜 L은 표본의 아래쪽 약 3번째 값 근처에 위치한다.</p>
       <p class="rc-note">표본을 다시 뽑으면 K = 1, 5, 6 … 으로 변동 → <strong>이 변동으로 L의 confidence interval 구성</strong></p>
     </article>
   </div>
   <article class="rc-card rc-blue">
     <span class="rc-step">K의 분포 · n = 120</span>
-    <h3>K ~ Binomial(120, 0.025)</h3>
+    <h3 class="ri-chart-focus">K ~ Binomial(120, 0.025)</h3>
     <div class="rc-fig"><svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <line class="rc-axis" x1="55" y1="330" x2="625" y2="330"/>
   <rect class="rc-bar-zero" x="70" y="282.5" width="40" height="47.5" rx="4"/><text class="rc-bar-val" x="90.0" y="276.5" text-anchor="middle">0.048</text><text class="rc-axis-k" x="90.0" y="354" text-anchor="middle">0</text><rect class="rc-bar-in" x="124" y="183.8" width="40" height="146.2" rx="4"/><text class="rc-bar-val" x="144.0" y="177.8" text-anchor="middle">0.147</text><text class="rc-axis-k" x="144.0" y="354" text-anchor="middle">1</text><rect class="rc-bar-in" x="178" y="106.9" width="40" height="223.1" rx="4"/><text class="rc-bar-val" x="198.0" y="100.9" text-anchor="middle">0.225</text><text class="rc-axis-k" x="198.0" y="354" text-anchor="middle">2</text><rect class="rc-bar-in" x="232" y="105.0" width="40" height="225.0" rx="4"/><text class="rc-bar-val" x="252.0" y="99.0" text-anchor="middle">0.227</text><text class="rc-axis-k" x="252.0" y="354" text-anchor="middle">3</text><rect class="rc-bar-in" x="286" y="161.3" width="40" height="168.7" rx="4"/><text class="rc-bar-val" x="306.0" y="155.3" text-anchor="middle">0.170</text><text class="rc-axis-k" x="306.0" y="354" text-anchor="middle">4</text><rect class="rc-bar-in" x="340" y="229.6" width="40" height="100.4" rx="4"/><text class="rc-bar-val" x="360.0" y="223.6" text-anchor="middle">0.101</text><text class="rc-axis-k" x="360.0" y="354" text-anchor="middle">5</text><rect class="rc-bar-in" x="394" y="280.7" width="40" height="49.3" rx="4"/><text class="rc-bar-val" x="414.0" y="274.7" text-anchor="middle">0.050</text><text class="rc-axis-k" x="414.0" y="354" text-anchor="middle">6</text><rect class="rc-bar-out" x="448" y="309.4" width="40" height="20.6" rx="4"/><text class="rc-bar-val" x="468.0" y="303.4" text-anchor="middle">0.021</text><text class="rc-axis-k" x="468.0" y="354" text-anchor="middle">7</text><rect class="rc-bar-out" x="502" y="322.5" width="40" height="7.5" rx="4"/><text class="rc-bar-val" x="522.0" y="316.5" text-anchor="middle">0.008</text><text class="rc-axis-k" x="522.0" y="354" text-anchor="middle">8</text><rect class="rc-bar-out" x="556" y="327.6" width="40" height="2.4" rx="4"/><text class="rc-bar-val" x="576.0" y="321.6" text-anchor="middle">0.002</text><text class="rc-axis-k" x="576.0" y="354" text-anchor="middle">9</text>
@@ -325,7 +327,7 @@ Chi-square 또는 Fisher’s exact test
   <text class="rc-brace-text" x="279.0" y="46" text-anchor="middle">P(1 ≤ K ≤ 6) = 0.920 → 90% 이상</text>
   <text class="rc-axis-label" x="340" y="388" text-anchor="middle">K = 진짜 하한 L보다 작은 관측값 수 · K ~ Binomial(120, 0.025) · E(K) = 3</text>
 </svg></div>
-    <p style="margin-top:8px;">P(1 ≤ K ≤ 6) = 0.920 → 진짜 L이 <strong>1번째~7번째 값 사이</strong>일 확률 90% 이상 (다음 장) · P(K = 0) = 0.975<sup>120</sup> = 0.048 = 아무도 L보다 작지 않을 확률</p>
+    <p class="ri-prob-detail" style="margin-top:8px;">P(1 ≤ K ≤ 6) = 0.920 → 진짜 L이 <strong>1번째~7번째 값 사이</strong>일 확률 90% 이상 (다음 장) · P(K = 0) = 0.975<sup>120</sup> = 0.048 = 아무도 L보다 작지 않을 확률</p>
   </article>
 </div>
 ```
@@ -344,13 +346,14 @@ Chi-square 또는 Fisher’s exact test
   <circle class="rc-dot-u" cx="1308.8" cy="110" r="7"/><text class="rc-strip-sub" x="1308.8" y="152" text-anchor="end">상한 추정치 = X(118) 근처 (0.975 × 121 = 117.98번째)</text>
   <text class="rc-strip-mid" x="700.0" y="188" text-anchor="middle">참고구간 안 · 개인 검사값의 중앙 95% (n = 120, 각 눈금 = 관측값 하나)</text>
 </svg></div>
-<div class="rc-grid rc-grid-3" style="margin-top: 14px;">
+<div class="ri-rank-banner"><strong>r<sub>1</sub>, r<sub>2</sub>는 검사값이 아니라 순위(rank)</strong><span>정렬된 관측값에서 참고한계 CI의 양 끝 위치를 지정한다.</span></div>
+<div class="rc-grid rc-grid-3 ri-rank-grid" style="margin-top: 10px;">
   <article class="rc-card">
-    <span class="rc-step">③ r<sub>1</sub>, r<sub>2</sub>란?</span>
+    <span class="rc-step">③ 순위 선택</span>
     <h3>90% 이상이 되는 순위 선택</h3>
     <span class="rc-f">P( X<sub>(r<sub>1</sub>)</sub> ≤ L ≤ X<sub>(r<sub>2</sub>)</sub> ) ≥ 0.90</span>
     <p>위 조건을 만족하도록 이항분포에서 r<sub>1</sub>, r<sub>2</sub> 선택 · n = 120: <strong>r<sub>1</sub> = 1, r<sub>2</sub> = 7</strong></p>
-    <span class="rc-f">90% CI of L = X<sub>(1)</sub> ~ X<sub>(7)</sub></span>
+    <span class="rc-f rc-f-major">90% CI of L = X<sub>(1)</sub> ~ X<sub>(7)</sub></span>
     <p class="rc-note"><strong>1~7번째 값이 참고구간이라는 뜻이 아님</strong> · 진짜 L이 1번째와 7번째 값 사이에 있을 확률이 90% 이상이라는 뜻</p>
     <p>P(1 ≤ K ≤ 6) = 0.920 → P(X<sub>(1)</sub> ≤ L ≤ X<sub>(7)</sub>) = 92.0% · 이항분포는 정수 단위라 정확히 90%는 불가 → <strong>90% 이상인 보수적 구간</strong> 사용</p>
   </article>
@@ -358,13 +361,13 @@ Chi-square 또는 Fisher’s exact test
     <span class="rc-step">④ 상한</span>
     <h3>상한은 대칭으로 계산</h3>
     <p>U = 97.5th percentile에 같은 논리 적용 · n = 120:</p>
-    <span class="rc-f">90% CI of U = X<sub>(114)</sub> ~ X<sub>(120)</sub></span>
+    <span class="rc-f rc-f-major">90% CI of U = X<sub>(114)</sub> ~ X<sub>(120)</sub></span>
     <p>정렬된 120개 중 <strong>아래쪽 7개</strong> = 하한 CI, <strong>위쪽 7개</strong> = 상한 CI</p>
     <span class="rc-f">X<sub>(1)</sub> ··· X<sub>(7)</sub> &nbsp;&nbsp; ······ &nbsp;&nbsp; X<sub>(114)</sub> ··· X<sub>(120)</sub></span>
   </article>
   <article class="rc-card rc-blue">
-    <span class="rc-step">왜 120명인가</span>
-    <h3>왜 CLSI는 N ≥ 120을 권고하는가?</h3>
+    <span class="rc-step">N ≥ 120의 근거</span>
+    <h3>비모수 참고구간의 최소 표본수</h3>
     <p>2.5th percentile은 분포의 끝 → 표본이 작으면 관측값이 거의 없음</p>
     <ul>
       <li>n = 120에서 진짜 lower limit보다 작은 사람의 기대수 = 120 × 0.025 = <strong>3명</strong></li>
@@ -380,8 +383,9 @@ Chi-square 또는 Fisher’s exact test
 ```{=html}
 <div class="rc-grid" style="grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 1.25fr);">
   <article class="rc-card rc-purple">
-    <span class="rc-step">왜 불안정한가</span>
-    <h3>작은 표본에서 단순 percentile법은 불안정</h3>
+    <span class="rc-step">표본수 조건</span>
+    <h3><span class="ri-focus">N &lt; 120</span></h3>
+    <p><strong>작은 표본에서는 단순 percentile법이 불안정하다.</strong></p>
     <p>예: n = 40 → 2.5th percentile의 위치</p>
     <span class="rc-f">0.025 × (n + 1) = 0.025 × 41 ≈ 1.0</span>
     <p>하한이 사실상 <strong>표본의 최솟값 하나로 결정</strong></p>
@@ -389,7 +393,7 @@ Chi-square 또는 Fisher’s exact test
   </article>
   <article class="rc-card">
     <span class="rc-step">① ROBUST METHOD</span>
-    <h3>Reference limits 자체를 안정적으로 추정</h3>
+    <h3>Robust method = limits 추정</h3>
     <p>Horn &amp; Pesce의 robust method</p>
     <ul>
       <li>중심부 데이터에 큰 가중치</li>
@@ -401,7 +405,7 @@ Chi-square 또는 Fisher’s exact test
   </article>
   <article class="rc-card rc-orange">
     <span class="rc-step">② BOOTSTRAP</span>
-    <h3>그 limits가 얼마나 흔들리는지 추정</h3>
+    <h3>Bootstrap = limits의 CI 추정</h3>
     <p>robust로 얻은 <span class="rc-hat">L</span>, <span class="rc-hat">U</span>도 표본에 따라 달라짐 → 원 표본에서 <strong>복원추출</strong>로 같은 크기의 bootstrap 표본 생성 → 표본마다 <span class="rc-hat">L</span>*, <span class="rc-hat">U</span>* 재계산</p>
     <div class="rc-fig"><svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <text class="rc-bs-label" x="12" y="24">원 표본 (n = 5 예시)</text>
@@ -555,7 +559,7 @@ Chi-square 또는 Fisher’s exact test
   <article class="ri-code-card ri-code-card-a">
     <span class="ri-step">N ≥ 120 · 복합표본 (논문 1 주 분석)</span>
     <h3>Survey-weighted quantile + CI</h3>
-    <p><strong>Woodruff 방식</strong>: 누적비율 p(0.025, 0.975)의 CI = p ± 1.645·SE → x축 값으로 역변환 · 위쪽 꼬리에서 CI가 최대 관측값을 넘으면 <strong>상단 CI 없음</strong> (논문 Figure 1 Step 6~8과 같은 현상)</p>
+    <p><strong>Woodruff 방식</strong>: 누적비율 p(0.025, 0.975)의 CI = p ± 1.645·SE → x축 값으로 역변환 · 위쪽 꼬리에서 CI가 최대 관측값을 넘으면 <strong>상단 CI 없음</strong> (논문 Figure 1 Step 6~8과 같은 현상)</p>
 <pre class="ri-code"><code>library(survey)
 des &lt;- svydesign(id = ~psu, strata = ~kstrata,
   weights = ~wt_itvex, data = dd, nest = TRUE)
@@ -585,11 +589,11 @@ apply(lim, 1, quantile, c(0.05, 0.95))</code></pre>
   </article>
 </div>
 <div class="ri-results">
-  <h3>논문 1 실제 결과 <span>· Figure 1, 이상치 제거 후 · 가중</span></h3>
+  <h3>논문 1 실제 결과 <span>· Figure 1, 이상치 제거 후 · 가중</span></h3>
   <div class="ri-chips">
     <div class="ri-chip">
       <span class="ri-chip-label">Step 8 · n=155 (N ≥ 120) · survey-weighted quantile CI</span>
-      <span class="ri-chip-val">하한 20.5 (18.8–22.8) · 상한 67.7 (62.4–<span class="na">상단 없음</span>)</span>
+      <span class="ri-chip-val">하한 20.5 (18.8–22.8) · 상한 67.7 (62.4–<span class="na">upper unavailable</span>)</span>
     </div>
     <div class="ri-chip">
       <span class="ri-chip-label">Step 9 · n=82 (N &lt; 120) · robust method + bootstrap</span>
@@ -760,7 +764,7 @@ apply(lim, 1, quantile, c(0.05, 0.95))</code></pre>
 ```
 
 ::: pth-funnel-caption
-분석 흐름도 · 원 논문 Table 1의 단계별 PTH 측정자 수를 재구성
+분석 흐름도 · 원 논문 Table 1의 단계별 PTH 측정자 수를 재구성
 :::
 :::::
 
@@ -779,7 +783,7 @@ Step 8 집단에서<br>이상치 제거 후 복합표본 분석에 포함
 </p>
 
 ::: pth-reference-interval
-20.5–67.7 pg/mL
+20.5–67.7 pg/mL
 :::
 
 <p class="pth-card-small">
@@ -820,11 +824,11 @@ Vitamin D·Ca/Mg/P·ALP까지 적용
 ::::::::::::
 
 ::: {.key-message markdown="1"}
-**선정 기준 강화에 따라 참고집단 N이 감소하며,**<br>소표본 단계에서는 참고한계 추정의 불확실성이 증가한다.
+**선정 기준 강화에 따라 참고집단 N이 감소하며,** 소표본 단계에서는 참고한계 추정의 불확실성이 증가한다.
 :::
 
 ::: small-source
-Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1–2
+Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1–2
 :::
 
 ## 논문 1 · PTH 참고구간 분석 절차 {#논문-1-pth-참고구간은-어떤-순서로-계산했나 .module-reference}
@@ -1111,7 +1115,7 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1–2
   margin-bottom: 0;
 }
 #논문-1-pth-참고구간은-어떤-순서로-계산했나 .small-source {
-  margin-top: 3px;
+  margin-top: 90px;
 }
 </style>
 ```
@@ -1177,7 +1181,7 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1–2
       <div class="pth-process-summary">표본을 40세 이상 한국 성인에 맞춰 반영</div>
     </article>
     <div class="pth-process-result">
-      <div><span class="pth-result-label">MAIN RESULT</span><span class="pth-result-main">주요 참고구간<br>20.5–67.7 pg/mL</span></div>
+      <div><span class="pth-result-label">MAIN RESULT</span><span class="pth-result-main">주요 참고구간<br>20.5–67.7 pg/mL</span></div>
       <p class="pth-result-desc">Step 8 주요 분석집단 · 40세 이상 한국 성인<br>가중 percentile 추정</p>
     </div>
   </div>
@@ -1205,10 +1209,10 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1–2
 
 
 ::: small-source
-Choi R, et al. BMC Endocr Disord. 2026;26:176 · Methods / Table 1–3
+Choi R, et al. BMC Endocr Disord. 2026;26:176 · Methods / Table 1–3
 :::
 
-## 논문 1 · Table 1: 단계별 참고집단 선정 결과 {#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .module-reference}
+## 논문 1 · Table 1: 단계별 참고집단 선정 결과 {#논문-1-table-1-표본을-가장-많이-줄인-단계는-어디인가 .module-reference}
 
 ```{=html}
 <style>
@@ -1392,9 +1396,9 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Methods / Table 1–3
 ```{=html}
 <div class="pth-table1-layout">
   <figure class="paper-frame pth-table1-image-frame">
-    <img class="pth-table1-image" src="slides_assets/PTH_Table1_key_steps_for_codex_FIXED.png" alt="Table 1 발췌·강조: 단계별 선정 기준과 PTH 측정자 수, Step 0과 Step 11, 표본 감소가 큰 Step 1, Step 2, Step 6, Step 9를 표시한 표">
-    <figcaption class="pth-table1-caption">Table 1 발췌·강조 · 단계별 선정 기준과 PTH 측정자 수</figcaption>
-    <div class="pth-table1-source">Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1</div>
+    <img class="pth-table1-image" src="slides_assets/PTH_Table1_key_steps_for_codex_FIXED.png" alt="Table 1 발췌·강조: 단계별 선정 기준과 PTH 측정자 수, Step 0과 Step 11, 표본 감소가 큰 Step 1, Step 2, Step 6, Step 9를 표시한 표">
+    <figcaption class="pth-table1-caption">Table 1 발췌·강조 · 단계별 선정 기준과 PTH 측정자 수</figcaption>
+    <div class="pth-table1-source">Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 1</div>
   </figure>
 
   <div class="pth-table1-side">
@@ -1448,7 +1452,7 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Methods / Table 1–3
 **질환·보충제 제외 단계에서 표본 감소가 가장 크며,** Vitamin D 기준 적용 이후 n\<120
 :::
 
-## 논문 1 · Table 2: 전처리 전후 PTH 분포 변화 {#논문-1-table-2-이상치-가중 .module-reference}
+## 논문 1 · Table 2: 전처리 전후 PTH 분포 변화 {#논문-1-table-2-이상치-가중 .module-reference}
 
 ```{=html}
 <style>
@@ -1681,8 +1685,8 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Methods / Table 1–3
 
 ```{=html}
 <figure class="pth-t2-figure">
-  <img class="pth-t2-image" src="slides_assets/PTH_Table2_Step0_for_codex_FINAL_no_collision.png" alt="Table 2 발췌·강조: Step 0 PTH의 무가중 이상치 제거 전과 가중 이상치 제거 후 N, 평균, 표준편차, 중앙값, 사분위범위, 2.5th–97.5th percentile, Min–Max 비교">
-  <figcaption class="pth-t2-figline"><strong>Table 2 발췌·강조 · Step 0의 PTH 분포</strong><span>Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2</span></figcaption>
+  <img class="pth-t2-image" src="slides_assets/PTH_Table2_Step0_for_codex_FINAL_no_collision.png" alt="Table 2 발췌·강조: Step 0 PTH의 무가중 이상치 제거 전과 가중 이상치 제거 후 N, 평균, 표준편차, 중앙값, 사분위범위, 2.5th–97.5th percentile, Min–Max 비교">
+  <figcaption class="pth-t2-figline"><strong>Table 2 발췌·강조 · Step 0의 PTH 분포</strong><span>Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2</span></figcaption>
 </figure>
 
 <div class="pth-t2-main">
@@ -1738,14 +1742,14 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Methods / Table 1–3
 ```
 
 ::: {.key-message markdown="1"}
-**평균과 중앙값의 변화는 작았으나, 참고상한과 극단값은 상대적으로 크게 감소했다.**<br>이상치 제거는 분포의 상위 꼬리에 주로 영향을 미친다.
+**평균과 중앙값의 변화는 작았으나, 참고상한과 극단값은 상대적으로 크게 감소했다.** 이상치 제거는 분포의 상위 꼬리에 주로 영향을 미친다.
 :::
 
 ::: small-source
-Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2 · 단위 주: 원문 Table 제목의 ng/mL 표기는 본문·초록 및 수치 규모상 pg/mL로 해석
+Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2 · 단위 주: 원문 Table 제목의 ng/mL 표기는 본문·초록 및 수치 규모상 pg/mL로 해석
 :::
 
-## 논문 1 · Table 3: 최종 PTH 참고구간 비교 {#논문-1-table-3-최종-pth-참고구간 .module-reference}
+## 논문 1 · Table 3: 최종 PTH 참고구간 비교 {#논문-1-table-3-최종-pth-참고구간 .module-reference}
 
 ```{=html}
 <style>
@@ -1935,8 +1939,8 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2 · 단위 주: 원문 T
 ```{=html}
 <div class="pth-t3-layout">
   <figure class="pth-t3-figure">
-    <img class="pth-t3-image" src="slides_assets/PTH_Table3_FIXED.png" alt="Table 3 발췌·강조: 제조사 PTH 참고구간 16.0–65.0 pg/mL, 본 연구 주요 분석집단 N=155의 20.5–67.7 pg/mL, 엄격한 하위집단 N=82와 N=81의 참고구간 비교">
-    <figcaption class="pth-t3-caption"><strong>Table 3 발췌·강조 · 제조사 기준과 본 연구의 주요/엄격 기준 비교</strong><span>Choi R, et al. · Table 3</span><span class="pth-t3-unit-note">※ 원문 Table 3 제목의 ng/mL 표기는 본문·초록·수치와 불일치하며, 본 강의에서는 pg/mL로 해석함.</span></figcaption>
+    <img class="pth-t3-image" src="slides_assets/PTH_Table3_FIXED.png" alt="Table 3 발췌·강조: 제조사 PTH 참고구간 16.0–65.0 pg/mL, 본 연구 주요 분석집단 N=155의 20.5–67.7 pg/mL, 엄격한 하위집단 N=82와 N=81의 참고구간 비교">
+    <figcaption class="pth-t3-caption"><strong>Table 3 발췌·강조 · 제조사 기준과 본 연구의 주요/엄격 기준 비교</strong><span>Choi R, et al. · Table 3</span><span class="pth-t3-unit-note">※ 원문 Table 3 제목의 ng/mL 표기는 본문·초록·수치와 불일치하며, 본 강의에서는 pg/mL로 해석함.</span></figcaption>
   </figure>
 
   <div class="pth-t3-cards">
@@ -1944,7 +1948,7 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2 · 단위 주: 원문 T
       <span class="pth-t3-label">MANUFACTURER</span>
       <h3>기기 설명서 기준</h3>
       <span class="pth-t3-n">N: N/A</span>
-      <strong class="pth-t3-interval">16.0–65.0 pg/mL</strong>
+      <strong class="pth-t3-interval">16.0–65.0 pg/mL</strong>
       <p>제조사 기기 설명서 기반 참고구간</p>
     </div>
 
@@ -1952,7 +1956,7 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2 · 단위 주: 원문 T
       <span class="pth-t3-label">MAIN RESULT</span>
       <h3>This study · N=155</h3>
       <p>eGFR ≥60 · 25(OH)D 조건과 무관</p>
-      <strong class="pth-t3-interval">20.5–67.7 pg/mL</strong>
+      <strong class="pth-t3-interval">20.5–67.7 pg/mL</strong>
       <p><strong>본문에서 대표로 사용하는 주요 참고구간</strong></p>
     </div>
 
@@ -1971,14 +1975,14 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 2 · 단위 주: 원문 T
 ```
 
 ::: {.key-message .pth-t3-key markdown="1"}
-<strong>본 논문의 대표 PTH 참고구간은 N=155 기반 20.5–67.7 pg/mL이다.</strong><br>강화된 기준에서는 상한이 58 pg/mL 수준으로 낮아지지만, 대표 참고구간으로 적용하기에는 표본 규모가 제한적이다.
+<strong>본 논문의 대표 PTH 참고구간은 N=155 기반 20.5–67.7 pg/mL이다.</strong> 강화된 기준에서는 상한이 58 pg/mL 수준으로 낮아지지만, 대표 참고구간으로 적용하기에는 표본 규모가 제한적이다.
 :::
 
 ::: pth-t3-footnote
-Manufacturer보다 주요 참고구간의 하한·상한이 모두 약간 높다 · 엄격 하위집단은 기준 강화에 따른 변화를 보여주는 보조 근거Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 3
+Manufacturer보다 주요 참고구간의 하한·상한이 모두 약간 높다 · 엄격 하위집단은 기준 강화에 따른 변화를 보여주는 보조 근거Choi R, et al. BMC Endocr Disord. 2026;26:176 · Table 3
 :::
 
-## 논문 1 · Figure 1: 선정 기준에 따른 PTH 참고구간 변화 {#논문-1-figure-1-참고하한-참고상한 .module-reference}
+## 논문 1 · Figure 1: 선정 기준에 따른 PTH 참고구간 변화 {#논문-1-figure-1-참고하한-참고상한 .module-reference}
 
 ```{=html}
 <style>
@@ -2198,12 +2202,12 @@ Manufacturer보다 주요 참고구간의 하한·상한이 모두 약간 높다
 ```{=html}
 <div class="pth-fig1-layout">
   <figure class="pth-fig1-frame">
-    <img class="pth-fig1-image" src="slides_assets/pth-figure1-reference-limits.png" alt="원 논문 Figure 1 발췌: Step 0–11의 PTH 2.5th 및 97.5th percentile과 이상치 제거·복합표본 가중 전후 결과">
+    <img class="pth-fig1-image" src="slides_assets/pth-figure1-reference-limits.png" alt="원 논문 Figure 1 발췌: Step 0–11의 PTH 2.5th 및 97.5th percentile과 이상치 제거·복합표본 가중 전후 결과">
     <span class="pth-fig1-callout pth-fig1-upper-tag">97.5th<br>참고상한</span>
     <span class="pth-fig1-callout pth-fig1-lower-tag">2.5th<br>참고하한</span>
     <span class="pth-fig1-callout pth-fig1-step9-tag">Step 9<br>Vitamin D ≥20</span>
     <figcaption class="pth-fig1-meta">
-      <strong>Figure 1. Step별 PTH 참고하한·참고상한 및 가중 전후 비교</strong>
+      <strong>Figure 1. Step별 PTH 참고하한·참고상한 및 가중 전후 비교</strong>
       <span>원 논문 표식: 주황/빨강 = 무가중·이상치 제거 전 · 파랑 = 가중·이상치 제거 후</span>
       <span class="pth-fig1-highlight-note">큰 반투명 영역은 발표용 강조 표시</span>
     </figcaption>
@@ -2213,7 +2217,7 @@ Manufacturer보다 주요 참고구간의 하한·상한이 모두 약간 높다
     <div class="pth-fig1-card lower">
       <span class="pth-fig1-label">LOWER LIMIT</span>
       <div class="pth-fig1-title">참고하한</div>
-      <span class="pth-fig1-big">약 20 pg/mL</span>
+      <span class="pth-fig1-big">약 20 pg/mL</span>
       <p class="pth-fig1-text">대부분의 Step에서 2.5th percentile은 비교적 안정</p>
       <span class="pth-fig1-values">Step 8: 20.5 · Step 9: 20.5</span>
     </div>
@@ -2223,8 +2227,8 @@ Manufacturer보다 주요 참고구간의 하한·상한이 모두 약간 높다
       <div class="pth-fig1-title">참고상한</div>
       <span class="pth-fig1-big">상한 추정의 변동성</span>
       <p class="pth-fig1-text">97.5th percentile은 건강인 기준·가중치·표본 수에 더 민감</p>
-      <span class="pth-fig1-values">Step 8: 67.7 → Step 9: 62.4 pg/mL</span>
-      <span class="pth-fig1-mini">Table 2 · weighted, after outlier exclusion</span>
+      <span class="pth-fig1-values">Step 8: 67.7 → Step 9: 62.4 pg/mL</span>
+      <span class="pth-fig1-mini">Table 2 · weighted, after outlier exclusion</span>
     </div>
 
     <div class="pth-fig1-card filter">
@@ -2248,7 +2252,7 @@ Manufacturer보다 주요 참고구간의 하한·상한이 모두 약간 높다
 :::
 
 ::: small-source
-Choi R, et al. BMC Endocr Disord. 2026;26:176 · Figure 1 / Table 2
+Choi R, et al. BMC Endocr Disord. 2026;26:176 · Figure 1 / Table 2
 :::
 
 ## 검사법 비교 · Correlation ≠ Agreement {.section-break .module-method}
@@ -2259,7 +2263,7 @@ Choi R, et al. BMC Endocr Disord. 2026;26:176 · Figure 1 / Table 2
 Paired data · **관계 / 차이 / 변환 가능성**
 :::
 
-## 논문 2 · Table 1: 2022년 TG 측정법 변경 {#논문-2-table-1-tg-측정법-변화 .module-method}
+## 논문 2 · Table 1: 2022년 TG 측정법 변경 {#논문-2-table-1-tg-측정법-변화 .module-method}
 
 ```{=html}
 <style>
@@ -2439,8 +2443,8 @@ Paired data · **관계 / 차이 / 변환 가능성**
 <div class="tg-t1-layout">
   <div class="tg-t1-left">
     <figure class="tg-t1-figure">
-      <img class="tg-t1-image" src="slides_assets/TG_TABLE1_FIXED.png" alt="Table 1 발췌: KNHANES 중성지방 측정법의 2018–2021과 2022 이후 차이, glycerol blanking 유무와 검사실·분석기·시약·free glycerol 처리 비교">
-      <figcaption class="tg-t1-caption">Table 1 발췌 · 2018–2021 vs Since 2022 측정법 비교</figcaption>
+      <img class="tg-t1-image" src="slides_assets/TG_TABLE1_FIXED.png" alt="Table 1 발췌: KNHANES 중성지방 측정법의 2018–2021과 2022 이후 차이, glycerol blanking 유무와 검사실·분석기·시약·free glycerol 처리 비교">
+      <figcaption class="tg-t1-caption">Table 1 발췌 · 2018–2021 vs Since 2022 측정법 비교</figcaption>
     </figure>
 
     <div class="tg-t1-guide">
@@ -2481,7 +2485,7 @@ Paired data · **관계 / 차이 / 변환 가능성**
 :::
 
 ::: tg-t1-source
-Choi R, et al. Ann Lab Med. 2025;45:291–299 · Table 1
+Choi R, et al. Ann Lab Med. 2025;45:291–299 · Table 1
 :::
 
 ## 논문 2 · 아산 paired 검체로 식을 만들고 국건영에 적용 {#tg-design .module-method}
@@ -2494,11 +2498,11 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Table 1
     <span class="rc-step">① 식 만들기 · 서울아산병원 PAIRED 검체 98쌍</span>
     <h3>같은 혈청을 둘로 나눠 두 검사법으로 측정</h3>
     <ul>
-      <li>2022-01-06 외래·검진 <strong>잔여 혈청 98개</strong> (9–885 mg/dL), 국건영 참여자 아님</li>
+      <li>2022-01-06 외래·검진 <strong>잔여 혈청 98개</strong> (9–885 mg/dL), 국건영 참여자 아님</li>
       <li>aliquot 2개 → <strong>Seegene</strong>(glycerol blanking, X) · <strong>GC Labs</strong>(non-blanking, Y) 동시 측정</li>
     </ul>
     <span class="rc-f">Passing–Bablok: Y = 11.94 + 0.99 X</span>
-    <p class="rc-note">기울기 ≈ 1, 절편 +11.9 → non-blanking이 일정하게 <strong>+10.7 mg/dL (10%)</strong> 높음</p>
+    <p class="rc-note">기울기 ≈ 1, 절편 +11.9 → non-blanking이 일정하게 <strong>+10.7 mg/dL (10%)</strong> 높음</p>
   </article>
   <div class="tg-two-arrow">→<span>식을 적용</span></div>
   <article class="rc-card rc-blue">
@@ -2506,8 +2510,8 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Table 1
     <h3>과거 TG 값을 2022 척도로 변환</h3>
     <ul>
       <li>참여자 <strong>n = 16,015</strong> (비임신 · 공복 ≥ 12 h · 10세 이상)</li>
-      <li>평균 <strong>123.7 → 134.3 mg/dL</strong></li>
-      <li>≥ 200 mg/dL 유병률 <strong>11.9% → 13.8%</strong> (비가중 예시)</li>
+      <li>평균 <strong>123.7 → 134.3 mg/dL</strong></li>
+      <li>≥ 200 mg/dL 유병률 <strong>11.9% → 13.8%</strong> (비가중 예시)</li>
       <li><strong>survey 설계(psu·strata·weight) 미반영</strong> → 논문이 "example analysis"로 명시, 대표 유병률 아님 (논문 1과 대비)</li>
     </ul>
     <p class="rc-note">국건영은 매년 다른 사람 → <strong>사람으로는 검사법 차이 측정 불가</strong> → 검사법 차이는 같은 검체에서, 과거 자료는 척도만 변환</p>
@@ -2533,7 +2537,7 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Table 1
 ::: {.big-card .orange markdown="1"}
 [AVERAGE DIFFERENCE]{.eyebrow}
 
-[+10.7 mg/dL]{.big-number}
+[+10.7 mg/dL]{.big-number}
 
 Non-blanking이 평균적으로 더 높음
 :::
@@ -2549,7 +2553,7 @@ Non-blanking이 평균적으로 더 높음
 :::
 
 ::: {.metric-block markdown="1"}
-평균 +10.7 mg/dL 차이 → **체계적 불일치**
+평균 +10.7 mg/dL 차이 → **체계적 불일치**
 :::
 ::::::
 
@@ -2562,7 +2566,7 @@ Non-blanking이 평균적으로 더 높음
 ```{=html}
 <div class="rc-grid rc-grid-2" style="margin-top: 6px;">
   <article class="rc-card rc-purple">
-    <span class="rc-step">PASSING–BABLOK · 관계</span>
+    <span class="rc-step">핵심 개념 · PASSING–BABLOK</span>
     <h3>같은 검체의 두 측정값 관계: Y = a + bX</h3>
     <div class="rc-fig pb-fig"><img src="slides_assets/passing-bablok-concept.png" alt="Passing–Bablok 회귀분석 개념도"></div>
     <ul>
@@ -2572,7 +2576,7 @@ Non-blanking이 평균적으로 더 높음
     </ul>
   </article>
   <article class="rc-card rc-blue">
-    <span class="rc-step">BLAND–ALTMAN · 차이</span>
+    <span class="rc-step">핵심 개념 · BLAND–ALTMAN</span>
     <h3>같은 검체의 두 측정값 차이를 직접 표시</h3>
     <div class="rc-fig pb-fig"><svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <line class="ba-axis" x1="70" y1="40" x2="70" y2="330"/><line class="ba-axis" x1="70" y1="330" x2="610" y2="330"/>
@@ -2592,14 +2596,14 @@ Non-blanking이 평균적으로 더 높음
     <ul>
       <li>x축 = 두 방법의 평균, y축 = 차이(Y − X). <strong>파란 실선 = 평균 차이(bias)</strong>, 회색선 = 0</li>
       <li><strong>점선 = bias ± 1.96 SD (limits of agreement)</strong>: 개별 검체 차이의 약 95%가 이 안</li>
-      <li>논문 2 Figure 2의 점선 = <strong>평균 차이의 95% CI</strong> (bias 추정의 정밀도, LoA 아님) · Figure 4의 점선 = ±5% 허용 bias 한계</li>
+      <li>논문 2 Figure 2의 점선 = <strong>평균 차이의 95% CI</strong> (bias 추정의 정밀도, LoA 아님) · Figure 4의 점선 = ±5% 허용 bias 한계</li>
     </ul>
   </article>
 </div>
 ```
 
 ::: {.key-message markdown="1"}
-**Passing–Bablok = 관계(절편·기울기로 bias의 종류)** · **Bland–Altman = 차이(평균 차이와 그 흩어짐)** · 점선이 무엇인지는 그림마다 확인
+**Passing–Bablok은 관계의 bias를, Bland–Altman은 차이의 분포를 평가한다.**
 :::
 
 ## Passing–Bablok vs OLS  {#pb-vs-ols .module-method}
@@ -2638,19 +2642,19 @@ Non-blanking이 평균적으로 더 높음
 </div>
 ```
 
-## Passing–Bablok의 기울기 · shifted median은 어디서 오나 {#pb-shifted-median .module-method}
+## Passing–Bablok 기울기의 shifted median {#pb-shifted-median .module-method}
 
 ```{=html}
 <div class="rc-grid" style="grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); margin-top: 6px;">
   <article class="rc-card rc-purple pb-steps">
-    <span class="rc-step">과정</span>
-    <h3>세 단계</h3>
+    <span class="rc-step">핵심 개념</span>
+    <h3>기울기 추정의 세 단계</h3>
     <p><b>① 모든 두 점의 기울기</b><br>S<sub>ij</sub> = (Y<sub>j</sub> − Y<sub>i</sub>) / (X<sub>j</sub> − X<sub>i</sub>), i &lt; j<br>관측치 n개 → 최대 n(n−1)/2개</p>
     <p><b>② 정렬하고 shifted median</b><br>S<sub>ij</sub> = −1은 제외 · <strong>K = #(S<sub>ij</sub> &lt; −1)</strong><br>median의 <strong>순위 위치</strong>를 K칸 오른쪽으로 이동 (값에 K를 더하는 것이 아님)</p>
     <p><b>③ 절편</b><br>기울기 확정 후 <span class="rc-hat">α</span> = <strong>median(Y<sub>i</sub> − <span class="rc-hat">β</span>X<sub>i</sub>)</strong> (보통의 median)</p>
   </article>
   <article class="rc-card">
-    <span class="rc-step">숫자 예시 · 정렬된 pairwise slope 9개 (N = 9)</span>
+    <span class="rc-step">직관적 예시 · 정렬된 pairwise slope 9개 (N = 9)</span>
     <h3>보통의 median은 5번째, Passing–Bablok은 5 + K = 7번째</h3>
     <div class="pb-strip">
       <div class="pb-row">
@@ -2676,15 +2680,15 @@ Non-blanking이 평균적으로 더 높음
 ```
 
 ::: {.key-message markdown="1"}
-**OLS = 잔차² 최소화 · Passing–Bablok = pairwise slope의 shifted median** · K칸 이동의 이유는 다음 장
+**Passing–Bablok 기울기는 pairwise slope를 정렬한 뒤 K만큼 이동한 중앙값으로 추정한다.**
 :::
 
-## 왜 하필 −1인가: 방향(각도) {#pb-why-minus1 .module-method}
+## Passing–Bablok의 −1 경계값: 기하학적 의미 {#pb-why-minus1 .module-method}
 
 ```{=html}
 <div class="rc-grid" style="grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); margin-top: 6px;">
   <article class="rc-card rc-purple">
-    <span class="rc-step">기울기를 숫자가 아니라 방향(각도)으로</span>
+    <span class="rc-step">기하학적 직관 · 방향(각도)</span>
     <h3>slope = tan θ · 이상적 관계 slope 1 = 45°</h3>
     <div class="rc-fig" style="padding: 2px 6px 0;"><svg viewBox="0 0 600 470" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <path class="ang-wedge" d="M 423.7 358.7 A 175 175 0 1 0 176.3 111.3 L 300 235 Z"/>
@@ -2704,7 +2708,7 @@ Non-blanking이 평균적으로 더 높음
 </svg></div>
   </article>
   <article class="rc-card">
-    <span class="rc-step">S &lt; −1은 제외가 아니라 오른쪽 끝으로 이동</span>
+    <span class="rc-step">수식 해석 · S &lt; −1의 순위 이동</span>
     <h3>같은 직선, 각도 표기만 변경</h3>
     <p>slope −2 = θ −63.4° · 직선은 180° 회전해도 같은 직선 → −63.4° + 180° = <strong>116.6°</strong> → 45° 중심 범위의 <strong>오른쪽 끝</strong></p>
     <div class="pb-strip pb-strip-small">
@@ -2725,7 +2729,7 @@ Non-blanking이 평균적으로 더 높음
 ```{=html}
 <div class="rc-grid" style="grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); margin-top: 6px;">
   <article class="rc-card rc-purple">
-    <span class="rc-step">세 회귀의 가정</span>
+    <span class="rc-step">핵심 개념 · 세 회귀의 가정</span>
     <table class="rc-table po-table">
       <thead><tr><th></th><th>OLS</th><th>Deming</th><th>Passing–Bablok</th></tr></thead>
       <tbody>
@@ -2739,7 +2743,7 @@ Non-blanking이 평균적으로 더 높음
     <p class="rc-note">선택 기준: X가 기준법(오차 무시 가능)이면 OLS 가능 · 둘 다 검사법이면 Deming(정규·λ 알 때) 또는 PB(분포 미상·이상치) = CLSI EP09 관례 · r ≈ 1이면 셋이 거의 동일 (논문 2: r = 0.997)</p>
   </article>
   <article class="rc-card rc-blue">
-    <span class="rc-step">시뮬레이션 · 진짜 관계 Y = 10 + 1.0·X, n = 98</span>
+    <span class="rc-step">수치 예시와 코드 · 진짜 관계 Y = 10 + 1.0·X, n = 98</span>
     <h3>오차가 커지면 OLS 기울기는 1에서 멀어지고 PB는 1 근처 유지</h3>
     <table class="rc-table po-table po-sim">
       <thead><tr><th>오차 SD</th><th>r</th><th>OLS Y~X</th><th>OLS X~Y⁻¹</th><th>PB</th></tr></thead>
@@ -2764,7 +2768,7 @@ plot(fit); plotDifference(fit)  <span class="c"># 회귀·B–A</span></code></p
 </div>
 ```
 
-## 논문 2 · Figure 2: 측정법 간 관계와 차이 {#논문-2-figure-2-관계와-차이 .module-method}
+## 논문 2 · Figure 2: 측정법 간 관계와 차이 {#논문-2-figure-2-관계와-차이 .module-method}
 
 ```{=html}
 <style>
@@ -3006,7 +3010,7 @@ plot(fit); plotDifference(fit)  <span class="c"># 회귀·B–A</span></code></p
 </style>
 ```
 
-[PAPER 2 · TRIGLYCERIDE · Ann Lab Med 2025]{.paper-label} [Paired comparison · 동일 혈청 98개]{.tg-f2-paired-badge}
+[PAPER 2 · TRIGLYCERIDE · Ann Lab Med 2025]{.paper-label}
 
 ```{=html}
 <div class="tg-f2-layout">
@@ -3017,9 +3021,9 @@ plot(fit); plotDifference(fit)  <span class="c"># 회귀·B–A</span></code></p
       <span class="tg-f2-panel-tag c">C · 퍼센트 차이</span>
     </div>
     <div class="tg-f2-crop">
-      <img class="tg-f2-image" src="slides_assets/paper2-figure2.png" alt="Figure 2 전체 A, B, C: Passing–Bablok 관계 분석, mg/dL 단위 Bland–Altman 절대 차이, 퍼센트 단위 Bland–Altman 차이">
+      <img class="tg-f2-image" src="slides_assets/paper2-figure2.png" alt="Figure 2 전체 A, B, C: Passing–Bablok 관계 분석, mg/dL 단위 Bland–Altman 절대 차이, 퍼센트 단위 Bland–Altman 차이">
     </div>
-    <figcaption class="tg-f2-caption">Figure 2. 측정법 비교 · A 관계 / B 절대 차이 / C 퍼센트 차이<span>GC Labs non-blanking 측정값과 Seegene glycerol blanking 측정값 비교 · 파란 실선 = 평균 차이, 점선 = 그 95% CI (limits of agreement 아님)</span></figcaption>
+    <figcaption class="tg-f2-caption">Figure 2. 측정법 비교 · A 관계 / B 절대 차이 / C 퍼센트 차이<span>GC Labs non-blanking 측정값과 Seegene glycerol blanking 측정값 비교 · 파란 실선 = 평균 차이, 점선 = 그 95% CI (limits of agreement 아님)</span></figcaption>
   </figure>
 
   <div class="tg-f2-cards">
@@ -3036,7 +3040,7 @@ plot(fit); plotDifference(fit)  <span class="c"># 회귀·B–A</span></code></p
     <div class="tg-f2-card tg-f2-b">
       <span class="tg-f2-label">B · ABSOLUTE DIFFERENCE</span>
       <h3>Bland–Altman · mg/dL</h3>
-      <div class="tg-f2-b-row"><strong class="tg-f2-big">+10.7 mg/dL</strong><span class="tg-f2-b-ci">95% CI<br>8.9–12.6 mg/dL</span></div>
+      <div class="tg-f2-b-row"><strong class="tg-f2-big">+10.7 mg/dL</strong><span class="tg-f2-b-ci">95% CI<br>8.9–12.6 mg/dL</span></div>
       <p class="tg-f2-text">새 non-blanking 방식이 평균적으로 더 높음 · 대부분의 점이 0선 위</p>
     </div>
 
@@ -3045,21 +3049,21 @@ plot(fit); plotDifference(fit)  <span class="c"># 회귀·B–A</span></code></p
       <h3>Bland–Altman · %</h3>
       <div class="tg-f2-b-row"><strong class="tg-f2-big">+10.0%</strong><span class="tg-f2-b-ci">95% CI<br>8.3–11.7%</span></div>
       <p class="tg-f2-text">낮은 TG에서는 같은 절대 차이가 더 큰 퍼센트 차이로 보임</p>
-      <div class="tg-f2-examples"><span>150 mg/dL<br>약 +6.9%</span><span>200 mg/dL<br>약 +5.0%</span><span>500 mg/dL<br>약 +1.4%</span></div>
+      <div class="tg-f2-examples"><span>150 mg/dL<br>약 +6.9%</span><span>200 mg/dL<br>약 +5.0%</span><span>500 mg/dL<br>약 +1.4%</span></div>
     </div>
   </div>
 </div>
 ```
 
 ::: {.key-message .tg-f2-key markdown="1"}
-<strong>높은 상관관계는 두 측정값의 일치를 의미하지 않는다.</strong><br>회귀식은 변환 관계를, Bland–Altman은 실제 차이를 제시한다.
+<strong>높은 상관관계는 두 측정값의 일치를 의미하지 않는다.</strong> 회귀식은 변환 관계를, Bland–Altman은 실제 차이를 제시한다.
 :::
 
 ::: tg-f2-source
-Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 2
+Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 2
 :::
 
-## 논문 2 · Figure 3: TG 보정 전후 분포와 유병률 변화 {#논문-2-figure-3-tg-분포-유병률 .module-method}
+## 논문 2 · Figure 3: TG 보정 전후 분포와 유병률 변화 {#논문-2-figure-3-tg-분포-유병률 .module-method}
 
 ```{=html}
 <style>
@@ -3237,13 +3241,13 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 2
 <div class="tg-f3-layout">
   <figure class="tg-f3-figure">
     <div class="tg-f3-crop">
-      <img class="tg-f3-image" src="slides_assets/paper2-figure3.png" alt="Figure 3 density plot: 파란색 2019–2021 원자료, 초록색 2022 원자료, 빨간색 2019–2021 보정 후 자료, 회색 점선 200 mg/dL 기준">
+      <img class="tg-f3-image" src="slides_assets/paper2-figure3.png" alt="Figure 3 density plot: 파란색 2019–2021 원자료, 초록색 2022 원자료, 빨간색 2019–2021 보정 후 자료, 회색 점선 200 mg/dL 기준">
     </div>
     <figcaption class="tg-f3-legend">
       <span class="tg-f3-legend-item"><i class="tg-f3-line blue"></i>2019–2021 원자료</span>
       <span class="tg-f3-legend-item"><i class="tg-f3-line green"></i>2022 원자료</span>
       <span class="tg-f3-legend-item"><i class="tg-f3-line red"></i>2019–2021 보정 후</span>
-      <span class="tg-f3-legend-item"><i class="tg-f3-line gray"></i>200 mg/dL 기준</span>
+      <span class="tg-f3-legend-item"><i class="tg-f3-line gray"></i>200 mg/dL 기준</span>
     </figcaption>
   </figure>
 
@@ -3257,15 +3261,15 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 2
 
     <div class="tg-f3-card tg-f3-mean">
       <span class="tg-f3-label">MEAN TG</span>
-      <strong class="tg-f3-big">123.7 → 134.3 mg/dL</strong>
-      <span class="tg-f3-delta">+10.6 mg/dL</span>
+      <strong class="tg-f3-big">123.7 → 134.3 mg/dL</strong>
+      <span class="tg-f3-delta">+10.6 mg/dL</span>
       <p>2019–2021 N=16,015에 보정식 적용</p>
     </div>
 
     <div class="tg-f3-card tg-f3-prevalence">
       <span class="tg-f3-label">HYPERTRIGLYCERIDEMIA</span>
       <strong class="tg-f3-big">11.9% → 13.8%</strong>
-      <span class="tg-f3-delta">≥200 mg/dL · +1.9 percentage points</span>
+      <span class="tg-f3-delta">≥200 mg/dL · +1.9 percentage points</span>
       <br><span class="tg-f3-unweighted">예시용 비가중(unweighted) 분석</span>
     </div>
 
@@ -3280,11 +3284,11 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 2
 ```
 
 ::: {.key-message .tg-f3-key markdown="1"}
-<strong>측정 척도를 바꾸면 같은 과거 자료에서도 평균 TG와 ≥200 mg/dL 비율이 함께 증가한다.</strong>[검사법 변화는 개인 수치뿐 아니라 역학 통계에도 영향을 준다.]{.tg-f3-key-small}
+<strong>측정 척도를 바꾸면 같은 과거 자료에서도 평균 TG와 ≥200 mg/dL 비율이 함께 증가한다.</strong>[검사법 변화는 개인 수치뿐 아니라 역학 통계에도 영향을 준다.]{.tg-f3-key-small}
 :::
 
 ::: tg-f3-source
-Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 3
+Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 3
 :::
 
 ## Bias · 기준값 대비 측정 차이 평가 {#bias-기준값-대비-측정-차이-평가 .module-method}
@@ -3326,7 +3330,7 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 3
   <div class="bias-card pct"><span class="bias-label">3 · PERCENT BIAS</span><h3>기준값 대비 백분율</h3><div class="bias-formula">(검사값 − 기준값)<br>÷ 기준값 × 100</div><p>측정 수준이 달라도 상대적인 벗어남을 같은 척도로 비교</p></div>
 </div>
 <div class="bias-lower">
-  <div class="bias-tip"><strong>Difference와 Bias는 기준이 다르다</strong><p>Bland–Altman은 두 검사법 사이의 차이를 평가하고,<br>bias 분석은 각 검사법이 기준값에서 얼마나 벗어났는지를 평가한다.</p><p class="bias-hier"><strong>기준값의 위계</strong>: 기준측정법(RMP, 예: CDC IDMS) 배정값 → 인증표준물질(CRM) 인증값 → 외부정도관리 참여기관 평균(동료 일치, 진도 아님) → 비교검사법과의 차이(Figure 2)는 bias가 아니라 difference</p></div>
+  <div class="bias-tip"><strong>Difference와 Bias는 기준이 다르다</strong><p>Bland–Altman은 두 검사법 사이의 차이를 평가하고,<br>bias 분석은 각 검사법이 기준값에서 얼마나 벗어났는지를 평가한다.</p><p class="bias-hier"><strong>기준값의 위계</strong>: 기준측정법(RMP, 예: CDC IDMS) 배정값 → 인증표준물질(CRM) 인증값 → 외부정도관리 참여기관 평균(동료 일치, 진도 아님) → 비교검사법과의 차이(Figure 2)는 bias가 아니라 difference</p></div>
   <div class="bias-scale-card"><span class="bias-scale-title">Allowable bias ±5%</span><div class="bias-scale"><span class="bias-tick neg">−5%</span><span class="bias-tick zero">0</span><span class="bias-tick pos">+5%</span></div><span class="bias-scale-note">0%에 가까울수록 기준값과 가까움</span></div>
 </div>
 ```
@@ -3335,7 +3339,7 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 3
 **Bland–Altman = 두 일상 검사법 사이의 차이** · **Bias = 같은 물질을 기준측정법으로 잰 값과의 차이** (기준값도 측정값, 방법만 다름)
 :::
 
-## 논문 2 · Figure 4: CDC 기준 대비 TG 측정 Bias 변화 {#논문-2-figure-4-cdc-bias .module-method}
+## 논문 2 · Figure 4: CDC 기준 대비 TG 측정 Bias 변화 {#논문-2-figure-4-cdc-bias .module-method}
 
 ```{=html}
 <style>
@@ -3557,7 +3561,7 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 3
 <div class="tg-f4-layout">
   <figure class="tg-f4-figure">
     <div class="tg-f4-crop">
-      <img class="tg-f4-image" src="slides_assets/paper2-figure4.png" alt="Figure 4: 2018–2021 glycerol blanking과 2022 non-blanking 중성지방 측정값의 CDC LSP target 대비 percent bias, 0% target과 ±5% 허용한계">
+      <img class="tg-f4-image" src="slides_assets/paper2-figure4.png" alt="Figure 4: 2018–2021 glycerol blanking과 2022 non-blanking 중성지방 측정값의 CDC LSP target 대비 percent bias, 0% target과 ±5% 허용한계">
       <span class="tg-f4-period old">2018–2021 · blanking</span>
       <span class="tg-f4-period new">2022 · non-blanking</span>
     </div>
@@ -3600,11 +3604,11 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 3
 ```
 
 ::: {.key-message .tg-f4-key markdown="1"}
-<strong>2018–2021의 음의 bias는 측정 척도 차이와 관련되고,</strong><br>2022 non-blanking 전환 후 CDC 기준과의 comparability가 개선됐다.
+<strong>2018–2021의 음의 bias는 측정 척도 차이와 관련되고,</strong> 2022 non-blanking 전환 후 CDC 기준과의 comparability가 개선됐다.
 :::
 
 ::: tg-f4-source
-Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 4
+Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 4
 :::
 
 ## 비율 비교 · 분모의 정의 {.section-break .module-amr}
@@ -3869,7 +3873,7 @@ Choi R, et al. Ann Lab Med. 2025;45:291–299 · Figure 4
 ```
 
 ::: {.key-message .gbs-den-key markdown="1"}
-<strong>동일 논문에서도 분석 결과에 따라 분모가 달라진다.</strong><br>비율 해석 전 분모(N)를 확인한다.
+<strong>동일 논문에서도 분석 결과에 따라 분모가 달라진다.</strong> 비율 해석 전 분모(N)를 확인한다.
 :::
 
 ::: gbs-den-source
@@ -3928,10 +3932,10 @@ Bae HG, et al. Yonsei Med J. 2022;63:717–723
 :::
 
 ::: gbs-y-source
-Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 1
+Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 1
 :::
 
-## 논문 3 · Figure 1: 지역별 GBS 집락률 분포 {#논문-3-figure-1-지역별-gbs-집락률 .module-amr}
+## 논문 3 · Figure 1: 지역별 GBS 집락률 분포 {#논문-3-figure-1-지역별-gbs-집락률 .module-amr}
 
 ```{=html}
 <style>
@@ -4179,8 +4183,8 @@ Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 1
 ```{=html}
 <div class="gbs-r-layout">
   <figure class="gbs-r-figure">
-    <img class="gbs-r-image" src="slides_assets/paper4-figure1.png" alt="Figure 1. 검체가 30개를 초과한 지역 도시들의 GBS 집락률을 점 크기로 나타낸 지도">
-    <figcaption class="gbs-r-caption">Figure 1 · 검체 수가 30개를 초과한 지역 도시의 GBS 집락률</figcaption>
+    <img class="gbs-r-image" src="slides_assets/paper4-figure1.png" alt="Figure 1. 검체가 30개를 초과한 지역 도시들의 GBS 집락률을 점 크기로 나타낸 지도">
+    <figcaption class="gbs-r-caption">Figure 1 · 검체 수가 30개를 초과한 지역 도시의 GBS 집락률</figcaption>
   </figure>
 
   <div class="gbs-r-ranking">
@@ -4216,10 +4220,10 @@ Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 1
 :::
 
 ::: gbs-r-source
-Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Figure 1 / Table 1
+Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Figure 1 / Table 1
 :::
 
-## 논문 3 · Table 3: 항균제별 내성률 {#논문-3-table-3-항균제별-내성률 .module-amr}
+## 논문 3 · Table 3: 항균제별 내성률 {#논문-3-table-3-항균제별-내성률 .module-amr}
 
 ```{=html}
 <style>
@@ -4293,10 +4297,10 @@ Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Figure 1 / Table 1
 :::
 
 ::: gbs-a-source
-Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 3
+Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 3
 :::
 
-## 논문 3 · Table 2: MDR 내성 조합 {#논문-3-table-2-mdr-내성-조합 .module-amr}
+## 논문 3 · Table 2: MDR 내성 조합 {#논문-3-table-2-mdr-내성-조합 .module-amr}
 
 ```{=html}
 <style>
@@ -4350,9 +4354,9 @@ Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 3
   <div class="gbs-m-left">
     <figure class="gbs-m-figure">
       <div class="gbs-m-imgwrap">
-        <img class="gbs-m-image" src="slides_assets/Table 2 FIXED.png" alt="Table 2. 1,672개 GBS isolate 중 538개 MDR isolate의 5개 비β-lactam 항생제 내성 조합">
+        <img class="gbs-m-image" src="slides_assets/Table 2 FIXED.png" alt="Table 2. 1,672개 GBS isolate 중 538개 MDR isolate의 5개 비β-lactam 항생제 내성 조합">
       </div>
-      <figcaption class="gbs-m-caption">Table 2 · 538개 MDR GBS isolate의 resistance pattern</figcaption>
+      <figcaption class="gbs-m-caption">Table 2 · 538개 MDR GBS isolate의 resistance pattern</figcaption>
     </figure>
     <div class="gbs-m-read">
       <span class="gbs-m-label">KEY VARIABLE</span>
@@ -4386,7 +4390,7 @@ Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 3
 :::
 
 ::: gbs-m-source
-Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 2
+Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 2
 :::
 
 ## 논문 3 · 검사법 차이에 따른 집락률 과소평가 가능성 {#논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .module-amr}
@@ -4428,7 +4432,7 @@ Bae HG, et al. Yonsei Med J. 2022;63:717–723 · Table 2
 #논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-fn{border:1px solid rgba(220,132,49,.23);background:rgba(255,245,232,.97)}
 #논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-interpret{border:1px solid rgba(103,78,125,.2);background:rgba(245,240,248,.97)}
 #논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-label{display:block;color:#795480;font-size:0.41em;font-weight:950;letter-spacing:.065em}
-#논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-card p{margin:6px 0 0;color:#53615c;font-size:0.45em;font-weight:750;line-height:1.20}
+#논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-card p{margin:2px 0 0;color:#53615c;font-size:0.45em;font-weight:750;line-height:1.20}
 #논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-fn strong{color:#a45d22}
 #논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-neq{display:block;margin:8px 0 3px;color:#674876;font-size:0.602em;font-weight:950;line-height:1}
 #논문-3-검사법-차이에-따른-집락률-과소평가-가능성 .gbs-f-key{margin:8px 0 0;padding:9px 22px;color:#fff;font-size:0.55em;font-weight:820;line-height:1.16}
@@ -4537,7 +4541,7 @@ vs
 ::::::
 
 ::: {.key-message markdown="1"}
-**표본과 기대빈도가 충분히 크면 두 결과가 매우 비슷해질 수 있다**
+**표본과 기대빈도가 충분히 크면 두 결과가 매우 비슷해질 수 있다.**
 :::
 
 ::: {.small-source markdown="1"}
@@ -4611,15 +4615,17 @@ Principal components 기반 차원축소로 시각화<br>이 논문에서는 CRC
 ## Alpha diversity · 검체 하나 안의 다양성 {#alpha-diversity .module-microbiome}
 
 ```{=html}
+<div class="general-method-badge">일반 분석 방법론</div>
 <div class="rc-grid" style="grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); margin-top: 6px;">
   <article class="rc-card">
     <span class="rc-step">정의 · 검체당 숫자 하나</span>
-    <h3>"이 검체 안에 무엇이 얼마나 다양하게 있나"</h3>
+    <h3>검체 내 다양성의 핵심 지표</h3>
+    <div class="micro-priority micro-priority-3"><div><strong>Observed</strong><span>richness</span></div><div><strong>Chao1</strong><span>unseen richness 보정</span></div><div><strong>Shannon</strong><span>richness + evenness</span></div></div>
     <ul>
-      <li><strong>Observed OTUs</strong> = 검출된 분류군 수 (richness)</li>
-      <li><strong>Chao1</strong> = S<sub>obs</sub> + F<sub>1</sub>² / (2F<sub>2</sub>) · S<sub>obs</sub> = Observed OTUs, F<sub>1</sub> = read 1개(singleton)·F<sub>2</sub> = read 2개(doubleton)인 OTU 수 · 희귀균이 많을수록 못 본 종이 많다고 보고 richness를 위로 보정</li>
-      <li><strong>Shannon</strong> H′ = −Σ p<sub>i</sub> ln p<sub>i</sub> · 종 수 + 균등도, 고르게 분포할수록 큼</li>
-      <li><strong>Simpson</strong> = 1 − Σ p<sub>i</sub>² · 무작위로 뽑은 두 read가 서로 다른 분류군일 확률 · 우점 분류군(검체에서 가장 큰 비율을 차지하는 분류군)의 비중이 클수록 작아짐</li>
+      <li><strong>Observed OTUs</strong> = 검출된 분류군 수(richness)</li>
+      <li class="micro-detail"><strong>Chao1</strong> = S<sub>obs</sub> + F<sub>1</sub>²/(2F<sub>2</sub>) · singleton(F<sub>1</sub>)과 doubleton(F<sub>2</sub>)으로 미관측 richness를 보정</li>
+      <li><strong>Shannon</strong> H′ = −Σp<sub>i</sub>lnp<sub>i</sub> · richness와 evenness를 함께 반영</li>
+      <li class="micro-detail"><strong>Simpson</strong> = 1 − Σp<sub>i</sub>² · 두 read가 서로 다른 분류군일 확률이며, 우점 분류군 비중이 클수록 감소</li>
       <li>비교: 검체당 값 하나 → 군 간 <strong>Wilcoxon / Kruskal–Wallis</strong> 등 일반 검정</li>
     </ul>
     <p class="rc-note">논문 4: observed · Chao1 · Shannon (QIIME) → CRC vs 대조군 차이 없음</p>
@@ -4648,13 +4654,16 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
 </div>
 ```
 
-## Beta diversity ① · 검체 사이의 차이를 거리로 만든다 {#beta-diversity-1 .module-microbiome}
+## Beta diversity ① · 검체 간 거리의 정의 {#beta-diversity-1 .module-microbiome}
 
 ```{=html}
+<div class="general-method-badge">일반 분석 방법론</div>
+<div class="micro-hero">검체 사이 차이 → <strong>distance</strong></div>
+<div class="micro-distance-strip"><span><b>Bray–Curtis</b>abundance 반영</span><span><b>Jaccard</b>presence/absence</span><span><b>UniFrac</b>phylogeny 반영</span></div>
 <div class="rc-grid" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin-top: 6px;">
   <article class="rc-card rc-blue">
     <span class="rc-step">정의 · 검체 쌍마다 숫자 하나</span>
-    <h3>"검체 A와 B의 구성이 얼마나 다른가" → 거리 d(A, B)</h3>
+    <h3>검체 A와 B의 구성 차이: d(A, B)</h3>
     <table class="rc-table ab-mini">
       <thead><tr><th></th><th>균1</th><th>균2</th><th>균3</th></tr></thead>
       <tbody><tr><td>검체 A</td><td>50</td><td>30</td><td>20</td></tr><tr><td>검체 B</td><td>10</td><td>30</td><td>60</td></tr></tbody>
@@ -4667,7 +4676,7 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
   </article>
   <div style="display: grid; grid-template-rows: auto auto; gap: 12px; min-width: 0;">
     <article class="rc-card rc-purple">
-      <span class="rc-step">UniFrac · "얼마나 친척인가"까지</span>
+      <span class="rc-step">UniFrac · 계통 정보까지 반영</span>
       <div class="rc-grid" style="grid-template-columns: 1fr 1fr; gap: 10px; margin: 0;">
         <div class="rc-fig" style="padding: 4px 6px 0;"><svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <line class="uf-br" x1="20" y1="70" x2="90" y2="70"/><line class="uf-br" x1="90" y1="30" x2="90" y2="110"/>
@@ -4703,9 +4712,11 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
 </div>
 ```
 
-## Beta diversity ② · 거리행렬을 보고, 군 차이를 검정한다 {#beta-diversity-2 .module-microbiome}
+## Beta diversity ② · 거리 기반 시각화와 군 간 비교 {#beta-diversity-2 .module-microbiome}
 
 ```{=html}
+<div class="general-method-badge">일반 분석 방법론</div>
+<div class="analysis-chain bd-chain bd-chain-primary"><div class="flow-step"><strong>Distance matrix</strong><span>검체 × 분류군 표에서 계산</span></div><div class="flow-step"><strong>PCoA / NMDS</strong><span>거리 구조 시각화</span></div><div class="flow-step"><strong>PERMANOVA</strong><span>군 간 차이 검정</span></div><div class="flow-step"><strong>betadisper</strong><span>군 내 산포 확인</span></div></div>
 <div class="rc-grid rc-grid-3" style="margin-top: 6px;">
   <article class="rc-card rc-blue">
     <span class="rc-step">① 보기 · PCoA / NMDS</span>
@@ -4716,7 +4727,7 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
       <li><strong>NMDS</strong>: 거리의 <strong>순위</strong>를 보존 (A–B &lt; A–C &lt; A–D) · 복잡한 생태 거리에 자주 씀</li>
       <li>그림은 시각화일 뿐 → "두 군 다르다"는 검정으로</li>
     </ul>
-    <p class="rc-note">시퀀싱은 검체당 총 read 수가 임의 → count는 <strong>비율만 의미</strong>(조성 자료, 합 일정) → 한 균이 늘면 나머지가 저절로 줄어 보여 유클리드 PCA가 왜곡 · <strong>CLR = log(각 균 / 검체 기하평균)</strong>으로 총량을 지운 뒤 PCA(Aitchison)는 조성자료 분석의 중요한 접근</p>
+    <p class="rc-note">시퀀싱 count는 합이 고정된 조성 자료이므로 유클리드 PCA가 왜곡될 수 있다. CLR/Aitchison 접근은 다음 장에서 구분한다.</p>
   </article>
   <article class="rc-card">
     <span class="rc-step">② 검정 · PERMANOVA (adonis2)</span>
@@ -4738,25 +4749,22 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
     <ul>
       <li>PERMANOVA는 군 내 <strong>산포(dispersion) 차이</strong>에도 영향을 받음 → 오른쪽처럼 중심은 같고 퍼짐만 달라도 유의할 수 있음</li>
       <li><strong>betadisper</strong> = 각 검체에서 자기 군 중심까지 거리의 평균이 군마다 같은가 = <strong>다변량 Levene 검정</strong></li>
-      <li>PERMANOVA P &lt; 0.05 · betadisper P = 0.5 → 중심(구성) 차이로 해석 · <strong>둘 다 유의</strong> → "구성이 다르다"로 끝내지 말고 산포 차이도 함께 보고</li>
+      <li>PERMANOVA P &lt; 0.05 · betadisper P = 0.5 → 중심(구성) 차이로 해석 · <strong>둘 다 유의</strong> → "구성이 다르다"로 끝내지 말고 산포 차이도 함께 보고</li>
     </ul>
   </article>
 </div>
-<div class="analysis-chain bd-chain">
-  <div class="flow-step"><strong>Taxa abundance table</strong>검체 × 분류군</div>
-  <div class="flow-step"><strong>① Distance</strong>Bray–Curtis · Jaccard · UniFrac</div>
-  <div class="flow-step"><strong>② PCoA / NMDS</strong>거리를 눈으로</div>
-  <div class="flow-step"><strong>③ PERMANOVA + ④ betadisper</strong>군 차이 검정 + 산포 확인</div>
-</div>
+
 ```
 
 ## 조성 자료와 CLR · 비율 대신 로그비 {#clr-pcoa .module-microbiome}
 
 ```{=html}
+<div class="general-method-badge">일반 분석 방법론</div>
+<div class="micro-hero-stack"><div><strong>상대풍부도는 합이 100%인 compositional data</strong></div><div>한 균 증가 → 다른 균이 비율상 감소해 보일 수 있음</div><div><strong>CLR = log-ratio로 변환</strong></div></div>
 <div class="rc-grid" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); margin-top: 6px;">
   <article class="rc-card rc-orange">
-    <span class="rc-step">조성 자료 · 왜 비율에 PCA를 바로 쓰면 안 되나</span>
-    <h3>총 read 수는 임의 → count는 비율만 의미</h3>
+    <span class="rc-step">핵심 개념 · 조성 제약</span>
+    <h3>상대풍부도의 합은 100%로 고정</h3>
     <table class="rc-table ab-mini clr-table">
       <thead><tr><th></th><th>균1</th><th>균2</th><th>균3</th><th>균2 / 균3</th></tr></thead>
       <tbody>
@@ -4769,31 +4777,31 @@ wilcox.test(shannon ~ group, data = alpha)</code></pre>
       </tbody>
     </table>
     <ul>
-      <li>균2·3은 안 변했는데 비율은 <strong>30 → 13.6%, 10 → 4.5%</strong>로 줄어 보임(합 100% 고정) → 가짜 음의 상관, 우점균이 거리·PCA를 지배, 넣고 빼는 균에 따라 결과 변동</li>
-      <li><strong>CLR</strong> = log(x<sub>i</sub> / 검체의 기하평균) · 로그비라 총 read 수가 약분(depth 10배여도 동일) → 균끼리의 <strong>비율만</strong> 남음: clr₂ − clr₃ = log(30/10) = 1.10으로 A·B 동일</li>
+      <li>균2·3은 변하지 않았지만 비율은 <strong>30 → 13.6%, 10 → 4.5%</strong>로 감소해 보인다. 합 100% 제약은 가짜 음의 상관과 우점균 중심의 왜곡을 만들 수 있다.</li>
+      <li><strong>CLR</strong> = log(x<sub>i</sub>/검체 기하평균) · 총 read 수가 약분되어 균 간 비율만 남는다. clr₂ − clr₃ = log(30/10) = 1.10으로 A·B가 동일하다.</li>
       <li>CLR 후는 유클리드 공간 → PCA 가능 = <strong>Aitchison 거리</strong> · 0 count는 pseudocount(+0.5) 또는 zCompositions::cmultRepl · 같은 논리의 차등풍부도: ALDEx2, ANCOM-BC</li>
     </ul>
   </article>
   <article class="rc-card rc-blue">
-    <span class="rc-step">CLR 후에는 어떻게 되나</span>
+    <span class="rc-step">변환 후 해석 · CLR/Aitchison</span>
     <h3>Aitchison 거리 = CLR 벡터 사이의 유클리드 거리</h3>
     <span class="rc-f">d<sub>A</sub>(x, y) = ‖ clr(x) − clr(y) ‖<sub>2</sub></span>
     <ul>
       <li>CLR로 옮긴 뒤에는 보통의 유클리드 기하 → PCA를 그대로 쓸 수 있음</li>
       <li>같은 자료·같은 0 처리(pseudocount) 조건이면 <strong>CLR → PCA ≡ Aitchison 거리 → PCoA</strong> (검체 배치 동일, 축 부호만 다를 수 있음)</li>
-      <li>0 count는 log가 안 됨 → pseudocount(+0.5) 또는 zCompositions::cmultRepl · 같은 논리의 차등풍부도: ALDEx2, ANCOM-BC</li>
+      <li>같은 로그비 원리를 사용하는 차등풍부도 방법: ALDEx2, ANCOM-BC</li>
     </ul>
 <pre class="ri-code po-code ab-code" style="margin-top: 6px;"><code>clr &lt;- log(otu + 0.5) - rowMeans(log(otu + 0.5))
 prcomp(clr)                <span class="c"># CLR-PCA</span>
 cmdscale(dist(clr), k = 2) <span class="c"># Aitchison PCoA (동등)</span></code></pre>
-    <p class="rc-note">다음 장: PCA · PCoA · NMDS가 무엇을 입력받아 무엇을 보존하는지 다이어그램으로</p>
   </article>
 </div>
 ```
 
-## PCA · PCoA · NMDS · 무엇을 입력받아 무엇을 보존하나 {#pca-pcoa-nmds .module-microbiome}
+## PCA · PCoA · NMDS · 입력 자료와 보존 구조 {#pca-pcoa-nmds .module-microbiome}
 
 ```{=html}
+<div class="general-method-badge">일반 분석 방법론</div>
 <div class="rc-fig" style="margin-top: 4px; padding: 6px 10px 2px;"><svg viewBox="0 0 1400 540" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs><marker id="pd-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5f6f68"/></marker></defs>
   <rect class="pd-box data" x="540" y="14" width="320" height="74" rx="12"/><text class="pd-title" x="700.0" y="44" text-anchor="middle">DATA MATRIX</text><text class="pd-sub" x="700.0" y="70" text-anchor="middle">검체 × 분류군 (count · 비율 · CLR)</text>
@@ -4816,12 +4824,73 @@ cmdscale(dist(clr), k = 2) <span class="c"># Aitchison PCoA (동등)</span></cod
 ```
 
 ::: {.key-message markdown="1"}
-**PCA = 자료행렬의 유클리드 기하 · PCoA = 거리행렬의 기하 · NMDS = 거리의 순위** · 같은 자료의 Euclidean distance면 PCoA ≡ PCA, CLR → PCA ≡ Aitchison → PCoA
+**PCA는 data matrix, PCoA는 distance matrix, NMDS는 distance rank를 기준으로 구분한다.**
 :::
 
-## PCA · PCoA · NMDS · 정확히 말하면 {#pca-pcoa-notes .module-microbiome}
+## NMDS · Non-metric Multidimensional Scaling {#nmds-general-method .module-microbiome}
 
 ```{=html}
+<style>
+#nmds-general-method > h2{max-width:1320px;font-size:1.48em;line-height:1.08}
+#nmds-general-method .nm-simple{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:18px;height:746px;margin-top:9px}
+#nmds-general-method .nm-panel{box-sizing:border-box;min-width:0;height:746px;padding:22px 24px;border:1px solid rgba(49,95,87,.18);border-radius:18px;background:rgba(255,255,255,.97);box-shadow:0 7px 18px rgba(48,62,57,.07)}
+#nmds-general-method .nm-formula{border:2px solid rgba(44,111,89,.28);background:linear-gradient(145deg,rgba(236,247,241,.98),rgba(255,255,255,.97))}
+#nmds-general-method .nm-head{display:block;margin-bottom:9px;color:#315f57;font-size:23px;font-weight:950;letter-spacing:.055em}
+#nmds-general-method .nm-definition p{margin:0;color:#40594e;font-size:20px;font-weight:780;line-height:1.18}
+#nmds-general-method .nm-nonmetric{margin-top:7px;padding:7px 9px;border-left:6px solid #287451;border-radius:9px;background:#edf6f1;color:#245b45;font-size:19px;font-weight:900;line-height:1.10}
+#nmds-general-method .nm-divider{height:1px;margin:8px 0 6px;background:#d7e5df}
+#nmds-general-method .nm-bc-formula{display:flex;align-items:center;justify-content:center;gap:10px;margin:8px 0 10px;color:#175d41;font-size:30px;font-weight:950;line-height:1.1}
+#nmds-general-method .nm-frac{display:inline-grid;grid-template-rows:auto auto;text-align:center;font-size:.82em;line-height:1.12}
+#nmds-general-method .nm-frac span:first-child{padding:0 5px 3px;border-bottom:2px solid #287451}
+#nmds-general-method .nm-frac span:last-child{padding:3px 5px 0}
+#nmds-general-method .nm-symbol{margin:2px 0;color:#496158;font-size:18px;font-weight:780;line-height:1.08}
+#nmds-general-method .nm-symbol b{display:inline-block;min-width:45px;color:#1f664a;font-size:1.08em}
+#nmds-general-method .nm-example{margin-top:8px;padding:8px 11px;border-radius:10px;background:#f4faf7;color:#40594e}
+#nmds-general-method .nm-example b{color:#236d57;font-size:18px}
+#nmds-general-method .nm-example p{margin:2px 0;font-size:16px;font-weight:760;line-height:1.06}
+#nmds-general-method .nm-example .nm-result{color:#175d41;font-size:19px;font-weight:950}
+#nmds-general-method .nm-example small{display:block;margin-top:3px;padding-top:3px;border-top:1px solid #d4e6dc;color:#5a7067;font-size:16px;font-weight:760}
+#nmds-general-method .nm-flow{margin:10px 0 7px;padding:7px 9px;border-radius:9px;background:#e7f2ed;color:#246047;font-size:16px;font-weight:900;line-height:1.12;text-align:center}
+#nmds-general-method .nm-order{margin-top:6px;padding:8px 12px;border-radius:11px;background:#e7f2ed;color:#175d41;font-size:30px;font-weight:950;text-align:center;line-height:1.15}
+#nmds-general-method .nm-order-note{margin:8px 0 0;color:#466057;font-size:17px;font-weight:780;line-height:1.18;text-align:center}
+#nmds-general-method .nm-code{margin:0;padding:14px 16px;border-radius:12px;background:#183d34;color:#eef7f2;font-family:ui-monospace,monospace;font-size:20px;line-height:1.10;white-space:pre-wrap}
+#nmds-general-method .nm-code-note{margin-top:10px;padding:9px 11px;border:1px solid #d4e2dc;border-radius:9px;background:#f7faf8;color:#4d6159;font-size:18px;font-weight:780;line-height:1.13}
+#nmds-general-method .nm-code-note div{margin:3px 0}
+#nmds-general-method .nm-code-note b{color:#236d57;font-size:1.06em}
+#nmds-general-method .nm-why{margin-top:14px;padding:10px 12px;border:1px solid rgba(40,116,81,.25);border-radius:12px;background:#eff7f2;color:#3b554a}
+#nmds-general-method .nm-why h3{margin:0 0 4px;color:#236d57;font-size:20px;font-weight:950;letter-spacing:.025em}
+#nmds-general-method .nm-why .nm-why-lead{margin:0;color:#40594e;font-size:16px;font-weight:780;line-height:1.08}
+#nmds-general-method .nm-why-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:5px 0}
+#nmds-general-method .nm-why-step{padding:4px 5px;border-left:3px solid #4a8d70;background:rgba(255,255,255,.56);color:#40594e;font-size:14px;font-weight:760;line-height:1.06}
+#nmds-general-method .nm-why-step b{display:block;margin-bottom:1px;color:#236d57;font-size:15px}
+#nmds-general-method .nm-why-step p{margin:0}
+#nmds-general-method .nm-why-emphasis{margin:0;padding-top:3px;border-top:1px solid #d4e6dc;color:#1f6449;font-size:15px;font-weight:950;line-height:1.08}
+#nmds-general-method .nm-why-flow{margin-top:3px;padding:2px 4px;border-radius:7px;background:rgba(255,255,255,.75);color:#527066;font-size:12px;font-weight:850;line-height:1.04;text-align:center}
+</style>
+<div class="general-method-badge">GENERAL METHOD · 일반 microbiome 분석 개념</div>
+<div class="nm-simple">
+<article class="nm-panel nm-formula"><span class="nm-head">정의</span><div class="nm-definition"><p><strong>NMDS</strong>는 검체 간 dissimilarity의 순위(rank order)가 저차원 공간에서도 최대한 유지되도록 각 검체의 좌표를 찾는 비모수적 ordination 방법이다.</p></div><div class="nm-nonmetric">Non-metric = 거리의 정확한 크기보다 순서관계를 보존</div><div class="nm-divider"></div><span class="nm-head">STEP 1 · Dissimilarity 계산</span><div class="nm-bc-formula">δ<sub>ij</sub> = <span class="nm-frac"><span>Σ<sub>k</sub> |x<sub>ik</sub> − x<sub>jk</sub>|</span><span>Σ<sub>k</sub> (x<sub>ik</sub> + x<sub>jk</sub>)</span></span></div><div class="nm-symbol"><b>x<sub>ik</sub></b>= 검체 i의 OTU k abundance</div><div class="nm-symbol"><b>x<sub>jk</sub></b>= 검체 j의 OTU k abundance</div><div class="nm-symbol"><b>δ<sub>ij</sub></b>= 검체 i–j의 Bray–Curtis dissimilarity</div><div class="nm-example"><b>예시</b><p>검체 i = (10,20,0) &nbsp;·&nbsp; 검체 j = (5,25,10)</p><p class="nm-example-delta">δ<sub>ij</sub></p><p>= (5+5+10) / [(10+5)+(20+25)+(0+10)]</p><p>= 20/70</p><p class="nm-result">= 0.286</p><small>0 = 동일 &nbsp;·&nbsp; 1에 가까울수록 더 다름</small></div><div class="nm-flow">OTU abundance → Bray–Curtis δ<sub>ij</sub> 계산 → dissimilarity matrix → NMDS → 저차원 좌표</div><div class="nm-order">δ<sub>ij</sub> &lt; δ<sub>kl</sub> &nbsp; ⇒ &nbsp; d<sub>ij</sub> &lt; d<sub>kl</sub></div><p class="nm-order-note">모든 검체 쌍의 dissimilarity를 계산한 뒤, 그 순서가 저차원 공간에서도 최대한 유지되도록 좌표를 찾는다.</p></article>
+<article class="nm-panel"><span class="nm-head">R · NMDS 실행 예</span><pre class="nm-code"><code>library(vegan)
+
+# 1. Bray-Curtis dissimilarity
+bc &lt;- vegdist(otu, method = "bray")
+
+# 2. NMDS
+nmds &lt;- metaMDS(
+  bc,
+  k = 2
+)
+
+scores(nmds)
+plot(nmds)</code></pre><div class="nm-code-note"><div><b>vegdist()</b> → Bray–Curtis dissimilarity matrix</div><div><b>metaMDS()</b> → 저차원 NMDS 좌표 계산</div><div><b>scores()/plot()</b> → 좌표 확인·시각화</div></div><div class="nm-why"><h3>WHY NMDS? · 고차원 → 저차원</h3><p class="nm-why-lead">고차원 community data를 2D/3D로 축약하면 원래 dissimilarity 구조에 왜곡이 생길 수 있다.</p><div class="nm-why-steps"><div class="nm-why-step"><b>① 순위 보존</b><p>원래 dissimilarity의 rank order가 최대한 유지되도록 좌표를 조정</p></div><div class="nm-why-step"><b>② Stress 평가</b><p>현재 저차원 배치의 불일치를 Stress로 평가</p></div><div class="nm-why-step"><b>③ 좌표 갱신</b><p>Stress가 줄어드는 방향으로 좌표를 반복 갱신</p></div></div><p class="nm-why-emphasis">고차원 → 저차원에서 생기는 왜곡을 줄이도록 검체 좌표를 반복 최적화</p><div class="nm-why-flow">2D 좌표 배치 → Stress 평가 → 좌표 재조정 ↺ 반복</div></div></article>
+</div>
+```
+
+## PCA · PCoA · NMDS · 방법론적 구분과 논문 4의 불명확성 {#pca-pcoa-notes .module-microbiome}
+
+```{=html}
+<div class="general-method-badge">일반 분석 방법론</div>
+<div class="pca-core-strip"><span><b>PCA</b>data matrix</span><span><b>PCoA</b>distance matrix</span><span><b>NMDS</b>distance rank</span></div>
 <div class="rc-grid rc-grid-3" style="margin-top: 12px;">
   <article class="rc-card">
     <span class="rc-step">① 정의와 동등 조건</span>
@@ -4841,10 +4910,11 @@ cmdscale(dist(clr), k = 2) <span class="c"># Aitchison PCoA (동등)</span></cod
   </article>
   <article class="rc-card rc-orange">
     <span class="rc-step">③ NMDS · 논문 4</span>
+    <h3>논문 4의 방법론 기술은 불명확</h3>
     <ul>
       <li><strong>NMDS</strong>: 거리 값이 아니라 rank order(d<sub>AB</sub> &lt; d<sub>AC</sub> &lt; d<sub>AD</sub>) 보존 · 적합도는 stress, metaMDS는 반복 실행으로 최소 stress 해</li>
-      <li><strong>논문 4</strong>: "principal components … for β-diversity"라고만 씀 → 풍부도 행렬의 PCA인지, 거리행렬의 PCoA인지 불명확 (QIIME 표준은 거리행렬 → PCoA)</li>
-      <li class="pd-quote">Methodological ambiguity: "principal components" were reported for β-diversity, but the manuscript does not specify whether this refers to PCA of the abundance matrix or PCoA of a β-diversity distance matrix.</li>
+      <li class="pd-ambiguity"><strong>논문 4는 principal components라고만 기술하여 PCA/PCoA가 명확하지 않다.</strong> QIIME의 표준 흐름은 거리행렬 → PCoA이다.</li>
+      <li class="pd-quote">방법론적 불명확성: 풍부도 행렬의 PCA인지 β-diversity 거리행렬의 PCoA인지 원문만으로 구분할 수 없다.</li>
     </ul>
   </article>
 </div>
@@ -4853,9 +4923,11 @@ cmdscale(dist(clr), k = 2) <span class="c"># Aitchison PCoA (동등)</span></cod
 ## Beta diversity · R 코드와 결과 (모의자료) {#alpha-beta-output .module-microbiome}
 
 ```{=html}
+<div class="general-method-badge">일반 분석 방법론</div>
+<div class="simulation-result-strip"><div><strong>Shannon P=0.986</strong><span>alpha diversity 차이 없음</span></div><div><strong>PERMANOVA R²=0.225, P=0.001</strong><span>community composition 차이 · 군이 변동의 22.5%를 설명</span></div><div><strong>betadisper P=0.968</strong><span>dispersion 차이로 설명되지 않음</span></div></div>
 <div class="rc-grid" style="grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); margin-top: 6px;">
   <article class="rc-card">
-    <span class="rc-step">코드 → 출력 · 검체 20개(CRC 10 · Control 10) × OTU 60개</span>
+    <span class="rc-step">보조 코드와 출력 · 검체 20개(CRC 10 · Control 10) × OTU 60개</span>
 <pre class="ri-code po-code ab-code" style="margin-top: 4px;"><code>bc  &lt;- vegdist(otu, "bray")             <span class="c"># ① 거리행렬</span>
 pco &lt;- cmdscale(bc, k = 2, eig = TRUE)   <span class="c"># ② PCoA 좌표</span>
 adonis2(bc ~ group, data = meta)         <span class="c"># ③ PERMANOVA</span>
@@ -4869,14 +4941,14 @@ S3       57  58.5    3.61   CRC
     group shannon
 1 Control   3.640
 2     CRC   3.645
-&gt; wilcox.test(shannon ~ group)      →  P = 0.986
+&gt; wilcox.test(shannon ~ group)      →  P = 0.986
 &gt; PCoA 축 설명 비율: PCo1 23.6%, PCo2 10.0%
 &gt; adonis2(bc ~ group, data = meta, permutations = 999)
          Df SumOfSqs    R2     F Pr(&gt;F)
 Model     1    0.526 0.225 5.227  0.001
 Residual 18    1.811 0.775    NA     NA
 Total    19    2.337 1.000    NA     NA
-&gt; anova(betadisper(bc, group))     →  P = 0.968</code></pre>
+&gt; anova(betadisper(bc, group))     →  P = 0.968</code></pre>
   </article>
   <div style="display: grid; grid-template-rows: auto auto; gap: 12px; min-width: 0;">
     <article class="rc-card rc-blue">
@@ -4884,13 +4956,8 @@ Total    19    2.337 1.000    NA     NA
       <div class="rc-fig" style="padding: 4px 6px 2px;"><img src="slides_assets/pcoa-demo.png" alt="Bray–Curtis PCoA: CRC와 Control 검체가 다른 위치에 모임" style="height: 300px;"></div>
     </article>
     <article class="rc-card rc-orange">
-      <span class="rc-step">읽는 법</span>
-      <ul>
-        <li><strong>Shannon P = 0.986</strong> → 검체 내 다양성은 두 군이 비슷 (alpha)</li>
-        <li><strong>PERMANOVA R² = 0.225, P = 0.001</strong> → 구성은 다르고, 군이 거리행렬 변동의 22.5%를 설명</li>
-        <li><strong>betadisper P = 0.968</strong> → 산포 비슷 → 중심(구성) 차이로 해석 가능</li>
-        <li>PCo1·PCo2는 변동의 23.6% · 10.0%만 표시 → 그림은 요약, 검정은 거리행렬 전체로</li>
-      </ul>
+      <span class="rc-step">결과 해석</span>
+      <p>PCo1·PCo2는 변동의 23.6% · 10.0%만 표시한다. 그림은 요약이며 검정은 거리행렬 전체를 사용한다.</p>
     </article>
   </div>
 </div>
@@ -4982,7 +5049,7 @@ Total    19    2.337 1.000    NA     NA
 Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Results
 :::
 
-## 논문 4 · Table 2: CRC 관련 세균 qPCR 검출률 {#논문-4-table-2-crc-관련-세균-qpcr-검출률 .module-microbiome}
+## 논문 4 · Table 2: CRC 관련 세균 qPCR 검출률 {#논문-4-table-2-crc-관련-세균-qpcr-검출률 .module-microbiome}
 
 ```{=html}
 <style>
@@ -5037,8 +5104,8 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Results
 <div class="crc-q-layout">
   <div class="crc-q-left">
     <figure class="crc-q-figure">
-      <img class="crc-q-image" src="slides_assets/CRC_Table2_qPCR_highlighted_FINAL.png" alt="Table 2 crop showing qPCR detection of five CRC-associated bacteria in 39 CRC carcinoma tissues and 21 control normal tissues, with Fusobacterium nucleatum highlighted">
-      <figcaption class="crc-q-caption">Table 2 발췌·강조 · CRC 관련 세균 5종의 qPCR 검출률 비교</figcaption>
+      <img class="crc-q-image" src="slides_assets/CRC_Table2_qPCR_highlighted_FINAL.png" alt="Table 2 crop showing qPCR detection of five CRC-associated bacteria in 39 CRC carcinoma tissues and 21 control normal tissues, with Fusobacterium nucleatum highlighted">
+      <figcaption class="crc-q-caption">Table 2 발췌·강조 · CRC 관련 세균 5종의 qPCR 검출률 비교</figcaption>
     </figure>
     <div class="crc-q-note"><span class="crc-q-label">INTERPRETATION NOTE</span><p><strong>82.1%</strong>는 환자 전체의 장내 Fusobacterium 비율이 아니라, CRC carcinoma tissue에서 qPCR로 <em>F. nucleatum</em>이 검출된 비율이다.</p><div class="crc-q-distinction"><span>검출률 · prevalence</span><i>≠</i><span>상대풍부도 · relative abundance</span></div></div>
   </div>
@@ -5051,14 +5118,14 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Results
 ```
 
 ::: {.key-message .crc-q-keybar markdown="1"}
-<strong>5개 후보 세균 중 F. nucleatum만 CRC 조직에서 뚜렷하게 높은 qPCR 검출률을 보였다.</strong>[CRC 82.1% vs control 0% · Fisher’s exact P\<0.0001]{.crc-q-key-small}
+<strong>5개 후보 세균 중 F. nucleatum만 CRC 조직에서 뚜렷하게 높은 qPCR 검출률을 보였다.</strong>[CRC 82.1% vs control 0% · Fisher’s exact P \< 0.0001]{.crc-q-key-small}
 :::
 
 ::: crc-q-source
-Kim M, et al. Sci Rep. 2020;10:19915 · Table 2
+Kim M, et al. Sci Rep. 2020;10:19915 · Table 2
 :::
 
-## 논문 4 · Figure 1: F. nucleatum의 병기·조직별 분포 {#논문-4-figure-1-f-nucleatum의-병기-조직별-분포 .module-microbiome}
+## 논문 4 · Figure 1: F. nucleatum의 병기·조직별 분포 {#논문-4-figure-1-f-nucleatum의-병기-조직별-분포 .module-microbiome}
 
 ```{=html}
 <style>
@@ -5107,8 +5174,8 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Table 2
 <div class="crc-f1-layout">
   <figure class="crc-f1-figure">
     <div class="crc-f1-tags" aria-hidden="true"><span class="crc-f1-tag a">A · Stage</span><span class="crc-f1-tag b">B · Tissue</span><span class="crc-f1-tag c">C · fadA</span></div>
-    <img class="crc-f1-image" src="slides_assets/paper3-figure1.png" alt="Figure 1 A, B, C: F. nucleatum detection by tumor stage, tissue type, and fadA virulence gene prevalence in CRC and control tissues">
-    <figcaption class="crc-f1-caption">Figure 1 · F. nucleatum의 tumor stage·tissue type 및 fadA 검출 결과</figcaption>
+    <img class="crc-f1-image" src="slides_assets/paper3-figure1.png" alt="Figure 1 A, B, C: F. nucleatum detection by tumor stage, tissue type, and fadA virulence gene prevalence in CRC and control tissues">
+    <figcaption class="crc-f1-caption">Figure 1 · F. nucleatum의 tumor stage·tissue type 및 fadA 검출 결과</figcaption>
   </figure>
   <div class="crc-f1-side">
     <div class="crc-f1-card crc-f1-a"><span class="crc-f1-label">A · TUMOR STAGE</span><h3>초기·후기 모두 높은 검출률</h3><div class="crc-f1-stage"><div><span>Control</span><strong>0 / 21</strong><b>0%</b></div><div><span>Early I/II</span><strong>12 / 13</strong><b>92.3%</b></div><div><span>Late III/IV</span><strong>20 / 26</strong><b>76.9%</b></div></div><p><strong>두 CRC stage 모두 control보다 높음 · P&lt;0.0001 each</strong><br>Early vs Late 자체의 차이는 유의하지 않음</p></div>
@@ -5116,7 +5183,7 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Table 2
     <div class="crc-f1-card crc-f1-c"><span class="crc-f1-label">C · fadA VIRULENCE GENE</span><h3>fadA도 CRC tissue에서 더 흔함</h3><div class="crc-f1-ccompare"><div><span>CRC carcinoma tissue</span><strong>69.2%</strong></div><span class="crc-f1-vs">VS</span><div><span>Control tissue</span><strong>9.5%</strong></div></div><span class="crc-f1-cresult">P &lt; 0.0001</span><p>adhesion / invasion 관련 virulence factor</p></div>
   </div>
 </div>
-<div class="crc-f1-note"><span class="crc-f1-note-label">qPCR Ct VALUE</span><p>qPCR-positive 조직끼리 비교했을 때 carcinoma tissue의 Ct가 AT/NT보다 더 낮았다. <strong>Mann–Whitney U · P&lt;0.0001</strong><br>낮은 Ct → 상대적으로 더 많은 target DNA</p><small>Figure 1 직접 표시 아님<br>Ct comparison: Results / Supplementary Fig. S1</small></div>
+<div class="crc-f1-note"><span class="crc-f1-note-label">qPCR Ct VALUE</span><p>qPCR-positive 조직끼리 비교했을 때 carcinoma tissue의 Ct가 AT/NT보다 더 낮았다. <strong>Mann–Whitney U · P&lt;0.0001</strong><br>낮은 Ct → 상대적으로 더 많은 target DNA</p><small>Figure 1 직접 표시 아님<br>Ct comparison: Results / Supplementary Fig. S1</small></div>
 ```
 
 ::: {.key-message .crc-f1-key markdown="1"}
@@ -5124,7 +5191,7 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Table 2
 :::
 
 ::: crc-f1-source
-Kim M, et al. Sci Rep. 2020;10:19915 · Figure 1
+Kim M, et al. Sci Rep. 2020;10:19915 · Figure 1
 :::
 
 ## Beta diversity · 검체 간 미생물 군집 차이 {#beta-diversity-검체-간-미생물-군집-차이 .module-microbiome}
@@ -5245,18 +5312,18 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Supplementary Fig. S2
   <div class="fdr-info"><span class="fdr-label">FDR</span><h3>False Discovery Rate</h3><p>여러 결과를 동시에 유의하다고 판단할 때, 그 발견들 중 거짓 양성이 포함되는 비율을 통제하는 접근</p><small>multiple testing correction</small></div>
   <div class="fdr-result"><span class="fdr-label">FDR-ADJUSTED RESULT</span><div class="fdr-result-head"><strong class="fdr-result-big">6 / 698 OTUs</strong><span class="fdr-result-sub">CRC vs control에서<br>FDR 보정 후 유의한 차이</span></div><div class="fdr-genus"><span>Peptostreptococcus</span><span>Collinsella</span><span>Prevotella</span><span>Parvimonas</span><span>Fusobacterium</span><span>Gemella</span></div></div>
 </div>
-<div class="fdr-transition"><strong>α·β diversity는 유의하지 않았지만, 개별 OTU 수준에서는 차이가 남았다.</strong>&nbsp; → 다음 Figure 2</div>
+<div class="fdr-transition"><strong>α·β diversity는 유의하지 않았지만, 개별 OTU 수준에서는 차이가 남았다.</strong>&nbsp; → 다음 Figure 2</div>
 ```
 
 ::: {.key-message .fdr-key markdown="1"}
-<strong>수백 개 OTU를 동시에 비교할 때는 raw P-value만으로 판단하지 않고 FDR 보정이 필요하다.</strong>[이 연구에서는 698개 OTU 중 FDR 보정 후 6개 OTU가 CRC와 control 사이에서 차이를 보였다.]{.fdr-key-small}
+<strong>수백 개 OTU 비교는 raw P-value가 아닌 FDR 보정으로 판단한다.</strong>[698개 중 보정 후 6개 OTU가 CRC와 control 간 차이를 보였다.]{.fdr-key-small}
 :::
 
 ::: fdr-source
-Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Results / Figure 2
+Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Results / Figure 2
 :::
 
-## 논문 4 · Figure 2: CRC와 대조군에서 다른 6개 OTU {#논문-4-figure-2-crc에서-차이를-보인-6개-otu .module-microbiome}
+## 논문 4 · Figure 2: CRC와 대조군에서 다른 6개 OTU {#논문-4-figure-2-crc에서-차이를-보인-6개-otu .module-microbiome}
 
 ```{=html}
 <style>
@@ -5299,13 +5366,13 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Results / Figure 2
 <div class="crc-otu-layout">
   <figure class="crc-otu-figure">
     <div class="crc-otu-legend"><span><b>CASE</b> = CRC patients</span><span><b>CONTROL</b> = controls</span><span><b>Y-axis</b> = relative abundance</span><span><b>Boxplot</b> = 분포 비교</span></div>
-    <img class="crc-otu-image" src="slides_assets/crc-figure2-six-otus.png" alt="Figure 2 crop of six OTU relative-abundance boxplots comparing CRC cases and controls, with the Fusobacterium panel highlighted">
-    <figcaption class="crc-otu-caption"><span>Figure 2 · CRC와 control 사이에서 차이를 보인 6개 OTU</span><span>각 패널의 y-axis scale은 서로 다름 · genus 간 절대 높이 직접 비교 금지</span></figcaption>
+    <img class="crc-otu-image" src="slides_assets/crc-figure2-six-otus.png" alt="Figure 2 crop of six OTU relative-abundance boxplots comparing CRC cases and controls, with the Fusobacterium panel highlighted">
+    <figcaption class="crc-otu-caption"><span>Figure 2 · CRC와 control 사이에서 차이를 보인 6개 OTU</span><span>각 패널의 y-axis scale은 서로 다름 · genus 간 절대 높이 직접 비교 금지</span></figcaption>
   </figure>
   <div class="crc-otu-side">
     <div class="crc-otu-card crc-otu-result"><span class="crc-otu-label">FDR-ADJUSTED RESULT</span><h3>FDR 보정 후 차이가 남은 6개 genus</h3><strong class="crc-otu-big">6 / 698 OTUs</strong><div class="crc-otu-genus"><span>Peptostreptococcus</span><span>Collinsella</span><span>Prevotella</span><span>Parvimonas</span><span>Fusobacterium</span><span>Gemella</span></div><p>CRC case와 control 사이 relative abundance 차이</p></div>
     <div class="crc-otu-card crc-otu-community"><span class="crc-otu-label">ANALYSIS LEVEL</span><h3>전체 군집과 개별 OTU</h3><div class="crc-otu-contrast"><div><span>α / β diversity</span><strong>유의한 차이 없음</strong></div><div><span>Individual OTUs</span><strong>6개에서 차이</strong></div></div><p>전체 군집 수준과 개별 OTU 수준의 결과는 다를 수 있음</p></div>
-    <div class="crc-otu-card crc-otu-focus"><span class="crc-otu-label">KEY RESULT</span><h3>Fusobacterium</h3><strong class="crc-otu-focus-big">CRC에서 더 높은 relative abundance</strong><span class="crc-otu-p">Figure 표시 P = 6.8 × 10<sup>-5</sup></span><p>qPCR에서도 CRC tissue의 <em>F. nucleatum</em> 검출률이 높아, 두 분석법에서 일관된 연관성이 관찰됨 · 측정값은 서로 다름</p></div>
+    <div class="crc-otu-card crc-otu-focus"><span class="crc-otu-label">KEY RESULT</span><h3>Fusobacterium</h3><strong class="crc-otu-focus-big">CRC에서 더 높은 relative abundance</strong><span class="crc-otu-p">Figure 표시 P = 6.8 × 10<sup>-5</sup></span><p>qPCR에서도 CRC tissue의 <em>F. nucleatum</em> 검출률이 높아, 두 분석법에서 일관된 연관성이 관찰됨 · 측정값은 서로 다름</p></div>
   </div>
 </div>
 ```
@@ -5315,10 +5382,10 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Methods / Results / Figure 2
 :::
 
 ::: crc-otu-source
-Kim M, et al. Sci Rep. 2020;10:19915 · Figure 2
+Kim M, et al. Sci Rep. 2020;10:19915 · Figure 2
 :::
 
-## 논문 4 · Figure 3: 음주와 Fusobacterium 상대풍부도 {.module-microbiome}
+## 논문 4 · Figure 3: 음주와 Fusobacterium 상대풍부도 {.module-microbiome}
 
 ```{=html}
 <style>
@@ -5371,14 +5438,14 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Figure 2
 ```{=html}
 <div class="crc-alc-layout">
   <figure class="crc-alc-figure">
-    <div class="crc-alc-figure-tags"><span>LEFT · CRC cases · P = 0.003</span><span>RIGHT · Controls · P = 0.636</span><span>Y-axis · Relative abundance (%)</span></div>
-    <img class="crc-alc-image" src="slides_assets/crc-figure3-alcohol-fusobacterium.png" alt="Figure 3 boxplots comparing Fusobacterium relative abundance between heavy and non/light drinkers in CRC patients and controls">
-    <figcaption class="crc-alc-caption"><span>Figure 3 · 음주군별 Fusobacterium relative abundance 비교</span><span>두 패널의 y-axis scale이 서로 다름 · CRC와 control의 box 높이 직접 비교 금지</span></figcaption>
+    <div class="crc-alc-figure-tags"><span>LEFT · CRC cases · P = 0.003</span><span>RIGHT · Controls · P = 0.636</span><span>Y-axis · Relative abundance (%)</span></div>
+    <img class="crc-alc-image" src="slides_assets/crc-figure3-alcohol-fusobacterium.png" alt="Figure 3 boxplots comparing Fusobacterium relative abundance between heavy and non/light drinkers in CRC patients and controls">
+    <figcaption class="crc-alc-caption"><span>Figure 3 · 음주군별 Fusobacterium relative abundance 비교</span><span>두 패널의 y-axis scale이 서로 다름 · CRC와 control의 box 높이 직접 비교 금지</span></figcaption>
   </figure>
   <div class="crc-alc-side">
-    <div class="crc-alc-card crc-alc-crc"><span class="crc-alc-label">CRC PATIENTS</span><h3>Heavy drinker에서 더 높은 abundance</h3><div class="crc-alc-result-line"><strong class="crc-alc-p">P = 0.003</strong><span class="crc-alc-vs">Heavy drinker<br>vs Non/light drinker</span></div><p>Fusobacterium OTU의 relative abundance 분포가 heavy drinker에서 더 높음</p></div>
-    <div class="crc-alc-card crc-alc-control"><span class="crc-alc-label">CONTROLS</span><h3>차이 없음</h3><div class="crc-alc-result-line"><strong class="crc-alc-p">P = 0.636</strong><span class="crc-alc-vs">Heavy vs Non/light</span></div><p>Control에서는 같은 패턴이 관찰되지 않음</p></div>
-    <div class="crc-alc-card crc-alc-mix"><span class="crc-alc-label">ANALYSIS DISTINCTION</span><h3>양성률과 상대풍부도의 구분</h3><div class="crc-alc-mix-grid"><div class="crc-alc-mix-block"><strong>TABLE 4 · 양성 / 음성</strong><span>≥1% 기준의 양성 여부</span><span class="crc-alc-mix-number">Heavy · 14/15 positive · 93.3%</span><span class="crc-alc-mix-number">Non/light · 11/17 positive · 64.7%</span><span>Fisher’s exact · P = 0.088</span><span class="crc-alc-negative">6/17은 negative</span></div><div class="crc-alc-mix-block"><strong>FIGURE 3 · 연속형 abundance</strong><span>연속형 상대풍부도</span><span class="crc-alc-mix-number">실제 relative abundance 전체 분포 비교</span><span class="crc-alc-mix-number">CRC · P = 0.003</span><span>16S rRNA 결과 · qPCR 결과가 아님</span><span>일반적인 0.05 기준에서 Table 4 P=0.088은 유의하지 않음</span></div></div><span class="crc-alc-mix-note">P = 0.088과 P = 0.003은 서로 다른 분석 결과</span></div>
+    <div class="crc-alc-card crc-alc-crc"><span class="crc-alc-label">CRC PATIENTS</span><h3>Heavy drinker에서 더 높은 abundance</h3><div class="crc-alc-result-line"><strong class="crc-alc-p">P = 0.003</strong><span class="crc-alc-vs">Heavy drinker<br>vs Non/light drinker</span></div><p>Fusobacterium OTU의 relative abundance 분포가 heavy drinker에서 더 높음</p></div>
+    <div class="crc-alc-card crc-alc-control"><span class="crc-alc-label">CONTROLS</span><h3>차이 없음</h3><div class="crc-alc-result-line"><strong class="crc-alc-p">P = 0.636</strong><span class="crc-alc-vs">Heavy vs Non/light</span></div><p>Control에서는 같은 패턴이 관찰되지 않음</p></div>
+    <div class="crc-alc-card crc-alc-mix"><span class="crc-alc-label">ANALYSIS DISTINCTION</span><h3>양성률과 상대풍부도의 구분</h3><div class="crc-alc-mix-grid"><div class="crc-alc-mix-block"><strong>TABLE 4 · 양성 / 음성</strong><span>≥1% 기준의 양성 여부</span><span class="crc-alc-mix-number">Heavy · 14/15 positive · 93.3%</span><span class="crc-alc-mix-number">Non/light · 11/17 positive · 64.7%</span><span>Fisher’s exact · P = 0.088</span><span class="crc-alc-negative">6/17은 negative</span></div><div class="crc-alc-mix-block"><strong>FIGURE 3 · 연속형 abundance</strong><span>연속형 상대풍부도</span><span class="crc-alc-mix-number">실제 relative abundance 전체 분포 비교</span><span class="crc-alc-mix-number">CRC · P = 0.003</span><span>16S rRNA 결과 · qPCR 결과가 아님</span><span>일반적인 0.05 기준에서 Table 4 P=0.088은 유의하지 않음</span></div></div><span class="crc-alc-mix-note">P = 0.088과 P = 0.003은 서로 다른 분석 결과</span></div>
   </div>
 </div>
 <div class="crc-alc-interpret"><strong>ASSOCIATION / CAUSATION</strong><span>CRC 환자에서 heavy drinking과 높은 Fusobacterium abundance가 연관됨</span><b>Alcohol → Fusobacterium → CRC 인과 경로는 확인되지 않음</b></div>
@@ -5389,7 +5456,7 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Figure 2
 :::
 
 ::: crc-alc-source
-Kim M, et al. Sci Rep. 2020;10:19915 · Figure 3 / Table 4
+Kim M, et al. Sci Rep. 2020;10:19915 · Figure 3 / Table 4
 :::
 
 ## 논문 4 · 연관성 해석과 연구의 한계 {.module-microbiome}
@@ -5456,7 +5523,7 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Figure 3 / Table 4
 </div>
 
 <div class="crc-limit-two">
-  <div class="crc-limit-card crc-limit-supported"><span class="crc-limit-label">OBSERVED ASSOCIATIONS</span><h3>관찰된 연관성</h3><div class="crc-limit-list"><div class="crc-limit-item"><b>①</b><span>CRC tissue에서 <em>F. nucleatum</em> 검출률이 높음 · <strong>82.1% vs control 0%</strong></span></div><div class="crc-limit-item"><b>②</b><span>CRC 환자의 heavy drinker에서 Fusobacterium relative abundance가 더 높음 · <strong>Figure 3 · P=0.003</strong></span></div><div class="crc-limit-item"><b>③</b><span>qPCR-positive sample은 16S에서도 Fusobacterium abundance가 높은 경향</span></div></div></div>
+  <div class="crc-limit-card crc-limit-supported"><span class="crc-limit-label">OBSERVED ASSOCIATIONS</span><h3>관찰된 연관성</h3><div class="crc-limit-list"><div class="crc-limit-item"><b>①</b><span>CRC tissue에서 <em>F. nucleatum</em> 검출률이 높음 · <strong>82.1% vs control 0%</strong></span></div><div class="crc-limit-item"><b>②</b><span>CRC 환자의 heavy drinker에서 Fusobacterium relative abundance가 더 높음 · <strong>Figure 3 · P=0.003</strong></span></div><div class="crc-limit-item"><b>③</b><span>qPCR-positive sample은 16S에서도 Fusobacterium abundance가 높은 경향</span></div></div></div>
   <div class="crc-limit-card crc-limit-not"><span class="crc-limit-label">LIMITS OF INTERPRETATION</span><h3>이 연구에서 확인되지 않은 인과관계</h3><div class="crc-limit-xgrid"><div class="crc-limit-x"><b>×</b><span>술이 Fusobacterium을 증가시킨다</span></div><div class="crc-limit-x"><b>×</b><span>Fusobacterium 증가가 CRC를 발생시킨다</span></div><div class="crc-limit-x"><b>×</b><span>Alcohol → Fusobacterium → CRC 순차 인과 경로</span></div><div class="crc-limit-x"><b>×</b><span>Fusobacterium을 줄이면 CRC가 예방된다</span></div></div></div>
 </div>
 
@@ -5469,7 +5536,7 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Figure 3 / Table 4
 ```
 
 ::: {.key-message .crc-limit-key markdown="1"}
-<strong>이 연구에서는 CRC·Fusobacterium·음주 사이의 연관성이 관찰되었으나, Alcohol → Fusobacterium → CRC의 인과 경로는 확인되지 않았다.</strong>[작은 표본과 제한된 subgroup 분석을 고려해 결과를 해석해야 한다.]{.crc-limit-key-small}
+<strong>CRC·Fusobacterium·음주 연관성은 관찰됐지만, Alcohol → Fusobacterium → CRC 인과 경로는 확인되지 않았다.</strong>[작은 표본과 제한된 subgroup 분석을 고려해야 한다.]{.crc-limit-key-small}
 :::
 
 ::: crc-limit-source
@@ -5548,7 +5615,7 @@ Kim M, et al. Sci Rep. 2020;10:19915 · Discussion / Limitations
 :::
 
 ::: wgs-compare-source
-Ahn K, et al. Ann Lab Med. 2025 · Methods / Table 1–3
+Ahn K, et al. Ann Lab Med. 2025 · Methods / Table 1–3
 :::
 
 ## 논문 5 · AST와 WGS의 통합 분석 흐름 {.module-amr}
@@ -5630,7 +5697,7 @@ Ahn K, et al. Ann Lab Med. 2025 · Methods / Table 1–3
 Ahn K, et al. Ann Lab Med. 2025 · Methods
 :::
 
-## 논문 5 · Table 1: GBS 계통 구성의 시간 변화 {.module-amr}
+## 논문 5 · Table 1: GBS 계통 구성의 시간 변화 {.module-amr}
 
 ```{=html}
 <style>
@@ -5686,20 +5753,20 @@ Ahn K, et al. Ann Lab Med. 2025 · Methods
 ```{=html}
 <div class="wgs-t1-layout">
   <figure class="wgs-t1-figure">
-    <img class="wgs-t1-image" src="slides_assets/paper5-table1.png" alt="Table 1 showing ST, CC and cps genotype counts and percentages among 37 past and 209 recent GBS isolates">
-    <figcaption class="wgs-t1-caption">Table 1 · 1994–2000년과 2017–2022년의 ST·CC·cps genotype 분포</figcaption>
+    <img class="wgs-t1-image" src="slides_assets/paper5-table1.png" alt="Table 1 showing ST, CC and cps genotype counts and percentages among 37 past and 209 recent GBS isolates">
+    <figcaption class="wgs-t1-caption">Table 1 · 1994–2000년과 2017–2022년의 ST·CC·cps genotype 분포</figcaption>
   </figure>
   <div class="wgs-t1-side">
     <div class="wgs-t1-dominant"><span class="wgs-t1-label">DOMINANT CC</span><h3>우세 CC의 변화</h3><div class="wgs-t1-dom-grid"><div class="wgs-t1-dom-era"><span>PAST · 1994–2000</span><b>CC19</b><small>14 / 37 · 37.8% <em class="wgs-t1-flag">본문은 13/37 · 35.1% (불일치)</em></small></div><div class="wgs-t1-arrow">→</div><div class="wgs-t1-dom-era"><span>RECENT · 2017–2022</span><b>CC1</b><small>74 / 209 · 35.4%</small></div></div></div>
     <div class="wgs-t1-changes">
-      <div class="wgs-t1-change wgs-t1-increase"><span class="wgs-t1-label">INCREASE</span><h3>CC1 · cps VIII</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>1 / 37 · 2.7%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>32 / 209 · 15.3%</b></div></div><span class="wgs-t1-p">P = 0.037</span><p>과거 ST1 1균주 → 최근 32균주는 모두 ST2</p></div>
-      <div class="wgs-t1-change wgs-t1-decrease"><span class="wgs-t1-label">DECREASE</span><h3>CC19 · cps III</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>14 / 37 · 37.8%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>36 / 209 · 17.2%</b></div></div><span class="wgs-t1-p">P = 0.004</span><p>비율 감소</p></div>
-      <div class="wgs-t1-change wgs-t1-new"><span class="wgs-t1-label">NEWLY EMERGED</span><h3>CC19 · cps V</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>0 / 37 · 0%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>24 / 209 · 11.5%</b></div></div><span class="wgs-t1-p">P = 0.031</span><p>과거에는 없었지만 최근 집단에서 확인</p></div>
-      <div class="wgs-t1-change wgs-t1-decrease"><span class="wgs-t1-label">DECREASE</span><h3>CC12 · cps Ib</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>10 / 37 · 27.0%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>28 / 209 · 13.4%</b></div></div><span class="wgs-t1-p">P = 0.034</span><p>메인 결과는 원표(Table 1) 값 사용</p></div>
+      <div class="wgs-t1-change wgs-t1-increase"><span class="wgs-t1-label">INCREASE</span><h3>CC1 · cps VIII</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>1 / 37 · 2.7%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>32 / 209 · 15.3%</b></div></div><span class="wgs-t1-p">P = 0.037</span><p>과거 ST1 1균주 → 최근 32균주는 모두 ST2</p></div>
+      <div class="wgs-t1-change wgs-t1-decrease"><span class="wgs-t1-label">DECREASE</span><h3>CC19 · cps III</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>14 / 37 · 37.8%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>36 / 209 · 17.2%</b></div></div><span class="wgs-t1-p">P = 0.004</span><p>비율 감소</p></div>
+      <div class="wgs-t1-change wgs-t1-new"><span class="wgs-t1-label">NEWLY EMERGED</span><h3>CC19 · cps V</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>0 / 37 · 0%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>24 / 209 · 11.5%</b></div></div><span class="wgs-t1-p">P = 0.031</span><p>과거에는 없었지만 최근 집단에서 확인</p></div>
+      <div class="wgs-t1-change wgs-t1-decrease"><span class="wgs-t1-label">DECREASE</span><h3>CC12 · cps Ib</h3><div class="wgs-t1-values"><div class="wgs-t1-value"><span>PAST</span><b>10 / 37 · 27.0%</b></div><div class="wgs-t1-mini-arrow">→</div><div class="wgs-t1-value"><span>RECENT</span><b>28 / 209 · 13.4%</b></div></div><span class="wgs-t1-p">P = 0.034</span><p>메인 결과는 원표(Table 1) 값 사용</p></div>
     </div>
   </div>
 </div>
-<div class="wgs-t1-notes"><div class="wgs-t1-read"><strong>TABLE 읽는 법 · 기본 분모는 시대별 전체 isolate 수</strong><span>PAST <b>37</b> · RECENT <b>209</b> · 1/37=2.7% · 32/209=15.3%<br>CC 내부 비율이 아니라 각 시대 전체 isolate 중 비율</span></div><div class="wgs-t1-caution"><b>※ 원문 내부 수치 주의</b> · CC19은 본문·초록에서 13/37(35.1%)이나 Table 1 세부행 합계(cps III 14 + V 0 + Ib 0)는 14/37(37.8%). <b>본 슬라이드는 CC19에도 Table 1 값을 사용함.</b><br>CC12–Ib는 본문 27/209(12.9%), P=.027; Table 1은 28/209(13.4%), P=.034. <b>본 슬라이드는 CC12–Ib에 원표 값을 사용함.</b> <span class="wgs-t1-method">희소 cell 비교 · Fisher’s exact</span></div></div>
+<div class="wgs-t1-notes"><div class="wgs-t1-read"><strong>TABLE 읽는 법 · 기본 분모는 시대별 전체 isolate 수</strong><span>PAST <b>37</b> · RECENT <b>209</b> · 1/37=2.7% · 32/209=15.3%<br>CC 내부 비율이 아니라 각 시대 전체 isolate 중 비율</span></div><div class="wgs-t1-caution"><b>※ 원문 내부 수치 주의</b> · CC19은 본문·초록에서 13/37(35.1%)이나 Table 1 세부행 합계(cps III 14 + V 0 + Ib 0)는 14/37(37.8%). <b>본 슬라이드는 CC19에도 Table 1 값을 사용함.</b><br>CC12–Ib는 본문 27/209(12.9%), P=.027; Table 1은 28/209(13.4%), P=.034. <b>본 슬라이드는 CC12–Ib에 원표 값을 사용함.</b> <span class="wgs-t1-method">희소 cell 비교 · Fisher’s exact</span></div></div>
 ```
 
 ::: {.key-message .wgs-t1-key markdown="1"}
@@ -5707,10 +5774,10 @@ Ahn K, et al. Ann Lab Med. 2025 · Methods
 :::
 
 ::: wgs-t1-source
-Ahn K, et al. Ann Lab Med. 2025 · Table 1
+Ahn K, et al. Ann Lab Med. 2025 · Table 1
 :::
 
-## 논문 5 · Figure 1: 표현형 내성과 ARG의 시간 변화 {#논문-5-표현형-내성-arg .module-amr}
+## 논문 5 · Figure 1: 표현형 내성과 ARG의 시간 변화 {#논문-5-표현형-내성-arg .module-amr}
 
 ::::::::::::: {.columns markdown="1"}
 ::::: {.column style="width:55%;" markdown="1"}
@@ -5718,7 +5785,7 @@ Ahn K, et al. Ann Lab Med. 2025 · Table 1
 ![](slides_assets/paper5-figure1.png){fig-alt="표현형 내성률과 내성 유전자 보유율 변화" height="500"}
 
 ::: {.small-source markdown="1"}
-Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K, et al. Ann Lab Med 2025
+Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K, et al. Ann Lab Med 2025
 :::
 ::::
 :::::
@@ -5730,11 +5797,11 @@ Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K,
 :::
 
 ::: {.big-card .purple markdown="1"}
-[tetO]{.eyebrow} [2.8% → 29.9%]{.big-number} P = 0.017
+[tetO]{.eyebrow} [2.8% → 29.9%]{.big-number} P = 0.017
 :::
 
 ::: {.big-card .blue markdown="1"}
-[LEVOFLOXACIN R]{.eyebrow} [0% → 23.4%]{.big-number} P = 0.001
+[LEVOFLOXACIN R]{.eyebrow} [0% → 23.4%]{.big-number} P = 0.001
 :::
 
 ::: {.big-card markdown="1"}
@@ -5818,17 +5885,17 @@ Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K,
 ```
 
 ::: {.key-message .gp-method-key markdown="1"}
-<strong>시기별 phenotype·ARG 비율 변화와 개별 균주의 genotype–phenotype 일치도는 서로 다른 분석이다.</strong>[이 논문은 전자를 분석했으며, sensitivity·specificity·kappa 기반 일치도 분석은 별도로 수행하지 않았다.]{.gp-method-key-small}
+<strong>시기별 phenotype·ARG 비율 변화와 균주별 genotype–phenotype 일치도는 별도 분석이다.</strong>[이 논문은 전자만 분석했으며, sensitivity·specificity·kappa 일치도는 수행하지 않았다.]{.gp-method-key-small}
 :::
 
-## 논문 5 · Table 2: 시기별 AMR profile 분포 변화 {#논문-5-table-2-amr-profile-다양성-확대 .module-amr}
+## 논문 5 · Table 2: 시기별 AMR profile 분포 변화 {#논문-5-table-2-amr-profile-다양성-확대 .module-amr}
 
 ```{=html}
 <style>
 #논문-5-table-2-amr-profile-다양성-확대 > h2{max-width:1260px;font-size:1.48em;line-height:1.07}
 #논문-5-table-2-amr-profile-다양성-확대 .wgs-t2-layout{display:grid;grid-template-columns:minmax(0,1.58fr) minmax(0,1fr);gap:18px;height:462px;margin-top:9px}
 #논문-5-table-2-amr-profile-다양성-확대 .wgs-t2-figure{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;height:462px;margin:0;padding:8px 13px 7px;border:1px solid rgba(82,96,91,.16);border-radius:18px;background:rgba(255,255,255,.97);box-shadow:0 8px 20px rgba(48,62,57,.08)}
-#논문-5-table-2-amr-profile-다양성-확대 .wgs-t2-image{display:block;width:100%;height:426px;object-fit:contain}
+#논문-5-table-2-amr-profile-다양성-확대 .wgs-t2-image{display:block;width:100%;height:445px;object-fit:contain}
 #논문-5-table-2-amr-profile-다양성-확대 .wgs-t2-caption{width:100%;margin-top:4px;color:#596762;font-size:0.405em;font-weight:760;line-height:1.05;text-align:center}
 #논문-5-table-2-amr-profile-다양성-확대 .wgs-t2-cards{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:9px;height:462px}
 #논문-5-table-2-amr-profile-다양성-확대 .wgs-t2-card{box-sizing:border-box;padding:10px 12px;border-radius:15px;box-shadow:0 5px 14px rgba(48,62,57,.06)}
@@ -5880,14 +5947,14 @@ Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K,
 ```{=html}
 <div class="wgs-t2-layout">
   <figure class="wgs-t2-figure">
-    <img class="wgs-t2-image" src="slides_assets/paper5-table2.png" alt="Table 2 comparing antimicrobial resistance profiles among 37 past and 209 recent GBS isolates">
-    <figcaption class="wgs-t2-caption">Table 2 · 1994–2000년과 2017–2022년의 AMR profile 분포</figcaption>
+    <img class="wgs-t2-image" src="slides_assets/paper5-table2.png" alt="Table 2 comparing antimicrobial resistance profiles among 37 past and 209 recent GBS isolates">
+    <figcaption class="wgs-t2-caption">Table 2 · 1994–2000년과 2017–2022년의 AMR profile 분포</figcaption>
   </figure>
   <div class="wgs-t2-cards">
     <div class="wgs-t2-card wgs-t2-diversity"><span class="wgs-t2-label">PROFILE DIVERSITY</span><h3>AMR profile 종류 증가</h3><div class="wgs-t2-change"><div class="wgs-t2-sideval"><span>PAST</span><b>6</b><span>profiles</span></div><div class="wgs-t2-arrow">→</div><div class="wgs-t2-sideval"><span>RECENT</span><b>16</b><span>profiles</span></div></div><span class="wgs-t2-new">최근 새롭게 확인된 pattern 11종</span><p>개별 내성률이 아니라 한 isolate의 동시 내성 조합 수</p></div>
-    <div class="wgs-t2-card wgs-t2-none"><span class="wgs-t2-label">NO RESISTANCE</span><h3>내성이 없는 isolate도 증가</h3><div class="wgs-t2-change"><div class="wgs-t2-sideval"><span>PAST</span><b>1 / 37<br>2.7%</b></div><div class="wgs-t2-arrow">→</div><div class="wgs-t2-sideval"><span>RECENT</span><b>50 / 209<br>23.9%</b></div></div><span class="wgs-t2-p">P = 0.003</span><p>Profile 다양성 증가는 모든 isolate의 내성 증가를 의미하지 않음</p></div>
+    <div class="wgs-t2-card wgs-t2-none"><span class="wgs-t2-label">NO RESISTANCE</span><h3>내성이 없는 isolate도 증가</h3><div class="wgs-t2-change"><div class="wgs-t2-sideval"><span>PAST</span><b>1 / 37<br>2.7%</b></div><div class="wgs-t2-arrow">→</div><div class="wgs-t2-sideval"><span>RECENT</span><b>50 / 209<br>23.9%</b></div></div><span class="wgs-t2-p">P = 0.003</span><p>Profile 다양성 증가는 모든 isolate의 내성 증가를 의미하지 않음</p></div>
     <div class="wgs-t2-card wgs-t2-tet"><span class="wgs-t2-label">TET ONLY</span><h3>과거의 지배적 단독 profile 감소</h3><div class="wgs-t2-change"><div class="wgs-t2-sideval"><span>PAST</span><b>20 / 37<br>54.1%</b></div><div class="wgs-t2-arrow">↓</div><div class="wgs-t2-sideval"><span>RECENT</span><b>39 / 209<br>18.7%</b></div></div><span class="wgs-t2-p">P &lt; 0.001</span><p>Tetracycline 내성이 사라진 것이 아니라 TET-only 비중이 감소</p></div>
-    <div class="wgs-t2-card wgs-t2-specific"><span class="wgs-t2-label">PERIOD-SPECIFIC PROFILES</span><h3>특정 시기에만 나타난 조합 증가</h3><div class="wgs-t2-change"><div class="wgs-t2-sideval"><span>PAST</span><b>1 / 37<br>2.7%</b></div><div class="wgs-t2-arrow">→</div><div class="wgs-t2-sideval"><span>RECENT</span><b>61 / 209<br>29.2%</b></div></div><span class="wgs-t2-p">P &lt; 0.001</span><p>Table 2의 common vs period-specific 전체 비교</p></div>
+    <div class="wgs-t2-card wgs-t2-specific"><span class="wgs-t2-label">PERIOD-SPECIFIC PROFILES</span><h3>특정 시기에만 나타난 조합 증가</h3><div class="wgs-t2-change"><div class="wgs-t2-sideval"><span>PAST</span><b>1 / 37<br>2.7%</b></div><div class="wgs-t2-arrow">→</div><div class="wgs-t2-sideval"><span>RECENT</span><b>61 / 209<br>29.2%</b></div></div><span class="wgs-t2-p">P &lt; 0.001</span><p>Table 2의 common vs period-specific 전체 비교</p></div>
   </div>
 </div>
 
@@ -5903,7 +5970,7 @@ Figure 1. 시기별 표현형 내성과 관련 내성 유전자 변화 · Ahn K,
 :::
 
 ::: wgs-t2-source
-Ahn K, et al. Ann Lab Med. 2025 · Table 2
+Ahn K, et al. Ann Lab Med. 2025 · Table 2
 :::
 
 ## 논문을 읽을 때 확인할 7가지 {.module-overview}
