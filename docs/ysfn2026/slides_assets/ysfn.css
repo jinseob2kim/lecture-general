@@ -1,0 +1,43 @@
+.prompt-box {
+  background: #f4f7fb;
+  border-left: 6px solid #2f6db5;
+  border-radius: 6px;
+  padding: 14px 22px;
+  margin: 12px 0;
+  font-size: 0.9em;
+}
+.compare-cap { font-size: 0.6em; color: #666; text-align: center; margin-top: 4px; }
+.todo-shot {
+  border: 2px dashed #bbb; border-radius: 8px; color: #999;
+  padding: 120px 20px; text-align: center; font-size: 0.8em;
+}
+
+/* ---- 여백 줄이기: 글씨·표·박스·코드 확대 ---- */
+.reveal .slides section table { font-size: 0.85em; margin: 24px 0; }
+.reveal .slides section table th,
+.reveal .slides section table td { padding: 12px 18px; }
+
+.reveal .slides section .highlight-box,
+.reveal .slides section .highlight-box-blue,
+.reveal .slides section .highlight-box-gray { font-size: 0.95em; padding: 18px 26px; margin-top: 28px; }
+
+.reveal .slides section .summary-grid-4 { gap: 22px; margin: 40px 0 30px; }
+.reveal .slides section .summary-item { font-size: 0.95em; padding: 44px 18px; line-height: 1.6; }
+
+.reveal .slides section pre { font-size: 0.78em; width: 100%; }
+.reveal .slides section pre code { max-height: none; line-height: 1.45; }
+
+.reveal .slides section .large { font-size: 1.25em; line-height: 1.7; }
+.reveal .slides section .prompt-box { font-size: 1.1em; padding: 22px 30px; margin: 26px 0; }
+
+/* 코드 + 스크린샷 2단 슬라이드 */
+.reveal #표-저장-excel pre,
+.reveal #그림-저장-ppt pre { font-size: 0.6em; }
+
+/* 내용이 적은 슬라이드 */
+.reveal #chatgpt와-claude .columns { font-size: 1.25em; margin-top: 60px; }
+.reveal #chatgpt와-claude li { margin: 14px 0; }
+.reveal #지시-방법 ol { font-size: 1.05em; margin-top: 20px; }
+.reveal #주의사항 ol { font-size: 1.15em; line-height: 1.9; margin-top: 30px; }
+.reveal #준비물 pre { font-size: 1.0em; margin-top: 50px; }
+.reveal #racing-trial .large { margin-top: 30px; }

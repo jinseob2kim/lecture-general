@@ -1,0 +1,58 @@
+/* Small layout refinements after the first rendered pass. */
+.reveal .fraction-card .big-number {
+  display: block;
+  margin-top: 14px;
+  color: #2a3d21;
+  font-size: 1.18em;
+  line-height: 1.08;
+  font-weight: 950;
+}
+
+.reveal .column .comparison-arrow {
+  grid-template-columns: 1fr 46px 1fr;
+  gap: 8px;
+}
+
+.reveal .column .analysis-chain {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.reveal .column .analysis-chain .flow-step {
+  min-height: 124px;
+}
+
+.reveal .column .analysis-chain .flow-step:nth-child(2)::after {
+  content: none;
+}
+
+/* --- 2차 개정: 논문 소개 카드 출처 표기 --- */
+.reveal .stat-map .map-source {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed #d5dfda;
+  color: #7b8a83;
+  font-size: 0.92em;
+  font-weight: 750;
+  line-height: 1.32;
+}
+
+.reveal .stat-map .map-scl {
+  color: #b06a2c;
+  font-weight: 950;
+}
+
+.reveal .stat-map .map-card { min-height: 372px; }
+.reveal .stat-map .map-title { min-height: 60px; }
+
+/* --- 개념 삽화 전면 슬라이드: 제목은 아웃라인용으로만 유지 --- */
+.reveal .image-only h2 { display: none; }
+.reveal .image-only .paper-frame { padding: 8px; }
+.reveal .image-only .key-message { margin-top: 12px; }
+
+/* 좁은 칸에서 화살표 글자가 세로로 쌓이는 것 방지 */
+.reveal .comparison-arrow .arrow { white-space: nowrap; }
+.reveal .column .comparison-arrow .arrow { font-size: 1.0em; }
+
+/* 이미지 전면 슬라이드: 이미지 문단 여백 제거로 하단 잘림 방지 */
+.reveal .image-only .paper-frame p { margin: 0; }
+.reveal .image-only .paper-frame img { display: block; margin: 0 auto; }
