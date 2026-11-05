@@ -1,8 +1,6 @@
 ---
 title: "AI agent를 이용한 의학통계"
-subtitle: "젊은정위기능신경외과의사 모임"
 author: "김진섭"
-date: "2026.11.20"
 lang: ko
 format:
   revealjs:
@@ -177,7 +175,7 @@ PPT 벡터그래픽, P value 표기
 :::::::
 
 ::: highlight-box-gray
-예시 파일 `CLAUDE_example.md` · 본인 스타일에 맞게 수정
+평소 분석 스타일·자주 겪는 에러 → 직접 작성, 쓰면서 계속 추가
 :::
 
 ## 예시 1 · 코딩 스타일
@@ -383,7 +381,7 @@ CLAUDE.md: 연구 설계, 변수, 표·그림별 방법 (CI 수준, 검정법)
 
 ## 데모 영상
 
-{{< video video/racing_demo.mp4 width="1400" height="788" >}}
+{{< video video/racing_demo.mp4 width="1013" height="760" >}}
 
 ## 결과 확인
 
@@ -405,7 +403,7 @@ AI 결과도 직접 쓴 코드처럼 검토 · 수정은 말로 지시
 
 ::: large
 1. Claude 데스크톱 설치, Code 탭
-2. `CLAUDE_example.md` → `~/.claude/CLAUDE.md` 저장, 내 스타일로 수정
+2. `~/.claude/CLAUDE.md`에 내 분석 스타일 작성
 3. 연구 하나 = 폴더 하나, 비식별화 자료는 `data/`에
 4. 연구 설계·변수 설명 → 폴더의 `CLAUDE.md`
 5. "global.R 만들어줘" → "Table 1 만들어줘" → "Excel로 저장해줘"

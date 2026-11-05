@@ -41,3 +41,4 @@
 .reveal #주의사항 ol { font-size: 1.15em; line-height: 1.9; margin-top: 30px; }
 .reveal #준비물 pre { font-size: 1.0em; margin-top: 50px; }
 .reveal #racing-trial .large { margin-top: 30px; }
+.reveal #데모-영상 .video-js { display: block !important; margin: 10px auto 0 !important; }
