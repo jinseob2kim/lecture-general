@@ -45,8 +45,6 @@
 .reveal #결과-확인 table { font-size: 0.7em; margin-top: 10px; }
 .reveal #결과-확인 table td, .reveal #결과-확인 table th { padding: 7px 16px; }
 .reveal #생성된-파일 table { font-size: 0.72em; }
-.reveal #보건의료데이터-활용-가이드라인 .columns table { font-size: 0.62em; }
-.reveal #보건의료데이터-활용-가이드라인 .columns table td,
-.reveal #보건의료데이터-활용-가이드라인 .columns table th { padding: 8px 10px; }
 .reveal #보건의료데이터-활용-가이드라인 .large { font-size: 1.05em; }
 .reveal .small-source { color: #777; margin-top: 10px; }
+.reveal #보건의료데이터-활용-가이드라인 .columns > .column:first-child { font-size: 0.95em; }

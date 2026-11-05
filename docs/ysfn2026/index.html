@@ -344,56 +344,29 @@
 </section>
 <section id="보건의료데이터-활용-가이드라인" class="slide level2">
 <h2>보건의료데이터 활용 가이드라인</h2>
-<p>보건복지부·개인정보보호위원회 (2026.11) · LLM 활용 격리원칙</p>
 <div class="columns">
-<div class="column" style="width:38%;">
+<div class="column" style="width:44%;">
+<p>보건복지부·개인정보보호위원회 (2026.11)</p>
+<p><strong>LLM 활용 격리원칙</strong></p>
 <div class="large">
 <ol type="1">
 <li><strong>물리적 격리</strong><br>LLM 서버는 국내</li>
 <li><strong>기능적 격리</strong><br>입력 데이터 저장·학습 금지</li>
 </ol>
 </div>
-</div><div class="column" style="width:62%;">
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>유형</th>
-<th>예</th>
-<th>의료데이터</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1. 퍼블릭 웹서비스</td>
-<td>ChatGPT·Gemini·Claude 일반 구독</td>
-<td><strong>불가</strong></td>
-</tr>
-<tr class="even">
-<td>2. 보안형 B2B</td>
-<td>Enterprise, 학습 안 되는 API</td>
-<td>제한적 허용 (국내 서버)</td>
-</tr>
-<tr class="odd">
-<td>3. 폐쇄형 클라우드</td>
-<td>AWS Bedrock, Azure, GCP</td>
-<td>제한적 허용 (국내 서버)</td>
-</tr>
-<tr class="even">
-<td>4. 의료기관 서버</td>
-<td>기관이 국내에 구축</td>
-<td>허용</td>
-</tr>
-</tbody>
-</table>
-</div></div>
 <div class="highlight-box">
-<p>Claude Pro·Max 구독 = 유형 1 · 의료데이터 입력 전 기관 지침 확인</p>
+<p>Claude Pro·Max 구독 = 유형 1 → 의료데이터 <strong>불가</strong></p>
 </div>
+<div class="highlight-box-gray">
+<p>의료데이터 입력 전 기관 지침 확인</p>
+</div>
+</div><div class="column" style="width:56%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/07_llm_guideline.png" class="quarto-figure quarto-figure-center" height="760"></p>
+</figure>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="설치와-세팅" class="title-slide slide level1 center">

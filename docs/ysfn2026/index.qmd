@@ -122,29 +122,30 @@ Claude가 읽은 파일 내용도 대화와 함께 서버로 전송
 
 ## 보건의료데이터 활용 가이드라인
 
-보건복지부·개인정보보호위원회 (2026.11) · LLM 활용 격리원칙
-
 :::::: columns
-::: {.column width="38%"}
+::: {.column width="44%"}
+보건복지부·개인정보보호위원회 (2026.11)
+
+**LLM 활용 격리원칙**
+
 ::: large
 1. **물리적 격리**<br>LLM 서버는 국내
 2. **기능적 격리**<br>입력 데이터 저장·학습 금지
 :::
-:::
-
-::: {.column width="62%"}
-| 유형 | 예 | 의료데이터 |
-|---|---|---|
-| 1. 퍼블릭 웹서비스 | ChatGPT·Gemini·Claude 일반 구독 | **불가** |
-| 2. 보안형 B2B | Enterprise, 학습 안 되는 API | 제한적 허용 (국내 서버) |
-| 3. 폐쇄형 클라우드 | AWS Bedrock, Azure, GCP | 제한적 허용 (국내 서버) |
-| 4. 의료기관 서버 | 기관이 국내에 구축 | 허용 |
-:::
-::::::
 
 ::: highlight-box
-Claude Pro·Max 구독 = 유형 1 · 의료데이터 입력 전 기관 지침 확인
+Claude Pro·Max 구독 = 유형 1 → 의료데이터 **불가**
 :::
+
+::: highlight-box-gray
+의료데이터 입력 전 기관 지침 확인
+:::
+:::
+
+::: {.column width="56%"}
+![](img/07_llm_guideline.png){height="760px" fig-align="center"}
+:::
+::::::
 
 # 설치와 세팅
 
