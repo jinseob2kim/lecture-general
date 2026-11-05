@@ -99,6 +99,53 @@ CLAUDE.md: 분석 스타일 고정
 사용법 거의 동일 · 오늘은 Claude 기준
 :::
 
+# 의료데이터와 AI
+
+## 데이터 전송·보관
+
+| 플랜 | 모델 학습 | 서버 보관 |
+|---|---|---|
+| 개인용 (Free·Pro·Max) | 설정에 따라 (켜면 학습에 사용) | 켜짐 5년 · 꺼짐 30일 |
+| 기업용 (Team·Enterprise·API) | 사용 안 함 | 30일 (Enterprise 일부 ZDR 가능) |
+
+::: highlight-box
+Claude가 읽은 파일 내용도 대화와 함께 서버로 전송
+:::
+
+::: highlight-box-gray
+개인용 설정: claude.ai/settings/data-privacy-controls · 내 PC에도 대화 기록 저장 (`~/.claude/projects/`)
+:::
+
+::: small-source
+출처: Claude Code Docs, Data usage
+:::
+
+## 보건의료데이터 활용 가이드라인
+
+보건복지부·개인정보보호위원회 (2026.11) · LLM 활용 격리원칙
+
+:::::: columns
+::: {.column width="38%"}
+::: large
+1. **물리적 격리**<br>LLM 서버는 국내
+2. **기능적 격리**<br>입력 데이터 저장·학습 금지
+:::
+:::
+
+::: {.column width="62%"}
+| 유형 | 예 | 의료데이터 |
+|---|---|---|
+| 1. 퍼블릭 웹서비스 | ChatGPT·Gemini·Claude 일반 구독 | **불가** |
+| 2. 보안형 B2B | Enterprise, 학습 안 되는 API | 제한적 허용 (국내 서버) |
+| 3. 폐쇄형 클라우드 | AWS Bedrock, Azure, GCP | 제한적 허용 (국내 서버) |
+| 4. 의료기관 서버 | 기관이 국내에 구축 | 허용 |
+:::
+::::::
+
+::: highlight-box
+Claude Pro·Max 구독 = 유형 1 · 의료데이터 입력 전 기관 지침 확인
+:::
+
 # 설치와 세팅
 
 ## Claude 데스크톱 설치
@@ -158,7 +205,7 @@ my_study/
 ::: {.summary-item .si-blue}
 **표 규칙**
 
-제목, 각주, 95% CI, 라벨, Excel
+제목, 주석, 95% CI, 라벨, Excel
 :::
 
 ::: {.summary-item .si-teal}
@@ -170,7 +217,7 @@ PPT 벡터그래픽, P value 표기
 ::: {.summary-item .si-purple}
 **자주 틀리는 것**
 
-패키지별 에러, 각주·검정 불일치
+패키지별 에러, 주석·검정 불일치
 :::
 :::::::
 
@@ -276,7 +323,7 @@ PPT 벡터그래픽, P value 표기
 | `data.table` | 읽기·전처리 |
 | `jstable` | Table 1, 회귀분석 표 (`CreateTableOneJS`, `cox2.display`) |
 | `jskm` | Kaplan–Meier 그림 |
-| `flextable` | 논문용 표 서식 (제목, 각주, 병합) |
+| `flextable` | 논문용 표 서식 (제목, 주석, 병합) |
 | `flexlsx` + `openxlsx2` | flextable → Excel 시트 |
 | `officer` + `rvg` | 그림 → 편집 가능한 PPT |
 | `forestploter` | subgroup forest plot |
@@ -412,7 +459,7 @@ CLAUDE.md: 연구 설계, 변수, 표·그림별 방법 (CI 수준, 검정법)
 |---|---|
 | 대상자 수 | 전체 3,780명, 군별 1,894 / 1,886 |
 | CI 수준 | primary 90% CI (비열등성), 나머지 95% CI |
-| 각주 | 실제 검정·CI 산출법과 일치 여부 |
+| 주석 | 실제 검정·CI 산출법과 일치 여부 |
 | 분모 | LDL-C: 시점별 측정자만 |
 
 # 내 연구에 적용하기
@@ -425,14 +472,14 @@ CLAUDE.md: 연구 설계, 변수, 표·그림별 방법 (CI 수준, 검정법)
 3. 연구 하나 = 폴더 하나, 비식별화 자료는 `data/`에
 4. 연구 설계·변수 설명 → 폴더의 `CLAUDE.md`
 5. "global.R 만들어줘" → "Table 1 만들어줘" → "Excel로 저장해줘"
-6. 코드·각주 확인, 겪은 에러는 `CLAUDE.md`에 추가
+6. 코드·주석 확인, 겪은 에러는 `CLAUDE.md`에 추가
 :::
 
 ## 주의사항
 
 1. **코드 검토** — 통계 방법, 변수 코딩, 분모
 2. **환자 정보** — 실명·등록번호 X, 비식별화 후 사용
-3. **각주와 실제 분석 일치** — CI 수준, 검정법
+3. **주석과 실제 분석 일치** — CI 수준, 검정법
 4. **재현성** — `CLAUDE.md` + `global.R` + `analysis.R` 함께 보관
 
 ::: highlight-box-gray

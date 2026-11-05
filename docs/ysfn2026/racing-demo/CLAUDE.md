@@ -70,7 +70,7 @@ RACING trial (Lancet 2022) 구조를 따라 만든 **3,780명 synthetic patient-
 
 **Figure 3 · subgroup forest**: primary endpoint. 군별 events/total (%), absolute difference와 90% CI. 0%p 기준선, 2.0%p margin 점선, x축 percentage-point 선형. forestploter: CI 열은 공백 열, subgroup level 들여쓰기, 추정 불가는 점·선 생략.
 
-**Figure 1 · flow**: 자료에서 randomized/allocation 수 계산. 약제 불내성 중단은 published RACING 수치 Combination 88/1,846 (4.8%), Monotherapy 150/1,832 (8.2%)를 쓸 수 있으며, 코드에 `# summary numbers from Lancet RACING paper` 주석, 그림 각주에 출처·한계 명시.
+**Figure 1 · flow**: 자료에서 randomized/allocation 수 계산. 약제 불내성 중단은 published RACING 수치 Combination 88/1,846 (4.8%), Monotherapy 150/1,832 (8.2%)를 쓸 수 있으며, 코드에 `# summary numbers from Lancet RACING paper` 주석, 그림 주석에 출처·한계 명시.
 
 ## 최종 확인
 

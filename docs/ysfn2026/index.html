@@ -300,6 +300,102 @@
 </div>
 </section>
 <section>
+<section id="의료데이터와-ai" class="title-slide slide level1 center">
+<h1>의료데이터와 AI</h1>
+
+</section>
+<section id="데이터-전송보관" class="slide level2">
+<h2>데이터 전송·보관</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>플랜</th>
+<th>모델 학습</th>
+<th>서버 보관</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>개인용 (Free·Pro·Max)</td>
+<td>설정에 따라 (켜면 학습에 사용)</td>
+<td>켜짐 5년 · 꺼짐 30일</td>
+</tr>
+<tr class="even">
+<td>기업용 (Team·Enterprise·API)</td>
+<td>사용 안 함</td>
+<td>30일 (Enterprise 일부 ZDR 가능)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box">
+<p>Claude가 읽은 파일 내용도 대화와 함께 서버로 전송</p>
+</div>
+<div class="highlight-box-gray">
+<p>개인용 설정: claude.ai/settings/data-privacy-controls · 내 PC에도 대화 기록 저장 (<code>~/.claude/projects/</code>)</p>
+</div>
+<div class="small-source">
+<p>출처: Claude Code Docs, Data usage</p>
+</div>
+</section>
+<section id="보건의료데이터-활용-가이드라인" class="slide level2">
+<h2>보건의료데이터 활용 가이드라인</h2>
+<p>보건복지부·개인정보보호위원회 (2026.11) · LLM 활용 격리원칙</p>
+<div class="columns">
+<div class="column" style="width:38%;">
+<div class="large">
+<ol type="1">
+<li><strong>물리적 격리</strong><br>LLM 서버는 국내</li>
+<li><strong>기능적 격리</strong><br>입력 데이터 저장·학습 금지</li>
+</ol>
+</div>
+</div><div class="column" style="width:62%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>유형</th>
+<th>예</th>
+<th>의료데이터</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. 퍼블릭 웹서비스</td>
+<td>ChatGPT·Gemini·Claude 일반 구독</td>
+<td><strong>불가</strong></td>
+</tr>
+<tr class="even">
+<td>2. 보안형 B2B</td>
+<td>Enterprise, 학습 안 되는 API</td>
+<td>제한적 허용 (국내 서버)</td>
+</tr>
+<tr class="odd">
+<td>3. 폐쇄형 클라우드</td>
+<td>AWS Bedrock, Azure, GCP</td>
+<td>제한적 허용 (국내 서버)</td>
+</tr>
+<tr class="even">
+<td>4. 의료기관 서버</td>
+<td>기관이 국내에 구축</td>
+<td>허용</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div class="highlight-box">
+<p>Claude Pro·Max 구독 = 유형 1 · 의료데이터 입력 전 기관 지침 확인</p>
+</div>
+</section></section>
+<section>
 <section id="설치와-세팅" class="title-slide slide level1 center">
 <h1>설치와 세팅</h1>
 
@@ -374,7 +470,7 @@
 </div>
 <div class="summary-item si-blue">
 <p><strong>표 규칙</strong></p>
-<p>제목, 각주, 95% CI, 라벨, Excel</p>
+<p>제목, 주석, 95% CI, 라벨, Excel</p>
 </div>
 <div class="summary-item si-teal">
 <p><strong>그림 규칙</strong></p>
@@ -382,7 +478,7 @@
 </div>
 <div class="summary-item si-purple">
 <p><strong>자주 틀리는 것</strong></p>
-<p>패키지별 에러, 각주·검정 불일치</p>
+<p>패키지별 에러, 주석·검정 불일치</p>
 </div>
 </div>
 <div class="highlight-box-gray">
@@ -568,7 +664,7 @@
 </tr>
 <tr class="even">
 <td><code>flextable</code></td>
-<td>논문용 표 서식 (제목, 각주, 병합)</td>
+<td>논문용 표 서식 (제목, 주석, 병합)</td>
 </tr>
 <tr class="odd">
 <td><code>flexlsx</code> + <code>openxlsx2</code></td>
@@ -732,7 +828,7 @@
 <td>primary 90% CI (비열등성), 나머지 95% CI</td>
 </tr>
 <tr class="odd">
-<td>각주</td>
+<td>주석</td>
 <td>실제 검정·CI 산출법과 일치 여부</td>
 </tr>
 <tr class="even">
@@ -756,7 +852,7 @@
 <li>연구 하나 = 폴더 하나, 비식별화 자료는 <code>data/</code>에</li>
 <li>연구 설계·변수 설명 → 폴더의 <code>CLAUDE.md</code></li>
 <li>“global.R 만들어줘” → “Table 1 만들어줘” → “Excel로 저장해줘”</li>
-<li>코드·각주 확인, 겪은 에러는 <code>CLAUDE.md</code>에 추가</li>
+<li>코드·주석 확인, 겪은 에러는 <code>CLAUDE.md</code>에 추가</li>
 </ol>
 </div>
 </section>
@@ -765,7 +861,7 @@
 <ol type="1">
 <li><strong>코드 검토</strong> — 통계 방법, 변수 코딩, 분모</li>
 <li><strong>환자 정보</strong> — 실명·등록번호 X, 비식별화 후 사용</li>
-<li><strong>각주와 실제 분석 일치</strong> — CI 수준, 검정법</li>
+<li><strong>주석과 실제 분석 일치</strong> — CI 수준, 검정법</li>
 <li><strong>재현성</strong> — <code>CLAUDE.md</code> + <code>global.R</code> + <code>analysis.R</code> 함께 보관</li>
 </ol>
 <div class="highlight-box-gray">
