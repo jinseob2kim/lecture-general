@@ -83,3 +83,5 @@ Lecture: general topic
 * [2026 뇌졸중유전체연구회 워크샵](): [정밀의료 연구에서의 멀티오믹스 분석 전략과 실제 적용](https://jinseob2kim.github.io/lecture-general/multiomics)
 
 * [2026 서울의과학연구소 의학통계 강의](): [진단검사의학 의학통계 리뷰](https://jinseob2kim.github.io/lecture-general/scl2026)
+
+* [2026 젊은정위기능신경외과의사 모임](): [AI agent를 이용한 의학통계](https://jinseob2kim.github.io/lecture-general/ysfn2026)
