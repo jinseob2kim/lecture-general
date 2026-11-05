@@ -383,19 +383,37 @@ CLAUDE.md: 연구 설계, 변수, 표·그림별 방법 (CI 수준, 검정법)
 
 {{< video video/racing_demo.mp4 width="1013" height="760" >}}
 
+## 생성된 파일
+
+:::::: columns
+::: {.column width="58%"}
+![](img/05_file_result.png){width="100%"}
+:::
+
+::: {.column width="42%"}
+| 파일 | 내용 |
+|---|---|
+| `global.R` | 전처리, `out`, `out.label` |
+| `analysis.R` | Table 1–4, Figure 1–3 |
+| `results/` | Excel 표 |
+| `figures/` | PPT 그림 |
+:::
+::::::
+
+::: highlight-box-gray
+직접 쓴 코드 0줄 · 지시 2줄
+:::
+
 ## 결과 확인
+
+![](img/06_table2_result.png){width="100%"}
 
 | 항목 | 확인 내용 |
 |---|---|
 | 대상자 수 | 전체 3,780명, 군별 1,894 / 1,886 |
-| 분모 | LDL-C: 시점별 측정자만 |
 | CI 수준 | primary 90% CI (비열등성), 나머지 95% CI |
 | 각주 | 실제 검정·CI 산출법과 일치 여부 |
-| 저장 | Excel 시트 4개, PPT 그림 3장 |
-
-::: highlight-box
-AI 결과도 직접 쓴 코드처럼 검토 · 수정은 말로 지시
-:::
+| 분모 | LDL-C: 시점별 측정자만 |
 
 # 내 연구에 적용하기
 
