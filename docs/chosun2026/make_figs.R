@@ -82,6 +82,13 @@ pv_pt <- data.table(p = c(0.01, 0.10, 0.50))
 pv_pt[, ppv := 0.9 * p / (0.9 * p + 0.1 * (1 - p))]
 pv_pt[, txt := paste0("PPV ", round(ppv * 100), "%")]
 
+## 10. 기대 차이·표준편차에 따른 대상자 수 (가상, 두 군 평균 비교, 양측 α 0.05, 검정력 80%)
+sc <- CJ(delta = seq(0.4, 1.2, by = 0.01), sd = c(1.3, 1.8))
+sc[, n_total := 2 * ceiling(2 * (qnorm(0.975) + qnorm(0.8))^2 * sd^2 / delta^2)]
+setorder(sc, delta, sd)
+sc[, grp := factor(paste0("표준편차 ", sd), levels = c("표준편차 1.8", "표준편차 1.3"))]
+sc_pt <- sc[delta %in% c(0.5, 1.0)]
+
 plot_list <- list(
   ni_racing = ggplot(ni, aes(x = est, y = case)) +
     annotate("rect", xmin = 2, xmax = 5, ymin = -Inf, ymax = Inf, fill = "#C62828", alpha = 0.07) +
@@ -199,11 +206,23 @@ plot_list <- list(
     annotate("text", x = 0.58, y = 0.05, label = "민감도·특이도 90% 가정", hjust = 1, colour = "grey40", family = fam, size = 7.5) +
     scale_x_log10(breaks = c(0.01, 0.05, 0.1, 0.2, 0.5), labels = c("1%", "5%", "10%", "20%", "50%")) +
     scale_y_continuous(limits = c(0, 1), labels = pct) +
-    labs(x = "유병률 (로그 눈금)", y = "양성예측도 (PPV)")
+    labs(x = "유병률 (로그 눈금)", y = "양성예측도 (PPV)"),
+
+  sample_curve = ggplot(sc, aes(delta, n_total, colour = grp)) +
+    geom_line(linewidth = 2.4) +
+    geom_point(data = sc_pt, size = 6) +
+    geom_text(data = sc_pt, aes(label = paste0(n_total, "명")), hjust = -0.25, vjust = c(-0.5, -0.5, 1.7, -0.6), family = fam, size = 8,
+              fontface = "bold", show.legend = FALSE) +
+    annotate("text", x = 1.2, y = 690, label = "가상 수치 · 양측 α 0.05 · 검정력 80%", hjust = 1, colour = "grey40", family = fam, size = 7) +
+    scale_colour_manual(values = c("#EF6C00", "#1565C0"), name = NULL) +
+    scale_x_continuous(breaks = seq(0.4, 1.2, 0.2)) +
+    scale_y_continuous(limits = c(0, 700), breaks = seq(0, 700, 100)) +
+    labs(x = "기대하는 두 군 통증 점수 차이", y = "필요 대상자 수 (두 군 합)") +
+    theme(legend.position = c(0.7, 0.62), legend.text = element_text(size = 26), legend.background = element_blank())
 )
 
 fig_size <- list(ni_racing = c(11, 6.4), mrmc_roc = c(7.4, 7.4), waterfall = c(9, 6.2), swimmer = c(9, 6.2),
-                 dose_escalation = c(10.5, 5.9), simon_oc = c(9.5, 6.0), mrmc_grid = c(11, 5.6), meta_forest = c(8.2, 7), ppv_prev = c(8.6, 6.6))
+                 dose_escalation = c(10.5, 5.9), simon_oc = c(9.5, 6.0), mrmc_grid = c(11, 5.6), meta_forest = c(8.2, 7), ppv_prev = c(8.6, 6.6), sample_curve = c(9, 6.6))
 for (nm in names(plot_list)) {
   ggsave(file.path("img", paste0(nm, ".png")), plot_list[[nm]], device = ragg::agg_png,
          width = fig_size[[nm]][1], height = fig_size[[nm]][2], dpi = 160, bg = "white")

@@ -265,3 +265,14 @@
 .reveal .tt-metrics div { padding: 10px 14px; background: #F5F9FF; border-left: 5px solid #1565C0; border-radius: 0 8px 8px 0; }
 .reveal .tt-metrics span { display: block; color: #546E7A; font-size: 0.9em; }
 .reveal .unit-cards .icon-card { padding: 18px 16px; font-size: 0.76em; }
+
+/* 재구성 슬라이드 */
+.reveal .ic-red { background: #FFEBEE; color: #8E1B1B; border-bottom: 5px solid #C62828; }
+.reveal .doc-grid { gap: 16px; margin-top: 14px; }
+.reveal .doc-grid .icon-card { padding: 16px 12px 18px; font-size: 0.74em; }
+.reveal .doc-grid .icon-card svg { width: 76px; height: 76px; margin-bottom: 8px; }
+.reveal .doc-grid .icon-card .s { margin-top: 6px; padding-top: 6px; font-size: 0.86em; }
+.reveal .fast-grid .icon-card { font-size: 0.8em; padding: 22px 18px; }
+.reveal .fast-grid .icon-card svg { width: 96px; height: 96px; }
+.reveal .ck-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.reveal .ck-grid .takehome { min-height: 96px; font-size: 0.74em; padding: 14px 18px; }
