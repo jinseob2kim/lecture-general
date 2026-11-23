@@ -81,42 +81,7 @@ editor: source
 :::
 
 ::: highlight-box-gray
-신약도 큰 흐름은 같음: 비임상 → 임상 1·2·3상 → 허가 → 급여 → 시판 후
-:::
-
-## 강의 순서 {#order}
-
-```{=html}
-<div class="order-grid">
-  <div class="order-card ic-blue">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M22,10 H62 L78,26 V90 H22 Z" fill="#ffffff" stroke="#1565C0" stroke-width="5" stroke-linejoin="round"/><path d="M62,10 V26 H78" fill="none" stroke="#1565C0" stroke-width="5" stroke-linejoin="round"/><line x1="32" y1="40" x2="66" y2="40" stroke="#90CAF9" stroke-width="5"/><line x1="32" y1="52" x2="58" y2="52" stroke="#90CAF9" stroke-width="5"/><circle cx="64" cy="72" r="15" fill="#1565C0"/><path d="M57,72 l5,5 l9,-10" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div><span class="t">1. 의료기기 인허가</span>의료기기 여부·등급<br>제출 자료·허가 경로</div>
-  </div>
-  <div class="order-card ic-green">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="30" cy="34" r="11" fill="#81C784"/><path d="M12,72 a18,18 0 0 1 36,0 z" fill="#81C784"/><circle cx="70" cy="34" r="11" fill="#81C784"/><path d="M52,72 a18,18 0 0 1 36,0 z" fill="#81C784"/><circle cx="50" cy="46" r="13" fill="#2E7D32"/><path d="M28,90 a22,22 0 0 1 44,0 z" fill="#2E7D32"/></svg>
-    <div><span class="t">2. 임상시험 기본</span>정의·설계·윤리<br>신약 단계</div>
-  </div>
-  <div class="order-card ic-teal">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><g transform="rotate(-35 28 50)"><rect x="8" y="40" width="40" height="20" rx="10" fill="#ffffff" stroke="#00838F" stroke-width="4"/><path d="M28,40 h10 a10,10 0 0 1 0,20 h-10 z" fill="#00838F"/></g><rect x="66" y="18" width="12" height="11" fill="#00838F"/><path d="M62,29 H82 L79,70 L72,80 L65,70 Z" fill="#B2DFDB" stroke="#00838F" stroke-width="4" stroke-linejoin="round"/><g stroke="#00838F" stroke-width="3"><line x1="63" y1="40" x2="81" y2="37"/><line x1="64" y1="50" x2="80" y2="47"/><line x1="65" y1="60" x2="79" y2="57"/></g></svg>
-    <div><span class="t">3. 기기·AI 임상 설계</span>피지컬 AI·판독자 연구</div>
-  </div>
-  <div class="order-card ic-gray">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="30" width="76" height="54" rx="8" fill="#ffffff" stroke="#37474F" stroke-width="5"/><path d="M38,30 V20 H62 V30" fill="none" stroke="#37474F" stroke-width="5"/><line x1="12" y1="52" x2="88" y2="52" stroke="#37474F" stroke-width="4"/><rect x="44" y="46" width="12" height="12" rx="2" fill="#37474F"/></svg>
-    <div><span class="t">4. 지원 사례</span>루닛·RACING<br>에버엑스·신라젠</div>
-  </div>
-  <div class="order-card ic-orange">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M14,20 H86 V66 H44 L28,82 V66 H14 Z" fill="#ffffff" stroke="#EF6C00" stroke-width="5" stroke-linejoin="round"/><path d="M50,28 L54,39 L65,43 L54,47 L50,58 L46,47 L35,43 L46,39 Z" fill="#EF6C00"/><circle cx="70" cy="31" r="4" fill="#FFB74D"/><circle cx="30" cy="55" r="3.5" fill="#FFB74D"/></svg>
-    <div><span class="t">5. 허가 이후</span>AI 변경 관리<br>생성형 AI 기준</div>
-  </div>
-  <div class="order-card ic-purple">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="16" width="56" height="72" rx="8" fill="#ffffff" stroke="#7B1FA2" stroke-width="5"/><rect x="38" y="9" width="24" height="14" rx="4" fill="#7B1FA2"/><path d="M34,54 l11,11 l21,-22" fill="none" stroke="#7B1FA2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div><span class="t">6. 정리</span>병원에 보내기 전<br>체크리스트</div>
-  </div>
-</div>
-```
-
-::: highlight-box
-로드맵과 연결: 규제 틀 (**1–3, 5–6단계**) → 임상시험 (**4단계**) → 사례 → 허가 이후 (**7단계**)
+오늘 순서: 규제 틀 (**1–3, 5–6단계**) → 임상시험 (**4단계**) → 지원 사례 → 허가 이후 (**7단계**)
 :::
 
 # 의료기기 인허가
@@ -246,31 +211,16 @@ editor: source
 빠른 길도 **성능·임상 근거는 필요**: 빨라지는 것은 심사 순서와 절차
 :::
 
-## 나라별 규제기관 {#regulators}
-
-```{=html}
-<div class="country-grid">
-  <div class="country"><div class="cc" style="background:#1565C0">KR</div><div><span class="ag">식품의약품안전처 (MFDS)</span><span class="row"><span class="lb">의약품</span>품목허가</span><span class="row"><span class="lb">의료기기</span>1등급 신고 · 2등급 인증 (일부 허가) · 3·4등급 허가</span></div></div>
-  <div class="country"><div class="cc" style="background:#C62828">US</div><div><span class="ag">FDA</span><span class="row"><span class="lb">의약품</span>NDA (합성), BLA (바이오)</span><span class="row"><span class="lb">의료기기</span>510(k) 기존 제품과 동등 · De&nbsp;Novo 새로운 저·중위험 · PMA 고위험</span></div></div>
-  <div class="country"><div class="cc" style="background:#283593">EU</div><div><span class="ag">EMA (의약품) · 인증기관 (의료기기)</span><span class="row"><span class="lb">의약품</span>중앙절차: EMA 평가 → 유럽위원회 허가</span><span class="row"><span class="lb">의료기기</span>적합성 평가 후 제조자 CE 표시 (등급에 따라 인증기관 참여)</span></div></div>
-  <div class="country"><div class="cc" style="background:#AD1457">JP</div><div><span class="ag">PMDA · 후생노동성</span><span class="row"><span class="lb">의약품</span>승인</span><span class="row"><span class="lb">의료기기</span>승인·인증</span></div></div>
-</div>
-```
-
-::: highlight-box
-같은 임상 자료를 여러 나라에 제출 → 국제 조화 지침 **ICH** (의약품)·**IMDRF** (의료기기) · 나라별 추가 요구는 따로
-:::
-
 # 임상시험 기본
 
-## 임상시험 {#trial-def}
+## 임상시험: 공정한 비교의 조건 {#trial-def}
 
 ::: definition-box
 사람을 대상으로 의약품·의료기기의 **안전성**과 **유효성**을 증명하기 위한 시험
 :::
 
 :::: columns
-::: {.column width="58%"}
+::: {.column width="54%"}
 ```{=html}
 <svg class="diagram" viewBox="0 0 900 330" role="img" aria-label="무작위배정 임상시험 흐름">
   <defs><marker id="arA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#78909C"/></marker></defs>
@@ -304,74 +254,20 @@ editor: source
 :::
 :::
 
-::: {.column width="42%"}
-| 구분 | 관찰연구 | 무작위배정 임상시험 |
-|------------|---------------------------|---------------------------|
-| 치료 결정 | 진료 그대로 관찰 | 계획서대로 배정 |
-| 예 | 코호트, 환자-대조군 | 무작위배정 임상시험 (RCT) |
-| 두 군 비교 | 통계적 보정 필요 | 무작위배정으로 평균적으로 비슷하게 |
+::: {.column width="46%"}
+```{=html}
+<div class="cond-grid">
+  <div class="icon-card ic-green"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="30" cy="32" r="12" fill="#2E7D32"/><path d="M10,76 a20,20 0 0 1 40,0 z" fill="#2E7D32"/><circle cx="70" cy="32" r="12" fill="#90A4AE"/><path d="M50,76 a20,20 0 0 1 40,0 z" fill="#90A4AE"/><text x="50" y="97" text-anchor="middle" font-size="15" font-weight="800" fill="#455A64">vs</text></svg><div><span class="t">대조군</span>위약·표준치료와 비교</div></div>
+  <div class="icon-card ic-blue"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="16" y="16" width="68" height="68" rx="14" fill="#ffffff" stroke="#1565C0" stroke-width="5"/><g fill="#1565C0"><circle cx="34" cy="34" r="6"/><circle cx="66" cy="34" r="6"/><circle cx="50" cy="50" r="6"/><circle cx="34" cy="66" r="6"/><circle cx="66" cy="66" r="6"/></g></svg><div><span class="t">무작위배정</span>두 군을 평균적으로 비슷하게</div></div>
+  <div class="icon-card ic-teal"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M8,50 C24,24 76,24 92,50 C76,76 24,76 8,50 Z" fill="#ffffff" stroke="#00838F" stroke-width="5"/><circle cx="50" cy="50" r="13" fill="#00838F"/><line x1="18" y1="84" x2="82" y2="16" stroke="#00838F" stroke-width="6" stroke-linecap="round"/></svg><div><span class="t">눈가림</span>기대·평가 편향 줄이기</div></div>
+  <div class="icon-card ic-purple"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="16" width="56" height="72" rx="8" fill="#ffffff" stroke="#7B1FA2" stroke-width="5"/><rect x="38" y="9" width="24" height="14" rx="4" fill="#7B1FA2"/><path d="M34,54 l11,11 l21,-22" fill="none" stroke="#7B1FA2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span class="t">사전 계획·등록</span>ClinicalTrials.gov, CRIS</div></div>
+</div>
+```
 :::
 ::::
 
-::: highlight-box-gray
-동물·세포 실험 = 비임상시험 · 사람 대상 연구 = 임상연구 ⊃ 임상시험
-:::
-
-## 좋은 비교 임상시험의 조건 {#conditions}
-
-```{=html}
-<div class="icon-grid-4">
-  <div class="icon-card ic-green">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="30" cy="32" r="12" fill="#2E7D32"/><path d="M10,76 a20,20 0 0 1 40,0 z" fill="#2E7D32"/><circle cx="70" cy="32" r="12" fill="#90A4AE"/><path d="M50,76 a20,20 0 0 1 40,0 z" fill="#90A4AE"/><text x="50" y="97" text-anchor="middle" font-size="15" font-weight="800" fill="#455A64">vs</text></svg>
-    <span class="t">대조군</span>위약·표준치료와 비교<span class="s">자연 회복·위약 효과 분리</span>
-  </div>
-  <div class="icon-card ic-blue">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="16" y="16" width="68" height="68" rx="14" fill="#ffffff" stroke="#1565C0" stroke-width="5"/><g fill="#1565C0"><circle cx="34" cy="34" r="6"/><circle cx="66" cy="34" r="6"/><circle cx="50" cy="50" r="6"/><circle cx="34" cy="66" r="6"/><circle cx="66" cy="66" r="6"/></g></svg>
-    <span class="t">무작위배정</span>두 군을 평균적으로 비슷하게<span class="s">차이를 치료 효과로 해석</span>
-  </div>
-  <div class="icon-card ic-teal">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M8,50 C24,24 76,24 92,50 C76,76 24,76 8,50 Z" fill="#ffffff" stroke="#00838F" stroke-width="5"/><circle cx="50" cy="50" r="13" fill="#00838F"/><line x1="18" y1="84" x2="82" y2="16" stroke="#00838F" stroke-width="6" stroke-linecap="round"/></svg>
-    <span class="t">눈가림</span>환자·의사·평가자가 모르게<span class="s">기대·평가 편향 줄이기</span>
-  </div>
-  <div class="icon-card ic-purple">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="16" width="56" height="72" rx="8" fill="#ffffff" stroke="#7B1FA2" stroke-width="5"/><rect x="38" y="9" width="24" height="14" rx="4" fill="#7B1FA2"/><path d="M34,54 l11,11 l21,-22" fill="none" stroke="#7B1FA2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span class="t">사전 계획·등록</span>계획서·분석계획서 먼저<span class="s">ClinicalTrials.gov, CRIS</span>
-  </div>
-</div>
-```
-
 ::: highlight-box
 결과를 보기 전에 **방법을 먼저 정한다**: 평가변수, 대상자 수, 분석 방법
-:::
-
-## 연구 윤리와 규정 {#ethics}
-
-:::::: flow-4
-::: flow-step
-[1947]{.yr} **뉘른베르크 강령**<br>자발적 동의
-:::
-
-::: flow-step
-[1964]{.yr} **헬싱키 선언**<br>세계의사회 윤리 원칙
-:::
-
-::: flow-step
-[1979]{.yr} **벨몬트 보고서**<br>터스키기 연구 이후
-:::
-
-::: flow-step
-[1996]{.yr} **ICH E6 GCP**<br>임상시험 국제 기준
-:::
-::::::
-
-| 지금 지키는 것 | 내용 |
-|----------------------------------|------------------------------------------------------|
-| IRB (임상시험심사위원회) | 계획서·설명문·동의서 심의 |
-| 동의서 | 충분한 설명 후 서면 동의, 언제든 철회 가능 |
-| GCP | 국내: 의약품·의료기기 임상시험 관리기준 |
-
-::: highlight-box-gray
-터스키기 매독 연구 (1932–1972): 페니실린이 표준치료가 된 뒤에도 치료하지 않고 관찰
 :::
 
 ## 임상시험에 참여하는 사람들 {#people}
@@ -420,118 +316,119 @@ editor: source
 회사를 세워 임상시험을 맡기면 여러분이 **의뢰자** · 차라투는 **통계 담당자**: 설계부터 허가 서류까지
 :::
 
-## 임상시험 문서와 통계 {#documents}
-
-:::::: flow-5
-::: flow-step
-**계획서**<br>Protocol
-:::
-
-::: {.flow-step .hl}
-**분석계획서**<br>SAP
-:::
-
-::: flow-step
-**데이터 잠금**<br>DB lock
-:::
-
-::: flow-step
-**분석**<br>표·목록·그림
-:::
-
-::: flow-step
-**결과보고서**<br>CSR
-:::
-::::::
-
-| 단계 | 통계 담당자가 함께 설계하는 것 |
-|------------------------|------------------------------------------------------------------|
-| 계획서 | 가설, 1차 평가변수, 대상자 수, 무작위배정 방법 |
-| 분석계획서 | 분석 대상군 (ITT: 배정대로, PP: 계획서 준수자), 결측 처리, 하위군, 다중성 |
-| 진행 중 | 중간분석, 자료안전성모니터링위원회 (DSMB) 보고 |
-| 허가 신청 | 결과보고서, 규제기관 질의 답변 |
-
-::: highlight-box
-주요 분석 방법은 **결과를 보기 전에 확정** · 바꾸면 시점·이유를 기록하고 사전 계획 분석과 구분해 보고
-:::
-
-## 신약: 실험실에서 환자까지 {#drug-path}
-
-:::::: flow-6
-::: flow-step
-**후보물질**<br>발굴·최적화
-:::
-
-::: flow-step
-**비임상**<br>동물 독성·약리<br>(GLP)
-:::
-
-::: {.flow-step .hl}
-**임상시험 승인**<br>식약처 + IRB<br>(IND)
-:::
-
-::: {.flow-step .hl}
-**임상 1·2·3상**<br>GCP 준수
-:::
-
-::: {.flow-step .hl}
-**품목허가**<br>식약처 심사<br>(NDA)
-:::
-
-::: {.flow-step .hl2}
-**시판 후**<br>안전성 감시<br>추가 연구 (4상)
-:::
-::::::
-
-```{=html}
-<div class="span-row"><div class="sp-pre" style="grid-column: 1 / 3">허가 전 준비</div><div class="sp-main" style="grid-column: 3 / 6">인허가 임상: 식약처 승인 → 허가</div><div class="sp-post">허가 후</div></div>
-```
-
-::: chain
-[보험 급여]{.lbl} [심평원 급여 평가]{.node} [→]{.arr} [건보공단 약가 협상]{.node} [→]{.arr} [복지부 고시]{.node}
-:::
-
-::: highlight-box
-전형적인 흐름 (제품·경로마다 다름) · 의료기기처럼 **허가와 급여는 따로**
-:::
-
-## 신약 임상시험 단계와 허가 확률 {#phases}
+## DSMB: 진행 중인 임상을 지켜보는 독립 위원회 {#dsmb}
 
 :::: columns
-::: {.column width="66%"}
+::: {.column width="56%"}
 ```{=html}
-<div class="stairs">
-  <div class="stair p1"><span class="ph">1상</span><span class="q">안전한가?<br>몸에서 어떻게 움직이나?</span><span class="n">건강인 (항암제는 환자)<br><b>수십 명</b></span></div>
-  <div class="stair p2"><span class="ph">2상</span><span class="q">효과가 보이나?<br>어느 용량이 좋은가?</span><span class="n">환자<br><b>수십–수백 명</b></span></div>
-  <div class="stair p3"><span class="ph">3상</span><span class="q">대조군과 비교해<br>효과를 확증하나?</span><span class="n">환자, 대조군과 비교<br><b>수백–수천 명</b></span></div>
-  <div class="stair p4"><span class="ph">4상</span><span class="q">실제 진료에서도<br>안전한가?</span><span class="n">처방받은 환자<br><b>허가 후 추가 연구</b></span></div>
-</div>
-<div class="stair-band"><div class="pre">허가 전: 인허가 임상 (1–3상)</div><div class="post">허가 후</div></div>
+<svg class="diagram" viewBox="0 0 860 540" role="img" aria-label="DSMB 비공개 회의와 공개 회의, 눈가림 벽">
+  <defs><marker id="arD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#78909C"/></marker><marker id="arDp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7B1FA2"/></marker></defs>
+  <rect x="6" y="205" width="150" height="120" rx="14" fill="#ffffff" stroke="#90A4AE" stroke-width="3"/>
+  <text x="81" y="257" text-anchor="middle" font-size="26" font-weight="800" fill="#263238">임상 자료</text>
+  <text x="81" y="292" text-anchor="middle" font-size="20" fill="#455A64">기관·DB</text>
+  <line x1="158" y1="238" x2="204" y2="160" stroke="#78909C" stroke-width="4" marker-end="url(#arD)"/>
+  <line x1="158" y1="292" x2="204" y2="420" stroke="#78909C" stroke-width="4" marker-end="url(#arD)"/>
+  <rect x="190" y="8" width="662" height="236" rx="18" fill="#F3E5F5" stroke="#CE93D8" stroke-width="2.5"/>
+  <text x="212" y="46" font-size="23" font-weight="900" fill="#4A148C">비공개 회의 · 군별 결과</text>
+  <rect x="212" y="70" width="250" height="150" rx="14" fill="#ffffff" stroke="#7B1FA2" stroke-width="3"/>
+  <text x="337" y="126" text-anchor="middle" font-size="26" font-weight="800" fill="#4A148C">독립 통계</text>
+  <text x="337" y="158" text-anchor="middle" font-size="26" font-weight="800" fill="#4A148C">담당자</text>
+  <text x="337" y="196" text-anchor="middle" font-size="19" fill="#6A1B9A">군별 표·그림 작성</text>
+  <line x1="466" y1="145" x2="564" y2="145" stroke="#7B1FA2" stroke-width="4" marker-end="url(#arDp)"/>
+  <rect x="574" y="70" width="258" height="150" rx="14" fill="#7B1FA2"/>
+  <text x="703" y="130" text-anchor="middle" font-size="32" font-weight="900" fill="#ffffff">DSMB</text>
+  <text x="703" y="167" text-anchor="middle" font-size="19" fill="#F3E5F5">임상의 + 통계학자</text>
+  <text x="703" y="196" text-anchor="middle" font-size="19" fill="#F3E5F5">안전성·효과 검토</text>
+  <line x1="190" y1="272" x2="852" y2="272" stroke="#C62828" stroke-width="3.5" stroke-dasharray="12 8"/>
+  <rect x="204" y="256" width="336" height="32" fill="#ffffff"/>
+  <text x="214" y="281" font-size="20" font-weight="800" fill="#C62828">눈가림 벽: 군별 결과는 넘지 않음</text>
+  <line x1="703" y1="222" x2="703" y2="352" stroke="#7B1FA2" stroke-width="5" marker-end="url(#arDp)"/>
+  <rect x="714" y="246" width="136" height="54" rx="8" fill="#ffffff" stroke="#7B1FA2" stroke-width="2"/>
+  <text x="782" y="269" text-anchor="middle" font-size="19" font-weight="900" fill="#4A148C">권고</text>
+  <text x="782" y="292" text-anchor="middle" font-size="16" fill="#4A148C">계속·수정·중단</text>
+  <rect x="190" y="300" width="662" height="232" rx="18" fill="#ECEFF1" stroke="#B0BEC5" stroke-width="2.5"/>
+  <text x="212" y="338" font-size="23" font-weight="900" fill="#37474F">공개 회의 · 군 합산 정보</text>
+  <rect x="212" y="360" width="300" height="150" rx="14" fill="#ffffff" stroke="#90A4AE" stroke-width="2.5"/>
+  <text x="362" y="404" text-anchor="middle" font-size="21" fill="#37474F">등록 현황 · 탈락</text>
+  <text x="362" y="440" text-anchor="middle" font-size="21" fill="#37474F">전체 이상사례</text>
+  <text x="362" y="476" text-anchor="middle" font-size="21" fill="#37474F">자료 품질</text>
+  <rect x="574" y="360" width="258" height="150" rx="14" fill="#ffffff" stroke="#546E7A" stroke-width="3"/>
+  <text x="703" y="424" text-anchor="middle" font-size="26" font-weight="800" fill="#263238">의뢰자·연구자</text>
+  <text x="703" y="460" text-anchor="middle" font-size="19" fill="#455A64">권고를 받아 결정</text>
+</svg>
 ```
 :::
 
-::: {.column width="34%"}
-:::::: stat-stack
-::: stat-card
-[10–15년]{.num} 신약 개발 기간 (PhRMA)
+::: {.column width="44%"}
+::: col-head
+김진섭: DSMB 통계 위원 참여
 :::
 
-::: stat-card
-[7.9%]{.num} 1상 진입 후 허가 도달 확률 (2011–2020, 추정)
+:::::: qa
+::: qa-item
+[2023~ APS-STROKE]{.q} 항인지질항체증후군 뇌졸중: 클로피도그렐 기반 항혈소판제 vs 와파린 · 다기관 · NCT05995600
 :::
 
-::: {.stat-card .red}
-[5.3%]{.num} 항암제
+::: qa-item
+[2024~ SVO70]{.q} 소혈관폐색 뇌졸중의 LDL 목표 (&lt;70 vs 90–110 mg/dL) · 4,016명 · NCT06649240
+:::
+
+::: qa-item
+[2026~ 심장내과 RCT]{.q} 준비 중 · IRB 권고로 통계 위원 참여
 :::
 ::::::
+:::
+::::
 
-::: small-source
-BIO, Informa, QLS (2021)
+::: highlight-box
+위원은 연구와 **이해관계가 없어야** 함 · 같은 연구의 통계 담당자와 DSMB 통계 위원은 겸하지 않음
+:::
+
+## DSMB 통계 위원이 보는 것: 무작위배정과 중간분석 {#dsmb-work}
+
+:::: columns
+::: {.column width="46%"}
+![](img/interim_alpha.png){width="100%"}
+
+::: fig-cap
+중간분석 1회 (자료 50%), 양측 α 0.05 (gsDesign 경계)
+:::
+:::
+
+::: {.column width="54%"}
+::: check-list
+::: check-item
+[1]{.check-no}
+
+**등록 전 첫 회의**: 헌장, 자료 검토 주기와 검토할 자료, 비밀유지 합의
+:::
+
+::: check-item
+[2]{.check-no}
+
+**무작위배정 검토**: 층화 변수가 많으면 층마다 대상자가 너무 적어짐 → 기관 포함 1–2개
+:::
+
+::: check-item
+[3]{.check-no}
+
+**군별 결과는 DSMB만**: 연구자에게는 전체 기저 특성·안전성·탈락만 (전체 결과도 눈가림을 깰 수 있음)
+:::
+
+::: check-item
+[4]{.check-no}
+
+**효과로 중단을 판단하면 유의수준 조정**: 시점과 방법은 계획서·헌장에 미리
+:::
 :::
 :::
 ::::
 
-# 의료기기·AI 임상 설계
+::: highlight-box
+O'Brien–Fleming: 중간 **p < 0.005**일 때만 멈추고, 최종은 **p < 0.048**로 판정 → 전체 유의수준 0.05 유지
+:::
+
+# 의료기기 임상 설계
 
 ## 임상 설계 비교: 대표적인 경향 {#compare}
 
@@ -551,29 +448,6 @@ BIO, Informa, QLS (2021)
 </tbody>
 </table>
 ```
-
-## 치과에서 만나는 인허가 임상 {#dental}
-
-```{=html}
-<div class="icon-grid-3">
-  <div class="icon-card ic-green">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><g transform="rotate(-35 50 50)"><rect x="16" y="36" width="68" height="28" rx="14" fill="#ffffff" stroke="#2E7D32" stroke-width="5"/><path d="M50,36 h20 a14,14 0 0 1 0,28 h-20 z" fill="#2E7D32"/></g></svg>
-    <span class="t">의약품</span>국소마취제, 치주 국소 항생제<span class="s">대조약·위약 비교, 이상사례</span>
-  </div>
-  <div class="icon-card ic-blue">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M30,38 C27,24 33,12 42,14 C46,15 48,18 50,18 C52,18 54,15 58,14 C67,12 73,24 70,38 Z" fill="#ffffff" stroke="#1565C0" stroke-width="4"/><rect x="43" y="38" width="14" height="10" fill="#90A4AE"/><path d="M40,48 H60 L57,84 L50,92 L43,84 Z" fill="#B0BEC5" stroke="#546E7A" stroke-width="3"/><g stroke="#546E7A" stroke-width="3"><line x1="41" y1="56" x2="59" y2="53"/><line x1="41" y1="64" x2="58" y2="61"/><line x1="42" y1="72" x2="58" y2="69"/><line x1="43" y1="80" x2="57" y2="77"/></g></svg>
-    <span class="t">의료기기</span>임플란트 고정체 (3등급)<br>골 이식재 (4등급)<span class="s">임플란트 생존율, 변연골 소실, 장기 추적</span>
-  </div>
-  <div class="icon-card ic-teal">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="18" width="76" height="52" rx="6" fill="#ffffff" stroke="#00838F" stroke-width="5"/><rect x="42" y="70" width="16" height="10" fill="#00838F"/><rect x="30" y="80" width="40" height="6" rx="3" fill="#00838F"/><text x="50" y="54" text-anchor="middle" font-size="26" font-weight="900" fill="#00838F">AI</text></svg>
-    <span class="t">소프트웨어</span>치과영상 검출·진단보조 (2등급)<span class="s">단독 성능 + 판독자 연구</span>
-  </div>
-</div>
-```
-
-::: highlight-box
-치과의사 = **시험책임자**로, 회사의 임상·인허가 담당으로, 규제기관 심사자로 참여
-:::
 
 ## 피지컬 AI 임상 평가: 임플란트 로봇 예 {#physical}
 
@@ -733,104 +607,7 @@ BIO, Informa, QLS (2021)
 임플란트 150개 ≠ 환자 150명: **분석 단위부터 정한다**
 :::
 
-## 진단 성능 읽기: 2×2 표 {#diag}
-
-:::: columns
-::: {.column width="50%"}
-```{=html}
-<table class="tt">
-  <thead><tr><th></th><th>질병 있음<br>100명</th><th>질병 없음<br>900명</th></tr></thead>
-  <tbody>
-    <tr><th>검사 양성</th><td class="ok">TP 90</td><td class="ng">FP 90</td></tr>
-    <tr><th>검사 음성</th><td class="ng">FN 10</td><td class="ok">TN 810</td></tr>
-  </tbody>
-</table>
-<div class="tt-metrics">
-  <div><b>민감도</b> 90 / 100 = <b>90%</b><span>질병 있는 사람 중 양성</span></div>
-  <div><b>특이도</b> 810 / 900 = <b>90%</b><span>질병 없는 사람 중 음성</span></div>
-  <div><b>양성예측도 (PPV)</b> 90 / 180 = <b>50%</b><span>양성 중 실제 질병</span></div>
-  <div><b>음성예측도 (NPV)</b> 810 / 820 = <b>98.8%</b><span>음성 중 실제 정상</span></div>
-</div>
-```
-
-::: muted-note
-가상 예: 1,000명, 유병률 10%
-:::
-:::
-
-::: {.column width="50%"}
-![](img/ppv_prev.png){width="100%"}
-:::
-::::
-
-::: highlight-box
-민감도·특이도는 질병 유무별로 계산 · **PPV는 유병률에 따라 달라짐** → 암 비율을 높인 판독자 연구의 PPV는 실제 검진과 다름
-:::
-
-## AI 의료기기 임상 {#ai-device}
-
-:::: columns
-::: {.column width="58%"}
-| 시험 | 질문 | 지표 |
-|--------------------|----------------------------|--------------------------|
-| 단독 성능 | AI 혼자 얼마나 맞히나 | 민감도, 특이도, AUC |
-| 판독자 연구 (MRMC) | 의사가 AI와 함께 보면 나은가 | 판독의·증례 변동을 반영한 평균 AUC 차이 |
-| 실사용근거 연구 (RWE) | 실제 진료에서도 그런가 | 재검률, 암 발견율, 양성예측도 |
-
-::: highlight-box
-이미 찍힌 영상으로 **후향적 임상** 가능 · 참조표준 (정답)은 조직검사·추적관찰 등으로 미리 정의
-:::
-
-::: highlight-box-gray
-검증 데이터는 학습에 쓰지 않은 독립 자료 · 같은 환자 영상이 학습·검증에 섞이지 않게 · 다른 기관·장비에서도 확인
-:::
-:::
-
-::: {.column width="42%"}
-![](img/mrmc_roc.png){width="100%"}
-:::
-::::
-
-## 판독자 연구 (MRMC) 설계 {#mrmc}
-
-:::::: flow-5
-::: flow-step
-**판독의 여러 명**<br>× 케이스 수백 건
-:::
-
-::: flow-step
-**세션 1**<br>AI 없이 또는 AI와 함께 (무작위)
-:::
-
-::: flow-step
-**휴지기**<br>기억 효과 줄이기 (흔히 4주 이상)
-:::
-
-::: {.flow-step .hl}
-**세션 2**<br>나머지 조건
-:::
-
-::: flow-step
-**AUC 비교**<br>판독의·케이스 변동 반영
-:::
-::::::
-
-:::: columns
-::: {.column width="58%"}
-![](img/mrmc_grid.png){width="100%"}
-:::
-
-::: {.column width="42%"}
-| 설계 요소 | 내용 |
-|--------------|------------------------------------|
-| 참조표준 | 조직검사 확진, 음성은 충분한 추적관찰 |
-| 케이스 구성 | 암 비율을 높게 (enrichment), PPV는 실제 진료와 다름 |
-| 판독 순서 | 조건 순서를 무작위·균형 있게 |
-| 분석 | Obuchowski–Rockette, DBM |
-:::
-::::
-
-# 사례 1: 루닛
+# 지원 사례: 루닛 · RACING · 에버엑스 · 신라젠
 
 ## 루닛: AI 영상진단 소프트웨어 {#lunit}
 
@@ -874,23 +651,22 @@ BIO, Informa, QLS (2021)
 같은 제품도 **나라마다 허가**: 나라마다 요구하는 임상 설계·통계가 다름 · 예: INSIGHT DBT는 CE (2023.3), FDA 510(k) (2023.11)
 :::
 
-## 루닛 사례: AI 판독자 연구의 통계 질문 {#lunit-reader}
+## 루닛 사례: AI 판독자 연구 설계와 심사 질문 {#lunit-reader}
 
 :::: columns
-::: {.column width="50%"}
+::: {.column width="52%"}
 ::: col-head
-설계
+설계: 같은 판독의가 AI 없이 / AI와 함께 판독
 :::
 
-| 항목 | 내용 |
-|--------------|------------------------------------------|
-| 비교 | 같은 판독의: AI 없이 vs AI와 함께 |
-| 케이스 | 암·양성 병변·정상 (암 비율 높게) |
-| 1차 평가변수 | ROC AUC (환자 단위), 필요하면 병변 위치 지표 (wAFROC 등) |
-| 추가 분석 | 유방 밀도·병변 종류·장비별 하위군 |
+![](img/mrmc_grid.png){width="100%"}
+
+::: muted-note
+암 비율을 높인 케이스 · 두 판독 사이 휴지기, 순서는 무작위 · 1차 평가변수 ROC AUC · 분석 Obuchowski–Rockette, DBM
+:::
 :::
 
-::: {.column width="50%"}
+::: {.column width="48%"}
 ::: col-head
 심사에서 흔히 받는 통계 질문
 :::
@@ -914,6 +690,10 @@ BIO, Informa, QLS (2021)
 :::
 :::
 ::::
+
+::: highlight-box-gray
+검증 데이터는 학습에 쓰지 않은 독립 자료 · 같은 환자 영상이 학습·검증에 섞이지 않게 · 다른 기관·장비에서도 확인
+:::
 
 ## 루닛 사례: 허가 이후 근거 {#lunit-rwe}
 
@@ -957,8 +737,6 @@ BIO, Informa, QLS (2021)
 허가 후에도 **실제 진료 데이터**로 성능 확인 · 반복 검사 (GEE 등)·환자 구성 차이 (IPTW 등) 고려, 시기별 진료 변화는 남을 수 있음
 :::
 
-# 사례 2: RACING (Lancet 2022)
-
 ## RACING 연구 {#racing}
 
 ```{=html}
@@ -999,7 +777,7 @@ BIO, Informa, QLS (2021)
 허가된 약끼리 비교한 **연구자 주도 임상** · 병용은 LDL을 더 낮추고 내약성이 좋을 것으로 기대 → 사건률 증가가 **정해 둔 한계 이내**인지 확인 (비열등성)
 :::
 
-## 비열등성 시험 {#ni}
+## RACING: 비열등성 시험 {#ni}
 
 :::: columns
 ::: {.column width="63%"}
@@ -1031,7 +809,7 @@ BIO, Informa, QLS (2021)
 단측 α 0.05 검정 = 양측 90% CI의 상한으로 판정 · 비열등 ≠ 두 치료가 같다
 :::
 
-## 대상자 수 계산 {#sample-size}
+## RACING: 대상자 수 계산 {#sample-size}
 
 :::: columns
 ::: {.column width="50%"}
@@ -1073,34 +851,6 @@ BIO, Informa, QLS (2021)
 
 ::: highlight-box
 가설·한계·대상자 수·판정을 같은 척도로: **3년 사건률 차이** (HR은 보조)
-:::
-
-## 결과 {#racing-result}
-
-:::: columns
-::: {.column width="56%"}
-![](img/kmracing.png){width="100%"}
-:::
-
-::: {.column width="44%"}
-:::::: stat-stack
-::: stat-card
-[9.1% vs 9.9%]{.num} 1차 평가변수: 차이 −0.78%p (90% CI −2.39 to 0.83)
-:::
-
-::: {.stat-card .blue}
-[73% vs 55%]{.num} 1년 LDL 70 mg/dL 미만 도달
-:::
-
-::: {.stat-card .red}
-[4.8% vs 8.2%]{.num} 불내성으로 약 중단·감량 (안전성 분석군 1,846 vs 1,832명)
-:::
-::::::
-:::
-::::
-
-::: highlight-box
-병용요법: 효과는 **비열등**, LDL 목표 도달은 **더 많고**, 불내성으로 인한 중단·감량은 **더 적음**
 :::
 
 ## RACING에서 통계가 한 일 {#racing-stat}
@@ -1149,8 +899,6 @@ BIO, Informa, QLS (2021)
 차라투: 대상자 수 계산·통계 검토, 리비전 통계분석 지원 · KM과 단순 비율은 중도절단 처리가 달라 설계에 맞춰 선택
 :::
 
-# 사례 3: 에버엑스
-
 ## 에버엑스: 디지털치료기기 허가까지 {#everex}
 
 ::: definition-box
@@ -1179,7 +927,7 @@ BIO, Informa, QLS (2021)
 탐색 임상 → 확증 임상 (RCT) → 허가 · 만성 요통은 확증 임상 준비 단계에서 대상자 수 자문 (2024.8)
 :::
 
-## 탐색에서 확증으로: 대상자 수 정하기 (가상 예시) {#everex-n}
+## 에버엑스 사례: 대상자 수 정하기 (가상 예시) {#everex-n}
 
 :::: columns
 ::: {.column width="48%"}
@@ -1218,8 +966,6 @@ BIO, Informa, QLS (2021)
 ::: highlight-box
 기대 차이가 절반이 되면 대상자 수는 약 **4배**: 대조군 선택이 비용을 좌우
 :::
-
-# 사례 4: 신라젠
 
 ## 신라젠: 항암 신약 개발 {#sillajen}
 
@@ -1365,32 +1111,6 @@ BAL0891: 단독·paclitaxel 병용 1상 · Pexa-Vec: cemiplimab (항 PD-1) 병�
 **승인된 범위 안에서 검증 기준을 충족**한 업데이트는 바로 적용, **범위 밖**이면 변경 절차 검토
 :::
 
-## 생성형 AI 의료기기 {#genai-device}
-
-:::::: flow-4
-::: flow-step
-[2025.1]{.yr} **디지털의료제품법 시행**<br>AI·소프트웨어 별도 법
-:::
-
-::: {.flow-step .hl}
-[2025.1]{.yr} **생성형 AI 의료기기<br>허가·심사 가이드라인**<br>식약처
-:::
-
-::: {.flow-step .hl}
-[2026.4]{.yr} **국내 첫 생성형 AI<br>의료기기 허가**<br>흉부 X선 판독 보조
-:::
-
-::: {.flow-step .hl2}
-[2026.11]{.yr} **보건의료 분야<br>LLM 활용 기준**<br>복지부·개인정보위
-:::
-::::::
-
-| 구분 | 기존 AI (검출·진단보조) | 생성형 AI (예: 판독문 생성) |
-|------------|-------------------------------|-----------------------------------|
-| 출력 | 점수, 병변 위치 | 판독문 같은 문장 |
-| 평가 | 민감도, 특이도, AUC | 문장의 정확성, 누락, 사실과 다른 내용 |
-| 사용 | 점수·위치를 확인해 판단 | 초안을 확인·수정해 판단 |
-
 ## 의료데이터와 생성형 AI {#genai-data}
 
 :::::: columns
@@ -1475,44 +1195,123 @@ ChatGPT·Gemini·Claude 일반 구독 = 유형 1 → 환자 의료데이터 입�
 
 # 부록
 
-## 허가까지 갈 확률 {#success}
+## 나라별 규제기관 {#regulators}
 
-:::: columns
-::: {.column width="62%"}
 ```{=html}
-<div class="funnel">
-  <div class="f-row"><span class="f-label">1상 → 2상</span><span class="f-track"><span class="f-bar" style="width:52.0%">52.0%</span></span></div>
-  <div class="f-row"><span class="f-label">2상 → 3상</span><span class="f-track"><span class="f-bar low" style="width:28.9%">28.9%</span></span></div>
-  <div class="f-row"><span class="f-label">3상 → 허가 신청</span><span class="f-track"><span class="f-bar" style="width:57.8%">57.8%</span></span></div>
-  <div class="f-row"><span class="f-label">허가 신청 → 허가</span><span class="f-track"><span class="f-bar" style="width:90.6%">90.6%</span></span></div>
-  <div class="f-row total"><span class="f-label">1상 → 허가</span><span class="f-track"><span class="f-bar" style="width:7.9%"></span><span class="f-out">7.9%</span></span></div>
+<div class="country-grid">
+  <div class="country"><div class="cc" style="background:#1565C0">KR</div><div><span class="ag">식품의약품안전처 (MFDS)</span><span class="row"><span class="lb">의약품</span>품목허가</span><span class="row"><span class="lb">의료기기</span>1등급 신고 · 2등급 인증 (일부 허가) · 3·4등급 허가</span></div></div>
+  <div class="country"><div class="cc" style="background:#C62828">US</div><div><span class="ag">FDA</span><span class="row"><span class="lb">의약품</span>NDA (합성), BLA (바이오)</span><span class="row"><span class="lb">의료기기</span>510(k) 기존 제품과 동등 · De&nbsp;Novo 새로운 저·중위험 · PMA 고위험</span></div></div>
+  <div class="country"><div class="cc" style="background:#283593">EU</div><div><span class="ag">EMA (의약품) · 인증기관 (의료기기)</span><span class="row"><span class="lb">의약품</span>중앙절차: EMA 평가 → 유럽위원회 허가</span><span class="row"><span class="lb">의료기기</span>적합성 평가 후 제조자 CE 표시 (등급에 따라 인증기관 참여)</span></div></div>
+  <div class="country"><div class="cc" style="background:#AD1457">JP</div><div><span class="ag">PMDA · 후생노동성</span><span class="row"><span class="lb">의약품</span>승인</span><span class="row"><span class="lb">의료기기</span>승인·인증</span></div></div>
 </div>
 ```
 
-::: small-source
-BIO, Informa, QLS. Clinical Development Success Rates 2011–2020 (2021) · 기간: PhRMA Industry Profile
-:::
+::: highlight-box
+같은 임상 자료를 여러 나라에 제출 → 국제 조화 지침 **ICH** (의약품)·**IMDRF** (의료기기) · 나라별 추가 요구는 따로
 :::
 
-::: {.column width="38%"}
+## 연구 윤리와 규정 {#ethics}
+
+:::::: flow-4
+::: flow-step
+[1947]{.yr} **뉘른베르크 강령**<br>자발적 동의
+:::
+
+::: flow-step
+[1964]{.yr} **헬싱키 선언**<br>세계의사회 윤리 원칙
+:::
+
+::: flow-step
+[1979]{.yr} **벨몬트 보고서**<br>터스키기 연구 이후
+:::
+
+::: flow-step
+[1996]{.yr} **ICH E6 GCP**<br>임상시험 국제 기준
+:::
+::::::
+
+| 지금 지키는 것 | 내용 |
+|----------------------------------|------------------------------------------------------|
+| IRB (임상시험심사위원회) | 계획서·설명문·동의서 심의 |
+| 동의서 | 충분한 설명 후 서면 동의, 언제든 철회 가능 |
+| GCP | 국내: 의약품·의료기기 임상시험 관리기준 |
+
+::: highlight-box-gray
+터스키기 매독 연구 (1932–1972): 페니실린이 표준치료가 된 뒤에도 치료하지 않고 관찰
+:::
+
+## 신약 임상시험 단계와 허가 확률 {#phases}
+
+:::: columns
+::: {.column width="66%"}
+```{=html}
+<div class="stairs">
+  <div class="stair p1"><span class="ph">1상</span><span class="q">안전한가?<br>몸에서 어떻게 움직이나?</span><span class="n">건강인 (항암제는 환자)<br><b>수십 명</b></span></div>
+  <div class="stair p2"><span class="ph">2상</span><span class="q">효과가 보이나?<br>어느 용량이 좋은가?</span><span class="n">환자<br><b>수십–수백 명</b></span></div>
+  <div class="stair p3"><span class="ph">3상</span><span class="q">대조군과 비교해<br>효과를 확증하나?</span><span class="n">환자, 대조군과 비교<br><b>수백–수천 명</b></span></div>
+  <div class="stair p4"><span class="ph">4상</span><span class="q">실제 진료에서도<br>안전한가?</span><span class="n">처방받은 환자<br><b>허가 후 추가 연구</b></span></div>
+</div>
+<div class="stair-band"><div class="pre">허가 전: 인허가 임상 (1–3상)</div><div class="post">허가 후</div></div>
+```
+:::
+
+::: {.column width="34%"}
 :::::: stat-stack
 ::: stat-card
 [10–15년]{.num} 신약 개발 기간 (PhRMA)
 :::
 
 ::: stat-card
-[7.9%]{.num} 1상 진입 후 허가 도달 확률 (2011–2020 단계별 통과율로 추정)
+[7.9%]{.num} 1상 진입 후 허가 도달 확률 (2011–2020, 추정)
 :::
 
 ::: {.stat-card .red}
 [5.3%]{.num} 항암제
 :::
 ::::::
+
+::: small-source
+BIO, Informa, QLS (2021)
+:::
+:::
+::::
+
+::: highlight-box-gray
+신약 흐름: 비임상 → 임상시험 승인 (IND) → 1·2·3상 → 품목허가 → 급여 → 시판 후 · 의료기기처럼 **허가와 급여는 따로**
+:::
+
+## 진단 성능 읽기: 2×2 표 {#diag}
+
+:::: columns
+::: {.column width="50%"}
+```{=html}
+<table class="tt">
+  <thead><tr><th></th><th>질병 있음<br>100명</th><th>질병 없음<br>900명</th></tr></thead>
+  <tbody>
+    <tr><th>검사 양성</th><td class="ok">TP 90</td><td class="ng">FP 90</td></tr>
+    <tr><th>검사 음성</th><td class="ng">FN 10</td><td class="ok">TN 810</td></tr>
+  </tbody>
+</table>
+<div class="tt-metrics">
+  <div><b>민감도</b> 90 / 100 = <b>90%</b><span>질병 있는 사람 중 양성</span></div>
+  <div><b>특이도</b> 810 / 900 = <b>90%</b><span>질병 없는 사람 중 음성</span></div>
+  <div><b>양성예측도 (PPV)</b> 90 / 180 = <b>50%</b><span>양성 중 실제 질병</span></div>
+  <div><b>음성예측도 (NPV)</b> 810 / 820 = <b>98.8%</b><span>음성 중 실제 정상</span></div>
+</div>
+```
+
+::: muted-note
+가상 예: 1,000명, 유병률 10%
+:::
+:::
+
+::: {.column width="50%"}
+![](img/ppv_prev.png){width="100%"}
 :::
 ::::
 
 ::: highlight-box
-가장 큰 벽은 **2상**: 2상 약물 10개 중 7개는 3상으로 가지 못함
+민감도·특이도는 질병 유무별로 계산 · **PPV는 유병률에 따라 달라짐** → 암 비율을 높인 판독자 연구의 PPV는 실제 검진과 다름
 :::
 
 ## 항암 1상: 용량 찾기 {#dose}
@@ -1541,61 +1340,6 @@ BIO, Informa, QLS. Clinical Development Success Rates 2011–2020 (2021) · 기�
 
 ::: highlight-box
 모형 기반 방법도 씀: **BLRM** (Bayesian)은 모든 용량의 DLT 자료로 다음 용량 결정을 돕는다
-:::
-
-## 항암 2상: Simon 2단계 설계 {#simon}
-
-:::: columns
-::: {.column width="47%"}
-```{=html}
-<div class="vstage">
-  <div class="stage-box"><strong>1단계</strong>: 10명 투여</div>
-  <div class="v-arrow">↓</div>
-  <div class="v-split">
-    <div class="stage-box stop">반응 <strong>1명 이하</strong><br>→ 중단</div>
-    <div class="stage-box go">반응 <strong>2명 이상</strong><br>→ 19명 추가</div>
-  </div>
-  <div class="v-arrow right">↓</div>
-  <div class="stage-box go"><strong>2단계</strong>: 총 29명 중<br>반응 <strong>6명 이상</strong> → 유망 기준 충족</div>
-</div>
-```
-
-::: muted-note
-가정: 반응률 10%는 더 개발할 가치가 없는 수준, 30%는 유망한 수준 · 단측 α 0.05 · 검정력 80% (Simon 최적 설계) · 다음 개발은 안전성 등과 함께 판단
-:::
-:::
-
-::: {.column width="53%"}
-![](img/simon_oc.png){width="100%"}
-:::
-::::
-
-::: highlight-box
-기준에 못 미치는 약은 일찍 멈춘다: 실제 반응률이 10%면 1단계에서 멈출 확률 **74%**, 평균 **15명**만 투여
-:::
-
-## 항암 1상 결과 그림 {#onc-fig}
-
-:::: columns
-::: {.column width="50%"}
-![](img/waterfall.png){width="100%"}
-
-::: fig-cap
-**Waterfall**: 환자별 표적병변 크기 합의 best change (기저치 대비)
-:::
-:::
-
-::: {.column width="50%"}
-![](img/swimmer.png){width="100%"}
-
-::: fig-cap
-**Swimmer**: 환자별 치료 기간과 반응 시점
-:::
-:::
-::::
-
-::: highlight-box-gray
-ORR = CR·PR 환자 비율, DCR = CR·PR·SD 환자 비율 · 분모 (분석 대상군)는 미리 정함 · 반응 판정은 RECIST 1.1 (새 병변 등 포함)
 :::
 
 ## 허가 문서와 안전성 보고 {#sillajen-docs}
