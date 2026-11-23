@@ -85,3 +85,5 @@ Lecture: general topic
 * [2026 서울의과학연구소 의학통계 강의](): [진단검사의학 의학통계 리뷰](https://jinseob2kim.github.io/lecture-general/scl2026)
 
 * [2026 젊은정위기능신경외과의사 모임](): [AI agent를 이용한 의학통계](https://jinseob2kim.github.io/lecture-general/ysfn2026)
+
+* [2026 조선대학교 치과대학 강의](): [인허가 임상시험 이야기](https://jinseob2kim.github.io/lecture-general/chosun2026)

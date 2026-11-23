@@ -1,0 +1,25 @@
+/*-- scss:functions --*/
+
+
+/*-- scss:defaults --*/
+// https://quarto.org/docs/presentations/revealjs/themes.html
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Serif+KR:wght@200..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+$zarathu_main_color: #2A3D21;
+
+$font-family-sans-serif: "Noto Serif", "Noto Serif KR","Noto Serif JP"  !default;
+$font-family-monospace: "Noto Sans Mono" !default;
+
+// colors
+
+$presentation-heading-color: $zarathu_main_color;
+$link-color: lighten($zarathu_main_color, 15%);
+
+// headings
+
+$presentation-h2-font-size: 2.0em;
+
+
+/*-- scss:rules --*/

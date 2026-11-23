@@ -1,0 +1,267 @@
+/* 조선대 치과대학 강의 덱 전용: 큰 글자, 화면 채우기 */
+
+/* ---- 공통 크기 ---- */
+.reveal .slides section table { font-size: 0.8em; margin: 16px 0; }
+.reveal .slides section table th,
+.reveal .slides section table td { padding: 13px 20px; line-height: 1.38; }
+.reveal .slides section table td:first-child { font-weight: 700; color: #2A3D21; }
+
+.reveal .slides section .highlight-box,
+.reveal .slides section .highlight-box-blue,
+.reveal .slides section .highlight-box-gray,
+.reveal .slides section .highlight-box-purple,
+.reveal .slides section .highlight-box-teal { font-size: 0.9em; padding: 16px 26px; margin-top: 22px; line-height: 1.55; }
+
+.reveal .slides section .summary-grid-4 { gap: 20px; margin: 30px 0 24px; }
+.reveal .slides section .summary-grid-5 {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; margin: 34px 0 26px;
+}
+.reveal .slides section .summary-item { font-size: 0.9em; padding: 40px 16px; line-height: 1.55; }
+.reveal .slides section .summary-item p { margin: 6px 0; }
+
+.reveal .slides section ul > li { font-size: 0.92em; line-height: 1.6; margin-bottom: 8px; }
+.reveal .slides section ul > li::before { top: 16px; }
+.reveal .small-source { font-size: 0.5em; color: #777; text-align: left; margin-top: 10px; }
+.reveal .muted-note { color: #6f7d76; font-size: 0.8em; }
+
+/* ---- 정의 박스 ---- */
+.reveal .definition-box {
+  margin: 12px 0 28px; padding: 34px 40px;
+  background: linear-gradient(100deg, #294f43 0%, #527b6d 100%); color: #ffffff;
+  border-radius: 14px; box-shadow: 0 5px 16px rgba(42, 77, 61, 0.17);
+  font-size: 1.12em; line-height: 1.5; font-weight: 700; text-align: center;
+}
+.reveal .definition-box p { margin: 0; }
+.reveal .definition-box strong { color: #FFE082; }
+
+/* ---- 흐름도 ---- */
+.reveal .flow-4, .reveal .flow-5, .reveal .flow-6 {
+  display: grid; gap: 40px; align-items: stretch; margin: 26px 0 20px;
+}
+.reveal .flow-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.reveal .flow-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.reveal .flow-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 34px; }
+.reveal .flow-4 .flow-step, .reveal .flow-5 .flow-step, .reveal .flow-6 .flow-step {
+  font-size: 0.74em; min-height: 180px; padding: 20px 12px; line-height: 1.42;
+}
+.reveal .flow-6 .flow-step { font-size: 0.7em; }
+.reveal .flow-step p { margin: 0; }
+.reveal .flow-4 .flow-step:not(:last-child)::after,
+.reveal .flow-5 .flow-step:not(:last-child)::after { right: -33px; font-size: 1.25em; }
+.reveal .flow-6 .flow-step:not(:last-child)::after { right: -30px; font-size: 1.2em; }
+.reveal .flow-step.hl { background: #E8F5E9; border: 2px solid #2E7D32; }
+.reveal .flow-step.hl2 { background: #E3F2FD; border: 2px solid #1565C0; }
+.reveal .flow-step .yr { display: block; color: #2E7D32; font-size: 1.5em; font-weight: 900; margin-bottom: 6px; }
+
+/* 한 줄 흐름 (급여 등) */
+.reveal .chain {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  margin: 18px 0; padding: 18px 24px; background: #F5F9FF; border-left: 5px solid #1565C0;
+  border-radius: 0 8px 8px 0; font-size: 0.86em; color: #0D47A1;
+}
+.reveal .chain p { margin: 0; }
+.reveal .chain .lbl { font-weight: 800; margin-right: 6px; }
+.reveal .chain .node { background: #ffffff; border: 1px solid #90CAF9; border-radius: 8px; padding: 6px 14px; color: #0D47A1; }
+.reveal .chain .arr { font-weight: 900; color: #5C7A99; }
+
+/* ---- 허가 확률 막대 ---- */
+.reveal .funnel { display: grid; gap: 18px; margin-top: 18px; }
+.reveal .f-row { display: grid; grid-template-columns: 270px 1fr; gap: 18px; align-items: center; font-size: 0.84em; }
+.reveal .f-label { font-weight: 800; color: #263238; text-align: right; }
+.reveal .f-track { position: relative; height: 70px; background: #eef2ef; border-radius: 8px; display: flex; align-items: center; }
+.reveal .f-bar {
+  height: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-end;
+  padding-right: 14px; background: #81C784; color: #1B5E20; border-radius: 8px; font-weight: 900;
+}
+.reveal .f-bar.low { background: #E57373; color: #ffffff; }
+.reveal .f-row.total .f-bar { background: #2A3D21; padding: 0; }
+.reveal .f-row.total .f-label { color: #2A3D21; }
+.reveal .f-out { margin-left: 16px; font-weight: 900; color: #2A3D21; font-size: 1.25em; }
+
+/* ---- 숫자 카드 ---- */
+.reveal .stat-stack { display: grid; gap: 16px; }
+.reveal .stat-card {
+  padding: 18px 22px; background: #ffffff; border: 1px solid #d8e1dc; border-left: 7px solid #527b6d;
+  border-radius: 10px; box-shadow: 0 3px 10px rgba(45, 75, 59, 0.07); font-size: 0.8em; line-height: 1.35;
+}
+.reveal .stat-card p { margin: 0; }
+.reveal .stat-card .num { display: block; color: #2A3D21; font-size: 1.85em; font-weight: 950; line-height: 1.1; margin-bottom: 4px; }
+.reveal .stat-card.red { border-left-color: #C62828; }
+.reveal .stat-card.red .num { color: #C62828; }
+.reveal .stat-card.blue { border-left-color: #1565C0; }
+.reveal .stat-card.blue .num { color: #0D47A1; }
+
+/* ---- 2단계 설계 ---- */
+.reveal .stage-grid { display: grid; grid-template-columns: 1fr 64px 1fr 64px 1fr; align-items: center; margin: 24px 0 10px; }
+.reveal .stage-split { display: grid; gap: 18px; }
+.reveal .stage-box {
+  box-sizing: border-box; padding: 24px 18px; border-radius: 12px; text-align: center;
+  background: #ffffff; border: 2px solid #d8e1dc; font-size: 0.84em; line-height: 1.45;
+}
+.reveal .stage-box p { margin: 0; }
+.reveal .stage-box strong { font-size: 1.12em; }
+.reveal .stage-box.stop { background: #FFEBEE; border-color: #E57373; color: #8E1B1B; }
+.reveal .stage-box.go { background: #E8F5E9; border-color: #66BB6A; color: #1B5E20; }
+.reveal .stage-arrow { text-align: center; color: #718078; font-size: 1.5em; font-weight: 900; }
+
+/* ---- 체크·정리 ---- */
+.reveal .check-list { gap: 16px; margin-top: 20px; }
+.reveal .check-item { font-size: 0.86em; padding: 18px 22px; grid-template-columns: 58px 1fr; }
+.reveal .check-item .check-no { width: 48px; height: 48px; }
+.reveal .check-item p { margin: 0; }
+.reveal .takehome-grid { gap: 18px; margin-top: 22px; }
+.reveal .takehome { font-size: 0.84em; min-height: 150px; padding: 20px 22px; grid-template-columns: 58px 1fr; }
+.reveal .takehome p { margin: 0; }
+
+/* ---- 그림 ---- */
+.reveal .fig-frame { text-align: center; }
+.reveal .fig-frame img { max-height: 700px; }
+.reveal .fig-cap { font-size: 0.62em; color: #555; text-align: center; margin-top: 4px; }
+.reveal .tag { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #ECEFF1; color: #37474F; font-size: 0.6em; font-weight: 800; vertical-align: middle; }
+
+/* ---- 섹션 표지 ---- */
+.reveal section.sec h1, .reveal .slides section h1 { font-size: 2.6em; }
+
+/* ---- 칼럼 소제목·질의 ---- */
+.reveal .col-head {
+  margin: 4px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #81C784;
+  color: #2A3D21; font-size: 0.95em; font-weight: 800;
+}
+.reveal .col-head p { margin: 0; }
+.reveal .qa { display: grid; gap: 16px; }
+.reveal .qa-item {
+  padding: 16px 20px; background: #ffffff; border: 1px solid #d8e1dc; border-left: 6px solid #7B1FA2;
+  border-radius: 10px; font-size: 0.8em; line-height: 1.45;
+}
+.reveal .qa-item p { margin: 0; }
+.reveal .qa-item .q { display: block; color: #4A148C; font-weight: 800; margin-bottom: 4px; }
+
+/* ---- 그림 위주 구성 요소 ---- */
+.reveal svg.diagram { display: block; width: 100%; height: auto; font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", sans-serif; }
+.reveal svg.diagram text { font-family: inherit; }
+
+/* 강의 순서 3×2 */
+.reveal .order-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 26px 0 18px; }
+.reveal .order-card {
+  display: grid; grid-template-columns: 92px 1fr; gap: 18px; align-items: center;
+  padding: 26px 24px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); font-size: 0.86em; line-height: 1.4;
+}
+.reveal .order-card svg { width: 92px; height: 92px; }
+.reveal .order-card .t { display: block; font-size: 1.12em; font-weight: 800; margin-bottom: 4px; }
+
+/* 아이콘 카드 */
+.reveal .icon-grid-4, .reveal .icon-grid-3 { display: grid; gap: 22px; margin: 24px 0 18px; }
+.reveal .icon-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.reveal .icon-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.reveal .icon-card {
+  padding: 26px 20px 28px; border-radius: 14px; text-align: center; font-size: 0.84em; line-height: 1.45;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+.reveal .icon-card svg { width: 110px; height: 110px; display: block; margin: 0 auto 12px; }
+.reveal .icon-card .t { display: block; font-size: 1.2em; font-weight: 800; margin-bottom: 6px; }
+.reveal .icon-card .s { display: block; margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(0,0,0,0.18); font-size: 0.92em; }
+.reveal .ic-green { background: #E8F5E9; color: #1B5E20; border-bottom: 5px solid #2E7D32; }
+.reveal .ic-blue { background: #E3F2FD; color: #0D47A1; border-bottom: 5px solid #1565C0; }
+.reveal .ic-teal { background: #E0F2F1; color: #004D40; border-bottom: 5px solid #00838F; }
+.reveal .ic-purple { background: #F3E5F5; color: #4A148C; border-bottom: 5px solid #7B1FA2; }
+.reveal .ic-orange { background: #FFF3E0; color: #8a4b12; border-bottom: 5px solid #EF6C00; }
+.reveal .ic-gray { background: #ECEFF1; color: #263238; border-bottom: 5px solid #37474F; }
+
+/* 임상 단계 계단 */
+.reveal .stairs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; align-items: end; height: 520px; margin: 16px 0 6px; }
+.reveal .stair { display: flex; flex-direction: column; justify-content: flex-start; padding: 20px 18px; border-radius: 14px 14px 4px 4px; color: #ffffff; font-size: 0.8em; line-height: 1.42; box-sizing: border-box; }
+.reveal .stair .ph { font-size: 1.7em; font-weight: 900; line-height: 1.1; margin-bottom: 8px; }
+.reveal .stair .q { font-weight: 700; margin-bottom: 10px; }
+.reveal .stair .n { margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.45); font-size: 0.94em; }
+.reveal .stair.p1 { height: 52%; background: #81C784; color: #1B5E20; }
+.reveal .stair.p1 .n { border-top-color: rgba(27,94,32,0.35); }
+.reveal .stair.p2 { height: 68%; background: #43A047; }
+.reveal .stair.p3 { height: 86%; background: #2E7D32; }
+.reveal .stair.p4 { height: 100%; background: #1565C0; }
+.reveal .stair-band { display: grid; grid-template-columns: 3fr 1fr; gap: 18px; margin-top: 8px; font-size: 0.8em; font-weight: 800; text-align: center; }
+.reveal .stair-band div { padding: 8px; border-radius: 8px; }
+.reveal .stair-band .pre { background: #E8F5E9; color: #1B5E20; }
+.reveal .stair-band .post { background: #E3F2FD; color: #0D47A1; }
+
+/* flow-6 아래 구간 표시 */
+.reveal .span-row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: 34px; margin: -4px 0 14px; font-size: 0.74em; font-weight: 800; text-align: center; }
+.reveal .span-row div { padding: 8px 6px; border-radius: 8px; }
+.reveal .span-row .sp-pre { background: #F7F9FA; color: #546E7A; border: 1px dashed #B0BEC5; }
+.reveal .span-row .sp-main { background: #2E7D32; color: #ffffff; }
+.reveal .span-row .sp-post { background: #1565C0; color: #ffffff; }
+
+/* 나라별 카드 */
+.reveal .country-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 18px 0 10px; }
+.reveal .country {
+  display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; padding: 20px 22px;
+  background: #ffffff; border: 1px solid #d8e1dc; border-radius: 14px; box-shadow: 0 3px 10px rgba(45,75,59,0.07); font-size: 0.78em; line-height: 1.45;
+}
+.reveal .country .cc { display: grid; place-items: center; width: 110px; height: 110px; border-radius: 50%; color: #ffffff; font-size: 1.7em; font-weight: 900; }
+.reveal .country .ag { display: block; font-size: 1.12em; font-weight: 800; color: #263238; margin-bottom: 4px; }
+.reveal .country .row { display: block; }
+.reveal .country .lb { display: inline-block; min-width: 72px; margin-right: 6px; padding: 1px 8px; border-radius: 6px; background: #ECEFF1; font-size: 0.86em; font-weight: 800; text-align: center; }
+
+/* 파이프라인 */
+.reveal .pipeline { display: grid; grid-template-columns: 300px repeat(5, minmax(0, 1fr)); row-gap: 14px; margin: 18px 0 12px; font-size: 0.8em; }
+.reveal .pipeline .hd { padding: 10px 6px; background: #2A3D21; color: #ffffff; font-weight: 800; text-align: center; }
+.reveal .pipeline .hd:first-child { border-radius: 8px 0 0 8px; text-align: left; padding-left: 16px; }
+.reveal .pipeline .hd:nth-child(6) { border-radius: 0 8px 8px 0; }
+.reveal .pipeline .nm { padding: 12px 16px; line-height: 1.3; }
+.reveal .pipeline .nm b { display: block; font-size: 1.12em; color: #263238; }
+.reveal .pipeline .nm span { color: #607D8B; font-size: 0.9em; }
+.reveal .pipeline .bar { display: flex; align-items: center; padding: 0 16px; height: 64px; align-self: center; border-radius: 0 32px 32px 0; color: #ffffff; font-weight: 800; }
+.reveal .pipeline .bar.b1 { background: linear-gradient(90deg, #A5D6A7, #2E7D32); }
+.reveal .pipeline .bar.b2 { background: linear-gradient(90deg, #90CAF9, #1565C0); }
+
+/* 정리 번호 */
+.reveal .takehome .check-no, .reveal .check-no {
+  display: inline-grid; place-items: center; width: 48px; height: 48px; color: #ffffff; background: #527b6d; border-radius: 50%; font-weight: 950;
+}
+
+/* 감사 슬라이드 */
+.reveal #thanks h2 { margin-top: 300px !important; text-align: center; border: none !important; border-image: none !important; font-size: 3em; }
+
+/* Simon 세로 흐름 */
+.reveal .vstage { display: grid; gap: 8px; margin-top: 6px; }
+.reveal .vstage .stage-box { font-size: 0.86em; padding: 20px 18px; }
+.reveal .v-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.reveal .v-arrow { text-align: center; font-size: 1.3em; color: #718078; font-weight: 900; line-height: 1; }
+.reveal .v-arrow.right { margin-left: 50%; }
+
+/* 신라젠 지원 카드 */
+.reveal .sj-support .icon-card { padding: 22px 16px; font-size: 0.8em; }
+
+/* 리비전 전후 카드 */
+.reveal .ba { display: grid; gap: 10px; margin-top: 18px; }
+.reveal .ba-card { padding: 18px 22px; border-radius: 12px; text-align: center; line-height: 1.35; }
+.reveal .ba-card span { display: block; }
+.reveal .ba-card.before { background: #ECEFF1; color: #37474F; border: 2px dashed #90A4AE; }
+.reveal .ba-card.after { background: #E8F5E9; color: #1B5E20; border: 2px solid #2E7D32; }
+.reveal .ba-lb { font-size: 0.66em; font-weight: 800; letter-spacing: 0.04em; }
+.reveal .ba-v { font-size: 1.35em; font-weight: 900; margin: 4px 0; }
+.reveal .ba-s { font-size: 0.66em; }
+.reveal .ba-arrow { text-align: center; font-size: 0.72em; font-weight: 800; color: #607D8B; }
+
+/* 가이드라인 원문 이미지 */
+.reveal img.guide-img { max-height: 650px; width: auto; }
+
+/* 비교표 머리 아이콘 */
+.reveal table.cmp-table { font-size: 0.8em; }
+.reveal table.cmp-table th { font-size: 1.05em; }
+.reveal table.cmp-table svg.th-ic { width: 46px; height: 46px; vertical-align: middle; margin-right: 10px; }
+.reveal table.cmp-table td:nth-child(2) { color: #1B5E20; }
+.reveal table.cmp-table td:nth-child(3) { color: #0D47A1; }
+
+/* 2×2 표 */
+.reveal table.tt { width: 100%; font-size: 0.95em; margin: 6px 0 14px; box-shadow: none; }
+.reveal table.tt thead th { background: #2A3D21; color: #ffffff; padding: 12px 10px; text-align: center; line-height: 1.3; }
+.reveal table.tt thead th:first-child { background: transparent; }
+.reveal table.tt tbody th { background: #2A3D21; color: #ffffff; padding: 14px 12px; text-align: center; white-space: nowrap; }
+.reveal table.tt td { text-align: center; font-size: 1.2em; font-weight: 900; padding: 22px 10px; }
+.reveal table.tt td.ok { background: #E8F5E9; color: #1B5E20; }
+.reveal table.tt td.ng { background: #FFEBEE; color: #B71C1C; }
+.reveal table.tt tbody tr:last-child td { border-bottom: none; }
+.reveal .tt-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.72em; line-height: 1.35; }
+.reveal .tt-metrics div { padding: 10px 14px; background: #F5F9FF; border-left: 5px solid #1565C0; border-radius: 0 8px 8px 0; }
+.reveal .tt-metrics span { display: block; color: #546E7A; font-size: 0.9em; }
+.reveal .unit-cards .icon-card { padding: 18px 16px; font-size: 0.76em; }
