@@ -728,9 +728,131 @@
 </div>
 </section></section>
 <section>
-<section id="지원-사례-루닛-racing-에버엑스-신라젠" class="title-slide slide level1 center">
-<h1>지원 사례: 루닛 · RACING · 에버엑스 · 신라젠</h1>
+<section id="지원-사례-흉부-ct-ai-루닛-racing-에버엑스-신라젠" class="title-slide slide level1 center">
+<h1>지원 사례: 흉부 CT AI · 루닛 · RACING · 에버엑스 · 신라젠</h1>
 
+</section>
+<section id="ct-ai" class="slide level2">
+<h2>흉부 CT AI: 확증 임상 계획서 자문 (진행 중)</h2>
+<div class="chain chain-sm">
+<p><span class="lbl">흐름</span> <span class="node">식약처 사전검토 신청</span> <span class="arr">→</span> <span class="node">식약처 의견</span> <span class="arr">→</span> <span class="node">계획서 통계 검토</span> <span class="arr">→</span> <span class="node">수정 계획서</span> <span class="arr">→</span> <span class="node">승인 → IRB → 임상 → 허가 신청</span></p>
+</div>
+<div class="columns">
+<div class="column" style="width:53%;">
+<svg class="diagram" viewbox="0 0 840 450" role="img" aria-label="후향적 단일군 단독 성능 임상 구조">
+  <defs><marker id="arHx" viewbox="0 0 10 10" refx="9" refy="5" markerwidth="6" markerheight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#607D8B"></path></marker></defs>
+  <text x="12" y="44" font-size="25" font-weight="800" fill="#2A3D21">단독 성능 시험</text>
+  <text x="12" y="78" font-size="20" fill="#455A64">후향적 · 단일군</text>
+  <rect x="10" y="140" width="200" height="170" rx="14" fill="#ECEFF1" stroke="#78909C" stroke-width="3"></rect>
+  <text x="110" y="190" text-anchor="middle" font-size="27" font-weight="800" fill="#263238">저장된</text>
+  <text x="110" y="226" text-anchor="middle" font-size="27" font-weight="800" fill="#263238">흉부 CT</text>
+  <text x="110" y="264" text-anchor="middle" font-size="19" fill="#455A64">학습에 쓰지 않은</text>
+  <text x="110" y="290" text-anchor="middle" font-size="19" fill="#455A64">영상만</text>
+  <g stroke="#607D8B" stroke-width="4" fill="none" marker-end="url(#arHx)">
+    <path d="M212,196 L290,124"></path><path d="M212,256 L290,328"></path>
+    <path d="M552,112 L606,184"></path><path d="M552,342 L606,276"></path>
+  </g>
+  <rect x="298" y="34" width="252" height="146" rx="14" fill="#E3F2FD" stroke="#1565C0" stroke-width="3"></rect>
+  <text x="424" y="88" text-anchor="middle" font-size="28" font-weight="800" fill="#0D47A1">AI 분석</text>
+  <text x="424" y="126" text-anchor="middle" font-size="20" fill="#0D47A1">장기별 병변 있음·없음</text>
+  <text x="424" y="154" text-anchor="middle" font-size="20" fill="#0D47A1">+ 위치 표시</text>
+  <rect x="298" y="268" width="252" height="160" rx="14" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="3"></rect>
+  <text x="424" y="316" text-anchor="middle" font-size="28" font-weight="800" fill="#4A148C">전문의 판독</text>
+  <text x="424" y="354" text-anchor="middle" font-size="20" fill="#4A148C">AI 결과를 모름 (눈가림)</text>
+  <text x="424" y="400" text-anchor="middle" font-size="22" font-weight="800" fill="#4A148C">= 참조표준 (정답)</text>
+  <rect x="612" y="98" width="220" height="266" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"></rect>
+  <text x="722" y="140" text-anchor="middle" font-size="25" font-weight="800" fill="#1B5E20">장기별 비교</text>
+  <text x="722" y="188" text-anchor="middle" font-size="23" font-weight="800" fill="#1B5E20">민감도</text>
+  <text x="722" y="216" text-anchor="middle" font-size="18" fill="#1B5E20">병변 CT 중</text>
+  <text x="722" y="240" text-anchor="middle" font-size="18" fill="#1B5E20">AI가 찾은 비율</text>
+  <text x="722" y="284" text-anchor="middle" font-size="23" font-weight="800" fill="#1B5E20">특이도</text>
+  <text x="722" y="312" text-anchor="middle" font-size="18" fill="#1B5E20">정상 CT 중</text>
+  <text x="722" y="338" text-anchor="middle" font-size="18" fill="#1B5E20">AI가 정상으로 본 비율</text>
+</svg>
+<div class="fig-cap">
+<p>흉부 CT에서 여러 장기의 병변 후보를 표시하는 판독 보조 AI: 단독 성능 시험 구조</p>
+</div>
+</div><div class="column" style="width:47%;">
+<div class="col-head">
+<p>식약처 사전검토에서 받는 질문 (예)</p>
+</div>
+<div class="qa qa-line">
+<div class="qa-item">
+<p><span class="q">목적</span> 허가용 확증 임상인지, 어느 장기의 어떤 병변인지</p>
+</div>
+<div class="qa-item">
+<p><span class="q">1차 평가변수</span> 여러 지표 중 무엇으로 성공을 판정하는지</p>
+</div>
+<div class="qa-item">
+<p><span class="q">대상자 수</span> 산출 근거, 영상 건수가 환자 수와 같은지</p>
+</div>
+<div class="qa-item">
+<p><span class="q">참조표준</span> 판독자 수, 판독 불일치 처리, 양성·음성 기준</p>
+</div>
+<div class="qa-item">
+<p><span class="q">통계</span> 눈가림, 통계 가설, 분석군, 결측 처리</p>
+</div>
+</div>
+</div></div>
+<div class="highlight-box">
+<p>심사 의견은 대부분 <strong>미리 정했는가</strong>: 무엇을, 어떤 단위로, 몇 건으로 보고, 어디를 넘으면 성공인지</p>
+</div>
+</section>
+<section id="ct-ai-stat" class="slide level2">
+<h2>흉부 CT AI 사례: 통계 검토에서 고치는 것</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<table class="rev-table caption-top">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">검토 전</th>
+<th data-quarto-table-cell-role="th">검토 후</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1차 평가변수</td>
+<td>지표 여러 개 모두</td>
+<td>장기별 민감도·특이도</td>
+</tr>
+<tr class="even">
+<td>평가 단위</td>
+<td>병변: 특이도 불가</td>
+<td>CT 1건 (병변은 2차)</td>
+</tr>
+<tr class="odd">
+<td>성공 기준</td>
+<td>기준값이 숫자로 없음</td>
+<td>신뢰구간 하한 &gt; 기준값</td>
+</tr>
+<tr class="even">
+<td>대상자 수</td>
+<td>근거 불명확</td>
+<td>정확 이항검정, 검정력 90%</td>
+</tr>
+<tr class="odd">
+<td>AI 분석 실패</td>
+<td>탈락으로 제외</td>
+<td>오답으로 계산<br>
+(빼면 성능이 높게 나옴)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box-gray">
+<p><strong>함께 확인할 것</strong><br>· 민감도·특이도 <strong>둘 다</strong> 성공할 확률: 약 81% (0.9 × 0.9)<br>· 판독 불일치 증례를 빼면 어려운 증례가 빠져 성능이 높게 나옴</p>
+</div>
+</div><div class="column" style="width:44%;">
+<p><img data-src="img/ct_ai_binom.png" style="width:100.0%"></p>
+<div class="fig-cap">
+<p>가상 예시: 병변 CT 70건 중 60건 이상 맞히면 95% 신뢰구간 하한 &gt; 0.75</p>
+</div>
+</div></div>
 </section>
 <section id="lunit" class="slide level2">
 <h2>루닛: AI 영상진단 소프트웨어</h2>

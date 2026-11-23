@@ -282,3 +282,14 @@
 .reveal .cond-grid .icon-card { display: flex; align-items: center; gap: 14px; text-align: left; padding: 16px 16px 18px; font-size: 0.66em; }
 .reveal .cond-grid .icon-card svg { width: 64px; height: 64px; margin: 0; flex: none; }
 .reveal .cond-grid .icon-card .t { font-size: 1.3em; margin-bottom: 2px; }
+
+/* 흉부 CT AI 사례: 한 줄 진행 흐름, 식약처 의견 한 줄 목록, 계획서 수정 전후 표 */
+.reveal .chain.chain-sm { font-size: 0.7em; margin: 4px 0 14px; padding: 12px 18px; gap: 10px; }
+.reveal .qa.qa-line { gap: 10px; }
+.reveal .qa.qa-line .qa-item { padding: 11px 16px; font-size: 0.74em; }
+.reveal .qa.qa-line .qa-item .q { display: inline; margin: 0 10px 0 0; }
+.reveal table.rev-table { width: 100%; font-size: 0.78em; margin: 6px 0 8px; }
+.reveal table.rev-table th { text-align: center; padding: 11px 12px; }
+.reveal table.rev-table td { padding: 12px 14px; line-height: 1.38; }
+.reveal table.rev-table td:nth-child(2) { color: #607D8B; }
+.reveal table.rev-table td:nth-child(3) { color: #1B5E20; font-weight: 700; }

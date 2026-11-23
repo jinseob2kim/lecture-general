@@ -1,4 +1,4 @@
-# 강의 그림: 비열등성 개념도(RACING 수치), 3+3 용량 증량·MRMC 판독 설계·메타분석·PPV·대상자 수 곡선 (가상 데이터), 중간분석 유의 기준 (gsDesign)
+# 강의 그림: 비열등성 개념도(RACING 수치), 3+3 용량 증량·MRMC 판독 설계·메타분석·PPV·대상자 수 곡선 (가상 데이터), 중간분석 유의 기준 (gsDesign), 흉부 CT AI 민감도 정확 이항검정 (가상)
 library(data.table); library(magrittr); library(ggplot2)
 setwd("~/lecture-general/docs/chosun2026")
 
@@ -67,6 +67,18 @@ ia[, method := factor(method, levels = c("O'Brien–Fleming", "Pocock"))]
 ia[, x := as.integer(look) + fifelse(method == "O'Brien–Fleming", -0.19, 0.19)]
 ia[, lab := sprintf("%.3f", p)]
 ia[, inside := p > 0.02]
+
+## 8. 흉부 CT AI 사례: 민감도 정확 이항검정 (가상 예시: 기준값 0.75, 기대 0.90, 양측 95% 신뢰구간 하한 기준, 검정력 90% → 70건)
+hb_n <- 70; hb_p0 <- 0.75; hb_p1 <- 0.90
+hb_crit <- qbinom(0.975, hb_n, hb_p0) + 1                                  # 60건 이상이면 95% Clopper–Pearson 하한 > 0.75
+hb_lv <- sprintf(c("실제 민감도가 기준값 %.2f이면", "실제 민감도가 기대 성능 %.2f이면"), c(hb_p0, hb_p1))
+hb <- rbindlist(lapply(c(hb_p0, hb_p1), function(p) data.table(p = p, x = 42:hb_n)[, d := dbinom(x, hb_n, p)]))
+hb[, panel := factor(fifelse(p == hb_p0, hb_lv[1], hb_lv[2]), levels = hb_lv)]
+hb[, fill := fifelse(x < hb_crit, "실패", fifelse(p == hb_p0, "거짓 성공", "성공"))]
+hb_lab <- hb[, .(pr = sum(d[x >= hb_crit])), by = .(p, panel)]
+hb_lab[, txt := sprintf("성공 판정 %.1f%%\n%s", 100 * pr, fifelse(p == hb_p0, "(거짓 성공)", "(검정력)"))]
+hb_lab[, col := fifelse(p == hb_p0, "#C62828", "#1B5E20")]
+hb_cut <- data.table(panel = factor(hb_lv[1], levels = hb_lv), x = hb_crit - 0.1, y = 0.178, txt = paste0(hb_crit, "건 이상 → 성공"))
 
 plot_list <- list(
   ni_racing = ggplot(ni, aes(x = est, y = case)) +
@@ -157,12 +169,28 @@ plot_list <- list(
     scale_fill_manual(values = c("O'Brien–Fleming" = "#2E7D32", "Pocock" = "#90A4AE"), name = NULL) +
     scale_y_continuous(limits = c(0, 0.06), breaks = seq(0, 0.06, 0.01), expand = expansion(mult = c(0, 0.02))) +
     labs(x = NULL, y = "유의 기준 p 값") +
-    theme(legend.position = "top", legend.text = element_text(size = 24))
+    theme(legend.position = "top", legend.text = element_text(size = 24)),
+
+  ct_ai_binom = ggplot(hb, aes(x, d, fill = fill)) +
+    geom_col(width = 0.8) +
+    geom_vline(xintercept = hb_crit - 0.5, linetype = "dashed", colour = "grey30", linewidth = 0.9) +
+    geom_text(data = hb_lab, aes(x = 42.5, y = 0.178, label = txt, colour = col), inherit.aes = FALSE, hjust = 0, vjust = 1,
+              family = fam, size = 8.5, fontface = "bold", lineheight = 0.95) +
+    geom_text(data = hb_cut, aes(x = x, y = y, label = txt), inherit.aes = FALSE, hjust = 0, vjust = 1, family = fam, size = 7.5,
+              colour = "grey20") +
+    facet_wrap(~panel, ncol = 1) +
+    scale_colour_identity() +
+    scale_fill_manual(values = c(`실패` = "#CFD8DC", `거짓 성공` = "#E53935", `성공` = "#2E7D32"), guide = "none") +
+    scale_x_continuous(breaks = seq(42, 70, 4), expand = expansion(add = 0.6)) +
+    scale_y_continuous(limits = c(0, 0.18), breaks = c(0, 0.05, 0.1, 0.15), labels = pct, expand = expansion(mult = c(0, 0.02))) +
+    labs(x = paste0("병변 CT ", hb_n, "건 중 AI가 찾은 건수"), y = NULL) +
+    theme(strip.background = element_blank(), strip.text = element_text(face = "bold", size = 26, hjust = 0),
+          panel.spacing = unit(0.8, "cm"))
 )
 
 fig_size <- list(ni_racing = c(11, 6.4),
                  dose_escalation = c(10.5, 5.9), mrmc_grid = c(11, 5.6), meta_forest = c(8.2, 7), ppv_prev = c(8.6, 6.6), sample_curve = c(9, 6.6),
-                 interim_alpha = c(8.6, 6.4))
+                 interim_alpha = c(8.6, 6.4), ct_ai_binom = c(9.2, 6.6))
 for (nm in names(plot_list)) {
   ggsave(file.path("img", paste0(nm, ".png")), plot_list[[nm]], device = ragg::agg_png,
          width = fig_size[[nm]][1], height = fig_size[[nm]][2], dpi = 160, bg = "white")

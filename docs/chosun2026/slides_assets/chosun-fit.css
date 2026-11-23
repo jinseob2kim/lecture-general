@@ -10,6 +10,8 @@
 #compare > :not(h2):not(.slide-master-header) { zoom: 1.19; }
 #physical > :not(h2):not(.slide-master-header) { zoom: 1.11; }
 #dental-unit > :not(h2):not(.slide-master-header) { zoom: 0.78; }
+#ct-ai > :not(h2):not(.slide-master-header) { zoom: 1.15; }
+#ct-ai-stat > :not(h2):not(.slide-master-header) { zoom: 1.04; }
 #lunit > :not(h2):not(.slide-master-header) { zoom: 0.94; }
 #lunit-reader > :not(h2):not(.slide-master-header) { zoom: 1.06; }
 #lunit-rwe > :not(h2):not(.slide-master-header) { zoom: 0.88; }
